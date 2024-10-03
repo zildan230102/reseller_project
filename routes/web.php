@@ -6,7 +6,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('dashboard', function () {
-    return view('main');
+dashboard_page
+Route::get('/dashboard', function () {
+    return view('public.post.index');
 });
 
