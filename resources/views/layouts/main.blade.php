@@ -15,7 +15,7 @@
 
 <body>
 <div class="wrapper">
-
+<!-- incude buat header -->
 	@include('includes.public.header')
 
 	@yield('content')
@@ -23,7 +23,7 @@
     <footer>
         @include('includes.public.footer')
     </footer>
-	
+
 </div>
 
 	@include('includes.public.script')
