@@ -15,10 +15,11 @@
 
 <body>
 <div class="wrapper">
-	
+
 <!-- incude buat header -->
 	@include('includes.public.header')
 
+<!-- include buat body -->
 	@yield('content')
 
     <footer>
