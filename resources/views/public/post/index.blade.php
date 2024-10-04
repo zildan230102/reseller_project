@@ -6,7 +6,24 @@
 		<div class="container-fluid p-0">
 			<h1 class="h3 mb-3">Selamat Datang, <strong>Jenny Wilson!</strong></h1>
 
+{{-- Row Pertama --}}
+
+{{-- kolom kiri --}}
 			<div class="row">
+				{{-- kolom kanan --}}
+				<div class="col-xl-6 col-xxl-7">
+					<div class="card flex-fill w-100">
+						<div class="card-header">
+							<h5 class="card-title mb-0">Penjualan Keseluruhan</h5>
+						</div>
+						<div class="card-body py-3">
+							<div class="chart chart-sm">
+								<canvas id="chartjs-dashboard-line"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>
+				
 				<div class="col-xl-6 col-xxl-5 d-flex">
 					<div class="w-100">
 						<div class="row">
@@ -79,47 +96,13 @@
 										</div>
 									</div>
 								</div>
-
-								<div class="card">
-									<div class="card-body">
-										<div class="row">
-											<div class="col mt-0">
-												<h5 class="card-title">Total Item Terjual</h5>
-											</div>
-											<div class="col-auto">
-												<div class="stat text-primary">
-													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
-														<path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
-													</svg>
-												</div>
-											</div>
-										</div>
-										<h1 class="mt-1 mb-3">82</h1>
-										<div class="mb-0">
-											<span class="text-success"><i class="mdi mdi-arrow-bottom-right"></i> +13.02%</span>
-											<span class="text-muted">Dari bulan lalu</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-xl-6 col-xxl-7">
-					<div class="card flex-fill w-100">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Penjualan Keseluruhan</h5>
-						</div>
-						<div class="card-body py-3">
-							<div class="chart chart-sm">
-								<canvas id="chartjs-dashboard-line"></canvas>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 
+{{--Row kedua--}}
 			<div class="row">
 				<div class="col-12 col-md-6 col-xxl-3 d-flex order-2 order-xxl-3">
 					<div class="card flex-fill w-100">
