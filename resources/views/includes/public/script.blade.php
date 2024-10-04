@@ -76,15 +76,18 @@
 			new Chart(document.getElementById("chartjs-dashboard-pie"), {
 				type: "pie",
 				data: {
-					labels: ["Chrome", "Firefox", "IE"],
+					labels: ["Shopee", "Tokopedia", "Deepublish", "Lazada", "Bukalapak", "OLX"],
 					datasets: [{
-						data: [4306, 3801, 1689],
+						data: [48, 12, 20, 9, 6, 5],
 						backgroundColor: [
-							window.theme.primary,
-							window.theme.warning,
-							window.theme.danger
+							'#F1582E', // Merah tua
+							'#469546', // Hijau tua'
+							'#BCBCBC', // Abu-abu
+							'#0F0890', // Biru tua
+							'#E31F51', // Merah muda
+ 							'#3A77FF', // Biru muda
 						],
-						borderWidth: 5
+						borderWidth: 0
 					}]
 				},
 				options: {
@@ -93,7 +96,7 @@
 					legend: {
 						display: false
 					},
-					cutoutPercentage: 75
+					cutoutPercentage: 51
 				}
 			});
 		});
@@ -104,16 +107,16 @@
 			new Chart(document.getElementById("chartjs-dashboard-bar"), {
 				type: "bar",
 				data: {
-					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+					labels: ["Lazada", "Shopee", "Tokopedia", "OLX", "Web Deepublish", "Bukalapak"],
 					datasets: [{
-						label: "This year",
-						backgroundColor: window.theme.primary,
-						borderColor: window.theme.primary,
-						hoverBackgroundColor: window.theme.primary,
-						hoverBorderColor: window.theme.primary,
-						data: [54, 67, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79],
-						barPercentage: .75,
-						categoryPercentage: .5
+						label: "This month",
+						backgroundColor: ['#0F0890', '#F1582E', '#469546', '#3A77FF', '#BCBCBC', '#E31F51'],
+						borderColor: window.theme.primary['#0F0890', '#F1582E', '#469546', '#3A77FF', '#BCBCBC', '#E31F51'],
+						hoverBackgroundColor: window.theme.primary['#0F0890', '#F1582E', '#469546', '#3A77FF', '#BCBCBC', '#E31F51'],
+						hoverBorderColor: window.theme.primary['#0F0890', '#F1582E', '#469546', '#3A77FF', '#BCBCBC', '#E31F51'],
+						data: [9, 48, 12, 5, 20, 6],
+						barPercentage: .99,
+						categoryPercentage: .7
 					}]
 				},
 				options: {
@@ -142,7 +145,7 @@
 			});
 		});
 	</script>
-	<script>
+	{{-- <script>
 		document.addEventListener("DOMContentLoaded", function() {
 			var markers = [{
 					coords: [31.230391, 121.473701],
@@ -208,7 +211,7 @@
 				map.updateSize();
 			});
 		});
-	</script>
+	</script> --}}
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
 			var date = new Date(Date.now() - 5 * 24 * 60 * 60 * 1000);

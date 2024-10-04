@@ -7,10 +7,7 @@
 			<h1 class="h3 mb-3">Selamat Datang, <strong>Jenny Wilson!</strong></h1>
 
 {{-- Row Pertama --}}
-
-{{-- kolom kiri --}}
 			<div class="row">
-				{{-- kolom kanan --}}
 				<div class="col-xl-6 col-xxl-7">
 					<div class="card flex-fill w-100">
 						<div class="card-header">
@@ -102,21 +99,18 @@
 				</div>
 			</div>
 
-{{--Row kedua--}}
+<!--Row kedua-->
 			<div class="row">
-				<div class="col-12 col-md-6 col-xxl-3 d-flex order-2 order-xxl-3">
+				<div class="col-xl-6 col-xxl-5 d-flex order-2 order-xxl-3">
 					<div class="card flex-fill w-100">
 						<div class="card-header">
 							<h5 class="card-title mb-0">Data Marketplace</h5>
 						</div>
 						<div class="card-body d-flex">
-							<div class="align-self-center w-100">
-								<div class="py-3">
-									<div class="chart chart-xs">
-										<canvas id="chartjs-dashboard-pie"></canvas>
-									</div>
-								</div>
-								<table class="table mb-0">
+							<div class="d-flex w-100">
+								<!-- Tabel Data --> 
+								<div class="w-50 me-3">
+								<table class="table mb-0 table-borderless">
 									<tbody>
 										<tr>
 											<td>Shopee</td>
@@ -130,25 +124,35 @@
 											<td>Tokopedia</td>
 											<td class="text-end">12%</td>
 										</tr>
+										<tr>
+											<td>Lazada</td>
+											<td class="text-end">9%</td>
+										</tr>
+										<tr>
+											<td>Bukalapak</td>
+											<td class="text-end">6%</td>
+										</tr>
+										<tr>
+											<td>OLX</td>
+											<td class="text-end">5%</td>
+										</tr>
 									</tbody>
 								</table>
+								</div>
+								<!-- Chart Pie --> 
+								<div class="align-self-center w-50">
+									<div class="py-3">
+									  <div class="chart chart-xs">
+										<canvas id="chartjs-dashboard-pie"></canvas>
+									  </div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="col-12 col-md-12 col-xxl-6 d-flex order-3 order-xxl-2">
-					<div class="card flex-fill w-100">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Real-Time</h5>
-						</div>
-						<div class="card-body px-4">
-							<div id="world_map" style="height:350px;"></div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-12 col-lg-4 col-xxl-3 d-flex">
+				<div class="col-xl-6 col-xxl-7">
 					<div class="card flex-fill w-100">
 						<div class="card-header">
 							<h5 class="card-title mb-0">Monthly Sales</h5>
@@ -162,84 +166,78 @@
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="col-12 col-lg-8 col-xxl-9 d-flex">
-					<div class="card flex-fill">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Latest Projects</h5>
-						</div>
-						<table class="table table-hover my-0">
-							<thead>
-								<tr>
-									<th>Name</th>
-									<th class="d-none d-xl-table-cell">Start Date</th>
-									<th class="d-none d-xl-table-cell">End Date</th>
-									<th>Status</th>
-									<th class="d-none d-md-table-cell">Assignee</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>Project Apollo</td>
-									<td class="d-none d-xl-table-cell">01/01/2023</td>
-									<td class="d-none d-xl-table-cell">31/06/2023</td>
-									<td><span class="badge bg-success">Done</span></td>
-									<td class="d-none d-md-table-cell">Vanessa Tucker</td>
-								</tr>
-								<tr>
-									<td>Project Fireball</td>
-									<td class="d-none d-xl-table-cell">01/01/2023</td>
-									<td class="d-none d-xl-table-cell">31/06/2023</td>
-									<td><span class="badge bg-danger">Cancelled</span></td>
-									<td class="d-none d-md-table-cell">William Harris</td>
-								</tr>
-								<tr>
-									<td>Project Hades</td>
-									<td class="d-none d-xl-table-cell">01/01/2023</td>
-									<td class="d-none d-xl-table-cell">31/06/2023</td>
-									<td><span class="badge bg-success">Done</span></td>
-									<td class="d-none d-md-table-cell">Sharon Lessman</td>
-								</tr>
-								<tr>
-									<td>Project Nitro</td>
-									<td class="d-none d-xl-table-cell">01/01/2023</td>
-									<td class="d-none d-xl-table-cell">31/06/2023</td>
-									<td><span class="badge bg-warning">In progress</span></td>
-									<td class="d-none d-md-table-cell">Vanessa Tucker</td>
-								</tr>
-								<tr>
-									<td>Project Phoenix</td>
-									<td class="d-none d-xl-table-cell">01/01/2023</td>
-									<td class="d-none d-xl-table-cell">31/06/2023</td>
-									<td><span class="badge bg-success">Done</span></td>
-									<td class="d-none d-md-table-cell">William Harris</td>
-								</tr>
-								<tr>
-									<td>Project X</td>
-									<td class="d-none d-xl-table-cell">01/01/2023</td>
-									<td class="d-none d-xl-table-cell">31/06/2023</td>
-									<td><span class="badge bg-success">Done</span></td>
-									<td class="d-none d-md-table-cell">Sharon Lessman</td>
-								</tr>
-								<tr>
-									<td>Project Romeo</td>
-									<td class="d-none d-xl-table-cell">01/01/2023</td>
-									<td class="d-none d-xl-table-cell">31/06/2023</td>
-									<td><span class="badge bg-success">Done</span></td>
-									<td class="d-none d-md-table-cell">Christina Mason</td>
-								</tr>
-								<tr>
-									<td>Project Wombat</td>
-									<td class="d-none d-xl-table-cell">01/01/2023</td>
-									<td class="d-none d-xl-table-cell">31/06/2023</td>
-									<td><span class="badge bg-warning">In progress</span></td>
-									<td class="d-none d-md-table-cell">William Harris</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
+<!-- Row 3 --> 
+<div class="row">
+    <!-- Kolom Kiri (dikosongkan) -->
+    <div class="col-xl-6 col-xxl-7 d-flex">
+      <!-- Kolom ini dikosongkan, tapi tetap ada untuk mempertahankan struktur grid -->
+    </div>
+
+    <!-- Kolom Kanan untuk tabel Data Toko Reseller -->
+    <div class="col-xl-6 col-xxl-5 d-flex">
+      <div class="card w-100">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Data Toko Reseller</h5>
+        </div>
+        <div class="card-body">
+          <table class="table table-hover my-0 table-borderless">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Marketplace</th>
+                <th>Sold</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Buku kita</td>
+                <td>Shopee</td>
+                <td>32 pcs</td>
+                <td><span class="badge bg-success">Done</span></td>
+              </tr>
+			  <tr>
+                <td>Buku kita</td>
+                <td>Shopee</td>
+                <td>32 pcs</td>
+                <td><span class="badge bg-success">Done</span></td>
+              </tr>
+			  <tr>
+                <td>Buku kita</td>
+                <td>Shopee</td>
+                <td>32 pcs</td>
+                <td><span class="badge bg-success">Done</span></td>
+              </tr>
+			  <tr>
+                <td>Buku kita</td>
+                <td>Shopee</td>
+                <td>32 pcs</td>
+                <td><span class="badge bg-success">Done</span></td>
+              </tr>
+			  <tr>
+                <td>Buku kita</td>
+                <td>Shopee</td>
+                <td>32 pcs</td>
+                <td><span class="badge bg-success">Done</span></td>
+              </tr>
+			  <tr>
+                <td>Buku kita</td>
+                <td>Shopee</td>
+                <td>32 pcs</td>
+                <td><span class="badge bg-success">Done</span></td>
+              </tr>
+			  <tr>
+                <td>Buku kita</td>
+                <td>Shopee</td>
+                <td>32 pcs</td>
+                <td><span class="badge bg-success">Done</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 		</div>
 	</main>
 
