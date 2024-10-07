@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header</title>
+
 </head>
 <body>
-    <div class="main">
+    <div class="header" id=".header">
         <nav class="navbar navbar-expand navbar-light">
             <img src="{{ ('style/src/img/icons/d2.png') }}" class="img-fluid" alt="Deepublish Logo">
             <div class="navbar-collapse collapse">

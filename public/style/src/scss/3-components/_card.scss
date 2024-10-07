@@ -1,6 +1,9 @@
 .card {
-  margin-bottom: $grid-gutter-width;
-  box-shadow: $card-shadow;
+  width: 280px;
+  height: 200px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-header {
@@ -36,4 +39,43 @@
   tr:last-child th:last-child {
     border-bottom-right-radius: $card-border-radius;
   }
+}
+/* Add this CSS to your existing styles */
+.card {
+  width: 280px;
+  height: 200px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+}
+.card-title {
+  margin: 0;
+  font-size: 14px;
+}
+.stat {
+  font-size: 20px;
+}
+h1 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+.mb-0 {
+  font-size: 12px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.col-sm-6 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
