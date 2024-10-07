@@ -96,7 +96,7 @@
                             <span class="text-dark">Charles Hall</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
-                            <a class="dropdown-item" href="{{ url('/profil') }}"><i class="align-middle me-1" data-feather="user"></i>
+                            <a class="dropdown-item" href="{{ url('profil') }}"><i class="align-middle me-1" data-feather="user"></i>
                                 Profile</a>
                             <a class="dropdown-item text-danger" href="#">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

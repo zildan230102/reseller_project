@@ -12,4 +12,4 @@ Route::get('/dashboard', function () {
 
 use App\Http\Controllers\ProfilController;
 
-Route::get('profil', [ProfilController::class, 'data'])->name('layouts.profil');
+Route::get('profil', [ProfilController::class, 'data'])->name('public.post.profil');
