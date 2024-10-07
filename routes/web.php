@@ -10,3 +10,6 @@ Route::get('/dashboard', function () {
     return view('public.post.index');
 });
 
+use App\Http\Controllers\ProfilController;
+
+Route::get('profil', [ProfilController::class, 'data'])->name('layouts.profil');
