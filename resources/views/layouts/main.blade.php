@@ -14,8 +14,6 @@
 </head>
 
 <body>
-<div class="wrapper">
-
 <!-- incude buat header -->
 	@include('includes.public.header')
 
@@ -25,8 +23,6 @@
     <footer>
         @include('includes.public.footer')
     </footer>
-
-</div>
 
 	@include('includes.public.script')
 
