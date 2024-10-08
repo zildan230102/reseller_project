@@ -81,7 +81,7 @@
 						data: [48, 12, 20, 9, 6, 5],
 						backgroundColor: [
 							'#F1582E', // Merah tua
-							'#469546', // Hijau tua'
+							'#469546', // Hijau tua
 							'#BCBCBC', // Abu-abu
 							'#0F0890', // Biru tua
 							'#E31F51', // Merah muda
