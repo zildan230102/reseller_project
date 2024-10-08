@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=\, initial-scale=1.0">
-    <title>Footer</title>
-</head>
-<body>
 <footer class="footer">
 				<div class="container-fluid">
 					<div class="row text-muted">
@@ -33,7 +25,6 @@
 					</div>
 				</div>
 			</footer>
-		</div>
-	</div>
+
 </body>
 </html>

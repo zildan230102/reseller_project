@@ -14,14 +14,19 @@
 </head>
 
 <body>
+
 	@include('includes.public.header')
+
+<!-- incude buat header -->
+	@include('includes.public.header')
+
+<!-- include buat body -->
+
 	@yield('content')
 
     <footer>
         @include('includes.public.footer')
     </footer>
-	
-</div>
 
 	@include('includes.public.script')
 
