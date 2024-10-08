@@ -1,0 +1,247 @@
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: auto;
+  padding: 10px;
+}
+
+.btn-group {
+  color:#ff9800;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px; /* Ukuran font awal */
+}
+
+.active {
+  background-color: #ff9800; /* Warna oranye */
+  color: #fff;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: auto;
+  justify-content: center;
+}
+
+.dropdown select {
+    background-color: #ffffff;
+    border: 0px solid #ff8c42;
+    border-color: #ff8c42;
+    color: #ff8c42;
+    padding: 0px;
+    cursor: pointer;
+}
+
+.month-dropdown {
+    padding: 10px 15px; /* Padding internal */
+    color: #ff8c42; /* Warna teks */
+    border: 1px solid #ff8c42; /* Warna border */
+    border-radius: 5px; /* Melengkungkan sudut border */
+    background-color: #ffffff; /* Background putih */
+    transition: border-color 0.3s ease; /* Animasi perubahan border */
+}
+
+.month-dropdown:focus {
+    border-color: #ff7b29; /* Border lebih gelap saat fokus */
+    box-shadow: 0 0 5px rgba(255, 148, 82, 0.5); /* Efek shadow */
+    outline: none; /* Menghilangkan outline default */
+}
+  
+  /* Kelompokkan button di kiri */
+.button-group {
+    display: flex;
+}
+  
+.button-group button {
+    margin-right: 10px; /* Atur jarak antar button */
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Responsif untuk tablet */
+@media (max-width: 768px) {
+    .button-container {
+      flex-direction: column; /* Atur elemen button-container menjadi kolom */
+      align-items: flex-start; /* Rata kiri semua elemen */
+    }
+  
+    .btn-group {
+      font-size: 12px; /* Kurangi ukuran font */
+      padding: 8px 16px; /* Sesuaikan padding */
+    }
+  
+    .dropdown select {
+      padding: 8px;
+      font-size: 12px; /* Sesuaikan ukuran font */
+    }
+  
+    .month-dropdown {
+      padding: 8px 12px; /* Kurangi padding */
+    }
+  }
+  
+  /* Responsif untuk smartphone */
+  @media (max-width: 480px) {
+    .button-container {
+      flex-direction: column;
+      align-items: stretch; /* Penuhi lebar layar */
+    }
+  
+    .btn-group {
+      font-size: 10px; /* Sesuaikan ukuran font */
+      padding: 6px 12px; /* Sesuaikan padding */
+      width: 100%; /* Lebar penuh untuk button */
+      text-align: center; /* Rata tengah teks */
+      margin-bottom: 5px; /* Jarak bawah untuk tiap button */
+    }
+  
+    .dropdown select {
+      width: 100%; /* Lebar penuh */
+      font-size: 10px; /* Ukuran font lebih kecil */
+      padding: 6px; /* Sesuaikan padding */
+    }
+  
+    .month-dropdown {
+      padding: 6px 10px; /* Kurangi padding */
+      width: 100%; /* Lebar penuh */
+      text-align: center; /* Teks rata tengah */
+    }
+  }
+
+
+body {
+    font-family: Abhaya Libre;
+}
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+    max-width: 100%;
+}
+.card-header {
+    padding: 16px 16px 0 16px;
+    margin: 16px 16px 0 16px;
+    
+}
+.card-title {
+    margin: 0;
+    color: #333;
+    font-size: 18px;
+    
+}
+.card-body {
+    padding: 16px 16px 0 16px;
+    overflow-x: auto;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.in-stock { background-color: #28a745; }
+.out-of-stock { background-color: #dc3545; }
+
+
+/* Data Toko Reseller & Data Penjualan Buku*/
+.data-reseller, .data-penjualan, .data-marketplace {
+    color: #F58635;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.judul-th {
+    font-family: 'Abhaya Libre', serif;
+    font-size: 14px;
+    color: #606060 !important;
+    font-weight: 400;
+    border-bottom: 1px solid #EFEFEF;
+}
+.name-column, .status-dot {
+    font-weight: bold;
+    color: black ;
+    font-size: 14px;
+
+}
+
+.name-column + td, .name-column + td + td {
+  font-weight: normal;
+  color: black;
+  font-size: 14px;
+}
+
+
+/* Data Marketplace */
+.col-kiri {
+    width: 40%;
+}
+.col-kanan {
+    width: 60%;
+}
+.performa-marketplace {
+    font-family: Abhaya Libre ExtraBold;
+    font-size: 14px;
+    font-weight: 800;
+    text-align: center;
+}
+.performa-header {
+    padding: 16px;
+    
+}
+.chart-container {
+    height: 150px;
+}
+
+#chartjs-dashboard-pie {
+    width: 100;
+    height: auto;
+}
+
+.legend-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    font-size: 0.75rem;
+}
+.legend-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.legend-list li::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+.legend-shopee::before {
+    background-color: #F1582E;
+}
+.legend-deepublish::before {
+    background-color: #BCBCBC;
+}
+.legend-tokopedia::before {
+    background-color: #469546;
+}
+.legend-lazada::before {
+    background-color: #0F0890;
+}
+.legend-bukalapak::before {
+    background-color: #E31F51;
+}
+.legend-olx::before {
+    background-color: #3A77FF;
+} 
+

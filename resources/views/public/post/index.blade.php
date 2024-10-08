@@ -6,13 +6,22 @@
 		<div class="container-fluid p-0">
 			<h1 class="h3 mb-3">Selamat Datang, <strong>Jenny Wilson!</strong></h1>
 
-{{-- Row Pertama --}}
+			<!-- Row Pertama -->
 			<div class="row">
 				<div class="col-xl-6 col-xxl-7">
 					<div class="card flex-fill w-100">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Penjualan Keseluruhan</h5>
+					<div class="card-header d-flex justify-content-between align-items-center">
+						<h5 class="card-title">Penjualan Keseluruhan</h5>
+						<div class="dropdown">
+							<select class="month-dropdown" name="month" id="month">
+								<option value="Agustus">Agustus</option>
+								<option value="September" selected>September</option>
+								<option value="Oktober">Oktober</option>
+								<option value="November">November</option>
+								<option value="Desember">Desember</option>
+							</select>
 						</div>
+					</div>
 						<div class="card-body py-3">
 							<div class="chart chart-sm">
 								<canvas id="chartjs-dashboard-line"></canvas>
@@ -97,61 +106,11 @@
 						</div>
 					</div>
 				</div>
-			</div>
 
-<!--Row kedua-->
+
+			<!--Row kedua-->
 			<div class="row">
-				<div class="col-xl-6 col-xxl-5 d-flex order-2 order-xxl-3">
-					<div class="card flex-fill w-100">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Data Marketplace</h5>
-						</div>
-						<div class="card-body d-flex">
-							<div class="d-flex w-100">
-								<!-- Tabel Data --> 
-								<div class="w-50 me-3">
-								<table class="table mb-0 table-borderless">
-									<tbody>
-										<tr>
-											<td>Shopee</td>
-											<td class="text-end">48%</td>
-										</tr>
-										<tr>
-											<td>Web Deepublish</td>
-											<td class="text-end">20%</td>
-										</tr>
-										<tr>
-											<td>Tokopedia</td>
-											<td class="text-end">12%</td>
-										</tr>
-										<tr>
-											<td>Lazada</td>
-											<td class="text-end">9%</td>
-										</tr>
-										<tr>
-											<td>Bukalapak</td>
-											<td class="text-end">6%</td>
-										</tr>
-										<tr>
-											<td>OLX</td>
-											<td class="text-end">5%</td>
-										</tr>
-									</tbody>
-								</table>
-								</div>
-								<!-- Chart Pie --> 
-								<div class="align-self-center w-50">
-									<div class="py-3">
-									  <div class="chart chart-xs">
-										<canvas id="chartjs-dashboard-pie"></canvas>
-									  </div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
+				<!-- Kolom kiri -->
 				<div class="col-xl-6 col-xxl-7">
 					<div class="card flex-fill w-100">
 						<div class="card-header">
@@ -164,9 +123,286 @@
 						</div>
 					</div>
 				</div>
+
+				<!-- Kolom kanan -->
+				<div class="col-xl-5 col-xxl-5 d-flex flex-column">
+					<div class="card mb-3 w-100">
+						<div class="card-header">
+							<h5 class="data-marketplace">Data Marketplace</h5>
+						</div>
+						<div class="card-body">
+							<div class="row">
+								<!-- Tabel Data --> 
+								<div class="col-kiri mb-3 mb-sm-0">
+									<div class="table-responsive">
+										<table class="table table-borderless mb-0">
+											<tbody>
+												<tr>
+													<td>Shopee</td>
+													<td class="text-end">48%</td>
+												</tr>
+												<tr>
+													<td>Web Deepublish</td>
+													<td class="text-end">20%</td>
+												</tr>
+												<tr>
+													<td>Tokopedia</td>
+													<td class="text-end">12%</td>
+												</tr>
+												<tr>
+													<td>Lazada</td>
+													<td class="text-end">9%</td>
+												</tr>
+												<tr>
+													<td>Bukalapak</td>
+													<td class="text-end">6%</td>
+												</tr>
+												<tr>
+													<td>OLX</td>
+													<td class="text-end">5%</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<!-- Chart Pie dan Legend Data dalam satu kolom -->
+								<div class="col-kanan">
+									<div class="row">
+										<div class="performa-header">
+											<h4 class="performa-marketplace">Performa Marketplace</h4>
+										</div>
+										<!-- Chart Pie -->
+										<div class="col-6">
+											<div class="chart-container">
+												<canvas id="chartjs-dashboard-pie"></canvas>
+											</div>
+										</div>
+										<!-- Legend Data -->
+										<div class="col-6">
+											<ul class="legend-list">
+												<li class="legend-shopee">Shopee <strong>$30</strong></li>
+												<li class="legend-tokopedia">Tokopedia <strong>$30</strong></li>
+												<li class="legend-lazada">Lazada <strong>$30</strong></li>
+												<li class="legend-bukalapak">Bukalapak <strong>$30</strong></li>
+												<li class="legend-olx">OLX <strong>$30</strong></li>
+												<li class="legend-deepublish">Deepublish <strong>$30</strong></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Data Penjualan Buku -->
+					<div class="card w-100">
+						<div class="card-header">
+							<h5 class="data-penjualan">Data Penjualan Buku</h5>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table table-borderless mb-0">
+									<thead class="judul-th">
+										<tr>
+											<th class="judul-th">Name</th>
+											<th class="judul-th">Price</th>
+											<th class="judul-th">Sold</th>
+											<th class="judul-th">Status</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="name-column">Judul Buku</td>
+											<td>Rp 150.000</td>
+											<td>32 pcs</td>
+											<td><span class="status-dot in-stock"></span>In Stock</td>
+										</tr>
+										<tr>
+											<td class="name-column">Judul Buku</td>
+											<td>Rp 150.000</td>
+											<td>24 pcs</td>
+											<td><span class="status-dot out-of-stock"></span>Out of Stock</td>
+										</tr>
+										<tr>
+											<td class="name-column">Judul Buku</td>
+											<td>Rp 150.000</td>
+											<td>12 pcs</td>
+											<td><span class="status-dot in-stock"></span>In Stock</td>
+										</tr>
+									</tbody>
+								</table>
+
+								</div>
+
+								<!-- Chart Pie --> 
+								<div class="align-self-center w-50">
+									<div class="py-3">
+									  <div class="chart chart-xs">
+										<canvas id="chartjs-dashboard-pie"></canvas>
+									  </div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 
+
+				<div class="col-xl-6 col-xxl-7">
+					<div class="card flex-fill w-100">
+						<div class="card-header">
+							<!-- <h5 class="card-title mb-0">Monthly Sales</h5> -->
+							<div class="button-container">
+								<div class="button-group">
+									<button class="btn">Marketplace</button>
+									<button class="btn">Toko</button>
+									<button class="btn">Buku</button>
+								</div>	
+								<div class="dropdown">
+									<select class="month-dropdown" name="month" id="month">
+										<option value="Agustus">Agustus</option>
+										<option value="September" selected>September</option>
+										<option value="Oktober">Oktober</option>
+										<option value="November">November</option>
+										<option value="Desember">Desember</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="card-body d-flex w-100">
+							<div class="align-self-center chart chart-lg">
+								<canvas id="chartjs-dashboard-bar"></canvas>
+							</div>
+						</div>
+
+
+<!-- Row ketiga --> 
+			<div class="row">
+				<!-- Kolom Kiri (dikosongkan) -->
+				<div class="col-xl-6 col-xxl-7 d-flex">
+				<!-- Kolom ini dikosongkan, tapi tetap ada untuk mempertahankan struktur grid -->
+				</div>
+
+				<!-- Kolom Kanan untuk tabel Data Toko Reseller -->
+				<div class="col-xl-6 col-xxl-5 d-flex">
+				<div class="card w-100">
+					<div class="card-header">
+						<h5 class="data-reseller">Data Toko Reseller</h5>
+					</div>
+					<div class="card-body">
+					<table class="table my-0 table-borderless">
+						<thead class="judul-th">
+						<tr>
+							<th class="judul-th">Name</th>
+							<th class="judul-th">Marketplace</th>
+							<th class="judul-th">Sold</th>
+							<th class="judul-th">Status</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td class="name-column">Buku kita</td>
+							<td>Shopee</td>
+							<td>32 pcs</td>
+							<td><span class="status-dot in-stock"></span>Active</td>
+						</tr>
+						<tr>
+							<td class="name-column">Kutu Buku</td>
+							<td>Lazada</td>
+							<td>10 pcs</td>
+							<td><span class="status-dot in-stock"></span>Active</td>
+						</tr>
+						<tr>
+							<td class="name-column">Buka Buku</td>
+							<td>Bukalapak</td>
+							<td>8 pcs</td>
+							<td><span class="status-dot in-stock"></span>Active</td>
+						</tr>
+						<tr>
+							<td class="name-column">Buku Ku</td>
+							<td>OLX</td>
+							<td>7 pcs</td>
+							<td><span class="status-dot in-stock"></span>Active</td>
+						</tr>
+						<tr>
+							<td class="name-column">Dunia Buku</td>
+							<td>Web Deepublish</td>
+							<td>16 pcs</td>
+							<td><span class="status-dot in-stock"></span>Active</td>
+						</tr>
+						<tr>
+							<td class="name-column">Bukupedia</td>
+							<td>Tokopedia</td>
+							<td>12 pcs</td>
+							<td><span class="status-dot in-stock"></span>Active</td>
+						</tr>
+						<tr>
+							<td class="name-column">Buku Mu</td>
+							<td>Tiktok Shop</td>
+							<td>2 pcs</td>
+							<td><span class="status-dot out-of-stock"></span>Deactive</td>
+						</tr>
+						</tbody>
+					</table>
+
+					</div>
+				</div>
+				</div>
+			</div>
+
+
 <!-- Row 3 --> 
+<div class="row">
+    <!-- Kolom Kiri (dikosongkan) -->
+    <div class="col-xl-6 col-xxl-7 d-flex">
+      <!-- Kolom ini dikosongkan, tapi tetap ada untuk mempertahankan struktur grid -->
+    </div>
+
+	<!-- Kolom Kanan untuk tabel Data Toko Reseller -->
+    <div class="col-xl-6 col-xxl-5 d-flex">
+      <div class="card w-100">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Data Penjualan Buku</h5>
+        </div>
+        <div class="card-body">
+          <table class="table table-hover my-0 table-borderless">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Sold</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Buku kita</td>
+                <td>Rp150.000</td>
+                <td>32 pcs</td>
+                <td><span class="badge in-stock">In Stock</span></td>
+              </tr>
+			  <tr>
+                <td>Buku kita</td>
+                <td>Rp150.000</td>
+                <td>24 pcs</td>
+                <td><span class="badge out-of-stock">Out of Stock</span></td>
+              </tr>
+			  <tr>
+                <td>Buku kita</td>
+                <td>Rp150.000</td>
+                <td>12 pcs</td>
+                <td><span class="badge in-stock">In Stock</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
+
+	<!-- Row 3 --> 
 <div class="row">
     <!-- Kolom Kiri (dikosongkan) -->
     <div class="col-xl-6 col-xxl-7 d-flex">
@@ -238,6 +474,8 @@
       </div>
     </div>
   </div>
+
+
 		</div>
 	</main>
 
