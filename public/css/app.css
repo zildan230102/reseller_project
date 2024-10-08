@@ -1,0 +1,115 @@
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: auto;
+  padding: 10px;
+}
+
+.btn-group {
+  color:#ff9800;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px; /* Ukuran font awal */
+}
+
+.active {
+  background-color: #ff9800; /* Warna oranye */
+  color: #fff;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: auto;
+  justify-content: center;
+}
+
+.dropdown select {
+    background-color: #ffffff;
+    border: 0px solid #ff8c42;
+    border-color: #ff8c42;
+    color: #ff8c42;
+    padding: 0px;
+    cursor: pointer;
+}
+
+.month-dropdown {
+    padding: 10px 15px; /* Padding internal */
+    color: #ff8c42; /* Warna teks */
+    border: 1px solid #ff8c42; /* Warna border */
+    border-radius: 5px; /* Melengkungkan sudut border */
+    background-color: #ffffff; /* Background putih */
+    transition: border-color 0.3s ease; /* Animasi perubahan border */
+}
+
+.month-dropdown:focus {
+    border-color: #ff7b29; /* Border lebih gelap saat fokus */
+    box-shadow: 0 0 5px rgba(255, 148, 82, 0.5); /* Efek shadow */
+    outline: none; /* Menghilangkan outline default */
+}
+  
+  /* Kelompokkan button di kiri */
+.button-group {
+    display: flex;
+}
+  
+.button-group button {
+    margin-right: 10px; /* Atur jarak antar button */
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Responsif untuk tablet */
+@media (max-width: 768px) {
+    .button-container {
+      flex-direction: column; /* Atur elemen button-container menjadi kolom */
+      align-items: flex-start; /* Rata kiri semua elemen */
+    }
+  
+    .btn-group {
+      font-size: 12px; /* Kurangi ukuran font */
+      padding: 8px 16px; /* Sesuaikan padding */
+    }
+  
+    .dropdown select {
+      padding: 8px;
+      font-size: 12px; /* Sesuaikan ukuran font */
+    }
+  
+    .month-dropdown {
+      padding: 8px 12px; /* Kurangi padding */
+    }
+  }
+  
+  /* Responsif untuk smartphone */
+  @media (max-width: 480px) {
+    .button-container {
+      flex-direction: column;
+      align-items: stretch; /* Penuhi lebar layar */
+    }
+  
+    .btn-group {
+      font-size: 10px; /* Sesuaikan ukuran font */
+      padding: 6px 12px; /* Sesuaikan padding */
+      width: 100%; /* Lebar penuh untuk button */
+      text-align: center; /* Rata tengah teks */
+      margin-bottom: 5px; /* Jarak bawah untuk tiap button */
+    }
+  
+    .dropdown select {
+      width: 100%; /* Lebar penuh */
+      font-size: 10px; /* Ukuran font lebih kecil */
+      padding: 6px; /* Sesuaikan padding */
+    }
+  
+    .month-dropdown {
+      padding: 6px 10px; /* Kurangi padding */
+      width: 100%; /* Lebar penuh */
+      text-align: center; /* Teks rata tengah */
+    }
+  }

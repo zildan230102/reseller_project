@@ -14,10 +14,7 @@
 </head>
 
 <body>
-<div class="wrapper">
-
 	@include('includes.public.header')
-
 	@yield('content')
 
     <footer>

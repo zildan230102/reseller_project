@@ -22,15 +22,12 @@
 </head>
 
 <body>
-	<div class="wrapper">
-
 		@include('includes.public.header')
 
 			@yield('content')
 
 			@include('includes.public.footer')
-		</div>
-	</div>
+
 	@include('includes.public.script')
 
 </body>
