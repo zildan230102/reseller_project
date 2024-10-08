@@ -14,7 +14,19 @@
     <div class="header" id="header">
         <nav class="navbar navbar-expand navbar-light">
             <img src="{{ ('style/src/img/icons/d2.png') }}" class="img-fluid" alt="Deepublish Logo">
+            <div class="b-example-divider"></div>
 
+            <div class="container">
+              <header class="d-flex justify-content-center py-3">
+                <ul class="nav nav-pills">
+                  <li class="nav-item"><a href="#" class="nav-link">Dashboard</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link">Pesanan</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link">Toko</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link">Pembayaran</a></li>
+                </ul>
+              </header>
+            </div>
+          
             <div class="navbar-collapse collapse">
                 <ul class="navbar-nav navbar-align">
                     <li class="nav-item dropdown">
