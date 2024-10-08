@@ -1,0 +1,129 @@
+
+body {
+    font-family: Abhaya Libre;
+}
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+    max-width: 100%;
+}
+.card-header {
+    padding: 16px 16px 0 16px;
+    margin: 16px 16px 0 16px;
+    
+}
+.card-title {
+    margin: 0;
+    color: #333;
+    font-size: 18px;
+    
+}
+.card-body {
+    padding: 16px 16px 0 16px;
+    overflow-x: auto;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.in-stock { background-color: #28a745; }
+.out-of-stock { background-color: #dc3545; }
+
+
+/* Data Toko Reseller & Data Penjualan Buku*/
+.data-reseller, .data-penjualan, .data-marketplace {
+    color: #F58635;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.judul-th {
+    font-family: 'Abhaya Libre', serif;
+    font-size: 14px;
+    color: #606060 !important;
+    font-weight: 400;
+    border-bottom: 1px solid #EFEFEF;
+}
+.name-column, .status-dot {
+    font-weight: bold;
+    color: black ;
+    font-size: 14px;
+
+}
+
+.name-column + td, .name-column + td + td {
+  font-weight: normal;
+  color: black;
+  font-size: 14px;
+}
+
+
+/* Data Marketplace */
+.col-kiri {
+    width: 40%;
+}
+.col-kanan {
+    width: 60%;
+}
+.performa-marketplace {
+    font-family: Abhaya Libre ExtraBold;
+    font-size: 14px;
+    font-weight: 800;
+    text-align: center;
+}
+.performa-header {
+    padding: 16px;
+    
+}
+.chart-container {
+    height: 150px;
+}
+
+#chartjs-dashboard-pie {
+    width: 100;
+    height: auto;
+}
+
+.legend-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    font-size: 0.75rem;
+}
+.legend-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.legend-list li::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+.legend-shopee::before {
+    background-color: #F1582E;
+}
+.legend-deepublish::before {
+    background-color: #BCBCBC;
+}
+.legend-tokopedia::before {
+    background-color: #469546;
+}
+.legend-lazada::before {
+    background-color: #0F0890;
+}
+.legend-bukalapak::before {
+    background-color: #E31F51;
+}
+.legend-olx::before {
+    background-color: #3A77FF;
+} 
