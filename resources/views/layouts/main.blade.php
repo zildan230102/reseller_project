@@ -15,7 +15,7 @@
 
 <body>
 
-	@include('includes.public.header')
+	{{-- @include('includes.public.header') --}}
 
 <!-- incude buat header -->
 	@include('includes.public.header')

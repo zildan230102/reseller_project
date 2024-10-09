@@ -135,22 +135,11 @@ body {
     margin: 0;
     color: #333;
     font-size: 18px;
-    
 }
 .card-body {
-    padding: 16px 16px 16px 16px;
+    padding: 16px;
     overflow-x: auto;
 }
-
-.status-dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-right: 5px;
-}
-.in-stock { background-color: #28a745; }
-.out-of-stock { background-color: #dc3545; }
 
 /* Data Total */
 .card-total {
@@ -159,8 +148,8 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     overflow: hidden;
     max-width: 100%;
-    width: 2800PX;
-    height: 200px;
+    width: 100%;
+    height: auto;
     margin: 12px;
 }
 .stat {
@@ -187,20 +176,35 @@ body {
     color: #606060 !important;
     font-weight: 400;
     border-bottom: 1px solid #EFEFEF;
+    text-align: left;
 }
 .name-column, .status-dot {
     font-weight: bold;
     color: black ;
     font-size: 14px;
-
+    display: flex;
+    align-items: center;
 }
-
 .name-column + td, .name-column + td + td {
   font-weight: normal;
   color: black;
   font-size: 14px;
 }
-
+.status-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.tr td.deactive {
+    color: grey;
+}
+tr.deactive {
+    opacity:0.6
+}
+.in-stock { background-color: #28a745; }
+.out-of-stock { background-color: #dc3545; }
 
 /* Data Marketplace */
 .col-kiri {
@@ -238,6 +242,9 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 8px;
+}
+.legend-list li span {
+    margin-right: 5px;
 }
 .legend-list li::before {
     content: '';
