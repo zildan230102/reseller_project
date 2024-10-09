@@ -138,7 +138,7 @@ body {
     
 }
 .card-body {
-    padding: 16px 16px 0 16px;
+    padding: 16px 16px 16px 16px;
     overflow-x: auto;
 }
 
@@ -151,6 +151,27 @@ body {
 }
 .in-stock { background-color: #28a745; }
 .out-of-stock { background-color: #dc3545; }
+
+/* Data Total */
+.card-total {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+    max-width: 100%;
+    width: 2800PX;
+    height: 200px;
+    margin: 12px;
+}
+.stat {
+    background-color: #E8E8E8; 
+    border-radius: 8px;
+    padding: 5px;
+  }
+  
+  .stat svg {
+    fill: #F58635; 
+  }
 
 
 /* Data Toko Reseller & Data Penjualan Buku*/
