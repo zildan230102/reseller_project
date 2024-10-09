@@ -9,7 +9,7 @@
 
 {{-- Row Pertama --}}
 
-	{{-- Row Kiri --}}
+		{{-- Row Kiri --}}
 
 			<!-- Row Pertama -->
 
@@ -36,7 +36,7 @@
 					</div>
 				</div>
 				
-	{{-- Row Kanan --}}
+		{{-- Row Kanan --}}
 				<div class="col-xl-6 col-xxl-5 d-flex">
 					<div class="w-100">
 						<div class="row">
@@ -110,7 +110,7 @@
 										</div>
 										<h1 class="mt-1 mb-3">Rp 86.34%</h1>
 										<div class="mb-0">
-											<span class="text-danger"><i class="mdi mdi-arrow-bottom-right"></i> 0.32%</span>
+											<span class="text-danger"><i class="fa-solid fa-arrow-trend-down"></i> 0.32%</span>
 											<span class="text-muted">Dari bulan Agustus</span>
 										</div>
 									</div>
@@ -122,7 +122,7 @@
 				</div>
 
 
-			<!--Row kedua-->
+<!--Row kedua-->
 			<div class="row">
 				<!-- Kolom kiri -->
 				<div class="col-xl-6 col-xxl-7">
@@ -194,12 +194,12 @@
 										<!-- Legend Data -->
 										<div class="col-6">
 											<ul class="legend-list">
-												<li class="legend-shopee">Shopee <strong>$30</strong></li>
-												<li class="legend-tokopedia">Tokopedia <strong>$30</strong></li>
-												<li class="legend-lazada">Lazada <strong>$30</strong></li>
-												<li class="legend-bukalapak">Bukalapak <strong>$30</strong></li>
-												<li class="legend-olx">OLX <strong>$30</strong></li>
-												<li class="legend-deepublish">Deepublish <strong>$30</strong></li>
+												<li class="legend-shopee"><span>Shopee</span> <strong>$30</strong></li>
+												<li class="legend-tokopedia"><span>Tokopedia</span> <strong>$30</strong></li>
+												<li class="legend-lazada"><span>Lazada</span> <strong>$30</strong></li>
+												<li class="legend-bukalapak"><span>Bukalapak</span> <strong>$30</strong></li>
+												<li class="legend-olx"><span>OLX </span><strong>$30</strong></li>
+												<li class="legend-deepublish"><span>Deepublish</span> <strong>$30</strong></li>
 											</ul>
 										</div>
 									</div>
@@ -245,52 +245,11 @@
 										</tr>
 									</tbody>
 								</table>
-
-								</div>
-
-								<!-- Chart Pie --> 
-								<div class="align-self-center w-50">
-									<div class="py-3">
-									  <div class="chart chart-xs">
-										<canvas id="chartjs-dashboard-pie"></canvas>
-									  </div>
-									</div>
-								</div>
-
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
-
-				<div class="col-xl-6 col-xxl-7">
-					<div class="card flex-fill w-100">
-						<div class="card-header">
-							<!-- <h5 class="card-title mb-0">Monthly Sales</h5> -->
-							<div class="button-container">
-								<div class="button-group">
-									<button class="btn">Marketplace</button>
-									<button class="btn">Toko</button>
-									<button class="btn">Buku</button>
-								</div>	
-								<div class="dropdown">
-									<select class="month-dropdown" name="month" id="month">
-										<option value="Agustus">Agustus</option>
-										<option value="September" selected>September</option>
-										<option value="Oktober">Oktober</option>
-										<option value="November">November</option>
-										<option value="Desember">Desember</option>
-									</select>
-								</div>
-							</div>
-						</div>
-						<div class="card-body d-flex w-100">
-							<div class="align-self-center chart chart-lg">
-								<canvas id="chartjs-dashboard-bar"></canvas>
-							</div>
-						</div>
-
 
 <!-- Row ketiga --> 
 			<div class="row">
@@ -306,190 +265,63 @@
 						<h5 class="data-reseller">Data Toko Reseller</h5>
 					</div>
 					<div class="card-body">
-					<table class="table my-0 table-borderless">
-						<thead class="judul-th">
-						<tr>
-							<th class="judul-th">Name</th>
-							<th class="judul-th">Marketplace</th>
-							<th class="judul-th">Sold</th>
-							<th class="judul-th">Status</th>
-						</tr>
-						</thead>
-						<tbody>
-						<tr>
-							<td class="name-column">Buku kita</td>
-							<td>Shopee</td>
-							<td>32 pcs</td>
-							<td><span class="status-dot in-stock"></span>Active</td>
-						</tr>
-						<tr>
-							<td class="name-column">Kutu Buku</td>
-							<td>Lazada</td>
-							<td>10 pcs</td>
-							<td><span class="status-dot in-stock"></span>Active</td>
-						</tr>
-						<tr>
-							<td class="name-column">Buka Buku</td>
-							<td>Bukalapak</td>
-							<td>8 pcs</td>
-							<td><span class="status-dot in-stock"></span>Active</td>
-						</tr>
-						<tr>
-							<td class="name-column">Buku Ku</td>
-							<td>OLX</td>
-							<td>7 pcs</td>
-							<td><span class="status-dot in-stock"></span>Active</td>
-						</tr>
-						<tr>
-							<td class="name-column">Dunia Buku</td>
-							<td>Web Deepublish</td>
-							<td>16 pcs</td>
-							<td><span class="status-dot in-stock"></span>Active</td>
-						</tr>
-						<tr>
-							<td class="name-column">Bukupedia</td>
-							<td>Tokopedia</td>
-							<td>12 pcs</td>
-							<td><span class="status-dot in-stock"></span>Active</td>
-						</tr>
-						<tr>
-							<td class="name-column">Buku Mu</td>
-							<td>Tiktok Shop</td>
-							<td>2 pcs</td>
-							<td><span class="status-dot out-of-stock"></span>Deactive</td>
-						</tr>
-						</tbody>
-					</table>
-
+						<table class="table my-0 table-borderless">
+							<thead class="judul-th">
+							<tr>
+								<th class="judul-th">Name</th>
+								<th class="judul-th">Marketplace</th>
+								<th class="judul-th">Sold</th>
+								<th class="judul-th">Status</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td class="name-column">Buku kita</td>
+								<td>Shopee</td>
+								<td>32 pcs</td>
+								<td><span class="status-dot in-stock"></span>Active</td>
+							</tr>
+							<tr>
+								<td class="name-column">Kutu Buku</td>
+								<td>Lazada</td>
+								<td>10 pcs</td>
+								<td><span class="status-dot in-stock"></span>Active</td>
+							</tr>
+							<tr>
+								<td class="name-column">Buka Buku</td>
+								<td>Bukalapak</td>
+								<td>8 pcs</td>
+								<td><span class="status-dot in-stock"></span>Active</td>
+							</tr>
+							<tr>
+								<td class="name-column">Buku Ku</td>
+								<td>OLX</td>
+								<td>7 pcs</td>
+								<td><span class="status-dot in-stock"></span>Active</td>
+							</tr>
+							<tr>
+								<td class="name-column">Dunia Buku</td>
+								<td>Web Deepublish</td>
+								<td>16 pcs</td>
+								<td><span class="status-dot in-stock"></span>Active</td>
+							</tr>
+							<tr>
+								<td class="name-column">Bukupedia</td>
+								<td>Tokopedia</td>
+								<td>12 pcs</td>
+								<td><span class="status-dot in-stock"></span>Active</td>
+							</tr>
+							<tr class="deactive">
+								<td class="name-column">Buku Mu</td>
+								<td>Tiktok Shop</td>
+								<td>2 pcs</td>
+								<td><span class="status-dot out-of-stock"></span>Deactive</td>
+							</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
-				</div>
 			</div>
-
-
-<!-- Row 3 --> 
-<div class="row">
-    <!-- Kolom Kiri (dikosongkan) -->
-    <div class="col-xl-6 col-xxl-7 d-flex">
-      <!-- Kolom ini dikosongkan, tapi tetap ada untuk mempertahankan struktur grid -->
-    </div>
-
-	<!-- Kolom Kanan untuk tabel Data Toko Reseller -->
-    <div class="col-xl-6 col-xxl-5 d-flex">
-      <div class="card w-100">
-        <div class="card-header">
-          <h5 class="card-title mb-0">Data Penjualan Buku</h5>
-        </div>
-        <div class="card-body">
-          <table class="table table-hover my-0 table-borderless">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Sold</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Buku kita</td>
-                <td>Rp150.000</td>
-                <td>32 pcs</td>
-                <td><span class="badge in-stock">In Stock</span></td>
-              </tr>
-			  <tr>
-                <td>Buku kita</td>
-                <td>Rp150.000</td>
-                <td>24 pcs</td>
-                <td><span class="badge out-of-stock">Out of Stock</span></td>
-              </tr>
-			  <tr>
-                <td>Buku kita</td>
-                <td>Rp150.000</td>
-                <td>12 pcs</td>
-                <td><span class="badge in-stock">In Stock</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-</div>
-
-	<!-- Row 3 --> 
-<div class="row">
-    <!-- Kolom Kiri (dikosongkan) -->
-    <div class="col-xl-6 col-xxl-7 d-flex">
-      <!-- Kolom ini dikosongkan, tapi tetap ada untuk mempertahankan struktur grid -->
-    </div>
-
-    <!-- Kolom Kanan untuk tabel Data Toko Reseller -->
-    <div class="col-xl-6 col-xxl-5 d-flex">
-      <div class="card w-100">
-        <div class="card-header">
-          <h5 class="card-title mb-0">Data Toko Reseller</h5>
-        </div>
-        <div class="card-body">
-          <table class="table table-hover my-0 table-borderless">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Marketplace</th>
-                <th>Sold</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Buku kita</td>
-                <td>Shopee</td>
-                <td>32 pcs</td>
-                <td><span class="badge bg-success">Done</span></td>
-              </tr>
-			  <tr>
-                <td>Buku kita</td>
-                <td>Shopee</td>
-                <td>32 pcs</td>
-                <td><span class="badge bg-success">Done</span></td>
-              </tr>
-			  <tr>
-                <td>Buku kita</td>
-                <td>Shopee</td>
-                <td>32 pcs</td>
-                <td><span class="badge bg-success">Done</span></td>
-              </tr>
-			  <tr>
-                <td>Buku kita</td>
-                <td>Shopee</td>
-                <td>32 pcs</td>
-                <td><span class="badge bg-success">Done</span></td>
-              </tr>
-			  <tr>
-                <td>Buku kita</td>
-                <td>Shopee</td>
-                <td>32 pcs</td>
-                <td><span class="badge bg-success">Done</span></td>
-              </tr>
-			  <tr>
-                <td>Buku kita</td>
-                <td>Shopee</td>
-                <td>32 pcs</td>
-                <td><span class="badge bg-success">Done</span></td>
-              </tr>
-			  <tr>
-                <td>Buku kita</td>
-                <td>Shopee</td>
-                <td>32 pcs</td>
-                <td><span class="badge bg-success">Done</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
 		</div>
 	</main>
 
