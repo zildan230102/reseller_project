@@ -7,6 +7,8 @@
 			<h1 class="h3 mb-3">Selamat Datang, <strong>Jenny Wilson!</strong></h1>
 
 {{-- Row Pertama --}}
+
+	{{-- Row Kiri --}}
 			<div class="row">
 				<div class="col-xl-6 col-xxl-7">
 					<div class="card flex-fill w-100">
@@ -21,79 +23,87 @@
 					</div>
 				</div>
 				
+	{{-- Row Kanan --}}
 				<div class="col-xl-6 col-xxl-5 d-flex">
 					<div class="w-100">
 						<div class="row">
 							<div class="col-sm-6">
-								<div class="card">
+								<div class="card-total">
 									<div class="card-body">
 										<div class="row">
-											<div class="col mt-0">
+											<div class="col d-flex flex-column align-item-center mt-0">
+												<div class="col-auto">
+													<div class="stat">
+														<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
+															<path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
+														</svg>
+													</div>
+												</div>
 												<h5 class="card-title">Total Penjualan</h5>
 											</div>
-											<div class="col-auto">
-												<div class="stat text-primary">
-													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
-														<path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
-													</svg>
-												</div>
-											</div>
+											
 										</div>
-										<h1 class="mt-1 mb-3">Rp 8.500.000</h1>
+										<h1 class="mt-1 mb-3">Rp 15.500.000</h1>
 										<div class="mb-0">
-											<span class="text-success"><i class="mdi mdi-arrow-bottom-right"></i> +13.02%</span>
-											<span class="text-muted">Dari bulan lalu</span>
+											<span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i>13.02%</span>
+											<span class="text-muted">Dari bulan Agustus</span>
 										</div>
 									</div>
 								</div>
+							</div>
 
-								<div class="card">
+							
+
+							<div class="col-sm-6">
+								<div class="card-total">
 									<div class="card-body">
 										<div class="row">
-											<div class="col mt-0">
-												<h5 class="card-title">Total Pendapatan</h5>
-											</div>
-											<div class="col-auto">
-												<div class="stat text-primary">
-													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wallet2" viewBox="0 0 16 16">
-														<path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5z"/>
-													</svg>
+											<div class="col d-flex flex-column align-item-center mt-0">
+												<div class="col-auto">
+													<div class="stat">
+														<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wallet2" viewBox="0 0 16 16">
+															<path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5z"/>
+														</svg>
+													</div>
 												</div>
+												<h5 class="card-title">Total Pendapatan</h5>
 											</div>
 										</div>
 										<h1 class="mt-1 mb-3">Rp 5.150.000</h1>
 										<div class="mb-0">
-											<span class="text-success"><i class="mdi mdi-arrow-bottom-right"></i> 13.02%</span>
-											<span class="text-muted">Dari bulan lalu</span>
+											<span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i> 13.02%</span>
+											<span class="text-muted">Dari bulan Agustus</span>
 										</div>
 									</div>
 								</div>
 							</div>
 
 							<div class="col-sm-6">
-								<div class="card">
+								<div class="card-total">
 									<div class="card-body">
 										<div class="row">
-											<div class="col mt-0">
-												<h5 class="card-title">Tagihan</h5>
-											</div>
-											<div class="col-auto">
-												<div class="stat text-primary">
-													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
-														<path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
-														<path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
-													</svg>
+											<div class="col d-flex  flex-column align-item-center mt-0">
+												<div class="col-auto">
+													<div class="stat">
+														<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-data" viewBox="0 0 16 16">
+															<path d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0z"/>
+															<path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z"/>
+															<path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z"/>
+														</svg>
+													</div>
 												</div>
+												<h5 class="card-title">Konversi</h5>
 											</div>
 										</div>
-										<h1 class="mt-1 mb-3 text-danger">Rp 1.480.000</h1>
+										<h1 class="mt-1 mb-3">Rp 86.34%</h1>
 										<div class="mb-0">
 											<span class="text-danger"><i class="mdi mdi-arrow-bottom-right"></i> 0.32%</span>
-											<span class="text-muted">Dari bulan lalu</span>
+											<span class="text-muted">Dari bulan Agustus</span>
 										</div>
 									</div>
 								</div>
 							</div>
+
 						</div>
 					</div>
 				</div>
