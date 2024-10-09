@@ -8,6 +8,6 @@ class ProfilController extends Controller
 {
    public function data()
    {
-    return view('layouts.profil');
+    return view('public.post.profil');
    }
 }

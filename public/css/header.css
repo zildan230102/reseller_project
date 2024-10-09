@@ -1,0 +1,117 @@
+/* Reset and box-sizing for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base styles for body */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Navigation menu base styles */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav-item {
+    position: relative;
+}
+
+/* Menu links */
+.nav-link {
+    color: #f57c00;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+/* Dropdown menu base styles */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    min-width: 160px;
+    border-radius: 5px;
+    margin-top: 5px;
+    list-style-type: none;
+}
+
+.dropdown-item {
+    color: #333;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show dropdown when hovering over parent link */
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+/* Responsive for tablets and mobile */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-item {
+        width: 100%;
+    }
+
+    .nav-link {
+        width: 100%;
+        text-align: left;
+        padding: 15px 20px;
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .dropdown-item {
+        padding: 15px 20px;
+    }
+}
+
+/* Further adjustments for smaller devices */
+@media (max-width: 480px) {
+    .nav-link {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .dropdown-item {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}

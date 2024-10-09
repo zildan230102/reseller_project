@@ -6,15 +6,28 @@
 		<div class="container-fluid p-0">
 			<h1 class="h3 mb-3">Selamat Datang, <strong>Jenny Wilson!</strong></h1>
 
+
 {{-- Row Pertama --}}
 
 	{{-- Row Kiri --}}
+
+			<!-- Row Pertama -->
+
 			<div class="row">
 				<div class="col-xl-6 col-xxl-7">
 					<div class="card flex-fill w-100">
-						<div class="card-header">
-							<h5 class="card-title mb-0">Penjualan Keseluruhan</h5>
+					<div class="card-header d-flex justify-content-between align-items-center">
+						<h5 class="card-title">Penjualan Keseluruhan</h5>
+						<div class="dropdown">
+							<select class="month-dropdown" name="month" id="month">
+								<option value="Agustus">Agustus</option>
+								<option value="September" selected>September</option>
+								<option value="Oktober">Oktober</option>
+								<option value="November">November</option>
+								<option value="Desember">Desember</option>
+							</select>
 						</div>
+					</div>
 						<div class="card-body py-3">
 							<div class="chart chart-sm">
 								<canvas id="chartjs-dashboard-line"></canvas>
@@ -107,9 +120,9 @@
 						</div>
 					</div>
 				</div>
-			</div>
 
-<!--Row kedua-->
+
+			<!--Row kedua-->
 			<div class="row">
 				<!-- Kolom kiri -->
 				<div class="col-xl-6 col-xxl-7">
@@ -232,11 +245,51 @@
 										</tr>
 									</tbody>
 								</table>
+
+								</div>
+
+								<!-- Chart Pie --> 
+								<div class="align-self-center w-50">
+									<div class="py-3">
+									  <div class="chart chart-xs">
+										<canvas id="chartjs-dashboard-pie"></canvas>
+									  </div>
+									</div>
+								</div>
+
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+
+
+				<div class="col-xl-6 col-xxl-7">
+					<div class="card flex-fill w-100">
+						<div class="card-header">
+							<!-- <h5 class="card-title mb-0">Monthly Sales</h5> -->
+							<div class="button-container">
+								<div class="button-group">
+									<button class="btn">Marketplace</button>
+									<button class="btn">Toko</button>
+									<button class="btn">Buku</button>
+								</div>	
+								<div class="dropdown">
+									<select class="month-dropdown" name="month" id="month">
+										<option value="Agustus">Agustus</option>
+										<option value="September" selected>September</option>
+										<option value="Oktober">Oktober</option>
+										<option value="November">November</option>
+										<option value="Desember">Desember</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="card-body d-flex w-100">
+							<div class="align-self-center chart chart-lg">
+								<canvas id="chartjs-dashboard-bar"></canvas>
+							</div>
+						</div>
 
 
 <!-- Row ketiga --> 
@@ -307,10 +360,136 @@
 						</tr>
 						</tbody>
 					</table>
+
 					</div>
 				</div>
 				</div>
 			</div>
+
+
+<!-- Row 3 --> 
+<div class="row">
+    <!-- Kolom Kiri (dikosongkan) -->
+    <div class="col-xl-6 col-xxl-7 d-flex">
+      <!-- Kolom ini dikosongkan, tapi tetap ada untuk mempertahankan struktur grid -->
+    </div>
+
+	<!-- Kolom Kanan untuk tabel Data Toko Reseller -->
+    <div class="col-xl-6 col-xxl-5 d-flex">
+      <div class="card w-100">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Data Penjualan Buku</h5>
+        </div>
+        <div class="card-body">
+          <table class="table table-hover my-0 table-borderless">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Sold</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Buku kita</td>
+                <td>Rp150.000</td>
+                <td>32 pcs</td>
+                <td><span class="badge in-stock">In Stock</span></td>
+              </tr>
+			  <tr>
+                <td>Buku kita</td>
+                <td>Rp150.000</td>
+                <td>24 pcs</td>
+                <td><span class="badge out-of-stock">Out of Stock</span></td>
+              </tr>
+			  <tr>
+                <td>Buku kita</td>
+                <td>Rp150.000</td>
+                <td>12 pcs</td>
+                <td><span class="badge in-stock">In Stock</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
+
+	<!-- Row 3 --> 
+<div class="row">
+    <!-- Kolom Kiri (dikosongkan) -->
+    <div class="col-xl-6 col-xxl-7 d-flex">
+      <!-- Kolom ini dikosongkan, tapi tetap ada untuk mempertahankan struktur grid -->
+    </div>
+
+    <!-- Kolom Kanan untuk tabel Data Toko Reseller -->
+    <div class="col-xl-6 col-xxl-5 d-flex">
+      <div class="card w-100">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Data Toko Reseller</h5>
+        </div>
+        <div class="card-body">
+          <table class="table table-hover my-0 table-borderless">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Marketplace</th>
+                <th>Sold</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Buku kita</td>
+                <td>Shopee</td>
+                <td>32 pcs</td>
+                <td><span class="badge bg-success">Done</span></td>
+              </tr>
+			  <tr>
+                <td>Buku kita</td>
+                <td>Shopee</td>
+                <td>32 pcs</td>
+                <td><span class="badge bg-success">Done</span></td>
+              </tr>
+			  <tr>
+                <td>Buku kita</td>
+                <td>Shopee</td>
+                <td>32 pcs</td>
+                <td><span class="badge bg-success">Done</span></td>
+              </tr>
+			  <tr>
+                <td>Buku kita</td>
+                <td>Shopee</td>
+                <td>32 pcs</td>
+                <td><span class="badge bg-success">Done</span></td>
+              </tr>
+			  <tr>
+                <td>Buku kita</td>
+                <td>Shopee</td>
+                <td>32 pcs</td>
+                <td><span class="badge bg-success">Done</span></td>
+              </tr>
+			  <tr>
+                <td>Buku kita</td>
+                <td>Shopee</td>
+                <td>32 pcs</td>
+                <td><span class="badge bg-success">Done</span></td>
+              </tr>
+			  <tr>
+                <td>Buku kita</td>
+                <td>Shopee</td>
+                <td>32 pcs</td>
+                <td><span class="badge bg-success">Done</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 		</div>
 	</main>
 
