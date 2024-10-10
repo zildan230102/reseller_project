@@ -3,33 +3,39 @@
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
 			var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");
-			var gradient = ctx.createLinearGradient(0, 0, 0, 225);
-			gradient.addColorStop(0, "rgba(215, 227, 244, 1)");
-			gradient.addColorStop(1, "rgba(215, 227, 244, 0)");
+			// var gradient = ctx.createLinearGradient(0, 0, 0, 225);
+			// gradient.addColorStop(0, "rgba(50, 115, 220, 0.3)");
+			// gradient.addColorStop(1, "rgba(50, 115, 220, 0)");
+
 			// Line chart
 			new Chart(document.getElementById("chartjs-dashboard-line"), {
 				type: "line",
 				data: {
-					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+					labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
 					datasets: [{
 						label: "Sales ($)",
-						fill: true,
-						backgroundColor: gradient,
-						borderColor: window.theme.primary,
-						data: [
-							2115,
-							1562,
-							1584,
-							1892,
-							1587,
-							1923,
-							2566,
-							2448,
-							2805,
-							3438,
-							2917,
-							3327
-						]
+						fill: false,
+						backgroundColor: 'trasnparant',
+						borderColor:'rgba(50, 115, 220, 1)',
+						pointBackgroundColor: "#FFFFFF",
+						pointBorderColor: "#000000",
+						pointBorderWidth: 1,
+						pointRadius: function(context) { // Tambahkan function untuk pointRadius
+							return context.dataIndex % 2 === 0 ? 3 : 0; // Return 3 jika index adalah genap, 0 jika ganjil
+						},
+						data: [150000, 140000, 130000, 135000, 145000, 150000, 170000, 200000, 220000, 240000, 260000, 270000]
+					}, {
+						label: "Comparison",
+						fill: false,
+						backgroundColor: 'transparent',
+						borderColor: 'rgba(204, 204, 204, 1)',
+						borderWidth: 1,
+						borderDash: [8,8], // Create a dashed line
+						pointBackgroundColor: "#FFFFFF",
+						pointBorderColor: "transparant",
+						pointBorderWidth: 0,
+						pointRadius: 0,
+						data: [160000, 130000, 140000, 130000, 140000, 160000, 150000, 170000, 180000, 190000, 200000, 210000]
 					}]
 				},
 				options: {
@@ -38,7 +44,11 @@
 						display: false
 					},
 					tooltips: {
-						intersect: false
+						intersect: false,
+						backgroundColor: 'rgba(0, 0, 0, 0.7)',
+						bodyFontColor: '#fff',
+						borderColor: '#fff',
+						borderWidth: 1
 					},
 					hover: {
 						intersect: true
@@ -50,19 +60,23 @@
 					},
 					scales: {
 						xAxes: [{
-							reverse: true,
 							gridLines: {
-								color: "rgba(0,0,0,0.0)"
+								display: false
+							},
+							ticks: {
+								display: true,
+								fontColor: "#ccc"
 							}
 						}],
 						yAxes: [{
 							ticks: {
-								stepSize: 1000
+								stepSize: 50000,
+								callback: function(value) { return 'Rp ' + value; },
+								fontColor: "#ccc"
 							},
-							display: true,
-							borderDash: [3, 3],
 							gridLines: {
-								color: "rgba(0,0,0,0.0)"
+								borderDash: [5,5],
+								color: "#ccc"
 							}
 						}]
 					}

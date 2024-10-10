@@ -117,7 +117,7 @@
 
 
 body {
-    font-family: Abhaya Libre;
+    font-family: 'Abhaya Libre';
 }
 .card {
     background-color: white;
@@ -141,6 +141,21 @@ body {
     overflow-x: auto;
 }
 
+/* Penjualan Keseluruhan */
+.penjualan-keseluruhan {
+  color: #606060;
+  font-weight: lighter;
+  font-size: 14px;
+}
+.header-sale {
+  margin: 30px 16px 0 28px;
+}
+.title-sale {
+  margin-left: 28px ;
+}
+.title-sale h3 {
+  font-weight: bold;
+}
 /* Data Total */
 .card-total {
     background-color: white;
@@ -158,7 +173,7 @@ body {
     padding: 5px;
   }
   
-  .stat svg {
+.stat svg {
     fill: #F58635; 
   }
 
