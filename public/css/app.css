@@ -119,27 +119,72 @@
 body {
     font-family: Abhaya Libre;
 }
-.card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    overflow: hidden;
-    max-width: 100%;
+
+/* Kontainer untuk keseluruhan kartu */
+.card-total {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Jarak antar kartu */
+  padding: 20px;
+  transition: transform 0.2s ease-in-out;
 }
-.card-header {
-    padding: 16px 16px 0 16px;
-    margin: 16px 16px 0 16px;
-    
+
+/* Efek hover pada kartu */
+.card-total:hover {
+  transform: translateY(-5px); /* Memberikan efek hover untuk interaksi */
 }
-.card-title {
-    margin: 0;
-    color: #333;
-    font-size: 18px;
-    
-}
+
+/* Pengaturan untuk isi di dalam card */
 .card-body {
-    padding: 16px 16px 16px 16px;
-    overflow-x: auto;
+  padding: 0;
+  text-align: center;
+}
+
+/* Styling untuk header kartu (judul) */
+.card-title {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Styling untuk angka besar (Total atau Konversi) */
+.card-body h1 {
+  font-size: 20px;
+  margin: 20px 0 10px;
+}
+
+/* Warna pada persentase kenaikan dan penurunan */
+.text-success {
+  color: #28a745; /* Warna hijau untuk kenaikan */
+}
+
+.text-danger {
+  color: #dc3545; /* Warna merah untuk penurunan */
+}
+
+/* Responsif: Mengatur agar di layar kecil tampil satu kolom */
+@media (max-width: 768px) {
+  .col-sm-6 {
+      width: 100%;
+  }
+}
+
+/* CSS untuk ikon dalam setiap kartu */
+.stat svg {
+  width: 36px;
+  height: 36px;
+  fill: #f89406; /* Warna ikon */
+}
+
+/* Align item dalam kolom, khusus untuk ikon dan judul */
+.d-flex {
+  align-items: center; /* Agar item berada di tengah vertikal */
+}
+
+.col-auto {
+  padding-right: 10px; /* Memberi jarak kecil antara ikon dan teks */
 }
 
 .status-dot {
@@ -153,21 +198,20 @@ body {
 .out-of-stock { background-color: #dc3545; }
 
 /* Data Total */
-.card-total {
+/* .card-total {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     overflow: hidden;
     max-width: 100%;
-    width: 2800PX;
-    height: 200px;
-    margin: 12px;
-}
+    margin: 10px;
+} */
+
 .stat {
     background-color: #E8E8E8; 
     border-radius: 8px;
-    padding: 5px;
-  }
+    padding: 10px;
+}
   
   .stat svg {
     fill: #F58635; 

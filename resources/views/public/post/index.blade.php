@@ -12,31 +12,32 @@
 	{{-- Row Kiri --}}
 
 			<!-- Row Pertama -->
-
 			<div class="row">
-				<div class="col-xl-6 col-xxl-7">
-					<div class="card flex-fill w-100">
-					<div class="card-header d-flex justify-content-between align-items-center">
-						<h5 class="card-title">Penjualan Keseluruhan</h5>
-						<div class="dropdown">
-							<select class="month-dropdown" name="month" id="month">
-								<option value="Agustus">Agustus</option>
-								<option value="September" selected>September</option>
-								<option value="Oktober">Oktober</option>
-								<option value="November">November</option>
-								<option value="Desember">Desember</option>
-							</select>
-						</div>
-					</div>
-						<div class="card-body py-3">
-							<div class="chart chart-sm">
-								<canvas id="chartjs-dashboard-line"></canvas>
+					<div class="col-xl-6 col-xxl-7">
+						<div class="card-container">
+							<div class="card flex-fill w-100">
+							<div class="card-header d-flex justify-content-between align-items-center">
+								<h5 class="card-title">Penjualan Keseluruhan</h5>
+								<div class="dropdown">
+									<select class="month-dropdown" name="month" id="month">
+										<option value="Agustus">Agustus</option>
+										<option value="September" selected>September</option>
+										<option value="Oktober">Oktober</option>
+										<option value="November">November</option>
+										<option value="Desember">Desember</option>
+									</select>
+								</div>
+							</div>
+								<div class="card-body py-3">
+									<div class="chart chart-sm">
+										<canvas id="chartjs-dashboard-line"></canvas>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				
-	{{-- Row Kanan --}}
+
+				{{-- Row Kanan --}}
 				<div class="col-xl-6 col-xxl-5 d-flex">
 					<div class="w-100">
 						<div class="row">
@@ -59,13 +60,11 @@
 										<h1 class="mt-1 mb-3">Rp 15.500.000</h1>
 										<div class="mb-0">
 											<span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i>13.02%</span>
-											<span class="text-muted">Dari bulan Agustus</span>
+											<span class="text-muted">Dari Bulan Agustus</span>
 										</div>
 									</div>
 								</div>
 							</div>
-
-							
 
 							<div class="col-sm-6">
 								<div class="card-total">
@@ -85,7 +84,7 @@
 										<h1 class="mt-1 mb-3">Rp 5.150.000</h1>
 										<div class="mb-0">
 											<span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i> 13.02%</span>
-											<span class="text-muted">Dari bulan Agustus</span>
+											<span class="text-muted">Dari Bulan Agustus</span>
 										</div>
 									</div>
 								</div>
@@ -110,8 +109,8 @@
 										</div>
 										<h1 class="mt-1 mb-3">Rp 86.34%</h1>
 										<div class="mb-0">
-											<span class="text-danger"><i class="mdi mdi-arrow-bottom-right"></i> 0.32%</span>
-											<span class="text-muted">Dari bulan Agustus</span>
+											<span class="text-danger"><i class="fa-solid fa-arrow-trend-down"></i> 0.32%</span>
+											<span class="text-muted">Dari Bulan Agustus</span>
 										</div>
 									</div>
 								</div>
@@ -120,7 +119,7 @@
 						</div>
 					</div>
 				</div>
-
+			
 
 			<!--Row kedua-->
 			<div class="row">
