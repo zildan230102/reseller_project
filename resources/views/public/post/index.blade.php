@@ -14,10 +14,10 @@
 			<!-- Row Pertama -->
 
 			<div class="row">
-				<div class="col-xl-6 col-xxl-7">
+				<div class="col-xl-7 col-xxl-8">
 					<div class="card flex-fill w-100">
-					<div class="card-header d-flex justify-content-between align-items-center">
-						<h5 class="card-title">Penjualan Keseluruhan</h5>
+					<div class="header-sale d-flex justify-content-between align-items-center">
+						<h5 class="penjualan-keseluruhan">Penjualan Keseluruhan</h5>
 						<div class="dropdown">
 							<select class="month-dropdown" name="month" id="month">
 								<option value="Agustus">Agustus</option>
@@ -28,6 +28,12 @@
 							</select>
 						</div>
 					</div>
+					<div class="title-sale d-flex  align-items-center">
+						<h3 class="mt-1 mb-3">Rp. 6.680.000</h3>
+						<div class="mt-1 mb-3 ms-3">
+							<span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i>13.02%</span>
+						</div>
+					</div>
 						<div class="card-body py-3">
 							<div class="chart chart-sm">
 								<canvas id="chartjs-dashboard-line"></canvas>
@@ -36,8 +42,8 @@
 					</div>
 				</div>
 				
-		{{-- Row Kanan --}}
-				<div class="col-xl-6 col-xxl-5 d-flex">
+				{{-- Row Kanan --}}
+				<div class="col-xl-5 col-xxl-4 d-flex">
 					<div class="w-100">
 						<div class="row">
 							<div class="col-sm-6">
@@ -116,16 +122,15 @@
 									</div>
 								</div>
 							</div>
-
 						</div>
 					</div>
 				</div>
+			</div>
 
-
-<!--Row kedua-->
+			<!--Row kedua-->
 			<div class="row">
 				<!-- Kolom kiri -->
-				<div class="col-xl-6 col-xxl-7">
+				<div class="col-xl-7 col-xxl-8">
 					<div class="card flex-fill w-100">
 						<div class="card-header">
 							<h5 class="card-title mb-0">Monthly Sales</h5>
@@ -139,7 +144,7 @@
 				</div>
 
 				<!-- Kolom kanan -->
-				<div class="col-xl-5 col-xxl-5 d-flex flex-column">
+				<div class="col-xl-5 col-xxl-4 d-flex flex-column">
 					<div class="card mb-3 w-100">
 						<div class="card-header">
 							<h5 class="data-marketplace">Data Marketplace</h5>
@@ -254,12 +259,12 @@
 <!-- Row ketiga --> 
 			<div class="row">
 				<!-- Kolom Kiri (dikosongkan) -->
-				<div class="col-xl-6 col-xxl-7 d-flex">
+				<div class="col-xl-7 col-xxl-8 d-flex">
 				<!-- Kolom ini dikosongkan, tapi tetap ada untuk mempertahankan struktur grid -->
 				</div>
 
 				<!-- Kolom Kanan untuk tabel Data Toko Reseller -->
-				<div class="col-xl-6 col-xxl-5 d-flex">
+				<div class="col-xl-5 col-xxl-4 d-flex">
 				<div class="card w-100">
 					<div class="card-header">
 						<h5 class="data-reseller">Data Toko Reseller</h5>
