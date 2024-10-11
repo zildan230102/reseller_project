@@ -57,6 +57,6 @@ class Login extends Component
         $rateLimiter->clear($throttleKey);
 
         // Redirect to the intended page after successful login
-        return redirect()->intended('/home');
+        return redirect()->intended('/dashboard');
     }
 }
