@@ -119,7 +119,7 @@
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
 			// Bar chart
-			new Chart(document.getElementById("chartjs-dashboard-bar"), {
+			const chart = new Chart(document.getElementById("chartjs-dashboard-bar"), {
 				type: "bar",
 				data: {
 					labels: ["Lazada", "Shopee", "Tokopedia", "OLX", "Web Deepublish", "Bukalapak"],
@@ -158,6 +158,59 @@
 					}
 				}
 			});
+
+			// Add event listeners to buttons and dropdown
+			document.getElementById("marketplace-btn").addEventListener("click", function() {
+				updateChart("marketplace");
+			});
+
+			document.getElementById("toko-btn").addEventListener("click", function() {
+				updateChart("toko");
+			});
+
+			document.getElementById("buku-btn").addEventListener("click", function() {
+				updateChart("buku");
+			});
+
+			// Get the dropdown menu items
+			const dropdownItems = document.querySelectorAll('.dropdown-item');
+
+			// Add event Listeners to each dropdown item
+			dropdownItems.forEach((item) => {
+				item.addEventListener('click', (event) => {
+					const selectedMonth = event.target.textContent;
+				});
+			});
+
+			function updateChart(type) {
+				switch (type) {
+					case "marketplace":
+						chart.data.labels = ["Lazada", "Shopee", "Tokopedia", "OLX", "Web Deepublish", "Bukalapak"];
+						chart.data.datasets[0].data = [10, 50, 15, 7, 25, 8];
+						break;
+					case "toko":
+						chart.data.labels = ["Toko 1", "Toko 2", "Toko 3", "Toko 4", "Toko 5", "Toko 6"];
+						chart.data.datasets[0].data = [20, 30, 40, 50, 60, 70];
+						break;
+					case "buku":
+						chart.data.labels = ["Buku 1", "Buku 2", "Buku 3", "Buku 4", "Buku 5", "Buku 6"];
+						chart.data.datasets[0].data = [5, 10, 15, 20, 25, 30];
+						break;
+						case "Januari":
+						chart.data.labels = ["Lazada", "Shopee", "Tokopedia", "OLX", "Web Deepublish", "Bukalapak"];
+						chart.data.datasets[0].data = [10, 50, 15, 7, 25, 8];
+						break;
+					case "Februari":
+						chart.data.labels = ["Toko 1", "Toko 2", "Toko 3", "Toko 4", "Toko 5", "Toko 6"];
+						chart.data.datasets[0].data = [20, 30, 40, 50, 60, 70];
+						break;
+					// Add more cases for each month
+					default:
+						console.error(`Unknown month: ${type}`);
+						break;
+				}
+				chart.update();
+			}
 		});
 	</script>
 	
