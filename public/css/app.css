@@ -118,10 +118,14 @@
   margin-bottom: 20px;
 }
 
+
 .card-container {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+body {
+    font-family: 'Abhaya Libre';
 }
 
 .card-total {
@@ -280,6 +284,21 @@
   overflow-x: auto;
 }
 
+/* Penjualan Keseluruhan */
+.penjualan-keseluruhan {
+  color: #606060;
+  font-weight: lighter;
+  font-size: 14px;
+}
+.header-sale {
+  margin: 30px 16px 0 28px;
+}
+.title-sale {
+  margin-left: 28px ;
+}
+.title-sale h3 {
+  font-weight: bold;
+}
 /* Data Total */
 /* .card-total {
     background-color: white;
@@ -302,8 +321,8 @@
 }
   
 .stat svg {
-  fill: #F58635; 
-}
+    fill: #F58635; 
+  }
 
 .in-stock { background-color: #28a745; }
 .out-of-stock { background-color: #dc3545; }
