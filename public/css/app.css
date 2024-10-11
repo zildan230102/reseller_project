@@ -1,3 +1,6 @@
+body {
+  font-family: Abhaya Libre;
+}
 
 .button-container {
   display: flex;
@@ -38,30 +41,29 @@
 }
 
 .month-dropdown {
-    padding: 10px 15px; /* Padding internal */
-    color: #ff8c42; /* Warna teks */
-    border: 1px solid #ff8c42; /* Warna border */
-    border-radius: 5px; /* Melengkungkan sudut border */
-    background-color: #ffffff; /* Background putih */
-    transition: border-color 0.3s ease; /* Animasi perubahan border */
+    padding: 10px 15px; 
+    color: #ff8c42; 
+    border: 1px solid #ff8c42; 
+    border-radius: 5px; 
+    background-color: #ffffff; 
+    transition: border-color 0.3s ease; 
 }
 
 .month-dropdown:focus {
-    border-color: #ff7b29; /* Border lebih gelap saat fokus */
-    box-shadow: 0 0 5px rgba(255, 148, 82, 0.5); /* Efek shadow */
-    outline: none; /* Menghilangkan outline default */
+    border-color: #ff7b29; 
+    box-shadow: 0 0 5px rgba(255, 148, 82, 0.5);
+    outline: none;
 }
   
-  /* Kelompokkan button di kiri */
 .button-group {
     display: flex;
 }
   
 .button-group button {
-    margin-right: 10px; /* Atur jarak antar button */
+    margin-right: 10px; 
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {background-color: #f1f1f1;}
 
 .dropdown:hover .dropdown-content {display: block;}
 
@@ -115,43 +117,134 @@
     }
   }
 
-
-body {
-    font-family: Abhaya Libre;
+/* CSS for overall layout */
+/* .row {
+  margin-bottom: 20px;
 }
 
-/* Kontainer untuk keseluruhan kartu */
+.card-container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-total {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.chart-sm {
+  height: 250px;
+}
+
+.card-total {
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: all 0.3s;
+  border: none;
+}
+
+.card-total h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+}
+
+.card-total .stat {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.card-total .text-success, .card-total .text-danger {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.card-total:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.align-items-center {
+  justify-content: center;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.flex-fill {
+  flex: 1 1 auto;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+@media (max-width: 1200px) {
+  .col-xl-6, .col-xxl-7 {
+      max-width: 100%;
+      flex: 0 0 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .col-sm-6 {
+      max-width: 100%;
+      flex: 0 0 100%;
+  }
+}
+
+.card-total:hover {
+  transform: translateY(-5px);
+} */
+
+
 .card-total {
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px; /* Jarak antar kartu */
+  margin-bottom: 20px;
   padding: 20px;
   transition: transform 0.2s ease-in-out;
 }
 
-/* Efek hover pada kartu */
-.card-total:hover {
-  transform: translateY(-5px); /* Memberikan efek hover untuk interaksi */
-
 .card-header {
-    padding: 16px 16px 0 16px;
-    margin: 16px 16px 0 16px;
-    
-}
-.card-title {
-    margin: 0;
-    color: #333;
-    font-size: 18px;
+  padding: 16px 16px 0 16px;
+  margin: 16px 16px 0 16px; 
 }
 
-/* Pengaturan untuk isi di dalam card */
+.card-title {
+  margin: 0;
+  color: #333;
+  font-size: 18px;
+}
+
 .card-body {
   padding: 0;
-  text-align: center;
+  text-align: left;
 }
 
-/* Styling untuk header kartu (judul) */
 .card-title {
   margin-top: 10px;
   font-size: 16px;
@@ -159,7 +252,6 @@ body {
   color: #333;
 }
 
-/* Styling untuk angka besar (Total atau Konversi) */
 .card-body h1 {
   font-size: 20px;
   margin: 20px 0 10px;
@@ -177,7 +269,7 @@ body {
 /* Responsif: Mengatur agar di layar kecil tampil satu kolom */
 @media (max-width: 768px) {
   .col-sm-6 {
-      width: 100%;
+    width: 100%;
   }
 }
 
@@ -195,8 +287,8 @@ body {
 
 .col-auto {
   padding-right: 10px; /* Memberi jarak kecil antara ikon dan teks */
-    padding: 16px;
-    overflow-x: auto;
+  padding: 16px;
+  overflow-x: auto;
 }
 
 /* Data Total */
@@ -206,7 +298,6 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     overflow: hidden;
     max-width: 100%;
-
     margin: 10px;
 } */
 
@@ -216,15 +307,17 @@ body {
 } */
 
 .stat {
-    background-color: #E8E8E8; 
-    border-radius: 8px;
-    padding: 10px;
+  background-color: #E8E8E8; 
+  border-radius: 8px;
+  padding: 10px;
 }
   
-  .stat svg {
-    fill: #F58635; 
-  }
+.stat svg {
+  fill: #F58635; 
+}
 
+.in-stock { background-color: #28a745; }
+.out-of-stock { background-color: #dc3545; }
 
 /* Data Toko Reseller & Data Penjualan Buku*/
 .data-reseller, .data-penjualan, .data-marketplace {
@@ -241,6 +334,7 @@ body {
     border-bottom: 1px solid #EFEFEF;
     text-align: left;
 }
+
 .name-column, .status-dot {
     font-weight: bold;
     color: black ;
@@ -248,11 +342,13 @@ body {
     display: flex;
     align-items: center;
 }
+
 .name-column + td, .name-column + td + td {
   font-weight: normal;
   color: black;
   font-size: 14px;
 }
+
 .status-dot {
     display: inline-block;
     width: 10px;
@@ -260,38 +356,72 @@ body {
     border-radius: 50%;
     margin-right: 5px;
 }
+
 .tr td.deactive {
     color: grey;
 }
+
 tr.deactive {
     opacity:0.6
 }
-.in-stock { background-color: #28a745; }
-.out-of-stock { background-color: #dc3545; }
 
 /* Data Marketplace */
+.card-body {
+  margin-bottom: 20px;
+}
+
+.custom-table tbody tr {
+  text-align: left;
+  padding-left: 0px;
+}
+
+.custom-table tbody tr td {
+  padding-top: 5px; 
+  padding-bottom: 5px; 
+}
+
+.custom-table tbody tr td:first-child {
+  padding-left: 30px; 
+}
+
+.custom-table tbody tr td:last-child {
+  padding-right: 0; 
+}
+
 .col-kiri {
-    width: 40%;
+  width: 40%; 
+  margin-right: 10px; 
 }
+
 .col-kanan {
-    width: 60%;
+  width: 50%; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-start; 
+  align-items: center; 
+  padding: 0; 
 }
+
+.performa-header {
+  margin-top: -20px; 
+  padding: 0px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 .performa-marketplace {
     font-family: Abhaya Libre ExtraBold;
-    font-size: 14px;
-    font-weight: 800;
+    font-size: 12px;
+    font-weight: bold;
     text-align: center;
 }
-.performa-header {
-    padding: 16px;
-    
-}
+
 .chart-container {
     height: 150px;
 }
 
 #chartjs-dashboard-pie {
-    width: 100;
+    width: 100%;
     height: auto;
 }
 
@@ -300,15 +430,24 @@ tr.deactive {
     padding-left: 0;
     margin: 0;
     font-size: 0.75rem;
+    width: 100%;
 }
+
 .legend-list li {
     display: flex;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
 }
+
 .legend-list li span {
+    text-align: left; 
     margin-right: 5px;
+    display: inline-block;
+    width: 70%;
 }
+
 .legend-list li::before {
     content: '';
     display: block;
@@ -317,6 +456,7 @@ tr.deactive {
     margin-right: 10px;
     border-radius: 50%;
 }
+
 .legend-shopee::before {
     background-color: #F1582E;
 }
@@ -335,3 +475,30 @@ tr.deactive {
 .legend-olx::before {
     background-color: #3A77FF;
 }
+
+/* Data Marketplace Responsif */
+@media (max-width: 768px) {
+  .col-kanan {
+      flex-direction: column; /* Menjaga layout kolom */
+      align-items: flex-start; /* Rata kiri untuk perangkat kecil */
+  }
+
+  .chart-container {
+      width: 100%; /* Membuat chart mengisi penuh */
+  }
+
+  .legend-list {
+      width: 100%; /* Lebar penuh untuk legend */
+  }
+
+  .performa-marketplace {
+      font-size: 18px; /* Ukuran font sedikit lebih kecil */
+  }
+
+  .legend-list li {
+      flex-direction: row; /* Tetap dalam baris */
+      justify-content: space-between; /* Mengatur jarak antara nama dan nilai */
+  }
+}
+
+/* Responsif untuk Tablet dan Layar Lebar */

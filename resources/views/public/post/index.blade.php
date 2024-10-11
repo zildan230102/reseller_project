@@ -28,10 +28,9 @@
 									</select>
 								</div>
 							</div>
-								<div class="card-body py-3">
-									<div class="chart chart-sm">
-										<canvas id="chartjs-dashboard-line"></canvas>
-									</div>
+							<div class="card-body py-3">
+								<div class="chart chart-sm">
+									<canvas id="chartjs-dashboard-line"></canvas>
 								</div>
 							</div>
 						</div>
@@ -39,7 +38,7 @@
 				</div>
 				
 		{{-- Row Kanan --}}
-				<div class="col-xl-6 col-xxl-5 d-flex">
+		<div class="col-xl-6 col-xxl-5 d-flex">
 					<div class="w-100">
 						<div class="row">
 							<div class="col-sm-6">
@@ -56,7 +55,6 @@
 												</div>
 												<h5 class="card-title">Total Penjualan</h5>
 											</div>
-											
 										</div>
 										<h1 class="mt-1 mb-3">Rp 15.500.000</h1>
 										<div class="mb-0">
@@ -112,18 +110,15 @@
 										<div class="mb-0">
 											<span class="text-danger"><i class="fa-solid fa-arrow-trend-down"></i> 0.32%</span>
 											<span class="text-muted">Dari Bulan Agustus</span>
-											<span class="text-muted">Dari bulan Agustus</span>
 										</div>
 									</div>
 								</div>
 							</div>
-
 						</div>
 					</div>
 				</div>
 			
-
-<!--Row kedua-->
+			<!--Row kedua-->
 			<div class="row">
 				<!-- Kolom kiri -->
 				<div class="col-xl-6 col-xxl-7">
@@ -150,36 +145,37 @@
 								<!-- Tabel Data --> 
 								<div class="col-kiri mb-3 mb-sm-0">
 									<div class="table-responsive">
-										<table class="table table-borderless mb-0">
+										<table class="table table-borderless mb-0 custom-table">
 											<tbody>
 												<tr>
-													<td>Shopee</td>
+													<td class="name">Shopee</td>
 													<td class="text-end">48%</td>
 												</tr>
 												<tr>
-													<td>Web Deepublish</td>
+													<td class="name">Web Deepublish</td>
 													<td class="text-end">20%</td>
 												</tr>
 												<tr>
-													<td>Tokopedia</td>
+													<td class="name">Tokopedia</td>
 													<td class="text-end">12%</td>
 												</tr>
 												<tr>
-													<td>Lazada</td>
+													<td class="name">Lazada</td>
 													<td class="text-end">9%</td>
 												</tr>
 												<tr>
-													<td>Bukalapak</td>
+													<td class="name">Bukalapak</td>
 													<td class="text-end">6%</td>
 												</tr>
 												<tr>
-													<td>OLX</td>
+													<td class="name">OLX</td>
 													<td class="text-end">5%</td>
 												</tr>
 											</tbody>
 										</table>
 									</div>
 								</div>
+
 								<!-- Chart Pie dan Legend Data dalam satu kolom -->
 								<div class="col-kanan">
 									<div class="row">
