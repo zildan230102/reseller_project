@@ -22,5 +22,6 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/register', Register::class)->name('register');
 });
 
+Route::get('/profil', [ProfilController::class, 'index'])->middleware('auth')->name('profil');
 
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
