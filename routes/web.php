@@ -16,10 +16,6 @@ Route::get('/dashboard', function () {
     return view('public.post.index');
 })->middleware('auth');
 
-
-
-Route::get('profil', [ProfilController::class, 'data'])->name('public.post.profil');
-
 Auth::routes(['login' => false,'register' => false]);
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', Login::class)->name('login');
