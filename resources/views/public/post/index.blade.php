@@ -4,7 +4,7 @@
 
     <main class="content">
 		<div class="container-fluid p-0">
-			<h1 class="h3 mb-3">Selamat Datang, <strong>Jenny Wilson!</strong></h1>
+			<h1 class="h3 mb-3">Selamat Datang, <strong>{{ Auth::user()->name }}!</strong></h1>
 
 
 {{-- Row Pertama --}}

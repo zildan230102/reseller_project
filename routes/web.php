@@ -5,14 +5,17 @@ use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\LogoutController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
+
 
 Route::get('/dashboard', function () { 
     return view('public.post.index');
-});
+})->middleware('auth');
+
 
 
 Route::get('profil', [ProfilController::class, 'data'])->name('public.post.profil');
@@ -24,5 +27,4 @@ Route::middleware(['guest'])->group(function () {
 });
 
 
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
