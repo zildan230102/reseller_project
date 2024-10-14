@@ -66,13 +66,13 @@
 /* Responsif untuk tablet */
 @media (max-width: 768px) {
     .button-container {
-      flex-direction: column; /* Atur elemen button-container menjadi kolom */
-      align-items: flex-start; /* Rata kiri semua elemen */
+      flex-direction: column; 
+      align-items: flex-start; 
     }
   
     .btn-group {
-      font-size: 12px; /* Kurangi ukuran font */
-      padding: 8px 16px; /* Sesuaikan padding */
+      font-size: 12px; 
+      padding: 8px 16px; 
     }
   
     .dropdown select {
@@ -224,32 +224,30 @@ body {
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  padding: 20px;
+  margin-bottom: 25px;
+  padding: 5px;
   transition: transform 0.2s ease-in-out;
+  width: 100%;
 }
 
 .card-header {
-  padding: 16px 16px 0 16px;
-  margin: 16px 16px 0 16px; 
+  padding: 20px 0px 10px 30px;
+  margin: 0px 0 0 0; 
+  display: flex;
 }
 
 .card-title {
   margin: 0;
   color: #333;
-  font-size: 18px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
 }
 
 .card-body {
   padding: 0;
   text-align: left;
-}
-
-.card-title {
-  margin-top: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #333;
+  margin-left: 20px;
 }
 
 .card-body h1 {
@@ -257,13 +255,20 @@ body {
   margin: 20px 0 10px;
 }
 
+
 /* Warna pada persentase kenaikan dan penurunan */
 .text-success {
-  color: #28a745; /* Warna hijau untuk kenaikan */
+  color: #28a745;
+  font-size: smaller;
 }
 
 .text-danger {
-  color: #dc3545; /* Warna merah untuk penurunan */
+  color: #dc3545;
+  font-size: smaller;
+}
+
+.text-muted {
+  font-size: smaller;
 }
 
 /* Responsif: Mengatur agar di layar kecil tampil satu kolom */
@@ -273,21 +278,9 @@ body {
   }
 }
 
-/* CSS untuk ikon dalam setiap kartu */
-.stat svg {
-  width: 36px;
-  height: 36px;
-  fill: #f89406; /* Warna ikon */
-}
-
-/* Align item dalam kolom, khusus untuk ikon dan judul */
-.d-flex {
-  align-items: center; /* Agar item berada di tengah vertikal */
-}
-
 .col-auto {
-  padding-right: 10px; /* Memberi jarak kecil antara ikon dan teks */
-  padding: 16px;
+  padding-right: 10px; 
+  padding: 20px 16px 16px 0px;
   overflow-x: auto;
 }
 
@@ -297,15 +290,19 @@ body {
   font-weight: lighter;
   font-size: 14px;
 }
+
 .header-sale {
   margin: 30px 16px 0 28px;
 }
+
 .title-sale {
   margin-left: 28px ;
 }
+
 .title-sale h3 {
   font-weight: bold;
 }
+
 /* Data Total */
 /* .card-total {
     background-color: white;
@@ -348,6 +345,12 @@ body {
     font-weight: 400;
     border-bottom: 1px solid #EFEFEF;
     text-align: left;
+    margin: 0px;
+    padding-top: 0px;
+}
+
+th.judul-th {
+  padding: 0px 0px 5px 10px; 
 }
 
 .name-column, .status-dot {
@@ -396,7 +399,7 @@ tr.deactive {
 }
 
 .custom-table tbody tr td:first-child {
-  padding-left: 30px; 
+  padding-left: 0px; 
 }
 
 .custom-table tbody tr td:last-child {
@@ -406,6 +409,8 @@ tr.deactive {
 .col-kiri {
   width: 40%; 
   margin-right: 10px; 
+  margin-left: 10px;
+  font-size: small;
 }
 
 .col-kanan {
@@ -444,7 +449,7 @@ tr.deactive {
     list-style: none;
     padding-left: 0;
     margin: 0;
-    font-size: 0.75rem;
+    font-size: 0.70rem;
     width: 100%;
 }
 
@@ -458,7 +463,7 @@ tr.deactive {
 
 .legend-list li span {
     text-align: left; 
-    margin-right: 5px;
+    margin-right: 0px;
     display: inline-block;
     width: 70%;
 }
@@ -468,7 +473,7 @@ tr.deactive {
     display: block;
     width: 10px;
     height: 10px;
-    margin-right: 10px;
+    margin-right: 3px;
     border-radius: 50%;
 }
 
