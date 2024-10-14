@@ -8,13 +8,17 @@
 
 .btn-group {
   color:#ff9800;
+  background-color: transparent;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 14px; /* Ukuran font awal */
+  transition: background-color 0.3s ease, color 0.3s ease;;
 }
-
+.btn-group .btn:hover {
+  color: #ff9800;
+}
 .active {
   background-color: #ff9800; /* Warna oranye */
   color: #fff;
@@ -218,7 +222,10 @@ body {
 .card-total:hover {
   transform: translateY(-5px);
 } */
-
+.title-chart-bar {
+  text-align: center;
+  padding: 16px 0 16px 0;
+}
 
 .card-total {
   background-color: white;

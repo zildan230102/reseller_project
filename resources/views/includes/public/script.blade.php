@@ -1,6 +1,23 @@
 <script src="{{ ('style/static/js/app.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+<script>
+	// Seleksi semua tombol
+	const buttons = document.querySelectorAll('.btn-group .btn');
+  
+	// Tambahkan event listerner untuk setiap tombol
+	buttons.forEach(button => {
+	  button.addEventListener('click', function() {
+		console.log("Tombol diklik: ", this.textContent);
+		// Hapus kelas 'active' dari semua tombol
+		buttons.forEach(btn => btn.classList.remove('active'));
+  
+		// Tambahkan kelas 'active' hanya ke tombol yang diklik
+		this.classList.add('active');
+	  });
+	});
+  </script>
+  
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
 			var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");
@@ -178,7 +195,8 @@
 			// Add event Listeners to each dropdown item
 			dropdownItems.forEach((item) => {
 				item.addEventListener('click', (event) => {
-					const selectedMonth = event.target.textContent;
+					const selectedMonth = event.target.dataset.month;
+					console.log('Selected month: ${selectedMonth}');
 				});
 			});
 
@@ -195,14 +213,6 @@
 					case "buku":
 						chart.data.labels = ["Buku 1", "Buku 2", "Buku 3", "Buku 4", "Buku 5", "Buku 6"];
 						chart.data.datasets[0].data = [5, 10, 15, 20, 25, 30];
-						break;
-						case "Januari":
-						chart.data.labels = ["Lazada", "Shopee", "Tokopedia", "OLX", "Web Deepublish", "Bukalapak"];
-						chart.data.datasets[0].data = [10, 50, 15, 7, 25, 8];
-						break;
-					case "Februari":
-						chart.data.labels = ["Toko 1", "Toko 2", "Toko 3", "Toko 4", "Toko 5", "Toko 6"];
-						chart.data.datasets[0].data = [20, 30, 40, 50, 60, 70];
 						break;
 					// Add more cases for each month
 					default:
