@@ -4,7 +4,7 @@
 
     <main class="content">
 		<div class="container-fluid p-0">
-			<h1 class="h3 mb-3">Selamat Datang, <strong>{{ Auth::user()->name }}!</strong></h1>
+			<h1 class="h3 mb-3">Selamat Datang, <strong>Jenny Wilson!</strong></h1>
 
 
 {{-- Row Pertama --}}
@@ -18,13 +18,21 @@
 					<div class="header-sale d-flex justify-content-between align-items-center">
 						<h5 class="penjualan-keseluruhan">Penjualan Keseluruhan</h5>
 						<div class="dropdown">
-							<select class="month-dropdown" name="month" id="month">
-								<option value="Agustus">Agustus</option>
-								<option value="September" selected>September</option>
-								<option value="Oktober">Oktober</option>
-								<option value="November">November</option>
-								<option value="Desember">Desember</option>
-							</select>
+							<button class="month-dropdown">September <span class="arrow">&#9660;</span></button>
+							<div class="dropdown-content">
+							  <a href="#">January</a>
+							  <a href="#">February</a>
+							  <a href="#">March</a>
+							  <a href="#">April</a>
+							  <a href="#">May</a>
+							  <a href="#">June</a>
+							  <a href="#">July</a>
+							  <a href="#">August</a>
+							  <a href="#">September</a>
+							  <a href="#">October</a>
+							  <a href="#">November</a>
+							  <a href="#">December</a>
+							</div>
 						</div>
 					</div>
 					<div class="title-sale d-flex  align-items-center">
@@ -129,7 +137,7 @@
 				<!-- Kolom kiri -->
 				<div class="col-xl-7 col-xxl-8">
 					<div class="card flex-fill w-100">
-						<div class="card-header">
+						<div class="bar-header">
 							<div class="d-flex justify-content-between align-items-center">
 								<div class="btn-group" role="group" aria-label="Basic example">
 									<button type="button" class="btn active" id="marketplace-btn">Marketplace</button>
@@ -137,17 +145,25 @@
 									<button type="button" class="btn" id="buku-btn">Buku</button>
 								</div>
 								<div class="dropdown">
-									<select class="month-dropdown" name="month" id="month">
-										<option value="Agustus">Agustus</option>
-										<option value="September" selected>September</option>
-										<option value="Oktober">Oktober</option>
-										<option value="November">November</option>
-										<option value="Desember">Desember</option>
-									</select>
+									<button class="month-dropdown">September <span class="arrow">&#9660;</span></button>
+									<div class="dropdown-content">
+									  <a href="#">January</a>
+									  <a href="#">February</a>
+									  <a href="#">March</a>
+									  <a href="#">April</a>
+									  <a href="#">May</a>
+									  <a href="#">June</a>
+									  <a href="#">July</a>
+									  <a href="#">August</a>
+									  <a href="#">September</a>
+									  <a href="#">October</a>
+									  <a href="#">November</a>
+									  <a href="#">December</a>
+									</div>
 								</div>
-							</div>	
-							<h5 class="title-chart-bar text-center mb-3">Marketplace Dengan Penjualan Terbanyak Bulan Ini</h5>
+							</div>
 						</div>
+						<h5 class="title-chart-bar text-center mb-3">Marketplace Dengan Penjualan Terbanyak Bulan Ini</h5>
 						<div class="card-body d-flex w-100">
 							<div class="align-self-center chart chart-lg">
 								<canvas id="chartjs-dashboard-bar"></canvas>
