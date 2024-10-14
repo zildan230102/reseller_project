@@ -132,21 +132,21 @@
 						<div class="card-header">
 							<div class="d-flex justify-content-between align-items-center">
 								<div class="btn-group" role="group" aria-label="Basic example">
-									<button type="button" class="btn btn-secondary active" id="marketplace-btn">Marketplace</button>
-									<button type="button" class="btn btn-secondary" id="toko-btn">Toko</button>
-									<button type="button" class="btn btn-secondary" id="buku-btn">Buku</button>
+									<button type="button" class="btn active" id="marketplace-btn">Marketplace</button>
+									<button type="button" class="btn" id="toko-btn">Toko</button>
+									<button type="button" class="btn" id="buku-btn">Buku</button>
 								</div>
-							
 								<div class="dropdown">
-									<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bulan</button>
-									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-										<a class="dropdown-item" href="#">Januari</a>
-										<a class="dropdown-item" href="#">Februari</a>
-										<a class="dropdown-item" href="#">Maret</a>
-									</div>
+									<select class="month-dropdown" name="month" id="month">
+										<option value="Agustus">Agustus</option>
+										<option value="September" selected>September</option>
+										<option value="Oktober">Oktober</option>
+										<option value="November">November</option>
+										<option value="Desember">Desember</option>
+									</select>
 								</div>
 							</div>	
-							<h5 class="card-title d-flex justify-content-between align-item-center">Marketplace Dengan Penjualan Terbanyak Bulan Ini</h5>
+							<h5 class="title-chart-bar text-center mb-3">Marketplace Dengan Penjualan Terbanyak Bulan Ini</h5>
 						</div>
 						<div class="card-body d-flex w-100">
 							<div class="align-self-center chart chart-lg">
