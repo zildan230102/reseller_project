@@ -139,7 +139,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="{{ url('profil') }}"><i class="align-middle me-1"
+                                <a class="dropdown-item" href="{{ url('profile') }}"><i class="align-middle me-1"
                                         data-feather="user"></i>
                                     Profile</a>
 
