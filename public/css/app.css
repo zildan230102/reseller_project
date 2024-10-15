@@ -1,45 +1,77 @@
-.button-container {
+.card-header {
+  padding: 20px 0px 10px 30px;
+  margin: 0px 0 0 0; 
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: auto;
-  padding: 10px;
+}
+.card-title {
+  margin: 0;
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+.card-body {
+  padding: 0;
+  text-align: left;
+}
+.card {
+  overflow: hidden;
+  border-radius: 8px;
+}
+.chart { 
+  padding: 0 20px;
 }
 
+/* Bar Chart */
+.bar-header .d-flex {
+  display: flex;
+  padding: 30px 30px 10px 30px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+#marketplace-btn {
+  border-radius: 8px;
+}
+#toko-btn {
+  border-radius: 8px;
+}
+#buku-btn {
+  border-radius: 8px;
+}
 .btn-group {
   color:#ff9800;
   background-color: transparent;
   border: none;
-  padding: 10px 20px;
-  border-radius: 10px;
+  gap: 10px;
   cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease, color 0.3s ease;;
+
+  font-size: 14px; /* Ukuran font awal */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  
 }
 .btn-group .btn:hover {
   color: #ff9800;
 }
-.active {
+.btn-group .active {
   background-color: #ff9800; /* Warna oranye */
   color: #fff;
+  border-radius: 8px;
+}
+.title-chart-bar {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-top: 16px;
 }
 
+/* Dropdown container */
 .dropdown {
   position: relative;
   display: inline-block;
-  margin-left: auto;
-  justify-content: center;
 }
 
-.dropdown select {
-    background-color: #ffffff;
-    border: 0px solid #ff8c42;
-    border-color: #ff8c42;
-    color: #ff8c42;
-    padding: 0px;
-    cursor: pointer;
-}
-
+/* Dropdown button */
 .month-dropdown {
     padding: 10px 15px; 
     color: #ff8c42; 
@@ -120,8 +152,56 @@
 .title-chart-bar {
   text-align: center;
   padding: 16px 0 16px 0;
+  background-color: white;
+  color: orange;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  padding-right: 30px;
 }
 
+/* Arrow styling */
+.arrow {
+  color: orange;
+  font-size: 16px;
+  padding-left: 8px;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 8px 10px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show the dropdown on hover */
+.bar-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change button color on hover */
+.bar-dropdown:hover .bar-month-dropdown {
+  background-color: #f9f9f9;
+}
+
+/* Row Pertama Kanan */
 .card-total {
   background-color: white;
   border-radius: 8px;
@@ -131,32 +211,11 @@
   transition: transform 0.2s ease-in-out;
   width: 100%;
 }
-
-.card-header {
-  padding: 20px 0px 10px 30px;
-  margin: 0px 0 0 0; 
-  display: flex;
+.col-auto {
+  padding-right: 10px; 
+  padding: 20px 16px 16px 0px;
+  overflow-x: auto;
 }
-
-.card-title {
-  margin: 0;
-  color: #333;
-  font-size: 14px;
-  font-weight: bold;
-  color: #333;
-}
-
-.card-body {
-  padding: 0;
-  text-align: left;
-  margin-left: 20px;
-}
-
-.card-body h1 {
-  font-size: 20px;
-  margin: 20px 0 10px;
-}
-
 
 /* Warna pada persentase kenaikan dan penurunan */
 .text-success {
@@ -171,19 +230,6 @@
 
 .text-muted {
   font-size: smaller;
-}
-
-/* Responsif: Mengatur agar di layar kecil tampil satu kolom */
-@media (max-width: 768px) {
-  .col-sm-6 {
-    width: 100%;
-  }
-}
-
-.col-auto {
-  padding-right: 10px; 
-  padding: 20px 16px 16px 0px;
-  overflow-x: auto;
 }
 
 /* Penjualan Keseluruhan */
@@ -275,6 +321,7 @@ tr.deactive {
 /* Data Marketplace */
 .card-body {
   margin-bottom: 20px;
+  padding: 1rem;
 }
 
 .custom-table tbody tr {
@@ -323,7 +370,7 @@ tr.deactive {
     font-weight: bold;
     text-align: center;
 }
-
+/* Chart Pie */
 .chart-container {
     height: 150px;
 }
@@ -410,3 +457,58 @@ tr.deactive {
 }
 
 /* Responsif untuk Tablet dan Layar Lebar */
+/* Responsif untuk tablet */
+@media (max-width: 768px) {
+    .button-container {
+      flex-direction: column; 
+      align-items: flex-start; 
+    }
+  
+    .btn-group {
+      font-size: 12px; 
+      padding: 8px 16px; 
+    }
+  
+    .dropdown select {
+      padding: 8px;
+      font-size: 12px; /* Sesuaikan ukuran font */
+    }
+  
+    .month-dropdown {
+      padding: 8px 12px; /* Kurangi padding */
+    }
+  }
+  
+  /* Responsif untuk smartphone */
+  @media (max-width: 480px) {
+    .button-container {
+      flex-direction: column;
+      align-items: stretch; /* Penuhi lebar layar */
+    }
+  
+    .btn-group {
+      font-size: 10px; /* Sesuaikan ukuran font */
+      padding: 6px 12px; /* Sesuaikan padding */
+      width: 100%; /* Lebar penuh untuk button */
+      text-align: center; /* Rata tengah teks */
+      margin-bottom: 5px; /* Jarak bawah untuk tiap button */
+    }
+  
+    .dropdown select {
+      width: 100%; /* Lebar penuh */
+      font-size: 10px; /* Ukuran font lebih kecil */
+      padding: 6px; /* Sesuaikan padding */
+    }
+  
+    .month-dropdown {
+      padding: 6px 10px; /* Kurangi padding */
+      width: 100%; /* Lebar penuh */
+      text-align: center; /* Teks rata tengah */
+    }
+  }
+/* Responsif: Mengatur agar di layar kecil tampil satu kolom */
+@media (max-width: 768px) {
+  .col-sm-6 {
+    width: 100%;
+  }
+}
