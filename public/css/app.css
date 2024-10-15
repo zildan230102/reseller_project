@@ -13,7 +13,7 @@
   padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
-  font-size: 14px; /* Ukuran font awal */
+  font-size: 14px;
   transition: background-color 0.3s ease, color 0.3s ease;;
 }
 .btn-group .btn:hover {
@@ -81,11 +81,11 @@
   
     .dropdown select {
       padding: 8px;
-      font-size: 12px; /* Sesuaikan ukuran font */
+      font-size: 12px; 
     }
   
     .month-dropdown {
-      padding: 8px 12px; /* Kurangi padding */
+      padding: 8px 12px; /
     }
   }
   
@@ -93,135 +93,30 @@
   @media (max-width: 480px) {
     .button-container {
       flex-direction: column;
-      align-items: stretch; /* Penuhi lebar layar */
+      align-items: stretch;
     }
   
     .btn-group {
-      font-size: 10px; /* Sesuaikan ukuran font */
-      padding: 6px 12px; /* Sesuaikan padding */
-      width: 100%; /* Lebar penuh untuk button */
-      text-align: center; /* Rata tengah teks */
-      margin-bottom: 5px; /* Jarak bawah untuk tiap button */
+      font-size: 10px; 
+      padding: 6px 12px;
+      width: 100%; 
+      text-align: center;
+      margin-bottom: 5px;
     }
   
     .dropdown select {
-      width: 100%; /* Lebar penuh */
-      font-size: 10px; /* Ukuran font lebih kecil */
-      padding: 6px; /* Sesuaikan padding */
+      width: 100%; 
+      font-size: 10px; 
+      padding: 6px; 
     }
   
     .month-dropdown {
-      padding: 6px 10px; /* Kurangi padding */
-      width: 100%; /* Lebar penuh */
-      text-align: center; /* Teks rata tengah */
+      padding: 6px 10px; 
+      width: 100%; 
+      text-align: center; 
     }
   }
 
-/* CSS for overall layout */
-/* .row {
-  margin-bottom: 20px;
-}
-
-
-.card-container {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-
-body {
-    font-family: 'Abhaya Libre';
-}
-
-.card-total {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.card {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.card-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: #333;
-}
-
-.card-body {
-  padding: 20px;
-}
-
-.chart-sm {
-  height: 250px;
-}
-
-.card-total {
-  padding: 20px;
-  margin-bottom: 20px;
-  transition: all 0.3s;
-  border: none;
-}
-
-.card-total h1 {
-  font-size: 32px;
-  font-weight: bold;
-  color: #333;
-}
-
-.card-total .stat {
-  font-size: 36px;
-  margin-bottom: 15px;
-}
-
-.card-total .text-success, .card-total .text-danger {
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.card-total:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.align-items-center {
-  justify-content: center;
-}
-
-.d-flex {
-  display: flex !important;
-}
-
-.flex-column {
-  flex-direction: column !important;
-}
-
-.flex-fill {
-  flex: 1 1 auto;
-}
-
-.w-100 {
-  width: 100% !important;
-}
-
-@media (max-width: 1200px) {
-  .col-xl-6, .col-xxl-7 {
-      max-width: 100%;
-      flex: 0 0 100%;
-  }
-}
-
-@media (max-width: 576px) {
-  .col-sm-6 {
-      max-width: 100%;
-      flex: 0 0 100%;
-  }
-}
-
-.card-total:hover {
-  transform: translateY(-5px);
-} */
 .title-chart-bar {
   text-align: center;
   padding: 16px 0 16px 0;
@@ -310,21 +205,6 @@ body {
   font-weight: bold;
 }
 
-/* Data Total */
-/* .card-total {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    overflow: hidden;
-    max-width: 100%;
-    margin: 10px;
-} */
-
-    /* width: 100%;
-    height: auto;
-    margin: 12px;
-} */
-
 .stat {
   background-color: #E8E8E8; 
   border-radius: 8px;
@@ -346,10 +226,9 @@ body {
 }
 
 .judul-th {
-    font-family: 'Abhaya Libre', serif;
+    font-weight: bold;
     font-size: 14px;
-    color: #606060 !important;
-    font-weight: 400;
+    color: #000000 !important;
     border-bottom: 1px solid #EFEFEF;
     text-align: left;
     margin: 0px;
@@ -360,8 +239,11 @@ th.judul-th {
   padding: 0px 0px 5px 10px; 
 }
 
+.name-column {
+  color: #000000 !important;
+}
+
 .name-column, .status-dot {
-    font-weight: bold;
     color: black ;
     font-size: 14px;
     display: flex;
@@ -369,8 +251,8 @@ th.judul-th {
 }
 
 .name-column + td, .name-column + td + td {
+  color: #000000 !important;
   font-weight: normal;
-  color: black;
   font-size: 14px;
 }
 
@@ -437,7 +319,6 @@ tr.deactive {
 }
 
 .performa-marketplace {
-    font-family: Abhaya Libre ExtraBold;
     font-size: 12px;
     font-weight: bold;
     text-align: center;

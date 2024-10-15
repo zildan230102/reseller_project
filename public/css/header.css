@@ -19,12 +19,12 @@
 }
 
 /* Navigation menu base styles */
-.nav {
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     list-style-type: none;
-    padding: 0;
+    width: 100%;
 }
 
 .nav-item {
@@ -41,8 +41,21 @@
 }
 
 .nav-link:hover {
-    background-color: #f1f1f1;
+    background-color: #f2f2f2;
     border-radius: 5px;
+    border: 1px solid #f57c00; /* Border oranye saat hover */
+}
+
+/* Profile section aligned to the right */
+.navbar-collapse {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Move profile to the right */
+}
+
+.navbar-collapse .navbar-nav {
+    display: flex;
+    align-items: center;
 }
 
 /* Dropdown menu base styles */
@@ -114,4 +127,10 @@
         padding: 10px 15px;
         font-size: 14px;
     }
+
+    .navbar-collapse {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
 }
