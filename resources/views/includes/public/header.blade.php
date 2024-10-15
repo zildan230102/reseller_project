@@ -37,7 +37,7 @@
                                     Toko
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="tokoDropdown">
-                                    <li><a class="dropdown-item" href="#">Informasi Toko</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('toko') }}">Informasi Toko</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
