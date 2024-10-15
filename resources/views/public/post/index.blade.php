@@ -56,7 +56,7 @@
 						<div class="row">
 							<div class="col-sm-6">
 								<div class="card-total">
-									<div class="card-body">
+									<div class="card-right">
 										<div class="row">
 											<div class="col d-flex flex-column align-item-center mt-0">
 												<div class="col-auto">
@@ -66,10 +66,10 @@
 														</svg>
 													</div>
 												</div>
-												<h5 class="card-title">Total Penjualan</h5>
+												<h5 class="title-total">Total Penjualan</h5>
 											</div>
 										</div>
-										<h1 class="mt-1 mb-3">Rp 15.500.000</h1>
+										<h1 class="mt-1 mb-3"><strong>Rp 15.500.000</strong></h1>
 										<div class="mb-0">
 											<span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i>13.02%</span>
 											<span class="text-muted">Dari Bulan Agustus</span>
@@ -80,7 +80,7 @@
 
 							<div class="col-sm-6">
 								<div class="card-total">
-									<div class="card-body">
+									<div class="card-right">
 										<div class="row">
 											<div class="col d-flex flex-column align-item-center mt-0">
 												<div class="col-auto">
@@ -90,10 +90,10 @@
 														</svg>
 													</div>
 												</div>
-												<h5 class="card-title">Total Pendapatan</h5>
+												<h5 class="title-total">Total Pendapatan</h5>
 											</div>
 										</div>
-										<h1 class="mt-1 mb-3">Rp 5.150.000</h1>
+										<h1 class="mt-1 mb-3"><strong>Rp 5.150.000</strong></h1>
 										<div class="mb-0">
 											<span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i> 13.02%</span>
 											<span class="text-muted">Dari Bulan Agustus</span>
@@ -104,7 +104,7 @@
 
 							<div class="col-sm-6">
 								<div class="card-total">
-									<div class="card-body">
+									<div class="card-right">
 										<div class="row">
 											<div class="col d-flex  flex-column align-item-center mt-0">
 												<div class="col-auto">
@@ -116,10 +116,10 @@
 														</svg>
 													</div>
 												</div>
-												<h5 class="card-title">Konversi</h5>
+												<h5 class="title-total">Konversi</h5>
 											</div>
 										</div>
-										<h1 class="mt-1 mb-3">Rp 86.34%</h1>
+										<h1 class="mt-1 mb-3"><strong>Rp 86.34%</strong></h1>
 										<div class="mb-0">
 											<span class="text-danger"><i class="fa-solid fa-arrow-trend-down"></i> 0.32%</span>
 											<span class="text-muted">Dari Bulan Agustus</span>
