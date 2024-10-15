@@ -45,8 +45,10 @@
   border: none;
   gap: 10px;
   cursor: pointer;
+
   font-size: 14px; /* Ukuran font awal */
   transition: background-color 0.3s ease, color 0.3s ease;
+  
 }
 .btn-group .btn:hover {
   color: #ff9800;
@@ -71,6 +73,85 @@
 
 /* Dropdown button */
 .month-dropdown {
+    padding: 10px 15px; 
+    color: #ff8c42; 
+    border: 1px solid #ff8c42; 
+    border-radius: 5px; 
+    background-color: #ffffff; 
+    transition: border-color 0.3s ease; 
+}
+
+.month-dropdown:focus {
+    border-color: #ff7b29; 
+    box-shadow: 0 0 5px rgba(255, 148, 82, 0.5);
+    outline: none;
+}
+  
+.button-group {
+    display: flex;
+}
+  
+.button-group button {
+    margin-right: 10px; 
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Responsif untuk tablet */
+@media (max-width: 768px) {
+    .button-container {
+      flex-direction: column; 
+      align-items: flex-start; 
+    }
+  
+    .btn-group {
+      font-size: 12px; 
+      padding: 8px 16px; 
+    }
+  
+    .dropdown select {
+      padding: 8px;
+      font-size: 12px; 
+    }
+  
+    .month-dropdown {
+      padding: 8px 12px; /
+    }
+  }
+  
+  /* Responsif untuk smartphone */
+  @media (max-width: 480px) {
+    .button-container {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .btn-group {
+      font-size: 10px; 
+      padding: 6px 12px;
+      width: 100%; 
+      text-align: center;
+      margin-bottom: 5px;
+    }
+  
+    .dropdown select {
+      width: 100%; 
+      font-size: 10px; 
+      padding: 6px; 
+    }
+  
+    .month-dropdown {
+      padding: 6px 10px; 
+      width: 100%; 
+      text-align: center; 
+    }
+  }
+
+.title-chart-bar {
+  text-align: center;
+  padding: 16px 0 16px 0;
   background-color: white;
   color: orange;
   font-size: 16px;
@@ -191,10 +272,9 @@
 }
 
 .judul-th {
-    font-family: 'Abhaya Libre', serif;
+    font-weight: bold;
     font-size: 14px;
-    color: #606060 !important;
-    font-weight: 400;
+    color: #000000 !important;
     border-bottom: 1px solid #EFEFEF;
     text-align: left;
     margin: 0px;
@@ -205,8 +285,11 @@ th.judul-th {
   padding: 0px 0px 5px 10px; 
 }
 
+.name-column {
+  color: #000000 !important;
+}
+
 .name-column, .status-dot {
-    font-weight: bold;
     color: black ;
     font-size: 14px;
     display: flex;
@@ -214,8 +297,8 @@ th.judul-th {
 }
 
 .name-column + td, .name-column + td + td {
+  color: #000000 !important;
   font-weight: normal;
-  color: black;
   font-size: 14px;
 }
 
@@ -283,7 +366,6 @@ tr.deactive {
 }
 
 .performa-marketplace {
-    font-family: Abhaya Libre ExtraBold;
     font-size: 12px;
     font-weight: bold;
     text-align: center;
