@@ -129,6 +129,11 @@
                                         <i class="align-middle" data-feather="settings"></i>
                                     </a>
 
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="{{ url('profile') }}"><i class="align-middle me-1"
+                                        data-feather="user"></i>
+                                    Profile</a>
+
                                     <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
                                         data-bs-toggle="dropdown">
                                         <img src="{{ ('style/src/img/avatars/avatar.jpg') }}"
