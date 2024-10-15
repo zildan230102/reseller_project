@@ -17,11 +17,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    list-style-type: none;
     width: 100%;
 }
 
 .nav-item {
+    display: block;
     position: relative;
 }
 
@@ -44,12 +44,13 @@
 .navbar-collapse {
     display: flex;
     align-items: center;
-    margin-left: auto; /* Move profile to the right */
+    margin-left: auto;
 }
 
 .navbar-collapse .navbar-nav {
     display: flex;
     align-items: center;
+    margin-left: auto;
 }
 
 /* Dropdown menu base styles */
@@ -69,10 +70,15 @@
     color: #333;
     padding: 10px 15px;
     text-decoration: none;
-    display: block;
+    display: flex;
+    align-items: center;
     transition: background-color 0.3s ease;
 }
 
+,.dropdown-item i {
+    vertical-align: middle;
+    margin-right: 8px;
+}
 .dropdown-item:hover {
     background-color: #f1f1f1;
 }
@@ -82,8 +88,15 @@
     display: block;
 }
 
-/* Responsive for tablets and mobile */
+
+Responsive for tablets and mobile
 @media (max-width: 768px) {
+    .container {
+        max-width: 700px
+    }
+    .navbar {
+        padding: 10px 15px;
+    }
     .nav {
         flex-direction: column;
         align-items: flex-start;
@@ -112,6 +125,12 @@
 
 /* Further adjustments for smaller devices */
 @media (max-width: 480px) {
+    .container {
+        max-width: 400px;
+    }
+    .navbar {
+        padding: 10px 10px;
+    }
     .nav-link {
         padding: 10px 15px;
         font-size: 14px;
@@ -127,4 +146,16 @@
         align-items: flex-start;
     }
 
+}
+
+
+/* Untuk laptop dengan ukuran layar 1024px */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 900px;
+    }
+
+    .navbar {
+        padding: 10px 20px;
+    }
 }
