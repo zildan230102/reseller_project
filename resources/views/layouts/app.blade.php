@@ -17,6 +17,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @livewireStyles
+    @include('includes.public.style')
 
 </head>
 
@@ -28,6 +29,7 @@
     </div>
 
     @livewireScripts
+    @include('includes.public.script')
 </body>
 
 </html>
