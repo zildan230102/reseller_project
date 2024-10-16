@@ -9,7 +9,8 @@
     <meta name="author" content="AdminKit">
     <meta name="keywords"
         content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
-   
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
     @include('includes.public.style')
 </head>
 
@@ -20,7 +21,7 @@
     @yield('content')
 
     <footer>
-    @include('includes.public.footer')
+        @include('includes.public.footer')
     </footer>
 
     @include('includes.public.script')

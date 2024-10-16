@@ -13,13 +13,12 @@
 <body>
     <header>
         <div class="header" id="header">
-            <nav class="navbar navbar-expand navbar-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <img src="{{ ('style/src/img/icons/d2.png') }}" class="img-fluid" alt="Deepublish Logo">
                 <div class="b-example-divider"></div>
 
                 <div class="container">
                     <header class="d-flex justify-content-center py-3">
-
                         <ul class="nav nav-pills">
                             <li class="nav-item">
                                 <a href="{{url('/dashboard')}}" class="nav-link">Dashboard</a>
@@ -49,6 +48,7 @@
                                     Toko
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="tokoDropdown">
+
                                     <li><a class="dropdown-item" href="#">Informasi Toko</a></li>
                                 </ul> -->
                                 <div class="dropdown">
@@ -59,6 +59,7 @@
                                         <li><a class="dropdown-item" href="#">Informasi Toko</a></li>
                                     </ul>
                                 </div>
+
                             </li>
                             <li class="nav-item mx-1">
                                 <!-- <a href="#" class="nav-link dropdown" id="pembayaranDropdown" role="button"
@@ -82,7 +83,7 @@
                         </ul>
 
                         <div class="navbar-collapse collapse">
-                            <ul class="navbar-nav navbar-align">
+                            <ul class="navbar-nav ms-auto">
                                 <li class="nav-item dropdown">
                                     <a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-bs-toggle="dropdown">
                                         <div class="position-relative">
@@ -153,10 +154,14 @@
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#"
-                                        data-bs-toggle="dropdown">
-                                        <i class="align-middle" data-feather="settings"></i>
+                                    <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
+                                        <i class="align-middle" data-feather="user"></i>
                                     </a>
+
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="{{ url('profile') }}"><i class="align-middle me-1"
+                                        data-feather="user"></i>
+                                    Profile</a>
 
                                     <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
                                         data-bs-toggle="dropdown">
@@ -188,7 +193,6 @@
                                 </li>
                             </ul>
                         </div>
-                    </header>
                 </div> 
             </nav>
         </div>
