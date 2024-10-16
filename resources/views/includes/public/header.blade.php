@@ -19,36 +19,65 @@
 
                 <div class="container">
                     <header class="d-flex justify-content-center py-3">
+
                         <ul class="nav nav-pills">
-                            <li class="nav-item"><a href="{{url('/dashboard')}}" class="nav-link">Dashboard</a></li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown" id="pesananDropdown" role="button"
+                            <li class="nav-item">
+                                <a href="{{url('/dashboard')}}" class="nav-link">Dashboard</a>
+                            </li>
+                            <li class="nav-item mx-1">
+                                <!-- <a href="#" class="nav-link dropdown" id="pesananDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     Pesanan
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="pesananDropdown">
                                     <li><a class="dropdown-item" href="#">Buat Order</a></li>
                                     <li><a class="dropdown-item" href="#">Riwayat Pesanan</a></li>
-                                </ul>
+                                </ul> -->
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"  class="fw-bold">
+                                       Pesanan
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Buat Pesanan</a></li>
+                                        <li><a class="dropdown-item" href="#">Riwayat Pesanan</a></li>
+                                    </ul>
+                                </div>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown" id="tokoDropdown" role="button"
+                            <li class="nav-item mx-1">
+                                <!-- <a href="#" class="nav-link dropdown" id="tokoDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     Toko
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="tokoDropdown">
                                     <li><a class="dropdown-item" href="#">Informasi Toko</a></li>
-                                </ul>
+                                </ul> -->
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Toko
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Informasi Toko</a></li>
+                                    </ul>
+                                </div>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown" id="pembayaranDropdown" role="button"
+                            <li class="nav-item mx-1">
+                                <!-- <a href="#" class="nav-link dropdown" id="pembayaranDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     Pembayaran
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="pembayaranDropdown">
                                     <li><a class="dropdown-item" href="#">Riwayat Pembayaran</a></li>
                                     <li><a class="dropdown-item" href="#">Tagihan</a></li>
-                                </ul>
+                                </ul> -->
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Pembayaran
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Riwayat Pembayaran</a></li>
+                                        <li><a class="dropdown-item" href="#">Tagihan</a></li>
+                                    </ul>
+                                </div>
                             </li>
                         </ul>
 

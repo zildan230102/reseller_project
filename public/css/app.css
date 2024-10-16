@@ -91,12 +91,12 @@
 
 /* Dropdown button */
 .month-dropdown {
-    padding: 10px 15px; 
+    padding: 4px 10px; 
     color: #ff8c42; 
     border: 1px solid #ff8c42; 
     border-radius: 5px; 
     background-color: #ffffff; 
-    transition: border-color 0.3s ease; 
+    transition: border-color 0.3s ease;
 }
 
 .month-dropdown:focus {
@@ -262,7 +262,7 @@
 }
 
 .header-sale {
-  margin: 30px 16px 0 28px;
+  margin: 30px 30px 0 30px;
 }
 
 .title-sale {
@@ -278,10 +278,14 @@
   border-radius: 8px;
   padding: 10px;
 }
-  
-.stat svg {
-    fill: #F58635; 
-  }
+
+.text-orange {
+  color: #F58635;
+}
+
+.icon-large {
+  font-size: large;
+}
 
 .in-stock { background-color: #28a745; }
 .out-of-stock { background-color: #dc3545; }

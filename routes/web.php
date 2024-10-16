@@ -7,14 +7,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\LogoutController;
 
-Route::get('/', function () {
-    return redirect()->route('login');
-});
-
-
-Route::get('/dashboard', function () { 
-    return view('public.post.index');
-})->middleware('auth');
+Route::get('/',             function () { return redirect()->route('login');});
+Route::get('/dashboard',    function () {  return view('public.post.index');})->middleware('auth');
 
 
 
@@ -22,7 +16,7 @@ Route::get('profil', [ProfilController::class, 'data'])->name('public.post.profi
 
 Auth::routes(['login' => false,'register' => false]);
 Route::middleware(['guest'])->group(function () {
-    Route::get('/login', Login::class)->name('login');
+    Route::get('/login',    Login::class)->name('login');
     Route::get('/register', Register::class)->name('register');
 });
 
