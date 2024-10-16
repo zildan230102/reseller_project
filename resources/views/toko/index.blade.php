@@ -45,7 +45,7 @@
                     <td class="py-2 px-4 border-b">
                         <button class="bg-yellow-500 text-white px-2 py-1 rounded">Nonaktifkan</button>
                         <button class="bg-blue-500 text-white px-2 py-1 rounded">Edit</button>
-                        <button class="bg-red-500 text-white px-2 py-1 rounded" data-id="1" data-toggle="modal" data-target="#confirmDeleteModal">Hapus</button>
+                        <button class="bg-red-500 text-white px-2 py-1 rounded" data-id="1" onclick="openDeleteModal(1)">Hapus</button>
                     </td>
                 </tr>
             </tbody>
@@ -94,17 +94,13 @@
         </div>
     </div>
     <script>
+        function openDeleteModal(id) {
+            var actionUrl = '/toko/' + id; // Buat URL action untuk form hapus
+            $('#deleteForm').attr('action', actionUrl); // Set URL action untuk form hapus
+            document.getElementById('confirmDeleteModal').classList.remove('hidden'); // Tampilkan modal
+        }
+
         $(document).ready(function() {
-            // Konfirmasi penghapusan toko
-            $('#confirmDeleteModal').on('show.bs.modal', function(event) {
-                var button = $(event.relatedTarget); // Tombol yang memicu modal
-                var tokoId = button.data('id'); // Ambil ID toko dari tombol yang diklik
-                var actionUrl = '/toko/' + tokoId; // Buat URL action untuk form hapus
-
-                // Set URL action untuk form hapus
-                $('#deleteForm').attr('action', actionUrl);
-            });
-
             // Handle pengiriman form dengan AJAX untuk menambah toko
             $('#tokoForm').on('submit', function(event) {
                 event.preventDefault(); // Mencegah pengiriman form secara default
@@ -119,6 +115,24 @@
                     },
                     error: function(xhr) {
                         alert('Terjadi kesalahan saat menyimpan data');
+                    }
+                });
+            });
+
+            // Handle pengiriman form dengan AJAX untuk menghapus toko
+            $('#deleteForm').on('submit', function(event) {
+                event.preventDefault(); // Mencegah pengiriman form secara default
+
+                $.ajax({
+                    type: 'POST',
+                    url: $(this).attr('action'),
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        $('#confirmDeleteModal').addClass('hidden'); // Tutup modal
+                        location.reload(); // Reload halaman untuk melihat data terbaru
+                    },
+                    error: function(xhr) {
+                        alert('Terjadi kesalahan saat menghapus data');
                     }
                 });
             });
