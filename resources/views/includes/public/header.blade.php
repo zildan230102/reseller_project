@@ -37,8 +37,23 @@
                                     Toko
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="tokoDropdown">
+
                                     <li><a class="dropdown-item" href="{{ url('toko') }}">Informasi Toko</a></li>
                                 </ul>
+
+
+                                    <li><a class="dropdown-item" href="#">Informasi Toko</a></li>
+                                </ul> -->
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Toko
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{{url('toko')}}">Informasi Toko</a></li>
+                                    </ul>
+                                </div>
+
+
                             </li>
                             <li class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown" id="pembayaranDropdown" role="button"

@@ -69,7 +69,11 @@
 												<h5 class="card-title">Total Penjualan</h5>
 											</div>
 										</div>
+
 										<h1 class="mt-1 mb-3">Rp 15.500.000</h1>
+
+										<h1 class="mt-1 mb-1"><p class="fw-bold fs-2">Rp 15.500.000</p></h1>
+
 										<div class="mb-0">
 											<span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i>13.02%</span>
 											<span class="text-muted">Dari Bulan Agustus</span>
@@ -93,7 +97,11 @@
 												<h5 class="card-title">Total Pendapatan</h5>
 											</div>
 										</div>
+
 										<h1 class="mt-1 mb-3">Rp 5.150.000</h1>
+
+										<h1 class="mt-1 mb-1"><p class="fw-bold fs-2">Rp 5.150.000</p></h1>
+
 										<div class="mb-0">
 											<span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i> 13.02%</span>
 											<span class="text-muted">Dari Bulan Agustus</span>
@@ -119,7 +127,11 @@
 												<h5 class="card-title">Konversi</h5>
 											</div>
 										</div>
+
 										<h1 class="mt-1 mb-3">Rp 86.34%</h1>
+
+										<h1 class="mt-1 mb-1"><p class="fw-bold fs-2">86.34%</p></h1>
+
 										<div class="mb-0">
 											<span class="text-danger"><i class="fa-solid fa-arrow-trend-down"></i> 0.32%</span>
 											<span class="text-muted">Dari Bulan Agustus</span>
