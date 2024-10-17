@@ -3,6 +3,7 @@
   margin: 0px 0 0 0; 
   display: flex;
 }
+
 .card-title {
   margin: 0;
   color: #333;
@@ -10,14 +11,25 @@
   font-weight: bold;
   color: #333;
 }
+
+.title-total {
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
 .card-body {
   padding: 0;
   text-align: left;
 }
+
 .card {
   overflow: hidden;
   border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .chart { 
   padding: 0 20px;
 }
@@ -30,15 +42,19 @@
   align-items: center;
   width: 100%;
 }
+
 #marketplace-btn {
   border-radius: 8px;
 }
+
 #toko-btn {
   border-radius: 8px;
 }
+
 #buku-btn {
   border-radius: 8px;
 }
+
 .btn-group {
   color:#ff9800;
   background-color: transparent;
@@ -48,16 +64,18 @@
 
   font-size: 14px; /* Ukuran font awal */
   transition: background-color 0.3s ease, color 0.3s ease;
-  
 }
+
 .btn-group .btn:hover {
   color: #ff9800;
 }
+
 .btn-group .active {
   background-color: #ff9800; /* Warna oranye */
   color: #fff;
   border-radius: 8px;
 }
+
 .title-chart-bar {
   text-align: center;
   font-weight: bold;
@@ -73,12 +91,12 @@
 
 /* Dropdown button */
 .month-dropdown {
-    padding: 10px 15px; 
+    padding: 4px 10px; 
     color: #ff8c42; 
     border: 1px solid #ff8c42; 
     border-radius: 5px; 
     background-color: #ffffff; 
-    transition: border-color 0.3s ease; 
+    transition: border-color 0.3s ease;
 }
 
 .month-dropdown:focus {
@@ -218,8 +236,12 @@
 }
 .col-auto {
   padding-right: 10px; 
-  padding: 20px 16px 16px 0px;
+  padding: 0px 5px 20px 0px;
   overflow-x: auto;
+}
+
+.card-right {
+  padding: 1rem;
 }
 
 /* Warna pada persentase kenaikan dan penurunan */
@@ -245,7 +267,7 @@
 }
 
 .header-sale {
-  margin: 30px 16px 0 28px;
+  margin: 30px 30px 0 30px;
 }
 
 .title-sale {
@@ -261,10 +283,14 @@
   border-radius: 8px;
   padding: 10px;
 }
-  
-.stat svg {
-    fill: #F58635; 
-  }
+
+.text-orange {
+  color: #F58635;
+}
+
+.icon-large {
+  font-size: large;
+}
 
 .in-stock { background-color: #28a745; }
 .out-of-stock { background-color: #dc3545; }
