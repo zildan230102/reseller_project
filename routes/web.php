@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TokoController;
+use App\Http\Controllers\OrderController;
 
 // Rute untuk homepage yang mengarahkan ke login
 Route::get('/', function () {
@@ -26,9 +27,15 @@ Route::middleware('auth')->group(function () {
         Route::post('/', [ProfileController::class, 'update'])->name('profile.update');
     });
 
-    // Rute untuk Toko
-    Route::resource('toko', TokoController::class);
-    Route::post('/toko/{toko}/toggle-status', [TokoController::class, 'toggleStatus'])->name('toko.toggle-status');
+
+// Daftar rute untuk pengelolaan Toko
+Route::get('/toko', [TokoController::class, 'index'])->name('toko.index'); // Menampilkan daftar toko
+Route::post('/toko', [TokoController::class, 'store'])->name('toko.store'); // Menyimpan toko baru
+Route::get('/toko/{toko}/edit', [TokoController::class, 'edit'])->name('toko.edit'); // Form edit toko
+Route::put('/toko/{toko}', [TokoController::class, 'update'])->name('toko.update'); // Mengupdate data toko
+Route::delete('/toko/{toko}', [TokoController::class, 'destroy'])->name('toko.destroy'); // Menghapus toko
+Route::post('/toko/{toko}/toggle-status', [TokoController::class, 'toggleStatus'])->name('toko.toggle-status'); // Mengubah status aktif/tidak aktif
+
 
     // Rute untuk logout
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
@@ -42,3 +49,4 @@ Route::middleware('guest')->group(function () {
     Route::get('/login', Login::class)->name('login');
     Route::get('/register', Register::class)->name('register');
 });
+

@@ -36,23 +36,20 @@ class TokoController extends Controller
      * Simpan data toko baru ke dalam database.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
-{
-    // Validasi input
-    $request->validate($this->rules());
+    {
+        // Validasi input
+        $request->validate($this->rules());
 
-    // Simpan data toko baru ke database
-    $toko = Toko::create($request->only(['nama_toko', 'marketplace', 'tanggal_dibuat', 'is_active']));
+        // Simpan data toko baru ke database, created_at otomatis diisi oleh Laravel
+        $toko = Toko::create($request->only(['nama_toko', 'marketplace', 'is_active']));
 
-    // Kembalikan respons JSON
-    return response()->json(['success' => true, 'data' => $toko]);
-}
+        // Kembalikan respons JSON
+        return response()->json(['success' => true, 'data' => $toko]);
+    }
 
-
-    
-    
     /**
      * Tampilkan form untuk mengedit toko.
      *
@@ -77,14 +74,8 @@ class TokoController extends Controller
         // Validasi input
         $request->validate($this->rules());
 
-        // Tentukan marketplace yang akan disimpan
-        $marketplace = $request->marketplace === 'lainnya' ? $request->custom_marketplace : $request->marketplace;
-
         // Update data toko
-        $toko->update(array_merge(
-            $request->only(['nama_toko', 'tanggal_dibuat', 'is_active']),
-            ['marketplace' => $marketplace] // Update marketplace
-        ));
+        $toko->update($request->only(['nama_toko', 'marketplace', 'is_active']));
 
         // Redirect ke halaman daftar toko dengan pesan sukses
         return redirect()->route('toko.index')->with('success', 'Toko berhasil diperbarui.');
@@ -114,7 +105,7 @@ class TokoController extends Controller
     public function toggleStatus(Toko $toko)
     {
         // Toggle status aktif
-        $toko->is_active = !$toko->is_active; // Ganti status
+        $toko->is_active = !$toko->is_active;
         $toko->save(); // Simpan perubahan
 
         // Redirect ke halaman daftar toko dengan pesan sukses
@@ -127,12 +118,11 @@ class TokoController extends Controller
      * @return array
      */
     protected function rules()
-{
-    return [
-        'nama_toko' => 'required|string|max:255',
-        'marketplace' => 'required|string|max:255', // Hapus pilihan 'lainnya'
-        'tanggal_dibuat' => 'required|date',
-    ];
-}
-
+    {
+        return [
+            'nama_toko' => 'required|string|max:255',
+            'marketplace' => 'required|string|max:255',
+            'is_active' => 'required|boolean',
+        ];
+    }
 }
