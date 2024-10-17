@@ -5,23 +5,28 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<script>
-	// Seleksi semua tombol
-	const buttons = document.querySelectorAll('.btn-group .btn');
-  
-	// Tambahkan event listerner untuk setiap tombol
-	buttons.forEach(button => {
-	  button.addEventListener('click', function() {
-		console.log("Tombol diklik: ", this.textContent);
-		// Hapus kelas 'active' dari semua tombol
-		buttons.forEach(btn => btn.classList.remove('active'));
-  
-		// Tambahkan kelas 'active' hanya ke tombol yang diklik
-		this.classList.add('active');
-	  });
-	});
-  </script>
-  
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+		// Select all buttons
+		const buttons = document.querySelectorAll('.btn-group .btn');
+	
+		// Add event listener to each button
+		buttons.forEach(button => {
+			button.addEventListener('click', function() {
+			console.log("Button clicked: ", this.textContent);
+			// Remove 'active' class from all buttons
+			buttons.forEach(btn => btn.classList.remove('active'));
+	
+			// Add 'active' class only to the clicked button
+			this.classList.add('active');
+	
+			// Change the button's background color to orange
+			this.style.backgroundColor = 'orange';
+			});
+		});
+		});
+	</script>	
+	
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
 			var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");

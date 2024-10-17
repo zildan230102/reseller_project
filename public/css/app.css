@@ -46,10 +46,15 @@
 }
 
 
+body {
+  font-family: 'Poppins',sans-serif;
+}
 .card-header {
   padding: 20px 0px 10px 30px;
   margin: 0px 0 0 0; 
   display: flex;
+  background-color: transparent;
+  border-bottom: none;
 }
 
 .card-title {
@@ -103,26 +108,6 @@
   border-radius: 8px;
 }
 
-.btn-group {
-  color:#ff9800;
-  background-color: transparent;
-  border: none;
-  gap: 10px;
-  cursor: pointer;
-
-  font-size: 14px; /* Ukuran font awal */
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.btn-group .btn:hover {
-  color: #ff9800;
-}
-
-.btn-group .active {
-  background-color: #ff9800; /* Warna oranye */
-  color: #fff;
-  border-radius: 8px;
-}
 
 .title-chart-bar {
   text-align: center;
