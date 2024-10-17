@@ -56,7 +56,7 @@
                                         Toko
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Informasi Toko</a></li>
+                                        <li><a class="dropdown-item" href="{{url('toko')}}">Informasi Toko</a></li>
                                     </ul>
                                 </div>
 

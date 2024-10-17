@@ -113,11 +113,6 @@
     margin-right: 10px; 
 }
 
-/* TOKO */
-.text-orange {
-  background-color: #ff9800;
-  color: #E8E8E8;
-}
 .dropdown-content a:hover {background-color: #f1f1f1;}
 
 .dropdown:hover .dropdown-content {display: block;}
@@ -229,7 +224,7 @@
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   padding: 5px;
   transition: transform 0.2s ease-in-out;
   width: 100%;
