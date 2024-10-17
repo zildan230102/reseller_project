@@ -6,23 +6,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="bg-gray-100">
-    <nav class="bg-white shadow-md">
-        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-            <div class="flex items-center">
-                <img alt="Deepublish Digital Logo" class="h-10" height="50" src="https://storage.googleapis.com/a1aa/image/7hmUc7bN807xFdpTvuN3eXGdNfNeBTfMiOipAvzOJeMxSV6cC.jpg" width="150"/>
-                <ul class="flex space-x-4 ml-6">
-                    <li><a class="text-orange-500" href="#">Dashboard</a></li>
-                    <li><a class="text-orange-500" href="#">Pesanan</a></li>
-                    <li><a class="text-orange-500" href="#">Toko</a></li>
-                    <li><a class="text-orange-500" href="#">Pembayaran</a></li>
-                </ul>
-            </div>
-            <div class="relative">
-                <i class="fas fa-bell text-gray-600"></i>
-                <span class="absolute top-0 right-0 inline-block w-4 h-4 bg-blue-500 text-white text-xs font-bold rounded-full text-center">4</span>
-            </div>
-        </div>
-    </nav>
+
     <div class="container mx-auto px-4 py-6">
         <h1 class="text-2xl font-bold mb-4">Daftar Toko</h1>
         <button class="bg-blue-500 text-white px-4 py-2 rounded mb-4" onclick="document.getElementById('modal').classList.remove('hidden')">Tambah Toko</button>
