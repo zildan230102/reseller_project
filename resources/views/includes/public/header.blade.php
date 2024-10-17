@@ -13,41 +13,34 @@
 <body>
     <header>
         <div class="header" id="header">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand navbar-light">
                 <img src="{{ ('style/src/img/icons/d2.png') }}" class="img-fluid" alt="Deepublish Logo">
                 <div class="b-example-divider"></div>
 
                 <div class="container">
                     <header class="d-flex justify-content-center py-3">
                         <ul class="nav nav-pills">
-                            <li class="nav-item">
-                                <a href="{{url('/dashboard')}}" class="nav-link">Dashboard</a>
-                            </li>
-                            <li class="nav-item mx-1">
-                                <!-- <a href="#" class="nav-link dropdown" id="pesananDropdown" role="button"
+                            <li class="nav-item"><a href="{{url('/dashboard')}}" class="nav-link">Dashboard</a></li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown" id="pesananDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     Pesanan
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="pesananDropdown">
                                     <li><a class="dropdown-item" href="#">Buat Order</a></li>
                                     <li><a class="dropdown-item" href="#">Riwayat Pesanan</a></li>
-                                </ul> -->
-                                <div class="dropdown">
-                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"  class="fw-bold">
-                                       Pesanan
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Buat Pesanan</a></li>
-                                        <li><a class="dropdown-item" href="#">Riwayat Pesanan</a></li>
-                                    </ul>
-                                </div>
+                                </ul>
                             </li>
-                            <li class="nav-item mx-1">
-                                <!-- <a href="#" class="nav-link dropdown" id="tokoDropdown" role="button"
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown" id="tokoDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     Toko
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="tokoDropdown">
+
+                                    <li><a class="dropdown-item" href="{{ url('toko') }}">Informasi Toko</a></li>
+                                </ul>
+
 
                                     <li><a class="dropdown-item" href="#">Informasi Toko</a></li>
                                 </ul> -->
@@ -60,30 +53,22 @@
                                     </ul>
                                 </div>
 
+
                             </li>
-                            <li class="nav-item mx-1">
-                                <!-- <a href="#" class="nav-link dropdown" id="pembayaranDropdown" role="button"
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown" id="pembayaranDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     Pembayaran
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="pembayaranDropdown">
                                     <li><a class="dropdown-item" href="#">Riwayat Pembayaran</a></li>
                                     <li><a class="dropdown-item" href="#">Tagihan</a></li>
-                                </ul> -->
-                                <div class="dropdown">
-                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Pembayaran
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Riwayat Pembayaran</a></li>
-                                        <li><a class="dropdown-item" href="#">Tagihan</a></li>
-                                    </ul>
-                                </div>
+                                </ul>
                             </li>
                         </ul>
 
                         <div class="navbar-collapse collapse">
-                            <ul class="navbar-nav ms-auto">
+                            <ul class="navbar-nav navbar-align">
                                 <li class="nav-item dropdown">
                                     <a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-bs-toggle="dropdown">
                                         <div class="position-relative">
@@ -154,8 +139,9 @@
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
-                                        <i class="align-middle" data-feather="user"></i>
+                                    <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#"
+                                        data-bs-toggle="dropdown">
+                                        <i class="align-middle" data-feather="settings"></i>
                                     </a>
 
                             <div class="dropdown-menu dropdown-menu-end">
@@ -193,6 +179,7 @@
                                 </li>
                             </ul>
                         </div>
+                    </header>
                 </div> 
             </nav>
         </div>
