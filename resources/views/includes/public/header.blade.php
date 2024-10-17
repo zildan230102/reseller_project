@@ -13,12 +13,13 @@
 <body>
     <header>
         <div class="header" id="header">
-            <nav class="navbar navbar-expand navbar-light">
+            <nav class="navbar navbar-expand navbar-light px-5">
                 <img src="{{ ('style/src/img/icons/d2.png') }}" class="img-fluid" alt="Deepublish Logo">
                 <div class="b-example-divider"></div>
 
                 <div class="container">
                     <header class="d-flex justify-content-center py-3">
+                        {{-- <div class="row text-center"></div> --}}
                         <ul class="nav nav-pills">
                             <li class="nav-item"><a href="{{url('/dashboard')}}" class="nav-link">Dashboard</a></li>
                             <li class="nav-item dropdown">
@@ -122,7 +123,6 @@
                                                         <div class="dropdown-menu-footer">
                                                             <a href="#" class="text-muted">Show all notifications</a>
                                                         </div>
-                                                    
                                                 </li>
                                 <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
                                     <img src="style/src/img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
