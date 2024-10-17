@@ -44,7 +44,7 @@
 .navbar-collapse {
     display: flex;
     align-items: center;
-    margin-left: auto; /* Move profile to the right */
+    margin-left: auto; 
 }
 
 .navbar-collapse .navbar-nav {
@@ -87,11 +87,6 @@
 .nav-item:hover .dropdown-menu {
     display: block;
 }
-
-
-/* Responsive for tablets and mobile */
-@media (max-width: 768px) {
-
 
 /* Responsive for tablets and mobile */
 @media (max-width: 768px) {
