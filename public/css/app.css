@@ -1,3 +1,51 @@
+/* efit */
+.container-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f9fa; /* Warna latar belakang untuk tampilan lebih baik */
+}
+
+.form-wrapper {
+  max-width: 500px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  margin-bottom: 15px;
+}
+.modal-dialog {
+  max-width: 600px;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-footer {
+  justify-content: flex-end;
+}
+.custom-button {
+  background-color: #ff9800; /* Hijau */
+  color: white; /* Warna teks */
+  padding: 10px 20px; /* Mengatur padding */
+  border: none;
+  border-radius: 5px; /* Sudut membulat */
+  cursor: pointer; /* Mengubah kursor saat hover */
+}
+.custom-button:hover {
+  background-color: #ff7b29; /* Warna saat hover */
+}
+
+
 .card-header {
   padding: 20px 0px 10px 30px;
   margin: 0px 0 0 0; 
@@ -111,6 +159,22 @@
   
 .button-group button {
     margin-right: 10px; 
+}
+
+
+/* toko */
+.btn {
+  background-color: #ff9800; /* Warna latar belakang oranye */
+  color: #ffffff; /* Warna teks putih */
+  padding: 10px 20px; /* Memberikan padding agar terlihat seperti tombol */
+  border: none; /* Menghilangkan border */
+  border-radius: 5px; /* Membuat sudut tombol sedikit membulat */
+  text-decoration: none; /* Menghilangkan underline pada link */
+  display: inline-block; /* Agar tampil seperti tombol */
+}
+.btn:hover {
+  background-color: #e68900; /* Sedikit lebih gelap saat di-hover */
+  color: #ffffff; /* Warna teks tetap putih */
 }
 
 .dropdown-content a:hover {background-color: #f1f1f1;}
