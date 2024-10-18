@@ -52,6 +52,27 @@
     align-items: center;
 }
 
+.btn-pesanan {
+    background-color: transparent !important; 
+    color: #f57c00 !important; 
+    cursor: pointer;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-pesanan:hover {
+    border-color: #f57c00 !important; 
+    color: #f57c00 !important; 
+    background-color: transparent !important; 
+}
+
+.btn-pesanan:focus {
+    border: 1px solid #f57c00;
+    color: #f57c00;
+    background-color: transparent; 
+    outline: none;
+    box-shadow: none;
+}
+
 /* Dropdown menu base styles */
 .dropdown-menu {
     display: none;
@@ -73,7 +94,6 @@
     transition: background-color 0.3s ease;
 }
 
-
 .dropdown-item i {
     vertical-align: middle;
     margin-right: 8px;
@@ -86,11 +106,6 @@
 /* Show dropdown when hovering over parent link */
 .nav-item:hover .dropdown-menu {
     display: block;
-}
-
-
-/* Responsive for tablets and mobile */
-@media (max-width: 768px) {
 }
 
 /* Responsive for tablets and mobile */

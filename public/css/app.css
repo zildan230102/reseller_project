@@ -50,6 +50,8 @@
   padding: 20px 0px 10px 30px;
   margin: 0px 0 0 0; 
   display: flex;
+  background-color: transparent;
+  border-bottom: none;
 }
 .card-title {
   margin: 0;
@@ -146,19 +148,19 @@
 
 /* toko */
 .btn {
-  background-color: #ff9800; /* Warna latar belakang oranye */
-  color: #ffffff; /* Warna teks putih */
-  padding: 10px 20px; /* Memberikan padding agar terlihat seperti tombol */
-  border: none; /* Menghilangkan border */
-  border-radius: 5px; /* Membuat sudut tombol sedikit membulat */
-  text-decoration: none; /* Menghilangkan underline pada link */
-  display: inline-block; /* Agar tampil seperti tombol */
-}
-.btn:hover {
-  background-color: #e68900; /* Sedikit lebih gelap saat di-hover */
-  color: #ffffff; /* Warna teks tetap putih */
+  background-color: transparent;
+  color: #f57c00; 
+  padding: 10px 20px; 
+  border: none;
+  border-radius: 5px; 
+  text-decoration: none;
+  display: inline-block; 
 }
 
+.btn:hover {
+  border: 1px solid #f57c00;
+  color: #f57c00; 
+}
 
 .dropdown-content a:hover {background-color: #f1f1f1;}
 
