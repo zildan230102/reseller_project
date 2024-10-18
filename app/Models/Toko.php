@@ -10,15 +10,26 @@ class Toko extends Model
 {
     use HasFactory;
 
+    // Tentukan kolom yang bisa diisi (fillable)
     protected $fillable = [
         'nama_toko',
         'marketplace',
-        'tanggal_dibuat',
         'is_active',
     ];
 
-    // Tentukan bahwa tanggal_dibuat harus di-cast ke Carbon
+    // Casting created_at dan updated_at ke Carbon instance
     protected $casts = [
-        'tanggal_dibuat' => 'datetime',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
+
+    /**
+     * Getter untuk mengakses tanggal_dibuat yang diambil dari created_at.
+     *
+     * @return string
+     */
+    public function getTanggalDibuatAttribute()
+    {
+        return Carbon::parse($this->created_at)->format('Y-m-d');
+    }
 }
