@@ -1,6 +1,55 @@
 @extends('layouts.main')
 @section('title', 'Informasi Toko')
 @section('content')
+
+<style>
+.aksi-dropdown-item {
+    padding: 10px 15px; /* Menambah padding untuk kenyamanan */
+    margin-bottom: 0; /* Menghilangkan margin bawah untuk tombol dalam satu baris */
+    border: none; /* Menghilangkan border default */
+    border-radius: 5px; /* Memberikan sudut yang lebih halus */
+    cursor: pointer; /* Mengubah kursor saat hover */
+}
+.aksi-dropdown-item:not(:last-child) {
+    margin-right: 10px; /* Menambah jarak antara tombol */
+}
+.custom-btn {
+    width: 80%; /* Mengatur lebar tombol */
+    margin: 5px; /* Mengatur jarak antara tombol */
+    border: none; /* Menghilangkan border */
+    border-radius: 5px; /* Mengatur sudut tombol */
+    cursor: pointer; /* Mengubah kursor saat hover */
+}
+
+.custom-btn-warning {
+  background-color: #ffc107; /* Warna kuning */
+  color: #fff;
+}
+
+.custom-btn-info {
+  background-color:mediumblue; /* Warna biru muda */
+  color: #fff;
+}
+
+.custom-btn-danger {
+  background-color: #dc3545; /* Warna merah */
+  color: #fff;
+}
+
+.badge-active {
+    background-color: green; /* Warna hijau untuk status aktif */
+    color: white;           /* Warna teks putih untuk kontras */
+    padding: 5px 10px;     /* Sedikit padding untuk tampilan yang lebih baik */
+    border-radius: 5px;    /* Membuat sudut badge menjadi melengkung */
+}
+
+.badge-inactive {
+    background-color: red;  /* Warna merah untuk status non-aktif */
+    color: white;           /* Warna teks putih untuk kontras */
+    padding: 5px 10px;     /* Sedikit padding untuk tampilan yang lebih baik */
+    border-radius: 5px;    /* Membuat sudut badge menjadi melengkung */
+}
+</style>
 <div class="container mt-4">
     <h1 class="mb-4">Daftar Toko</h1>
 
@@ -18,8 +67,8 @@
 
     <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#tokoModal">Tambah Toko</button>
 
-    <table class="table table-bordered table-striped table-hover">
-        <thead class="thead-dark">
+    <table class="table table-bordered">
+        <thead class="thead">
             <tr>
                 <th>Nama Toko</th>
                 <th>Marketplace</th>
@@ -41,18 +90,25 @@
                     </span>
                 </td>
                 <td>
-                    <form action="{{ route('toko.toggle-status', $toko) }}" method="POST" style="display: inline;">
-                        @csrf
-                        <button type="submit" class="btn btn-warning btn-sm">
-                            {{ $toko->is_active ? 'Nonaktifkan' : 'Aktifkan' }}
+                    <div class="dropdown">
+                        <button class="btn btn-sm " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false" style="background-color: transparent">
+                            <i class="bi bi-eye-fill" style="color: black"></i>
                         </button>
-                    </form>
-                    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editTokoModal" data-id="{{ $toko->id }}" data-nama="{{ $toko->nama_toko }}" data-marketplace="{{ $toko->marketplace }}" data-status="{{ $toko->is_active }}">
-                        Edit
-                    </button>
-                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmDeleteModal" data-id="{{ $toko->id }}">
-                        Hapus
-                    </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <form action="{{ route('toko.toggle-status', $toko) }}" method="POST" class="flex-grow-1">
+                                @csrf
+                                <button type="submit" class="aksi-dropdown-item custom-btn custom-btn-warning">
+                                    {{ $toko->is_active ? 'Nonaktifkan' : 'Aktifkan' }}
+                                </button>
+                            </form>
+                            <button class="aksi-dropdown-item mx-2 custom-btn custom-btn-info" data-toggle="modal" data-target="#editTokoModal" data-id="{{ $toko->id }}" data-nama="{{ $toko->nama_toko }}" data-marketplace="{{ $toko->marketplace }}" data-status="{{ $toko->is_active }}">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                            <button class="aksi-dropdown-item custom-btn custom-btn-danger" data-toggle="modal" data-target="#confirmDeleteModal" data-id="{{ $toko->id }}">
+                                <i class="bi bi-trash3-fill"></i>
+                            </button>
+                        </div>
+                    </div>
                 </td>
             </tr>
             @empty
@@ -133,8 +189,10 @@
                             <option value="0">Tidak Aktif</option>
                         </select>
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                    
                 </form>
             </div>
         </div>
@@ -158,7 +216,6 @@
                 <form id="deleteForm" action="" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                     <button type="submit" class="btn btn-danger">Hapus</button>
                 </form>
             </div>
