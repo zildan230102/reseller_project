@@ -46,9 +46,6 @@
 }
 
 
-body {
-  font-family: 'Poppins',sans-serif;
-}
 .card-header {
   padding: 20px 0px 10px 30px;
   margin: 0px 0 0 0; 
@@ -56,7 +53,6 @@ body {
   background-color: transparent;
   border-bottom: none;
 }
-
 .card-title {
   margin: 0;
   color: #333;
@@ -64,25 +60,14 @@ body {
   font-weight: bold;
   color: #333;
 }
-
-.title-total {
-  color: #333;
-  font-size: 14px;
-  font-weight: bold;
-  color: #333;
-}
-
 .card-body {
   padding: 0;
   text-align: left;
 }
-
 .card {
   overflow: hidden;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 .chart { 
   padding: 0 20px;
 }
@@ -95,20 +80,34 @@ body {
   align-items: center;
   width: 100%;
 }
-
 #marketplace-btn {
   border-radius: 8px;
 }
-
 #toko-btn {
   border-radius: 8px;
 }
-
 #buku-btn {
   border-radius: 8px;
 }
+.btn-group {
+  color:#ff9800;
+  background-color: transparent;
+  border: none;
+  gap: 10px;
+  cursor: pointer;
 
-
+  font-size: 14px; /* Ukuran font awal */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  
+}
+.btn-group .btn:hover {
+  color: #ff9800;
+}
+.btn-group .active {
+  background-color: #ff9800; /* Warna oranye */
+  color: #fff;
+  border-radius: 8px;
+}
 .title-chart-bar {
   text-align: center;
   font-weight: bold;
@@ -124,12 +123,12 @@ body {
 
 /* Dropdown button */
 .month-dropdown {
-    padding: 4px 10px; 
+    padding: 10px 15px; 
     color: #ff8c42; 
     border: 1px solid #ff8c42; 
     border-radius: 5px; 
     background-color: #ffffff; 
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease; 
 }
 
 .month-dropdown:focus {
@@ -149,17 +148,18 @@ body {
 
 /* toko */
 .btn {
-  background-color: #ff9800; /* Warna latar belakang oranye */
-  color: #ffffff; /* Warna teks putih */
-  padding: 10px 20px; /* Memberikan padding agar terlihat seperti tombol */
-  border: none; /* Menghilangkan border */
-  border-radius: 5px; /* Membuat sudut tombol sedikit membulat */
-  text-decoration: none; /* Menghilangkan underline pada link */
-  display: inline-block; /* Agar tampil seperti tombol */
+  background-color: transparent;
+  color: #f57c00; 
+  padding: 10px 20px; 
+  border: none;
+  border-radius: 5px; 
+  text-decoration: none;
+  display: inline-block; 
 }
+
 .btn:hover {
-  background-color: #e68900; /* Sedikit lebih gelap saat di-hover */
-  color: #ffffff; /* Warna teks tetap putih */
+  border: 1px solid #f57c00;
+  color: #f57c00; 
 }
 
 .dropdown-content a:hover {background-color: #f1f1f1;}
@@ -255,7 +255,7 @@ body {
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #f1f1f1;
+  background-color: #f2f2f2;
 }
 
 /* Show the dropdown on hover */
@@ -280,12 +280,8 @@ body {
 }
 .col-auto {
   padding-right: 10px; 
-  padding: 0px 5px 20px 0px;
+  padding: 20px 16px 16px 0px;
   overflow-x: auto;
-}
-
-.card-right {
-  padding: 1rem;
 }
 
 /* Warna pada persentase kenaikan dan penurunan */
@@ -311,7 +307,7 @@ body {
 }
 
 .header-sale {
-  margin: 30px 30px 0 30px;
+  margin: 30px 16px 0 28px;
 }
 
 .title-sale {
@@ -327,14 +323,10 @@ body {
   border-radius: 8px;
   padding: 10px;
 }
-
-.text-orange {
-  color: #F58635;
-}
-
-.icon-large {
-  font-size: large;
-}
+  
+.stat svg {
+    fill: #F58635; 
+  }
 
 .in-stock { background-color: #28a745; }
 .out-of-stock { background-color: #dc3545; }

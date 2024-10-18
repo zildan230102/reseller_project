@@ -18,16 +18,6 @@
                 height="150">
             @endif
 
-
-            <h4 class="mt-3">{{ $user->name }}</h4>
-            <p><strong>Email:</strong> {{ $user->email }}</p>
-            <p><strong>No Telepon:</strong> {{ $user->phone }}</p>
-            <p><strong>Alamat:</strong> {{ $user->address }}</p>
-            <p><strong>Tanggal Bergabung:</strong>
-                {{ $user->join_date ? \Carbon\Carbon::parse($user->join_date)->format('d M Y') : 'Belum ada' }}</p>
-
-            <a href="{{ route('profile.edit') }}" class="btn btn-primary">Edit Profil</a>
-
             <h4 class="mt-5">{{ $user->name }}</h4>
         </div>
         <div class="card-body">
