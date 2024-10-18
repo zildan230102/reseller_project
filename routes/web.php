@@ -16,29 +16,33 @@ Route::get('/', function () {
 
 // Rute untuk dashboard yang dilindungi otentikasi
 Route::middleware('auth')->group(function () {
+    // Dashboard utama
     Route::get('/dashboard', function () {
-        return view('public.post.index');
+        return view('public.post.index'); // Halaman dashboard
     });
 
     // Rute untuk profil pengguna
     Route::prefix('profile')->group(function () {
-        Route::get('/', [ProfileController::class, 'view'])->name('profile.view');
-        Route::get('/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-        Route::post('/', [ProfileController::class, 'update'])->name('profile.update');
+        Route::get('/', [ProfileController::class, 'view'])->name('profile.view'); // Melihat profil
+        Route::get('/edit', [ProfileController::class, 'edit'])->name('profile.edit'); // Form edit profil
+        Route::post('/', [ProfileController::class, 'update'])->name('profile.update'); // Mengupdate profil
     });
 
+    // Rute untuk pengelolaan Toko
+    Route::prefix('toko')->group(function () {
+        Route::get('/', [TokoController::class, 'index'])->name('toko.index'); // Menampilkan daftar toko
+        Route::post('/', [TokoController::class, 'store'])->name('toko.store'); // Menyimpan toko baru
+        Route::get('/{toko}/edit', [TokoController::class, 'edit'])->name('toko.edit'); // Form edit toko
+        Route::put('/{toko}', [TokoController::class, 'update'])->name('toko.update'); // Mengupdate data toko
+        Route::delete('/{toko}', [TokoController::class, 'destroy'])->name('toko.destroy'); // Menghapus toko
+        Route::post('/{toko}/toggle-status', [TokoController::class, 'toggleStatus'])->name('toko.toggle-status'); // Mengubah status aktif/tidak aktif
+    });
 
-// Daftar rute untuk pengelolaan Toko
-Route::get('/toko', [TokoController::class, 'index'])->name('toko.index'); // Menampilkan daftar toko
-Route::post('/toko', [TokoController::class, 'store'])->name('toko.store'); // Menyimpan toko baru
-Route::get('/toko/{toko}/edit', [TokoController::class, 'edit'])->name('toko.edit'); // Form edit toko
-Route::put('/toko/{toko}', [TokoController::class, 'update'])->name('toko.update'); // Mengupdate data toko
-Route::delete('/toko/{toko}', [TokoController::class, 'destroy'])->name('toko.destroy'); // Menghapus toko
-Route::post('/toko/{toko}/toggle-status', [TokoController::class, 'toggleStatus'])->name('toko.toggle-status'); // Mengubah status aktif/tidak aktif
-
+    // Rute untuk pengelolaan Order
+    Route::resource('orders', OrderController::class); // Menggunakan resource untuk CRUD Order
 
     // Rute untuk logout
-    Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+    Route::post('/logout', [LogoutController::class, 'logout'])->name('logout'); // Logout pengguna
 });
 
 // Menonaktifkan rute Auth default dan menggunakan Livewire untuk guest
@@ -46,7 +50,6 @@ Auth::routes(['login' => false, 'register' => false]);
 
 // Rute untuk guest
 Route::middleware('guest')->group(function () {
-    Route::get('/login', Login::class)->name('login');
-    Route::get('/register', Register::class)->name('register');
+    Route::get('/login', Login::class)->name('login'); // Halaman login
+    Route::get('/register', Register::class)->name('register'); // Halaman registrasi
 });
-
