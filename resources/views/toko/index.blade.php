@@ -1,5 +1,5 @@
 @extends('layouts.main')
-
+@section('title', 'Informasi Toko')
 @section('content')
 <div class="container mt-4">
     <h1 class="mb-4">Daftar Toko</h1>
