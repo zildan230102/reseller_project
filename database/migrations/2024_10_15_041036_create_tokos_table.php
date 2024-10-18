@@ -17,11 +17,10 @@ class CreateTokosTable extends Migration
             $table->id();
             $table->string('nama_toko');
             $table->string('marketplace');
-            $table->date('tanggal_dibuat');
-            $table->boolean('is_active')->default(1);
-            $table->timestamps();
+            // Menghapus kolom tanggal_dibuat, gunakan created_at bawaan Laravel
+            $table->boolean('is_active')->default(1); // Status aktif toko
+            $table->timestamps(); // Menggunakan kolom created_at dan updated_at
         });
-        
     }
 
     /**

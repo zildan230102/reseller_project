@@ -33,7 +33,8 @@
             <tr>
                 <td>{{ $toko->nama_toko }}</td>
                 <td>{{ $toko->marketplace }}</td>
-                <td>{{ \Carbon\Carbon::parse($toko->tanggal_dibuat)->format('d-m-Y') }}</td>
+                <!-- Menggunakan kolom created_at -->
+                <td>{{ \Carbon\Carbon::parse($toko->created_at)->format('d-m-Y') }}</td>
                 <td>
                     <span class="badge {{ $toko->is_active ? 'badge-active' : 'badge-inactive' }}">
                         {{ $toko->is_active ? 'Aktif' : 'Tidak Aktif' }}
@@ -46,7 +47,7 @@
                             {{ $toko->is_active ? 'Nonaktifkan' : 'Aktifkan' }}
                         </button>
                     </form>
-                    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editTokoModal" data-id="{{ $toko->id }}" data-nama="{{ $toko->nama_toko }}" data-marketplace="{{ $toko->marketplace }}" data-tanggal="{{ $toko->tanggal_dibuat }}" data-status="{{ $toko->is_active }}">
+                    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editTokoModal" data-id="{{ $toko->id }}" data-nama="{{ $toko->nama_toko }}" data-marketplace="{{ $toko->marketplace }}" data-status="{{ $toko->is_active }}">
                         Edit
                     </button>
                     <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmDeleteModal" data-id="{{ $toko->id }}">
@@ -87,11 +88,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="tanggal_dibuat">Tanggal Dibuat</label>
-                        <input type="date" class="form-control" name="tanggal_dibuat" required>
-                    </div>
-
-                    <div class="form-group">
                         <label for="is_active">Status</label>
                         <select name="is_active" class="form-control">
                             <option value="1">Aktif</option>
@@ -128,11 +124,6 @@
                     <div class="form-group">
                         <label for="edit_marketplace">Marketplace</label>
                         <input type="text" class="form-control" id="edit_marketplace" name="marketplace" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="edit_tanggal_dibuat">Tanggal Dibuat</label>
-                        <input type="date" class="form-control" id="edit_tanggal_dibuat" name="tanggal_dibuat" required>
                     </div>
 
                     <div class="form-group">
@@ -213,38 +204,16 @@ $(document).ready(function() {
         var tokoId = button.data('id');
         var namaToko = button.data('nama');
         var marketplace = button.data('marketplace');
-        var tanggalDibuat = button.data('tanggal');
         var status = button.data('status');
         
         // Set data ke dalam form edit
         $('#edit_nama_toko').val(namaToko);
         $('#edit_marketplace').val(marketplace);
-        $('#edit_tanggal_dibuat').val(tanggalDibuat);
         $('#edit_is_active').val(status);
         
         // Set URL action untuk form edit
         $('#editTokoForm').attr('action', '{{ url("toko") }}/' + tokoId);
     });
-
-    // Handle pengiriman form dengan AJAX untuk mengedit toko
-    $('#editTokoForm').on('submit', function(event) {
-        event.preventDefault(); // Mencegah pengiriman form secara default
-
-        $.ajax({
-            type: 'POST',
-            url: $(this).attr('action'),
-            data: $(this).serialize(),
-            success: function(response) {
-                $('#editTokoModal').modal('hide'); // Tutup modal
-                location.reload(); // Reload halaman untuk melihat data terbaru
-            },
-            error: function(xhr) {
-                alert('Terjadi kesalahan saat memperbarui data');
-            }
-        });
-    });
 });
 </script>
-
 @endsection
-
