@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TokoController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\BukuController;
 
 // Rute untuk homepage yang mengarahkan ke login
 Route::get('/', function () {
@@ -53,3 +54,6 @@ Route::middleware('guest')->group(function () {
     Route::get('/login', Login::class)->name('login'); // Halaman login
     Route::get('/register', Register::class)->name('register'); // Halaman registrasi
 });
+
+
+Route::resource('bukus', BukuController::class);
