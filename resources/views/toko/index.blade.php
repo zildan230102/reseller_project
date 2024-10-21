@@ -3,46 +3,34 @@
 @section('content')
 
 <style>
-.aksi-dropdown-item {
-    padding: 10px 15px; /* Menambah padding untuk kenyamanan */
-    margin-bottom: 0; /* Menghilangkan margin bawah untuk tombol dalam satu baris */
-    border: none; /* Menghilangkan border default */
-    border-radius: 5px; /* Memberikan sudut yang lebih halus */
-    cursor: pointer; /* Mengubah kursor saat hover */
+.btn-tambah-toko {
+    background-color: #ff9800;
+    color: white;
+    font-weight: bold;
+    transition: none;
 }
-.aksi-dropdown-item:not(:last-child) {
-    margin-right: 10px; /* Menambah jarak antara tombol */
+.btn-tambah-toko:hover, .btn-modal:hover{
+    background-color: #ff9800;
+    color: white;
 }
-.custom-btn {
-    width: 80%; /* Mengatur lebar tombol */
-    margin: 5px; /* Mengatur jarak antara tombol */
-    border: none; /* Menghilangkan border */
-    border-radius: 5px; /* Mengatur sudut tombol */
-    cursor: pointer; /* Mengubah kursor saat hover */
+.btn-tambah-toko .bi {
+    font-weight: bold !important;
+    margin-right: 8px;
 }
-
-.custom-btn-warning {
-  background-color: #ffc107; /* Warna kuning */
-  color: #fff;
+.btn-modal {
+    background-color: #ff9800;
+    color: white;
 }
-
-.custom-btn-info {
-  background-color:mediumblue; /* Warna biru muda */
-  color: #fff;
+.btn-danger {
+    background-color: red;
+    color: white;
 }
-
-.custom-btn-danger {
-  background-color: #dc3545; /* Warna merah */
-  color: #fff;
-}
-
 .badge-active {
     background-color: green; /* Warna hijau untuk status aktif */
     color: white;           /* Warna teks putih untuk kontras */
     padding: 5px 10px;     /* Sedikit padding untuk tampilan yang lebih baik */
     border-radius: 5px;    /* Membuat sudut badge menjadi melengkung */
 }
-
 .badge-inactive {
     background-color: red;  /* Warna merah untuk status non-aktif */
     color: white;           /* Warna teks putih untuk kontras */
@@ -65,10 +53,12 @@
         </div>
     @endif
 
-    <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#tokoModal">Tambah Toko</button>
+    <button type="button" class="btn btn-tambah-toko mb-3" data-bs-toggle="modal" data-bs-target="#tokoModal">
+        <i class="bi bi-plus-lg"></i> <span> Tambah Toko </span>
+    </button>
 
     <table class="table table-bordered">
-        <thead class="thead">
+        <thead class="thead text-center">
             <tr>
                 <th>Nama Toko</th>
                 <th>Marketplace</th>
@@ -91,23 +81,29 @@
                 </td>
                 <td>
                     <div class="dropdown">
-                        <button class="btn btn-sm " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false" style="background-color: transparent">
-                            <i class="bi bi-eye-fill" style="color: black"></i>
+                        <button type="button" class="btn btn-sm" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-eye-fill text-black"></i>
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <form action="{{ route('toko.toggle-status', $toko) }}" method="POST" class="flex-grow-1">
-                                @csrf
-                                <button type="submit" class="aksi-dropdown-item custom-btn custom-btn-warning">
-                                    {{ $toko->is_active ? 'Nonaktifkan' : 'Aktifkan' }}
+                        <ul class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
+                            <li class="m-2">
+                                <form action="{{ route('toko.toggle-status', $toko) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item bg-warning text-white">
+                                        <i class="{{ $toko->is_active ? 'bi bi-x-square fs-5' : 'bi bi-check-square fs-5' }}"></i>
+                                    </button>
+                                </form>
+                            </li>
+                            <li class="m-2">
+                                <button class="dropdown-item bg-primary text-white" type="button" data-bs-toggle="modal" data-bs-target="#editTokoModal" data-id="{{ $toko->id }}" data-nama="{{ $toko->nama_toko }}" data-marketplace="{{ $toko->marketplace }}" data-status="{{ $toko->is_active }}">
+                                    <i class="bi bi-pencil fs-5"></i>
                                 </button>
-                            </form>
-                            <button class="aksi-dropdown-item mx-2 custom-btn custom-btn-info" data-toggle="modal" data-target="#editTokoModal" data-id="{{ $toko->id }}" data-nama="{{ $toko->nama_toko }}" data-marketplace="{{ $toko->marketplace }}" data-status="{{ $toko->is_active }}">
-                                <i class="bi bi-pencil-square"></i>
-                            </button>
-                            <button class="aksi-dropdown-item custom-btn custom-btn-danger" data-toggle="modal" data-target="#confirmDeleteModal" data-id="{{ $toko->id }}">
-                                <i class="bi bi-trash3-fill"></i>
-                            </button>
-                        </div>
+                            </li>
+                            <li class="m-2">
+                                <button class="dropdown-item bg-danger text-white" type="button" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" data-id="{{ $toko->id }}">
+                                    <i class="bi bi-trash fs-5"></i>
+                                </button>
+                            </li>
+                        </ul>
                     </div>
                 </td>
             </tr>
@@ -126,9 +122,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="tokoModalLabel">Tambah Toko</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form id="tokoForm" action="{{ route('toko.store') }}" method="POST">
@@ -150,8 +144,9 @@
                             <option value="0">Tidak Aktif</option>
                         </select>
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <div class="d-flex justify-content-end ">
+                        <button type="submit" class="btn btn-modal">Simpan</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -164,9 +159,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="editTokoModalLabel">Edit Toko</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form id="editTokoForm" action="" method="POST">
@@ -190,7 +183,7 @@
                         </select>
                     </div>
                     <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-modal">Update</button>
                     </div>
                     
                 </form>
@@ -205,9 +198,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="confirmDeleteModalLabel">Konfirmasi Hapus</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
             </div>
             <div class="modal-body">
                 Apakah Anda yakin ingin menghapus toko ini?
