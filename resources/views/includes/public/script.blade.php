@@ -212,11 +212,11 @@
 						break;
 					case "toko":
 						chart.data.labels = ["Toko 1", "Toko 2", "Toko 3", "Toko 4", "Toko 5", "Toko 6"];
-						chart.data.datasets[0].data = [20, 30, 40, 50, 60, 70];
+						chart.data.datasets[0].data = [15, 30, 35, 40, 50, 60];
 						break;
 					case "buku":
 						chart.data.labels = ["Buku 1", "Buku 2", "Buku 3", "Buku 4", "Buku 5", "Buku 6"];
-						chart.data.datasets[0].data = [5, 10, 15, 20, 25, 30];
+						chart.data.datasets[0].data = [10, 20, 25, 30, 45, 60];
 						break;
 					// Add more cases for each month
 					default:

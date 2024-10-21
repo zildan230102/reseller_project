@@ -33,18 +33,19 @@
 .modal-footer {
   justify-content: flex-end;
 }
+
 .custom-button {
-  background-color: #ff9800; /* Hijau */
-  color: white; /* Warna teks */
-  padding: 10px 20px; /* Mengatur padding */
+  background-color: #ff9800; 
+  color: white;
+  padding: 10px 20px; 
   border: none;
-  border-radius: 5px; /* Sudut membulat */
-  cursor: pointer; /* Mengubah kursor saat hover */
-}
-.custom-button:hover {
-  background-color: #ff7b29; /* Warna saat hover */
+  border-radius: 5px; 
+  cursor: pointer;
 }
 
+.custom-button:hover {
+  background-color: #ff7b29; 
+}
 
 .card-header {
   padding: 20px 0px 10px 30px;
@@ -53,6 +54,7 @@
   background-color: transparent;
   border-bottom: none;
 }
+
 .card-title {
   margin: 0;
   color: #333;
@@ -60,14 +62,17 @@
   font-weight: bold;
   color: #333;
 }
+
 .card-body {
   padding: 0;
   text-align: left;
 }
+
 .card {
   overflow: hidden;
   border-radius: 8px;
 }
+
 .chart { 
   padding: 0 20px;
 }
@@ -80,34 +85,44 @@
   align-items: center;
   width: 100%;
 }
+
 #marketplace-btn {
   border-radius: 8px;
 }
+
 #toko-btn {
   border-radius: 8px;
 }
+
 #buku-btn {
   border-radius: 8px;
 }
+
 .btn-group {
-  color:#ff9800;
   background-color: transparent;
   border: none;
   gap: 10px;
   cursor: pointer;
-
-  font-size: 14px; /* Ukuran font awal */
+  font-size: 14px; 
   transition: background-color 0.3s ease, color 0.3s ease;
   
 }
+
 .btn-group .btn:hover {
+  border: 1px solid #ff9800; 
   color: #ff9800;
+  outline: none;
+  box-shadow: none;
 }
+
 .btn-group .active {
-  background-color: #ff9800; /* Warna oranye */
-  color: #fff;
+  background-color: #ff9800; 
+  color: #fff !important;
   border-radius: 8px;
+  outline: none;
+  box-shadow: none;
 }
+
 .title-chart-bar {
   text-align: center;
   font-weight: bold;
@@ -144,7 +159,6 @@
 .button-group button {
     margin-right: 10px; 
 }
-
 
 /* toko */
 .btn {
@@ -220,7 +234,7 @@
   text-align: center;
   padding: 16px 0 16px 0;
   background-color: white;
-  color: orange;
+  color: #f57c00;
   font-size: 16px;
   border: none;
   cursor: pointer;
@@ -229,7 +243,7 @@
 
 /* Arrow styling */
 .arrow {
-  color: orange;
+  color: #f57c00;
   font-size: 16px;
   padding-left: 8px;
 }
@@ -270,14 +284,20 @@
 
 /* Row Pertama Kanan */
 .card-total {
-  background-color: white;
+  border: 1px solid #ddd;
+  background-color: auto;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  padding: 5px;
+  margin-bottom: 25px;
+  padding: 5px 16px 16px 20px;
   transition: transform 0.2s ease-in-out;
   width: 100%;
 }
+
+.text-orange {
+  color: #f57c00;
+}
+
 .col-auto {
   padding-right: 10px; 
   padding: 20px 16px 16px 0px;
@@ -501,25 +521,25 @@ tr.deactive {
 /* Data Marketplace Responsif */
 @media (max-width: 768px) {
   .col-kanan {
-      flex-direction: column; /* Menjaga layout kolom */
-      align-items: flex-start; /* Rata kiri untuk perangkat kecil */
+      flex-direction: column; 
+      align-items: flex-start; 
   }
 
   .chart-container {
-      width: 100%; /* Membuat chart mengisi penuh */
+      width: 100%; 
   }
 
   .legend-list {
-      width: 100%; /* Lebar penuh untuk legend */
+      width: 100%; 
   }
 
   .performa-marketplace {
-      font-size: 18px; /* Ukuran font sedikit lebih kecil */
+      font-size: 18px; 
   }
 
   .legend-list li {
-      flex-direction: row; /* Tetap dalam baris */
-      justify-content: space-between; /* Mengatur jarak antara nama dan nilai */
+      flex-direction: row; 
+      justify-content: space-between; 
   }
 }
 
@@ -538,11 +558,11 @@ tr.deactive {
   
     .dropdown select {
       padding: 8px;
-      font-size: 12px; /* Sesuaikan ukuran font */
+      font-size: 12px; 
     }
   
     .month-dropdown {
-      padding: 8px 12px; /* Kurangi padding */
+      padding: 8px 12px; 
     }
   }
   
@@ -550,27 +570,27 @@ tr.deactive {
   @media (max-width: 480px) {
     .button-container {
       flex-direction: column;
-      align-items: stretch; /* Penuhi lebar layar */
+      align-items: stretch; 
     }
   
     .btn-group {
-      font-size: 10px; /* Sesuaikan ukuran font */
-      padding: 6px 12px; /* Sesuaikan padding */
-      width: 100%; /* Lebar penuh untuk button */
-      text-align: center; /* Rata tengah teks */
-      margin-bottom: 5px; /* Jarak bawah untuk tiap button */
+      font-size: 10px; 
+      padding: 6px 12px; 
+      width: 100%; 
+      text-align: center; 
+      margin-bottom: 5px; 
     }
   
     .dropdown select {
-      width: 100%; /* Lebar penuh */
-      font-size: 10px; /* Ukuran font lebih kecil */
-      padding: 6px; /* Sesuaikan padding */
+      width: 100%; 
+      font-size: 10px; 
+      padding: 6px; 
     }
   
     .month-dropdown {
-      padding: 6px 10px; /* Kurangi padding */
-      width: 100%; /* Lebar penuh */
-      text-align: center; /* Teks rata tengah */
+      padding: 6px 10px; 
+      width: 100%; 
+      text-align: center; 
     }
   }
 /* Responsif: Mengatur agar di layar kecil tampil satu kolom */
