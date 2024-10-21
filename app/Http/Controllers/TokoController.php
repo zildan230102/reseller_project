@@ -46,7 +46,7 @@ class TokoController extends Controller
         // Simpan data toko baru ke database, created_at otomatis diisi oleh Laravel
         $toko = Toko::create($request->only(['nama_toko', 'marketplace', 'is_active']));
 
-        // Kembalikan respons JSON
+        // Kembalikan respons JSON untuk sukses
         return response()->json(['success' => true, 'data' => $toko]);
     }
 
