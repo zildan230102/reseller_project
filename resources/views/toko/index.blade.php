@@ -3,19 +3,9 @@
 @section('content')
 
 <style>
-.btn-tambah-toko {
-    background-color: #ff9800;
-    color: white;
-    font-weight: bold;
-    transition: none;
-}
-.btn-tambah-toko:hover, .btn-modal:hover{
-    background-color: #ff9800;
-    color: white;
-}
-.btn-tambah-toko .bi {
+
+.custom-button .bi {
     font-weight: bold !important;
-    margin-right: 8px;
 }
 .btn-modal {
     background-color: #ff9800;
@@ -53,7 +43,7 @@
         </div>
     @endif
 
-    <button type="button" class="btn btn-tambah-toko mb-3" data-bs-toggle="modal" data-bs-target="#tokoModal">
+    <button type="button" class="custom-button mb-3" data-bs-toggle="modal" data-bs-target="#tokoModal">
         <i class="bi bi-plus-lg"></i> <span> Tambah Toko </span>
     </button>
 
@@ -85,30 +75,20 @@
                             <i class="bi bi-eye-fill text-black"></i>
                         </button>
                         <ul class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
-                            <li class="d-flex justify-content-between w-auto ">
+                            <li class="d-flex justify-content-around">
                                 <form action="{{ route('toko.toggle-status', $toko) }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="btn bg-warning text-white p-1 m-3">
-                                        <i class="{{ $toko->is_active ? 'bi bi-x-square' : 'bi bi-check-square' }}"></i>
+                                    <button type="submit" class="btn bg-warning text-white p-1 ml-1">
+                                        <i class="{{ $toko->is_active ? 'bi bi-x-square fs-6' : 'bi bi-check-square fs-6' }}"></i>
                                     </button>
                                 </form>
-                                <button class="btn bg-primary text-white p-1 m-3" type="button" data-bs-toggle="modal" data-bs-target="#editTokoModal" data-id="{{ $toko->id }}" data-nama="{{ $toko->nama_toko }}" data-marketplace="{{ $toko->marketplace }}" data-status="{{ $toko->is_active }}">
-                                    <i class="bi bi-pencil"></i>
+                                <button class="btn bg-primary text-white p-1" type="button" data-bs-toggle="modal" data-bs-target="#editTokoModal" data-id="{{ $toko->id }}" data-nama="{{ $toko->nama_toko }}" data-marketplace="{{ $toko->marketplace }}" data-status="{{ $toko->is_active }}">
+                                    <i class="bi bi-pencil fs-6"></i>
                                 </button>
-                                <button class="btn bg-danger text-white p-1 m-3" type="button" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" data-id="{{ $toko->id }}">
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </li>
-                            {{-- <li class="m-2">
-                                <button class="dropdown-item bg-primary text-white" type="button" data-bs-toggle="modal" data-bs-target="#editTokoModal" data-id="{{ $toko->id }}" data-nama="{{ $toko->nama_toko }}" data-marketplace="{{ $toko->marketplace }}" data-status="{{ $toko->is_active }}">
-                                    <i class="bi bi-pencil fs-5"></i>
+                                <button class="btn bg-danger text-white p-1 mr-1" type="button" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" data-id="{{ $toko->id }}">
+                                    <i class="bi bi-trash fs-6"></i>
                                 </button>
                             </li>
-                            <li class="m-2">
-                                <button class="dropdown-item bg-danger text-white" type="button" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" data-id="{{ $toko->id }}">
-                                    <i class="bi bi-trash fs-5"></i>
-                                </button>
-                            </li> --}}
                         </ul>
                     </div>
                 </td>
