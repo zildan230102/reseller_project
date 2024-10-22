@@ -85,15 +85,21 @@
                             <i class="bi bi-eye-fill text-black"></i>
                         </button>
                         <ul class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
-                            <li class="m-2">
+                            <li class="d-flex justify-content-between w-auto ">
                                 <form action="{{ route('toko.toggle-status', $toko) }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="dropdown-item bg-warning text-white">
-                                        <i class="{{ $toko->is_active ? 'bi bi-x-square fs-5' : 'bi bi-check-square fs-5' }}"></i>
+                                    <button type="submit" class="btn bg-warning text-white p-1 m-3">
+                                        <i class="{{ $toko->is_active ? 'bi bi-x-square' : 'bi bi-check-square' }}"></i>
                                     </button>
                                 </form>
+                                <button class="btn bg-primary text-white p-1 m-3" type="button" data-bs-toggle="modal" data-bs-target="#editTokoModal" data-id="{{ $toko->id }}" data-nama="{{ $toko->nama_toko }}" data-marketplace="{{ $toko->marketplace }}" data-status="{{ $toko->is_active }}">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button class="btn bg-danger text-white p-1 m-3" type="button" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" data-id="{{ $toko->id }}">
+                                    <i class="bi bi-trash"></i>
+                                </button>
                             </li>
-                            <li class="m-2">
+                            {{-- <li class="m-2">
                                 <button class="dropdown-item bg-primary text-white" type="button" data-bs-toggle="modal" data-bs-target="#editTokoModal" data-id="{{ $toko->id }}" data-nama="{{ $toko->nama_toko }}" data-marketplace="{{ $toko->marketplace }}" data-status="{{ $toko->is_active }}">
                                     <i class="bi bi-pencil fs-5"></i>
                                 </button>
@@ -102,7 +108,7 @@
                                 <button class="dropdown-item bg-danger text-white" type="button" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" data-id="{{ $toko->id }}">
                                     <i class="bi bi-trash fs-5"></i>
                                 </button>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </td>
