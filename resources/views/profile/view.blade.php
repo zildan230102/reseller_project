@@ -42,7 +42,7 @@
                 </tbody>
             </table>
             <!-- Tombol yang memicu modal untuk edit profil -->
-            <button type="button" class="custom-button" data-bs-toggle="modal" data-bs-target="#editProfileModal">
+            <button type="button" class="custom-button float-end" data-bs-toggle="modal" data-bs-target="#editProfileModal">
                 Edit Profil
             </button>
 
@@ -92,7 +92,6 @@
             </div>
 
             <div class="modal-footer">
-              <button type="button" class="custom-button btn-sm" data-bs-dismiss="modal">Close</button>
               <button type="submit" class="custom-button btn-sm">Simpan Perubahan</button>
             </div>
         </form>
