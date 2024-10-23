@@ -66,7 +66,7 @@
                     <div class="row w-100">
                         <div class="col-md-3 offset-md-8 d-flex justify-content-center">
                             <ul class="navbar-nav navbar-align">
-                                {{-- <!-- Notifikasi -->
+                                <!-- Notifikasi -->
                                 <li class="nav-item dropdown">
                                     <a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-bs-toggle="dropdown">
                                         <div class="position-relative">
@@ -147,7 +147,7 @@
                                             </ul>
                                         </li>    
                                     </ul>
-                                </div> --}}
+                                </div>
                             </ul>
                         </div>
                     </div>
