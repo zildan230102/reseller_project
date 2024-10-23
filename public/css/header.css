@@ -78,6 +78,7 @@
     background-color: transparent !important; 
     color: #ff9800 !important; 
     transition: border-color 0.3s ease, color 0.3s ease;
+    font-weight: bold;
 }
 
 .btn-pesanan:hover {

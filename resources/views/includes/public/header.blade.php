@@ -23,8 +23,8 @@
                     </div>
 
                     <!-- Baris kedua: Text -->
-                    <div class="row w-100 mt-2">
-                        <div class="col-md-7 d-flex justify-content-start flex-grow-1">
+                    <div class="row w-100">
+                        <div class="col-md-12 d-flex justify-content-center">
                             <!-- Dahboard -->
                             <a class="btn btn-pesanan" href="{{url('/dashboard')}}" role="button" id="dashboard">Dashboard</a>
 
@@ -63,9 +63,8 @@
                     </div>
 
                     <!-- Baris Ketiga -->
-                    <div class="row w-100">
-                        <div class="col-md-3 offset-md-8 d-flex justify-content-center">
-                            <ul class="navbar-nav navbar-align">
+                    <div class="row d-flex justify-content-end align-items-center ms-auto">
+                            <ul class="navbar-nav navbar-align d-flex">
                                 <!-- Notifikasi -->
                                 <li class="nav-item dropdown">
                                     <a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-bs-toggle="dropdown">
@@ -74,6 +73,7 @@
                                             <span class="indicator">4</span>
                                         </div>
                                     </a>
+                                    <!-- Konten Notifikasi -->
                                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown">
                                         <div class="dropdown-menu-header">
                                             4 New Notifications
@@ -131,23 +131,19 @@
                                             <a href="#" class="text-muted">Show all notifications</a>
                                         </div>             
                                     </div> 
-                                </li>   
-
-                                <!-- Profil Pengguna -->
-                                <div class="collapse navbar-collapse">
-                                    <ul class="navbar-nav">
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link d-flex align-items-center" href="#" id="userDropdown" data-bs-toggle="dropdown">
-                                                <img src="style/src/img/avatars/avatar.jpg" class="avatar img-fluid rounded me-2" alt="Charles Hall" style="height: 30px; width: 30px;"> 
-                                                <span class="text-dark">Charles Hall</span>
-                                            </a>
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                                <li><a class="dropdown-item" href="pages-profile.html"><i class="bi bi-person"></i>Profile</a></li>
-                                                <li><a class="dropdown-item" href="#">Logout</a></li>
-                                            </ul>
-                                        </li>    
-                                    </ul>
-                                </div>
+                                </li>    
+                            </ul>
+                    </div>
+                     <!-- Profil Pengguna -->
+                    <div class="col d-flex justify-content-end align-items-center">
+                        <div class="dropdown me-3">
+                            <a class="nav-dropdown d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="style/src/img/avatars/image.png" class="avatar img-fluid rounded" alt="Charles Hall"/> 
+                                <span class="text-dark ms-2">Charles Hall</span>
+                            </a>
+                            <ul class="dropdown-menu mt-1">
+                                <li><a class="dropdown-item" href="pages-profile.html"><i class="bi bi-person"></i>Profile</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-left"></i>Logout</a></li>
                             </ul>
                         </div>
                     </div>
