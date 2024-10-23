@@ -5,13 +5,13 @@
                 <div class="d-table-cell align-middle">
 
                     <div class="text-center mt-4">
-                        <h1 class="h2">Reseller Deepublish</h1>
+                        <h2 class="text-orange">Reseller Deepublish</h2>
                         <p class="lead">
                             Masuk ke akun anda untuk melanjutkan
                         </p>
                     </div>
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-login">
                             <div class="m-sm-3">
                                 <form wire:submit.prevent="loginUser">
                                     <div class="mb-3">
@@ -42,7 +42,7 @@
                                             <label class="form-check-label" for="remember">Remember me</label>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Masuk</button>
+                                    <button type="submit" class="btn btn-login mt-3">Masuk</button>
                                 </form>
                             </div>
                         </div>

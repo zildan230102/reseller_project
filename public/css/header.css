@@ -21,12 +21,6 @@
     width: 100%;
 }
 
-.avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
-
 .nav-item {
     position: relative;
 }
@@ -44,6 +38,28 @@
     background-color: #f2f2f2;
     border-radius: 5px;
     border: 1px solid #f57c00; 
+}
+
+.nav-dropdown {
+    color: #f57c00;
+    text-decoration: none;
+    padding: 11px 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.nav-dropdown:hover {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    border: 1px solid #ffffff; 
+    text-decoration: none;
+}
+
+.avatar {
+    height: 50%;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 /* Profile section aligned to the right */

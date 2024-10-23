@@ -55,6 +55,10 @@
   border-bottom: none;
 }
 
+.card-login {
+  padding: 1rem;
+}
+
 .card-title {
   margin: 0;
   color: #333;
@@ -71,6 +75,7 @@
 .card {
   overflow: hidden;
   border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .chart { 
@@ -166,6 +171,16 @@
   background-color: transparent;
   color: #f57c00; 
   padding: 10px 20px; 
+  border: none;
+  border-radius: 5px; 
+  text-decoration: none;
+  display: inline-block; 
+}
+
+.btn-login{
+  background-color: #f57c00;
+  color: #ffff; 
+  padding: 10px 30px; 
   border: none;
   border-radius: 5px; 
   text-decoration: none;

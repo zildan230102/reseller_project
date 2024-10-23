@@ -127,17 +127,18 @@
                             <div class="collapse navbar-collapse justify-content-end">
                                 <ul class="navbar-nav">
                                     <div class="dropdown me-3">
-                                        <a class="nav-link" href="#" data-bs-toggle="dropdown">
-                                            <img src="style/src/img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> 
+                                        <a class="nav-dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <img src="style/src/img/avatars/image.png" class="avatar img-fluid rounded" alt="Charles Hall"/> 
                                             <span class="text-dark">Charles Hall</span>
                                         </a>
-                                        <ul class="dropdown-menu">
+
+                                        <ul class="dropdown-menu mt-3">
                                             <li><a class="dropdown-item" href="pages-profile.html"><i class="bi bi-person"></i>Profile</a></li>
-                                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                                            <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-left"></i>Logout</a></li>
                                         </ul>
                                     </div>
                                 </ul>
-                            </div>
+                            </div> 
                         </ul>
                     </div> 
                 </div>
