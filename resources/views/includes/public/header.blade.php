@@ -39,7 +39,7 @@
                                     Pesanan
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Buat Order</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('orders') }}">Buat Order</a></li>
                                     <li><a class="dropdown-item" href="#">Riwayat Pesanan</a></li>
                                 </ul>
                             </li>
@@ -48,7 +48,8 @@
                                     Toko
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{{ url('toko') }}">Informasi Toko</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('toko') }}">Daftar Toko</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('bukus') }}">Daftar Buku</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
@@ -56,8 +57,8 @@
                                     Pembayaran
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Riwayat Pembayaran</a></li>
-                                    <li><a class="dropdown-item" href="#">Tagihan</a></li>
+                                    <li><a class="dropdown-item" href="">Riwayat Pembayaran</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('logout') }}">Tagihan</a></li>
                                 </ul>
                             </li>
                             <!-- Baris Ketiga: Profil Pengguna -->
@@ -67,8 +68,8 @@
                                     <span class="text-dark ms-2">Charles Hall</span>
                                 </a>
                                 <ul class="dropdown-menu mt-1">
-                                    <li><a class="dropdown-item" href="pages-profile.html"><i class="bi bi-person"></i>Profile</a></li>
-                                    <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-left"></i>Logout</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('profile') }}"><i class="bi bi-person"></i>Profile</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('logout') }}"><i class="bi bi-box-arrow-left"></i>Logout</a></li>
                                 </ul>
                             </li>
                         </ul>
