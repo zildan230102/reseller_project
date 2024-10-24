@@ -29,7 +29,7 @@
 }
 </style>
 <div class="container mt-4">
-    <h1 class="mb-4">Daftar Toko</h1>
+    <h1 class="mb-4 text-center">Daftar Toko</h1>
 
     @if (session('success'))
         <div class="alert alert-success">
@@ -131,7 +131,7 @@
                         </select>
                     </div>
                     <div class="d-flex justify-content-end ">
-                        <button type="submit" class="btn btn-modal">Simpan</button>
+                        <button type="submit" class="custom-button">Simpan</button>
                     </div>
                 </form>
             </div>
@@ -169,7 +169,7 @@
                         </select>
                     </div>
                     <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-modal">Update</button>
+                        <button type="submit" class="custom-button">Update</button>
                     </div>
                     
                 </form>
