@@ -13,23 +13,87 @@
 <body>
     <header>
         <div class="header" id="header">
-            <nav class="navbar navbar-expand navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
                     <!-- Baris Pertama : Logo -->
-                    <div class="row w-100">
-                        <div class="col-md-4 d-flex align-items-center">
+                    <div class="row w-auto">
+                        <a class="navbar-brand" href="#">
                             <img src="{{ ('style/src/img/icons/d2.png') }}" class="img" alt="Deepublish Logo">
-                        </div>
+                        </a>
                     </div>
 
-                    <!-- Baris kedua: Text -->
-                    <div class="row w-100">
-                        <div class="col-md-12 d-flex justify-content-center">
-                            <!-- Dahboard -->
-                            <a class="btn btn-pesanan" href="{{url('/dashboard')}}" role="button" id="dashboard">Dashboard</a>
+                     <!-- Tombol Hamburger untuk layar kecil -->
+                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
+                    <!-- Baris kedua: Text -->
+                    <!-- Baris Kedua: Menu yang bisa di-collapse -->
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item">
+                                <a class="btn btn-pesanan" href="{{url('/dashboard')}}" role="button" id="dashboard">Dashboard</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="btn btn-pesanan" href="#" id="pesanan-btn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Pesanan
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Buat Order</a></li>
+                                    <li><a class="dropdown-item" href="#">Riwayat Pesanan</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="btn btn-pesanan" href="#" id="toko-btn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Toko
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{{ url('toko') }}">Informasi Toko</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="btn btn-pesanan" href="#" id="pembayaran-btn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Pembayaran
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Riwayat Pembayaran</a></li>
+                                    <li><a class="dropdown-item" href="#">Tagihan</a></li>
+                                </ul>
+                            </li>
+                            <!-- Baris Ketiga: Profil Pengguna -->
+                            <li class="nav-item dropdown mt-3 user-profile">
+                                <a class="nav-link d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="style/src/img/avatars/image.png" class="avatar img-fluid rounded" alt="Charles Hall" />
+                                    <span class="text-dark ms-2">Charles Hall</span>
+                                </a>
+                                <ul class="dropdown-menu mt-1">
+                                    <li><a class="dropdown-item" href="pages-profile.html"><i class="bi bi-person"></i>Profile</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-left"></i>Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        {{-- <!-- Baris Ketiga: Profil Pengguna -->
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="style/src/img/avatars/image.png" class="avatar img-fluid rounded" alt="Charles Hall" />
+                                    <span class="text-dark ms-2">Charles Hall</span>
+                                </a>
+                                <ul class="dropdown-menu mt-1">
+                                    <li><a class="dropdown-item" href="pages-profile.html"><i class="bi bi-person"></i>Profile</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-left"></i>Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul> --}}
+                    </div>
+                    {{-- <div class="row w-auto">
+                        <div class="d-flex justify-content-center">
+                            
                             <!-- Menu Dropdown -->
-                            <ul class="nav nav-pills flex-grow-1">
+                            <ul class="nav nav-pills">
+                                <!-- Dahboard -->
+                                <a class="btn btn-pesanan" href="{{url('/dashboard')}}" role="button" id="dashboard">Dashboard</a>
                                 <div class="dropdown">
                                     <a class="btn btn-pesanan" href="#" role="button" id="pesanan-btn" data-bs-toggle="dropdown" aria-expanded="false">
                                         Pesanan
@@ -63,93 +127,26 @@
                     </div>
 
                     <!-- Baris Ketiga -->
-                    <div class="row d-flex justify-content-end align-items-center ms-auto">
-                            <ul class="navbar-nav navbar-align d-flex">
-                                <!-- Notifikasi -->
-                                <li class="nav-item dropdown">
-                                    <a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-bs-toggle="dropdown">
-                                        <div class="position-relative">
-                                            <i class="align-middle" data-feather="bell"></i>
-                                            <span class="indicator">4</span>
-                                        </div>
-                                    </a>
-                                    <!-- Konten Notifikasi -->
-                                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown">
-                                        <div class="dropdown-menu-header">
-                                            4 New Notifications
-                                        </div>
-                                        <div class="list-group">
-                                            <a href="#" class="list-group-item">
-                                                <div class="row g-0 align-items-center">
-                                                    <div class="col-2">
-                                                        <i class="text-danger" data-feather="alert-circle"></i>
-                                                    </div>
-                                                    <div class="col-10">
-                                                        <div class="text-dark">Update completed</div>
-                                                        <div class="text-muted small mt-1">Restart server 12 to complete the update.</div>
-                                                        <div class="text-muted small mt-1">30m ago</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="list-group-item">
-                                                <div class="row g-0 align-items-center">
-                                                    <div class="col-2">
-                                                        <i class="text-warning" data-feather="bell"></i>
-                                                    </div>
-                                                    <div class="col-10">
-                                                        <div class="text-dark">Update your product stock information before October 31</div>
-                                                        <div class="text-muted small mt-1">Update the stock immediately.</div>
-                                                        <div class="text-muted small mt-1">2h ago</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="list-group-item">
-                                                <div class="row g-0 align-items-center">
-                                                    <div class="col-2">
-                                                        <i class="text-primary" data-feather="home"></i>
-                                                    </div>
-                                                    <div class="col-10">
-                                                        <div class="text-dark">Login from 192.186.1.8</div>
-                                                        <div class="text-muted small mt-1">5h ago</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="list-group-item">
-                                                <div class="row g-0 align-items-center">
-                                                    <div class="col-2">
-                                                        <i class="text-success" data-feather="user-plus"></i>
-                                                    </div>
-                                                    <div class="col-10">
-                                                        <div class="text-dark">New connection</div>
-                                                        <div class="text-muted small mt-1">Christina accepted your request.</div>
-                                                        <div class="text-muted small mt-1">14h ago</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="dropdown-menu-footer">
-                                            <a href="#" class="text-muted">Show all notifications</a>
-                                        </div>             
-                                    </div> 
-                                </li>    
-                            </ul>
-                    </div>
                      <!-- Profil Pengguna -->
-                    <div class="col d-flex justify-content-end align-items-center">
-                        <div class="dropdown me-3">
-                            <a class="nav-dropdown d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="style/src/img/avatars/image.png" class="avatar img-fluid rounded" alt="Charles Hall"/> 
-                                <span class="text-dark ms-2">Charles Hall</span>
-                            </a>
-                            <ul class="dropdown-menu mt-1">
-                                <li><a class="dropdown-item" href="pages-profile.html"><i class="bi bi-person"></i>Profile</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-left"></i>Logout</a></li>
-                            </ul>
+                     <div class="row w-auto">
+                        <div class="col d-flex ">
+                            <div class="dropdown me-3">
+                                <a class="nav-dropdown d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="style/src/img/avatars/image.png" class="avatar img-fluid rounded" alt="Charles Hall"/> 
+                                    <span class="text-dark ms-2">Charles Hall</span>
+                                </a>
+                                <ul class="dropdown-menu mt-1">
+                                    <li><a class="dropdown-item" href="pages-profile.html"><i class="bi bi-person"></i>Profile</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-left"></i>Logout</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </nav>
         </div>
     </header>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
