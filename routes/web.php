@@ -39,8 +39,12 @@ Route::middleware('auth')->group(function () {
         Route::post('/{toko}/toggle-status', [TokoController::class, 'toggleStatus'])->name('toko.toggle-status'); // Mengubah status aktif/tidak aktif
     });
 
-    // Rute untuk pengelolaan Order
-    Route::resource('orders', OrderController::class); // Menggunakan resource untuk CRUD Order
+
+
+
+
+Route::resource('orders', OrderController::class);
+
 
     // Rute untuk logout
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout'); // Logout pengguna

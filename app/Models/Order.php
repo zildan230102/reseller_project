@@ -1,5 +1,7 @@
 <?php
 
+// app/Models/Order.php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,38 +13,24 @@ class Order extends Model
 
     protected $fillable = [
         'tanggal',
-        'no_invc',
-        'toko_id',
         'no_hp',
+        'toko_id',
         'asal_penjualan',
-        'kode_booking',
-        'ekspedisi',
         'penerima',
         'no_hp_penerima',
+        'alamat_kirim',
         'kelurahan',
         'kecamatan',
         'kota',
         'provinsi',
-        'alamat_kirim',
         'catatan',
         'total_berat',
         'grand_total',
     ];
 
-    // Relasi dengan model Toko
     public function toko()
     {
         return $this->belongsTo(Toko::class);
     }
-
-    // Method untuk membuat nomor invoice otomatis
-    public static function generateInvoiceNumber()
-    {
-        // Format: INV-YYYYMMDD-XXXX
-        $prefix = 'INV-';
-        $date = now()->format('Ymd');
-        $count = self::whereDate('created_at', now())->count() + 1; // Menghitung jumlah order hari ini
-
-        return $prefix . $date . '-' . str_pad($count, 4, '0', STR_PAD_LEFT); // Menghasilkan nomor invoice
-    }
 }
+
