@@ -61,20 +61,28 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="">Riwayat Pembayaran</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('logout') }}">Tagihan</a></li>
+                                    <li><a class="dropdown-item" href="#">Tagihan</a></li>
                                 </ul>
-                            </li>    
+                            </li>
                         </ul>
-                        <!-- Baris Ketiga -->
-                        <!-- Profil Pengguna -->
-                        <li class="nav-item dropdown mt-3 user-profile">
-                            <a class="nav-dropdown d-flex align-items-center" href="#" role="button" aria-expanded="false">
-                                <img src="style/src/img/avatars/image.png" class="avatar img-fluid rounded" alt="Charles Hall" />
+                        <!-- Baris Ketiga: Profil Pengguna -->
+                        <li class="nav-item dropdown user-profile">
+                            <a class="nav-link d-flex align-items-center" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="style/src/img/avatars/image.png" class="avatar img-fluid rounded"
+                                    alt="Charles Hall" />
                                 <span class="text-dark ms-2">Charles Hall</span>
                             </a>
                             <ul class="dropdown-menu mt-1">
-                                <li><a class="dropdown-item" href="{{ url('profile') }}"><i class="bi bi-person"></i>Profile</a></li>
-                                <li><a class="dropdown-item" href="{{ url('logout') }}"><i class="bi bi-box-arrow-left"></i>Logout</a></li>
+                                <li><a class="dropdown-item" href="{{ url('profile') }}"><i
+                                            class="bi bi-person"></i>Profile</a></li>
+                                <li>
+                                    <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                                        @csrf
+                                        <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-left"></i>
+                                            Logout</button>
+                                    </form>
+                                </li>
                             </ul>
                         </li>
                     </div>
