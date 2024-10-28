@@ -16,29 +16,29 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
                     <!-- Baris Pertama : Logo -->
-                    <div class="row w-auto">
-                        <a class="navbar-brand" href="#">
-                            <img src="{{ ('style/src/img/icons/d2.png') }}" class="img" alt="Deepublish Logo">
-                        </a>
-                    </div>
-
-                    <!-- Tombol Hamburger untuk layar kecil -->
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                    <a class="navbar-brand" href="#">
+                        <!-- Logo besar (untuk desktop) -->
+                        <img src="{{ ('style/src/img/icons/d2.png') }}" class="img logo-desktop" alt="Deepublish Logo Digital">
+                        <!-- Logo kecil (huruf D untuk mobile) -->
+                        <img src="{{ ('style/src/img/icons/d2.png') }}" class="img logo-mobile" alt="Deepublish Logo Mobile">
+                        <div class="navbar-toggler-container">
+                            <button class="navbar-toggler" type="button" id="hamburgerButton" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon custom-toggler-icon"></span>
+                            </button>
+                        </div>
+                    </a>
 
                     <!-- Baris kedua: Text -->
                     <!-- Baris Kedua: Menu yang bisa di-collapse -->
+                
                     <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                         <ul class="navbar-nav mx-auto">
                             <li class="nav-item">
                                 <a class="btn btn-pesanan" href="{{url('/dashboard')}}" role="button"
                                     id="dashboard">Dashboard</a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="btn btn-pesanan" href="#" id="pesanan-btn" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
+                            <li class="nav-item dropdown"> 
+                                <a class="btn btn-pesanan" href="#" role="button" id="pesanan-btn" aria-expanded="false">
                                     Pesanan
                                 </a>
                                 <ul class="dropdown-menu">
@@ -47,23 +47,21 @@
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="btn btn-pesanan" href="#" id="toko-btn" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="btn btn-pesanan" href="#" role="button" id="toko-btn" aria-expanded="false">
                                     Toko
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ url('toko') }}">Daftar Toko</a></li>
                                     <li><a class="dropdown-item" href="{{ url('bukus') }}">Daftar Buku</a></li>
                                 </ul>
-                            </li>
+                            </li>    
                             <li class="nav-item dropdown">
-                                <a class="btn btn-pesanan" href="#" id="pembayaran-btn" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="btn btn-pesanan" href="#" role="button" id="pembayaran-btn" aria-expanded="false">
                                     Pembayaran
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="">Riwayat Pembayaran</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('logout') }}">Tagihan</a></li>
+                                    <li><a class="dropdown-item" href="#">Tagihan</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -92,7 +90,18 @@
             </nav>
         </div>
     </header>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('hamburgerButton').addEventListener('click', function() {
+            const menu = document.getElementById('navbarNav');
+        
+            // Toggle kelas 'show' untuk buka/tutup menu
+            menu.classList.toggle('show');
+            
+            // Toggle 'aria-expanded' untuk aksesibilitas
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+        });
+    </script>
 </body>
 
 </html>

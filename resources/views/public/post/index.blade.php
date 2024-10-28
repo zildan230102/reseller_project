@@ -5,12 +5,7 @@
 <main class="content">
     <div class="container-fluid p-0">
         <h1 class="h3 mb-3">Selamat Datang, <strong>Jenny Wilson!</strong></h1>
-
-
-        {{-- Row Pertama --}}
-
-        {{-- Row Kiri --}}
-
+        
         <!-- Row Pertama -->
         <div class="row">
             <div class="col-xl-7 col-xxl-8">
