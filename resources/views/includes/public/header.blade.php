@@ -34,7 +34,8 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                         <ul class="navbar-nav mx-auto">
                             <li class="nav-item">
-                                <a class="btn btn-pesanan" href="{{url('/dashboard')}}" role="button" id="dashboard">Dashboard</a>
+                                <a class="btn btn-pesanan" href="{{url('/dashboard')}}" role="button"
+                                    id="dashboard">Dashboard</a>
                             </li>
                             <li class="nav-item dropdown"> 
                                 <a class="btn btn-pesanan" href="#" role="button" id="pesanan-btn" aria-expanded="false">
@@ -59,8 +60,8 @@
                                     Pembayaran
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Riwayat Pembayaran</a></li>
-                                    <li><a class="dropdown-item" href="#">Tagihan</a></li>
+                                    <li><a class="dropdown-item" href="">Riwayat Pembayaran</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('logout') }}">Tagihan</a></li>
                                 </ul>
                             </li>    
                         </ul>
