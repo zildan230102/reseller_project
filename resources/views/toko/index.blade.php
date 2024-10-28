@@ -2,32 +2,6 @@
 @section('title', 'Informasi Toko')
 @section('content')
 
-<style>
-
-.custom-button .bi {
-    font-weight: bold !important;
-}
-.btn-modal {
-    background-color: #ff9800;
-    color: white;
-}
-.btn-danger {
-    background-color: red;
-    color: white;
-}
-.badge-active {
-    background-color: green; /* Warna hijau untuk status aktif */
-    color: white;           /* Warna teks putih untuk kontras */
-    padding: 5px 10px;     /* Sedikit padding untuk tampilan yang lebih baik */
-    border-radius: 5px;    /* Membuat sudut badge menjadi melengkung */
-}
-.badge-inactive {
-    background-color: red;  /* Warna merah untuk status non-aktif */
-    color: white;           /* Warna teks putih untuk kontras */
-    padding: 5px 10px;     /* Sedikit padding untuk tampilan yang lebih baik */
-    border-radius: 5px;    /* Membuat sudut badge menjadi melengkung */
-}
-</style>
 <div class="container mt-4">
     <h1 class="mb-4 text-center">Daftar Toko</h1>
 
