@@ -1,6 +1,5 @@
 /* Background Modal*/
 .modal-backdrop {
-  backdrop-filter: blur(2px); /* Apply the blur effect */
   background-color: rgba(0, 0, 0, 0.5); /* Transparent white */
   }
 
