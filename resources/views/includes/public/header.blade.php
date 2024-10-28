@@ -22,8 +22,9 @@
                         </a>
                     </div>
 
-                     <!-- Tombol Hamburger untuk layar kecil -->
-                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <!-- Tombol Hamburger untuk layar kecil -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
@@ -32,10 +33,12 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                         <ul class="navbar-nav mx-auto">
                             <li class="nav-item">
-                                <a class="btn btn-pesanan" href="{{url('/dashboard')}}" role="button" id="dashboard">Dashboard</a>
+                                <a class="btn btn-pesanan" href="{{url('/dashboard')}}" role="button"
+                                    id="dashboard">Dashboard</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="btn btn-pesanan" href="#" id="pesanan-btn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="btn btn-pesanan" href="#" id="pesanan-btn" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
                                     Pesanan
                                 </a>
                                 <ul class="dropdown-menu">
@@ -44,7 +47,8 @@
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="btn btn-pesanan" href="#" id="toko-btn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="btn btn-pesanan" href="#" id="toko-btn" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
                                     Toko
                                 </a>
                                 <ul class="dropdown-menu">
@@ -53,7 +57,8 @@
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="btn btn-pesanan" href="#" id="pembayaran-btn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="btn btn-pesanan" href="#" id="pembayaran-btn" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
                                     Pembayaran
                                 </a>
                                 <ul class="dropdown-menu">
@@ -64,15 +69,24 @@
                         </ul>
                         <!-- Baris Ketiga: Profil Pengguna -->
                         <li class="nav-item dropdown user-profile">
-                                <a class="nav-link d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="style/src/img/avatars/image.png" class="avatar img-fluid rounded" alt="Charles Hall" />
-                                    <span class="text-dark ms-2">Charles Hall</span>
-                                </a>
-                                <ul class="dropdown-menu mt-1">
-                                    <li><a class="dropdown-item" href="{{ url('profile') }}"><i class="bi bi-person"></i>Profile</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('logout') }}"><i class="bi bi-box-arrow-left"></i>Logout</a></li>
-                                </ul>
-                            </li>
+                            <a class="nav-link d-flex align-items-center" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="style/src/img/avatars/image.png" class="avatar img-fluid rounded"
+                                    alt="Charles Hall" />
+                                <span class="text-dark ms-2">Charles Hall</span>
+                            </a>
+                            <ul class="dropdown-menu mt-1">
+                                <li><a class="dropdown-item" href="{{ url('profile') }}"><i
+                                            class="bi bi-person"></i>Profile</a></li>
+                                <li>
+                                    <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                                        @csrf
+                                        <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-left"></i>
+                                            Logout</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
                     </div>
                 </div>
             </nav>
