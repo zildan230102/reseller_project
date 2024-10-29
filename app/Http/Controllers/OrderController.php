@@ -10,11 +10,11 @@ class OrderController extends Controller
 {
     // Menampilkan semua order
     public function index()  
-{
-    $orders = Order::with('toko')->get(); // Mengambil data order beserta toko terkait
-    $tokos = Toko::where('is_active', 1)->get(); // Ambil hanya toko yang aktif untuk dropdown atau referensi
-    return view('orders.index', compact('orders', 'tokos'));
-}
+    {
+        $orders = Order::with('toko')->get(); // Mengambil data order beserta toko terkait
+        $tokos = Toko::where('is_active', 1)->get(); // Ambil hanya toko yang aktif untuk dropdown atau referensi
+        return view('orders.index', compact('orders', 'tokos'));
+    }
 
     // Menampilkan form untuk membuat order baru
     public function create()
@@ -29,6 +29,7 @@ class OrderController extends Controller
         $request->validate([
             'tanggal' => 'required|date',
             'no_hp' => 'required|string',
+            'kode_booking' => 'nullable|string|max:255|unique:orders,kode_booking', // Validasi untuk kode_booking, pastikan unik
             'toko_id' => 'required|exists:tokos,id',
             'asal_penjualan' => 'required|string',
             'penerima' => 'required|string',
@@ -49,6 +50,7 @@ class OrderController extends Controller
             return redirect()->back()->withErrors(['toko_id' => 'Toko yang dipilih tidak aktif.']);
         }
 
+        // Menyimpan order baru
         Order::create($request->all());
         return redirect()->route('orders.index')->with('success', 'Order berhasil ditambahkan!');
     }
@@ -66,6 +68,7 @@ class OrderController extends Controller
         $request->validate([
             'tanggal' => 'required|date',
             'no_hp' => 'required|string',
+            'kode_booking' => 'nullable|string|max:255|unique:orders,kode_booking,' . $order->id, // Validasi untuk kode_booking, pastikan unik kecuali untuk yang sedang diupdate
             'toko_id' => 'required|exists:tokos,id',
             'asal_penjualan' => 'required|string',
             'penerima' => 'required|string',
@@ -86,13 +89,19 @@ class OrderController extends Controller
             return redirect()->back()->withErrors(['toko_id' => 'Toko yang dipilih tidak aktif.']);
         }
 
+        // Memperbarui order
         $order->update($request->all());
         return redirect()->route('orders.index')->with('success', 'Order berhasil diperbarui!');
     }
 
     // Menghapus order yang sudah ada
-    public function destroy(Order $order)
+    public function destroy($id)
     {
+        $order = Order::find($id); // Mencari order berdasarkan ID
+        if (!$order) {
+            return redirect()->route('orders.index')->with('error', 'Order tidak ditemukan.');
+        }
+
         $order->delete();
         return redirect()->route('orders.index')->with('success', 'Order berhasil dihapus!');
     }
