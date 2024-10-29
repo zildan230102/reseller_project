@@ -61,41 +61,20 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="">Riwayat Pembayaran</a></li>
-<<<<<<< HEAD
                                     <li><a class="dropdown-item" href="{{ url('logout') }}">Tagihan</a></li>
                                 </ul>
-                            </li>
-                            <!-- Baris Ketiga: Profil Pengguna -->
+                            </li>    
                         </ul>
-=======
-                                    <li><a class="dropdown-item" href="#">Tagihan</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <!-- Baris Ketiga: Profil Pengguna -->
->>>>>>> 3fd50a21a9fc3d374c8f73f101c567ff4bf86b5e
+                        <!-- Baris Ketiga -->
+                        <!-- Profil Pengguna -->
                         <li class="nav-item dropdown user-profile">
-                            <a class="nav-link d-flex align-items-center" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="style/src/img/avatars/image.png" class="avatar img-fluid rounded"
-                                    alt="Charles Hall" />
+                            <a class="nav-dropdown d-flex align-items-center" href="#" role="button" aria-expanded="false">
+                                <img src="style/src/img/avatars/image.png" class="avatar img-fluid rounded" alt="Charles Hall" />
                                 <span class="text-dark ms-2">Charles Hall</span>
                             </a>
                             <ul class="dropdown-menu mt-1">
-                                <li><a class="dropdown-item" href="{{ url('profile') }}"><i
-                                            class="bi bi-person"></i>Profile</a></li>
-<<<<<<< HEAD
-                                <li><a class="dropdown-item" href="{{ route('logout') }}"><i
-                                            class="bi bi-box-arrow-left"></i>Logout</a></li>
-=======
-                                <li>
-                                    <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-                                        @csrf
-                                        <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-left"></i>
-                                            Logout</button>
-                                    </form>
-                                </li>
->>>>>>> 3fd50a21a9fc3d374c8f73f101c567ff4bf86b5e
+                                <li><a class="dropdown-item" href="{{ url('profile') }}"><i class="bi bi-person"></i>Profile</a></li>
+                                <li><a class="dropdown-item" href="{{ url('logout') }}"><i class="bi bi-box-arrow-left"></i>Logout</a></li>
                             </ul>
                         </li>
                     </div>
