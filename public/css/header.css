@@ -9,7 +9,7 @@
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0px 15px;
 }
 
 /* Sembunyikan logo mobile secara default */
@@ -31,10 +31,40 @@
         display: none;
     }
     .logo-mobile {
-        
         height: 40px; 
         width: auto;
         display:inline-block;
+    }
+
+    .dropdown-menu {
+        position: relative;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .user-profile {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .user-profile .dropdown-menu {
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center; 
+    }
+
+    .navbar-nav .nav-item .dropdown-menu {
+        left: 0; 
+        transform: none; 
+        text-align: center;
+    }
+
+    .dropdown-item {
+        text-align: center;
     }
 }
   
@@ -138,7 +168,8 @@
 }
 
 .avatar {
-    height: 50%;
+    height: 30px;
+    width: 30px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -163,6 +194,7 @@
 .btn-pesanan {
     background-color: transparent !important; 
     color: #ff9800 !important; 
+    border: 1px solid transparent;
     transition: border-color 0.3s ease, border-color 0.3s;
     font-weight: bold;
 }
@@ -174,6 +206,11 @@
     box-shadow: none;
 }
 
+.btn-pesanan:hover {
+    background-color: #f2f2f2;
+    border-color: #ff9800; 
+}
+
 /* Dropdown menu base styles */
 .dropdown-menu {
     display: none;
@@ -181,10 +218,12 @@
     background-color: #fff;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
     z-index: 1;
-    min-width: 160px;
+    min-width: 10rem;
     border-radius: 5px;
     margin-top: 5px;
     list-style-type: none;
+    left: 0;
+    transform: none;
 }
 
 .dropdown-item {
@@ -207,6 +246,7 @@
 /* Show dropdown when hovering over parent link */
 .nav-item:hover .dropdown-menu {
     display: block;
+    transform: none;
 }
 
 
@@ -231,16 +271,6 @@
     .nav-link {
         width: 100%;
         text-align: left;
-        padding: 15px 20px;
-    }
-
-    .dropdown-menu {
-        position: static;
-        width: 100%;
-        box-shadow: none;
-    }
-
-    .dropdown-item {
         padding: 15px 20px;
     }
 }

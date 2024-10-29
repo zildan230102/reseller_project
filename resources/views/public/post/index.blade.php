@@ -4,16 +4,16 @@
 
 <main class="content">
     <div class="container-fluid p-0">
-        <h1 class="h3 mb-3">Selamat Datang, <strong>Jenny Wilson!</strong></h1>
-        
+        <h2 class="h3 mb-3">Selamat Datang, <strong>Jenny Wilson!</strong></h2>
+
         <!-- Row Pertama -->
         <div class="row">
             <div class="col-xl-7 col-xxl-8">
                 <div class="card flex-fill w-100">
                     <div class="header-sale d-flex justify-content-between align-items-center">
-                        <h5 class="penjualan-keseluruhan">Penjualan Keseluruhan</h5>
+                        <h5 class="penjualan-keseluruhan mt-2">Penjualan Keseluruhan</h5>
                         <div class="dropdown">
-                            <button class="month-dropdown">September <span class="arrow">&#9660;</span></button>
+                            <button class="month-dropdown">September  <i class="bi bi-chevron-down"></i></button>
                             <div class="dropdown-content">
                                 <a href="#">January</a>
                                 <a href="#">February</a>
@@ -31,8 +31,8 @@
                         </div>
                     </div>
                     <div class="title-sale d-flex  align-items-center">
-                        <h3 class="mt-1 mb-3">Rp. 6.680.000</h3>
-                        <div class="mt-1 mb-3 ms-3">
+                        <h3 class="mb-3">Rp. 6.680.000</h3>
+                        <div class="mb-3 ms-3">
                             <span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i>13.02%</span>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
             <div class="col-xl-5 col-xxl-4 d-flex">
                 <div class="w-100">
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-md-6 col-sm-12 col-sm-12">
                             <div class="card-total">
                                 <div class="card-right">
                                     <div class="row">
@@ -61,19 +61,18 @@
                                             <h5 class="title-total">Total Penjualan</h5>
                                         </div>
                                     </div>
-                                    <h1 class="mt-1 mb-1">
+                                    <h1 class="">
                                         <p class="fw-bold fs-4">Rp 15.500.000</p>
                                     </h1>
                                     <div class="mb-0">
-                                        <span class="text-success"><i
-                                                class="fa-solid fa-arrow-trend-up"></i>13.02%</span>
+                                        <span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i>13.02%</span>
                                         <span class="text-muted">Dari Bulan Agustus</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-sm-6">
+                        <div class="col-md-6 col-sm-12">
                             <div class="card-total">
                                 <div class="card-right">
                                     <div class="row">
@@ -86,19 +85,18 @@
                                             <h5 class="title-total">Total Pendapatan</h5>
                                         </div>
                                     </div>
-                                    <h1 class="mt-1 mb-1">
+                                    <h1 class="">
                                         <p class="fw-bold fs-4">Rp 5.150.000</p>
                                     </h1>
                                     <div class="mb-0">
-                                        <span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i>
-                                            13.02%</span>
+                                        <span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i>13.02%</span>
                                         <span class="text-muted">Dari Bulan Agustus</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-sm-6">
+                        <div class="col-md-6 col-sm-12 mb-3">
                             <div class="card-total">
                                 <div class="card-right">
                                     <div class="row">
@@ -111,12 +109,11 @@
                                             <h5 class="title-total">Konversi</h5>
                                         </div>
                                     </div>
-                                    <h1 class="mt-1 mb-1">
+                                    <h1 class="">
                                         <p class="fw-bold fs-4">86.34%</p>
                                     </h1>
                                     <div class="mb-0">
-                                        <span class="text-danger"><i class="fa-solid fa-arrow-trend-down"></i>
-                                            0.32%</span>
+                                        <span class="text-danger"><i class="fa-solid fa-arrow-trend-down"></i>0.32%</span>
                                         <span class="text-muted">Dari Bulan Agustus</span>
                                     </div>
                                 </div>
