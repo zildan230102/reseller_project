@@ -1,6 +1,6 @@
 /* Background Modal*/
 .modal-backdrop {
-  background-color: rgba(0, 0, 0, 0.5); /* Transparent white */
+  background-color: rgba(0, 0, 0, 0.5);
   }
 
 h2.h3.h5 {
@@ -25,34 +25,68 @@ h2.h3.h5 {
 /* Halaman Daftar Toko */
 .custom-button .bi {
   font-weight: bold !important;
+/* Button Tabel Aksi */
+
+.dropdown .btn-no-border {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  padding: 0;
 }
-.btn-modal {
-  background-color: #ff9800;
+.btn-custom-info {
+  background-color: #1742b8;
   color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
-.btn-danger {
-  background-color: red;
+.btn-custom-info:hover {
+  background-color: #138496;
+}
+.btn-custom-warning {
+  background-color: #ffc107;
   color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
+.btn-custom-warning:hover {
+  background-color: #e0a800;
+}
+.btn-custom-danger {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.btn-custom-danger:hover {
+  background-color: #c82333;
+}
+/* Halaman Daftar Toko: Tabel Status */
 .badge-active {
   background-color: green; 
   color: white;           
   padding: 5px 10px;     
-  border-radius: 5px;
+  border-radius: 5px;    
 }
 .badge-inactive {
   background-color: red;  
   color: white;           
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 5px 10px;    
+  border-radius: 5px;    
 }
 
+/* edit */
 .container-form {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f8f9fa;
+  background-color: #f8f9fa; 
 }
 
 .form-wrapper {

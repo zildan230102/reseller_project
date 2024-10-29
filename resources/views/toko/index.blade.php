@@ -2,6 +2,15 @@
 @section('title', 'Informasi Toko')
 @section('content')
 
+<style>
+.dropdown .btn-no-border {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+</style>
 <div class="container mt-4">
     <h1 class="mb-4 text-center">Daftar Toko</h1>
 
@@ -38,29 +47,31 @@
                     <td>{{ $toko->marketplace }}</td>
                     <!-- Menggunakan kolom created_at -->
                     <td>{{ \Carbon\Carbon::parse($toko->created_at)->format('d-m-Y') }}</td>
-                    <td>
+                    <td class="text-center">
                         <span class="badge {{ $toko->is_active ? 'badge-active' : 'badge-inactive' }}">
                             {{ $toko->is_active ? 'Aktif' : 'Tidak Aktif' }}
                         </span>
                     </td>
                     <td>
                         <div class="dropdown">
-                            <button type="button" class="btn btn-sm" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button type="button" class="btn btn-sm btn-no-border" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-eye-fill text-black"></i>
                             </button>
                             <ul class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
                                 <li class="d-flex justify-content-around">
-                                    <form action="{{ route('toko.toggle-status', $toko) }}" method="POST">
+                                    <form action="{{ route('toko.toggle-status', $toko) }}" method="POST" style="display: inline;">
                                         @csrf
-                                        <button type="submit" class="btn bg-warning text-white p-1 ml-1">
-                                            <i class="{{ $toko->is_active ? 'bi bi-x-square fs-6' : 'bi bi-check-square fs-6' }}"></i>
+                                        <button type="submit" class="btn-custom-warning mx-2">
+                                            <i class="{{ $toko->is_active ? 'bi bi-x-square' : 'bi bi-check-square' }}"></i>
                                         </button>
                                     </form>
-                                    <button class="btn bg-primary text-white p-1" type="button" data-bs-toggle="modal" data-bs-target="#editTokoModal" data-id="{{ $toko->id }}" data-nama="{{ $toko->nama_toko }}" data-marketplace="{{ $toko->marketplace }}" data-status="{{ $toko->is_active }}">
-                                        <i class="bi bi-pencil fs-6"></i>
+                                    
+                                    <button class="btn-custom-info mx-2" type="button" data-bs-toggle="modal" data-bs-target="#editTokoModal" data-id="{{ $toko->id }}" data-nama="{{ $toko->nama_toko }}" data-marketplace="{{ $toko->marketplace }}" data-status="{{ $toko->is_active }}">
+                                        <i class="bi bi-pencil"></i>
                                     </button>
-                                    <button class="btn bg-danger text-white p-1 mr-1" type="button" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" data-id="{{ $toko->id }}">
-                                        <i class="bi bi-trash fs-6"></i>
+                                    
+                                    <button class="btn-custom-danger mx-2" type="button" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" data-id="{{ $toko->id }}">
+                                        <i class="bi bi-trash"></i>
                                     </button>
                                 </li>
                             </ul>
@@ -169,7 +180,7 @@
                 <form id="deleteForm" action="" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Hapus</button>
+                    <button type="submit" class="btn-custom-danger">Hapus</button>
                 </form>
             </div>
         </div>
@@ -223,7 +234,5 @@ $(document).ready(function() {
         $('#editTokoForm').attr('action', '{{ url("toko") }}/' + tokoId);
     });
 });
-
 </script>
-
 @endsection
