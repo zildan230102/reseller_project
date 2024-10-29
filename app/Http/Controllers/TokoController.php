@@ -36,18 +36,18 @@ class TokoController extends Controller
      * Simpan data toko baru ke dalam database.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
         // Validasi input
         $request->validate($this->rules());
 
-        // Simpan data toko baru ke database, created_at otomatis diisi oleh Laravel
+        // Simpan data toko baru ke database
         $toko = Toko::create($request->only(['nama_toko', 'marketplace', 'is_active']));
 
-        // Kembalikan respons JSON untuk sukses
-        return response()->json(['success' => true, 'data' => $toko]);
+        // Redirect ke halaman daftar toko dengan pesan sukses
+        return redirect()->route('toko.index')->with('success', 'Toko berhasil ditambahkan.');
     }
 
     /**
