@@ -67,21 +67,28 @@
                 <td>{{ $buku->tahun_terbit }}</td>
                 <td>{{ number_format($buku->berat / 1000, 2) }} kg</td>
                 <td>{{ $buku->harga }}</td>
-                <td class="text-center">
-                    <div class="d-inline-flex justify-content-center">
-                        <button class="btn-custom-info mx-2" data-bs-toggle="modal" data-bs-target="#detailModal{{ $buku->id }}">
-                            <i class="bi bi-file-text"></i>
+                <td>
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-sm" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-eye-fill text-black"></i>
                         </button>
-                        <button class="btn-custom-warning mx-2" data-bs-toggle="modal" data-bs-target="#editModal{{ $buku->id }}">
-                            <i class="bi bi-pencil"></i>
-                        </button>
-                        <form action="{{ route('bukus.destroy', $buku->id) }}" method="POST" class="d-inline">
-                            @csrf
-                            @method('DELETE')
-                            <button type="button" class="btn-custom-danger mx-2" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $buku->id }}">
-                                <i class="bi bi-trash"></i>
-                            </button>
-                        </form>
+                        <ul class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
+                            <li class="d-flex justify-content-around">
+                                <button class="btn-custom-info mx-2" data-bs-toggle="modal" data-bs-target="#detailModal{{ $buku->id }}">
+                                    <i class="bi bi-file-text"></i>
+                                </button>
+                                <button class="btn-custom-warning mx-2" data-bs-toggle="modal" data-bs-target="#editModal{{ $buku->id }}">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <form action="{{ route('bukus.destroy', $buku->id) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="button" class="btn-custom-danger mx-2" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $buku->id }}">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
                     </div>
                 </td>
             </tr>
@@ -275,5 +282,9 @@
         </div>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
 
 @endsection
