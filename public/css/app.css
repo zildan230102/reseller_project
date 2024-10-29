@@ -206,7 +206,7 @@
   display: inline-block; 
 }
 
-.btn-login{
+.btn-login {
   background-color: #f57c00;
   color: #ffff; 
   padding: 10px 30px; 
@@ -217,8 +217,18 @@
 }
 
 .btn:hover {
-  border: 1px solid #f57c00;
-  color: #f57c00; 
+  border: 1px solid #ff9800;
+  color: #ff9800; 
+}
+
+.btn-primary {
+  background-color: #f57c00;
+  color: #ffff; 
+  padding: 10px 30px; 
+  border: none;
+  border-radius: 5px; 
+  text-decoration: none;
+  display: inline-block; 
 }
 
 .dropdown-content a:hover {background-color: #f1f1f1;}

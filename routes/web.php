@@ -39,10 +39,6 @@ Route::middleware('auth')->group(function () {
         Route::post('/{toko}/toggle-status', [TokoController::class, 'toggleStatus'])->name('toko.toggle-status'); // Mengubah status aktif/tidak aktif
     });
 
-
-
-
-
 Route::resource('orders', OrderController::class);
 
 
