@@ -1,7 +1,5 @@
 <?php
 
-// app/Models/Buku.php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -21,7 +19,7 @@ class Buku extends Model
         'halaman',
         'jenis_kertas',
         'jenis_sampul',
-        'berat',
+        'berat', // Satuan kg
         'harga',
     ];
 
