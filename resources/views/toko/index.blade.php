@@ -35,6 +35,7 @@
                 <tr>
                     <th>Nama Toko</th>
                     <th>Marketplace</th>
+                    <th>Ekspedisi</th>
                     <th>Tanggal Dibuat</th>
                     <th>Status</th>
                     <th>Aksi</th>
@@ -45,6 +46,7 @@
                 <tr>
                     <td>{{ $toko->nama_toko }}</td>
                     <td>{{ $toko->marketplace }}</td>
+                    <td>{{ $toko->ekspedisi->nama_ekspedisi ?? 'Tidak Ada' }}</td>
                     <!-- Menggunakan kolom created_at -->
                     <td>{{ \Carbon\Carbon::parse($toko->created_at)->format('d-m-Y') }}</td>
                     <td class="text-center">
@@ -52,7 +54,7 @@
                             {{ $toko->is_active ? 'Aktif' : 'Tidak Aktif' }}
                         </span>
                     </td>
-                    <td>
+                    <td class="text-center">
                         <div class="dropdown">
                             <button type="button" class="btn btn-sm btn-no-border" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-eye-fill text-black"></i>
@@ -111,6 +113,16 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="ekspedisi_id">Ekspedisi</label>
+                            <select name="ekspedisi_id" class="form-control" required>
+                                <option value="" disabled selected>Pilih Ekspedisi</option>
+                                @foreach($ekspedisis as $ekspedisi)
+                                    <option value="{{ $ekspedisi->id }}">{{ $ekspedisi->nama_ekspedisi }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <label for="is_active">Status</label>
                             <select name="is_active" class="form-control">
                                 <option value="1">Aktif</option>
@@ -147,7 +159,16 @@
                         <label for="edit_marketplace">Marketplace</label>
                         <input type="text" class="form-control" id="edit_marketplace" name="marketplace" required>
                     </div>
-
+                    
+                    <div class="form-group">
+                        <label for="edit_ekspedisi_id">Ekspedisi</label>
+                        <select id="edit_ekspedisi_id" name="ekspedisi_id" class="form-control" required>
+                            @foreach($ekspedisis as $ekspedisi)
+                                <option value="{{ $ekspedisi->id }}">{{ $ekspedisi->nama_ekspedisi }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    
                     <div class="form-group">
                         <label for="edit_is_active">Status</label>
                         <select id="edit_is_active" name="is_active" class="form-control">

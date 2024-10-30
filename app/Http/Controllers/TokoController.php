@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Toko;
+use App\Models\Ekspedisi; // Import Ekspedisi model
 use Illuminate\Http\Request;
 
 class TokoController extends Controller
@@ -14,11 +15,9 @@ class TokoController extends Controller
      */
     public function index()
     {
-        // Ambil semua data toko dari database
-        $tokos = Toko::all();
-
-        // Kembalikan view index dengan data toko
-        return view('toko.index', compact('tokos'));
+        $tokos = Toko::with('ekspedisi')->get(); // Pastikan relasi ekspedisi dimuat
+        $ekspedisis = Ekspedisi::all(); // Ambil semua data ekspedisi
+        return view('toko.index', compact('tokos', 'ekspedisis'));
     }
 
     /**
@@ -28,8 +27,9 @@ class TokoController extends Controller
      */
     public function create()
     {
-        // Kembalikan view form tambah toko
-        return view('toko.create');
+        // Ambil semua ekspedisi untuk dropdown
+        $ekspedisis = Ekspedisi::where('is_active', 1)->get();
+        return view('toko.create', compact('ekspedisis'));
     }
 
     /**
@@ -40,13 +40,8 @@ class TokoController extends Controller
      */
     public function store(Request $request)
     {
-        // Validasi input
         $request->validate($this->rules());
-
-        // Simpan data toko baru ke database
-        $toko = Toko::create($request->only(['nama_toko', 'marketplace', 'is_active']));
-
-        // Redirect ke halaman daftar toko dengan pesan sukses
+        $toko = Toko::create($request->only(['nama_toko', 'marketplace', 'ekspedisi_id', 'is_active']));
         return redirect()->route('toko.index')->with('success', 'Toko berhasil ditambahkan.');
     }
 
@@ -57,10 +52,11 @@ class TokoController extends Controller
      * @return \Illuminate\View\View
      */
     public function edit(Toko $toko)
-    {
-        // Kembalikan view edit dengan data toko
-        return view('toko.edit', compact('toko'));
-    }
+{
+    $ekspedisis = Ekspedisi::where('is_active', 1)->get();
+    return view('toko.edit', compact('toko', 'ekspedisis'));
+}
+
 
     /**
      * Perbarui data toko yang ada.
@@ -71,13 +67,8 @@ class TokoController extends Controller
      */
     public function update(Request $request, Toko $toko)
     {
-        // Validasi input
         $request->validate($this->rules());
-
-        // Update data toko
-        $toko->update($request->only(['nama_toko', 'marketplace', 'is_active']));
-
-        // Redirect ke halaman daftar toko dengan pesan sukses
+        $toko->update($request->only(['nama_toko', 'marketplace', 'ekspedisi_id', 'is_active']));
         return redirect()->route('toko.index')->with('success', 'Toko berhasil diperbarui.');
     }
 
@@ -122,6 +113,7 @@ class TokoController extends Controller
         return [
             'nama_toko' => 'required|string|max:255',
             'marketplace' => 'required|string|max:255',
+            'ekspedisi_id' => 'required|exists:ekspedisis,id', // Validasi untuk ekspedisi
             'is_active' => 'required|boolean',
         ];
     }
