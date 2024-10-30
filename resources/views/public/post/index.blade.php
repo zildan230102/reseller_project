@@ -11,7 +11,7 @@
             <div class="col-xl-7 col-xxl-8">
                 <div class="card flex-fill w-100">
                     <div class="header-sale d-flex justify-content-between align-items-center">
-                        <h5 class="penjualan-keseluruhan mt-2">Penjualan Keseluruhan</h5>
+                        <h5 class="penjualan-keseluruhan mt-1">Penjualan Keseluruhan</h5>
                         <div class="dropdown">
                             <button class="month-dropdown">September  <i class="bi bi-chevron-down"></i></button>
                             <div class="dropdown-content">

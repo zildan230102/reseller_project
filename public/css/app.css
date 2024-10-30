@@ -10,16 +10,7 @@ h2.h3.h5 {
 
 /* Style for tablet */
 @media (max-width: 768px) {
-h2.h3.h5 {
-  font-size: 1.5em; 
-  }
-}
-
-/* Style for mobile */
-@media (max-width: 576px) {
-  h2.h3.h5 {
-    font-size: 0.25rem; 
-  }
+  
 }
 
 /* Halaman Daftar Toko */
@@ -249,35 +240,6 @@ h2.h3.h5 {
 .month-dropdown i {
   margin-left: 8px;
 }
-
- /* Desktop styling */
-@media (min-width: 769px) {
-  .month-dropdown {
-      font-size: 1em;
-      padding: 6px 8px;
-  }
-}
-
-/* Tablet styling */
-@media (max-width: 768px) and (min-width: 577px) {
-  .month-dropdown {
-      font-size: 0.9em;
-      padding: 8px 18px;
-  }
-}
-
-/* Mobile styling */
-@media (max-width: 576px) {
-  .month-dropdown {
-      font-size: 0.8em;
-      padding: 4px 12px;
-      border: none; 
-      box-shadow: none;
-  }
-  .dropdown-content {
-      width: 100%; 
-  }
-}
   
 .button-group {
   display: flex;
@@ -390,42 +352,6 @@ h2.h3.h5 {
   padding: 5px 16px 16px 20px;
   transition: transform 0.2s ease-in-out;
   width: 100%;
-}
-
-/* Media query untuk tampilan tablet */
-@media (max-width: 768px) {
-  .card-total {
-    font-size: 1em;
-    padding: 10px;
-  }
-}
-
-/* Media query untuk tampilan mobile */
-@media (max-width: 576px) {
-  .card-total {
-    font-size: 1em;
-    padding: 10px;
-    text-align: center;
-  }
-
-  .card-total .stat {
-    text-align: center;
-    justify-self: center;
-    align-items: center;
-    display: flex;
-  }
-
-  .card-right .col-auto {
-    padding: 5px;
-  }
-
-  .card-body, .card-header {
-      padding: 1rem; 
-  }
-
-  h1, h3, h5, .title-total, .data-marketplace, .data-penjualan {
-      font-size: 1rem; 
-  }
 }
 
 .text-orange {
@@ -652,84 +578,108 @@ tr.deactive {
     background-color: #3A77FF;
 }
 
-/* Data Marketplace Responsif */
-@media (max-width: 768px) {
-  .col-kanan {
-      flex-direction: column; 
-      align-items: flex-start; 
+/* Media query card untuk tampilan mobile */
+@media (max-width: 767px) {
+  .card-total {
+    font-size: 1em;
+    padding: 10px;
+    text-align: center;
   }
 
-  .chart-container {
+  .card-total .stat {
+    text-align: center;
+    justify-self: center;
+    align-items: center;
+    display: flex;
+    font-size: 0.9rem !important;
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+  }
+
+  .card-right .col-auto {
+    padding: 5px;
+  }
+
+  .card-body, .card-header {
+    padding: 1rem; 
+  }
+
+  h1, h3, h5, .title-total, .data-marketplace, .data-penjualan {
+    font-size: 1rem; 
+    margin-bottom: 1%;
+  }
+
+  .card-total .fw-bold.fs-4 {
+    font-size: 1rem !important; 
+    margin-bottom: 0 !important; 
+  }
+
+  .card-total .mb-0 {
+    font-size: 0.85rem; 
+    margin-top: 0;
+  }
+
+  .month-dropdown {
+    font-size: 0.8em;
+    padding: 6px 12px;
+    box-shadow: none;
+    border: none;
+  }
+  .dropdown-content {
       width: 100%; 
   }
-
-  .legend-list {
-      width: 100%; 
+  .title-sale .ms-3 {
+    margin-left: 4px !important;
   }
 
-  .performa-marketplace {
-      font-size: 18px; 
-  }
-
-  .legend-list li {
-      flex-direction: row; 
-      justify-content: space-between; 
+  h2.h3 {
+    font-size: 1em;
   }
 }
 
-/* Responsif untuk Tablet dan Layar Lebar */
-/* Responsif untuk tablet */
-@media (max-width: 768px) {
-    .button-container {
-      flex-direction: column; 
-      align-items: flex-start; 
-    }
-  
-    .btn-group {
-      font-size: 12px; 
-      padding: 8px 16px; 
-    }
-  
-    .dropdown select {
-      padding: 8px;
-      font-size: 12px; 
-    }
-  
-    .month-dropdown {
-      padding: 8px 12px; 
-    }
+/* Media query card untuk tampilan tab */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .card-right .col-auto {
+    padding: 15px;
   }
-  
-  /* Responsif untuk smartphone */
-  @media (max-width: 480px) {
-    .button-container {
-      flex-direction: column;
-      align-items: stretch; 
-    }
-  
-    .btn-group {
-      font-size: 10px; 
-      padding: 6px 12px; 
-      width: 100%; 
-      text-align: center; 
-      margin-bottom: 5px; 
-    }
-  
-    .dropdown select {
-      width: 100%; 
-      font-size: 10px; 
-      padding: 6px; 
-    }
-  
-    .month-dropdown {
-      padding: 6px 10px; 
-      width: 100%; 
-      text-align: center; 
-    }
-  }
-/* Responsif: Mengatur agar di layar kecil tampil satu kolom */
-@media (max-width: 768px) {
-  .col-sm-6 {
+
+  .card-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     width: 100%;
+  }
+
+  .card-total .stat {
+    text-align: center;
+    justify-self: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .title-total {
+    font-size: 1.25rem;
+  }
+
+  .fw-bold.fs-4 {
+    font-size: 1.5rem;
+    margin-bottom: 0%;
+  }
+
+  .mb-0 {
+    margin-top: 0; 
+    font-size: 1rem;
+  }
+
+  .month-dropdown {
+    font-size: 1em;
+    padding: 6px 8px;
+  }
+
+  h2, h5, .title-total, .data-marketplace, .data-penjualan {
+    font-size: 1rem; 
+    margin-bottom: 1%;
   }
 }
