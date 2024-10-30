@@ -3,7 +3,31 @@
   background-color: rgba(0, 0, 0, 0.5);
   }
 
+h2.h3.h5 {
+  font-size: 1em; 
+  margin-bottom: 1em;
+}
+
+/* Style for tablet */
+@media (max-width: 768px) {
+h2.h3.h5 {
+  font-size: 1.5em; 
+  }
+}
+
+/* Style for mobile */
+@media (max-width: 576px) {
+  h2.h3.h5 {
+    font-size: 0.25rem; 
+  }
+}
+
+/* Halaman Daftar Toko */
+.custom-button .bi {
+  font-weight: bold !important;
+}
 /* Button Tabel Aksi */
+
 .dropdown .btn-no-border {
   border: none;
   outline: none;
@@ -203,26 +227,64 @@
 
 /* Dropdown button */
 .month-dropdown {
-    padding: 10px 15px; 
-    color: #ff8c42; 
-    border: 1px solid #ff8c42; 
-    border-radius: 5px; 
-    background-color: #ffffff; 
-    transition: border-color 0.3s ease; 
+  font-size: 1em;
+  padding: 8px 10px; 
+  color: #ff8c42; 
+  border: 1px solid #ff8c42; 
+  border-radius: 5px; 
+  background-color: #ffffff; 
+  transition: border-color 0.3s ease; 
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .month-dropdown:focus {
-    border-color: #ff7b29; 
-    box-shadow: 0 0 5px rgba(255, 148, 82, 0.5);
-    outline: none;
+  border-color: #ff7b29; 
+  box-shadow: 0 0 5px rgba(255, 148, 82, 0.5);
+  outline: none;
+}
+
+.month-dropdown i {
+  margin-left: 8px;
+}
+
+ /* Desktop styling */
+@media (min-width: 769px) {
+  .month-dropdown {
+      font-size: 1em;
+      padding: 6px 8px;
+  }
+}
+
+/* Tablet styling */
+@media (max-width: 768px) and (min-width: 577px) {
+  .month-dropdown {
+      font-size: 0.9em;
+      padding: 8px 18px;
+  }
+}
+
+/* Mobile styling */
+@media (max-width: 576px) {
+  .month-dropdown {
+      font-size: 0.8em;
+      padding: 4px 12px;
+      border: none; 
+      box-shadow: none;
+  }
+  .dropdown-content {
+      width: 100%; 
+  }
 }
   
 .button-group {
-    display: flex;
+  display: flex;
 }
   
 .button-group button {
-    margin-right: 10px; 
+  margin-right: 10px; 
 }
 
 /* toko */
@@ -265,56 +327,6 @@
 
 .dropdown:hover .dropdown-content {display: block;}
 
-/* Responsif untuk tablet */
-@media (max-width: 768px) {
-    .button-container {
-      flex-direction: column; 
-      align-items: flex-start; 
-    }
-  
-    .btn-group {
-      font-size: 12px; 
-      padding: 8px 16px; 
-    }
-  
-    .dropdown select {
-      padding: 8px;
-      font-size: 12px; 
-    }
-  
-    .month-dropdown {
-      padding: 8px 12px; /
-    }
-  }
-  
-  /* Responsif untuk smartphone */
-  @media (max-width: 480px) {
-    .button-container {
-      flex-direction: column;
-      align-items: stretch;
-    }
-  
-    .btn-group {
-      font-size: 10px; 
-      padding: 6px 12px;
-      width: 100%; 
-      text-align: center;
-      margin-bottom: 5px;
-    }
-  
-    .dropdown select {
-      width: 100%; 
-      font-size: 10px; 
-      padding: 6px; 
-    }
-  
-    .month-dropdown {
-      padding: 6px 10px; 
-      width: 100%; 
-      text-align: center; 
-    }
-  }
-
 .title-chart-bar {
   text-align: center;
   padding: 16px 0 16px 0;
@@ -331,7 +343,7 @@
 .arrow {
   color: #f57c00;
   font-size: 16px;
-  padding-left: 8px;
+  margin-left: 8px;
 }
 
 /* Dropdown content (hidden by default) */
@@ -378,6 +390,42 @@
   padding: 5px 16px 16px 20px;
   transition: transform 0.2s ease-in-out;
   width: 100%;
+}
+
+/* Media query untuk tampilan tablet */
+@media (max-width: 768px) {
+  .card-total {
+    font-size: 1em;
+    padding: 10px;
+  }
+}
+
+/* Media query untuk tampilan mobile */
+@media (max-width: 576px) {
+  .card-total {
+    font-size: 1em;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .card-total .stat {
+    text-align: center;
+    justify-self: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .card-right .col-auto {
+    padding: 5px;
+  }
+
+  .card-body, .card-header {
+      padding: 1rem; 
+  }
+
+  h1, h3, h5, .title-total, .data-marketplace, .data-penjualan {
+      font-size: 1rem; 
+  }
 }
 
 .text-orange {

@@ -44,8 +44,8 @@
     }
 </style>
 
-<div class="container mt-5">
-    <h1 class="text-center">Daftar Buku</h1>
+<div class="container mt-4">
+    <h1 class="mb-4 text-center ">Daftar Buku</h1>
 
     <!-- Button to Open the Modal for Create -->
     <button type="button" class="custom-button mb-3" data-bs-toggle="modal" data-bs-target="#createModal">
@@ -74,7 +74,7 @@
                 <td>{{ $buku->tahun_terbit }}</td>
                 <td>{{ number_format($buku->berat, 2) }} kg</td> <!-- Menggunakan kg langsung -->
                 <td>{{ number_format($buku->harga, 2, ',', '.') }}</td>
-                <td>
+                <td class="text-center">
                     <div class="dropdown">
                         <button type="button" class="btn btn-sm btn-no-border" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-eye-fill text-black"></i>
