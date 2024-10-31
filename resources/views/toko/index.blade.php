@@ -26,73 +26,82 @@
         </div>
     @endif
 
-    <button type="button" class="custom-button mb-3" data-bs-toggle="modal" data-bs-target="#tokoModal">
-        <i class="bi bi-plus-lg"></i> <span> Tambah Toko </span>
-    </button>
-    <div class="table-responsive">
-        <table class="table table-bordered">
-            <thead class="thead text-center">
-                <tr>
-                    <th>Nama Toko</th>
-                    <th>Marketplace</th>
-                    <th>Ekspedisi</th>
-                    <th>Tanggal Dibuat</th>
-                    <th>Status</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                @forelse($tokos as $toko)
-                <tr>
-                    <td>{{ $toko->nama_toko }}</td>
-                    <td>{{ $toko->marketplace }}</td>
-                    <td>{{ $toko->ekspedisi->nama_ekspedisi ?? 'Tidak Ada' }}</td>
-                    <!-- Menggunakan kolom created_at -->
-                    <td>{{ \Carbon\Carbon::parse($toko->created_at)->format('d-m-Y') }}</td>
-                    <td class="text-center">
-                        <span class="badge {{ $toko->is_active ? 'badge-active' : 'badge-inactive' }}">
-                            {{ $toko->is_active ? 'Aktif' : 'Tidak Aktif' }}
-                        </span>
-                    </td>
-                    <td class="text-center">
-                        <div class="dropdown">
-                            <button type="button" class="btn btn-sm btn-no-border" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+    <div class="container">
+        <button type="button" class="custom-button mb-3" data-bs-toggle="modal" data-bs-target="#tokoModal">
+            <i class="bi bi-plus-lg"></i> <span> Tambah Toko </span>
+        </button>
+    
+        <div class="table">
+            <table class="table table-bordered">
+                <thead class="thead text-center">
+                    <tr>
+                        <th>Nama Toko</th>
+                        <th>Marketplace</th>
+                        <th>Ekspedisi</th>
+                        <th>Status</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse($tokos as $toko)
+                    <tr>
+                        <td>{{ $toko->nama_toko }}</td>
+                        <td>{{ $toko->marketplace }}</td>
+                        <td>{{ $toko->ekspedisi->nama_ekspedisi ?? 'Tidak Ada' }}</td>
+                        <td class="text-center">
+                            <span class="badge {{ $toko->is_active ? 'badge-active' : 'badge-inactive' }}">
+                                {{ $toko->is_active ? 'Aktif' : 'Tidak Aktif' }}
+                            </span>
+                        </td>
+                        <td class="text-center">
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-sm btn-no-border" id="dropdownMenuButton"
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-eye-fill text-black"></i>
                             </button>
-                            <ul class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
-                                <li class="d-flex justify-content-around">
-                                    <form action="{{ route('toko.toggle-status', $toko) }}" method="POST" style="display: inline;">
-                                        @csrf
-                                        <button type="submit" class="btn-custom-warning mx-2">
-                                            <i class="{{ $toko->is_active ? 'bi bi-x-square' : 'bi bi-check-square' }}"></i>
+                                <ul class="dropdown-menu text-start p-2" aria-labelledby="dropdownMenuButton">
+                                    <li class="mb-2">
+                                        <form action="{{ route('toko.toggle-status', $toko) }}" method="POST" class="d-inline w-100">
+                                            @csrf
+                                            <button type="submit" class="btn-custom-info w-100 my-1">
+                                                <i class="{{ $toko->is_active ? 'bi bi-x-square' : 'bi bi-check-square' }}"></i> {{ $toko->is_active ? 'Nonaktifkan' : 'Aktifkan' }}
+                                            </button>
+                                        </form>
+                                    </li>
+                                    <li class="mb-2">
+                                        <button class="btn-custom-warning w-100 my-1" data-bs-toggle="modal"
+                                            data-bs-target="#editTokoModal{{ $toko->id }}">
+                                            <i class="bi bi-pencil"></i> Edit
                                         </button>
-                                    </form>
-                                    
-                                    <button class="btn-custom-info mx-2" type="button" data-bs-toggle="modal" data-bs-target="#editTokoModal" data-id="{{ $toko->id }}" data-nama="{{ $toko->nama_toko }}" data-marketplace="{{ $toko->marketplace }}" data-status="{{ $toko->is_active }}">
-                                        <i class="bi bi-pencil"></i>
-                                    </button>
-                                    
-                                    <button class="btn-custom-danger mx-2" type="button" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" data-id="{{ $toko->id }}">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                @empty
-                <tr>
-                    <td colspan="5" class="text-center">Tidak ada data toko.</td>
-                </tr>
-                @endforelse
-            </tbody>
-        </table>
+                                    </li>
+                                    <li class="mb-2">
+                                        <form action="{{ route('toko.destroy', $toko->id) }}" method="POST" class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="button" class="btn-custom-danger w-100 my-1" data-bs-toggle="modal"
+                                                data-bs-target="#deleteModal{{ $toko->id }}">
+                                                <i class="bi bi-trash"></i> Hapus
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="5" class="text-center">Tidak ada data toko.</td>
+                    </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
+    
 
 
     <!-- Modal untuk menambah toko -->
-    <div class="modal fade" id="tokoModal" tabindex="-1" role="dialog" aria-labelledby="tokoModalLabel" aria-hidden="true">
+    <div class="modal fade" id="tokoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="tokoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -139,7 +148,7 @@
 </div>
 
 <!-- Modal untuk edit toko -->
-<div class="modal fade" id="editTokoModal" tabindex="-1" role="dialog" aria-labelledby="editTokoModalLabel" aria-hidden="true">
+<div class="modal fade" id="editTokoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="editTokoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -187,7 +196,7 @@
 </div>
 
 <!-- Modal Konfirmasi Hapus -->
-<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+<div class="modal fade" id="confirmDeleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
