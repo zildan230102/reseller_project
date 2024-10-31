@@ -31,8 +31,8 @@
                         </div>
                     </div>
                     <div class="title-sale d-flex  align-items-center">
-                        <h3 class="mb-3">Rp. 6.680.000</h3>
-                        <div class="mb-3 ms-3">
+                        <h3 class="">Rp6.680.000</h3>
+                        <div class="ms-3">
                             <span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i>13.02%</span>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                                         </div>
                                     </div>
                                     <h1 class="">
-                                        <p class="fw-bold fs-4">Rp 15.500.000</p>
+                                        <p class="fw-bold fs-4">Rp15.500.000</p>
                                     </h1>
                                     <div class="mb-0">
                                         <span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i>13.02%</span>
@@ -86,7 +86,7 @@
                                         </div>
                                     </div>
                                     <h1 class="">
-                                        <p class="fw-bold fs-4">Rp 5.150.000</p>
+                                        <p class="fw-bold fs-4">Rp5.150.000</p>
                                     </h1>
                                     <div class="mb-0">
                                         <span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i>13.02%</span>
@@ -113,7 +113,7 @@
                                         <p class="fw-bold fs-4">86.34%</p>
                                     </h1>
                                     <div class="mb-0">
-                                        <span class="text-danger"><i class="fa-solid fa-arrow-trend-down"></i>0.32%</span>
+                                        <span class="text-danger"><i class="fa-solid fa-arrow-trend-down"></i> 0.32%</span>
                                         <span class="text-muted">Dari Bulan Agustus</span>
                                     </div>
                                 </div>
@@ -136,8 +136,22 @@
                                 <button type="button" class="btn" id="toko-btn">Toko</button>
                                 <button type="button" class="btn" id="buku-btn">Buku</button>
                             </div>
+
+                            <!-- New dropdown button for mobile -->
+                            <div class="dropdown button-group-mobile">
+                                <button class="btn dropdown-toggle" id="categoryDropdown" type="button">
+                                    Pilih Kategori
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="categoryDropdown">
+                                    <a class="dropdown-item" href="#" id="marketplace-option">Marketplace</a>
+                                    <a class="dropdown-item" href="#" id="toko-option">Toko</a>
+                                    <a class="dropdown-item" href="#" id="buku-option">Buku</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Month Dropdown -->
                             <div class="dropdown">
-                                <button class="month-dropdown">September <span class="arrow">&#9660;</span></button>
+                                <button class="month-dropdown">September   <i class="bi bi-chevron-down"></i></button>
                                 <div class="dropdown-content">
                                     <a href="#">January</a>
                                     <a href="#">February</a>

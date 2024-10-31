@@ -24,10 +24,8 @@
   
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
+			const isMobile = window.innerWidth <= 767;
 			var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");
-			// var gradient = ctx.createLinearGradient(0, 0, 0, 225);
-			// gradient.addColorStop(0, "rgba(50, 115, 220, 0.3)");
-			// gradient.addColorStop(1, "rgba(50, 115, 220, 0)");
 
 			// Line chart
 			new Chart(document.getElementById("chartjs-dashboard-line"), {
@@ -87,14 +85,24 @@
 							},
 							ticks: {
 								display: true,
-								fontColor: "#ccc"
+								fontColor: "#ccc",
+								maxRotation: 0,
+								minRotation: 0,
+								autoSkip: !isMobile,
+								maxTicksLimit: isMobile ? 6 : 12,
+								callback: function(value) {
+									if (isMobile) {
+										return [1, 3, 5, 7, 9, 11].includes(parseInt(value)) ? value.toString() : null;
+									}
+								return value;
+								}
 							}
 						}],
 						yAxes: [{
 							ticks: {
 								stepSize: 50000,
-								callback: function(value) { return 'Rp ' + value; },
-								fontColor: "#ccc"
+								callback: function(value) { return 'Rp' + value; },
+								fontColor: "#ccc",
 							},
 							gridLines: {
 								borderDash: [5,5],

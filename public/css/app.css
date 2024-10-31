@@ -147,7 +147,7 @@ h2.h3.h5 {
 }
 
 .card {
-  overflow: hidden;
+  overflow: visible;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -387,15 +387,23 @@ h2.h3.h5 {
 }
 
 .header-sale {
-  margin: 30px 16px 0 28px;
+  margin: 30px 35px 0 40px;
 }
 
 .title-sale {
-  margin-left: 28px ;
+  margin-left: 40px;
+  align-items: center;
 }
 
 .title-sale h3 {
   font-weight: bold;
+}
+
+.title-sale .ms-3 {
+  display: flex;
+  align-items: center;
+  margin-left: 10px; 
+  margin-bottom: 5px;
 }
 
 .stat {
@@ -578,12 +586,49 @@ tr.deactive {
     background-color: #3A77FF;
 }
 
+.btn-group-desktop {
+  display: flex;
+}
+
+.btn-group-mobile {
+  display: none;
+}
+
 /* Media query card untuk tampilan mobile */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
+  .chart {
+    padding: 10px 10px;
+  }
+
+  .header-sale {
+    margin: 20px 20px 0 32px;
+  }
+
   .card-total {
     font-size: 1em;
     padding: 10px;
     text-align: center;
+  }
+
+  .title-sale {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-left: 32px;
+  }
+
+  .title-sale h3 {
+    font-size: 1.2em; 
+  }
+
+  .title-sale .ms-3 {
+    display: flex;
+    align-items: center;
+    margin-left: 10px; 
+  }
+
+  .title-sale .text-success {
+    font-size: 0.7em;
   }
 
   .card-total .stat {
@@ -601,12 +646,16 @@ tr.deactive {
     padding: 5px;
   }
 
+  .card-body {
+    margin-bottom: 0%;
+  }
+
   .card-body, .card-header {
     padding: 1rem; 
   }
 
   h1, h3, h5, .title-total, .data-marketplace, .data-penjualan {
-    font-size: 1rem; 
+    font-size: 0.9rem !important; 
     margin-bottom: 1%;
   }
 
@@ -636,10 +685,42 @@ tr.deactive {
   h2.h3 {
     font-size: 1em;
   }
+
+  /* Show mobile dropdown */
+  .btn-group-desktop {
+    display: none !important;
+  }
+
+  .btn-group-mobile {
+    display: block !important;
+  }
+
+  .dropdown-menu {
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+  }
+
+  .dropdown:hover .dropdown-menu {
+      display: block;
+  }
+
+  .dropdown-item {
+      padding: 10px;
+      color: #333;
+      text-decoration: none;
+      display: block;
+  }
+
+  .dropdown-item:hover {
+      background-color: #f1f1f1;
+  }
 }
 
 /* Media query card untuk tampilan tab */
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1366px) {
   .card-right .col-auto {
     padding: 15px;
   }
@@ -650,13 +731,6 @@ tr.deactive {
     align-items: center;
     text-align: center;
     width: 100%;
-  }
-
-  .card-total .stat {
-    text-align: center;
-    justify-self: center;
-    align-items: center;
-    display: flex;
   }
 
   .title-total {
@@ -681,5 +755,48 @@ tr.deactive {
   h2, h5, .title-total, .data-marketplace, .data-penjualan {
     font-size: 1rem; 
     margin-bottom: 1%;
+  }
+
+  .card-total {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card-total .stat {
+    font-size: 1.25em;
+    text-align: center;
+    justify-self: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .card-total .title-total {
+    font-size: 1.1em;
+    font-weight: 500;
+  }
+
+  .card-total h1 p {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .card-total .mb-0 {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+  }
+
+  .card-total .mb-0 .text-success, 
+  .card-total .mb-0 .text-danger {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+  }
+
+  .card-total .mb-0 i {
+    margin-right: 3px;
   }
 }
