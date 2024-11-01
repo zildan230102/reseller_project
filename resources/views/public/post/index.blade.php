@@ -125,22 +125,22 @@
         </div>
 
         <!--Row kedua-->
-        <div class="row">
+        <div class="row"> 
             <!-- Kolom kiri -->
             <div class="col-xl-7 col-xxl-8">
                 <div class="card flex-fill w-100">
                     <div class="bar-header">
                         <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group" role="group" aria-label="Basic example">
+                            <div class="btn-group-desktop" role="group" aria-label="Tombol Desktop">
                                 <button type="button" class="btn active" id="marketplace-btn">Marketplace</button>
                                 <button type="button" class="btn" id="toko-btn">Toko</button>
                                 <button type="button" class="btn" id="buku-btn">Buku</button>
                             </div>
 
                             <!-- New dropdown button for mobile -->
-                            <div class="dropdown button-group-mobile">
-                                <button class="btn dropdown-toggle" id="categoryDropdown" type="button">
-                                    Pilih Kategori
+                            <div class="dropdown btn-group-mobile" id="dropdownContainer">
+                                <button class="btn-kategori" type="button" id="categoryDropdown">
+                                    Pilih Kategori <i class="bi bi-chevron-down"></i>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="categoryDropdown">
                                     <a class="dropdown-item" href="#" id="marketplace-option">Marketplace</a>
@@ -151,7 +151,7 @@
                             
                             <!-- Month Dropdown -->
                             <div class="dropdown">
-                                <button class="month-dropdown">September   <i class="bi bi-chevron-down"></i></button>
+                                <button class="month-dropdown">September  <i class="bi bi-chevron-down"></i></button>
                                 <div class="dropdown-content">
                                     <a href="#">January</a>
                                     <a href="#">February</a>
@@ -169,11 +169,19 @@
                             </div>
                         </div>
                     </div>
-                    <h5 class="title-chart-bar text-center mb-3">Marketplace Dengan Penjualan Terbanyak Bulan Ini</h5>
+                    <h5 class="title-chart-bar text-center mb-3">Marketplace dengan Penjualan Terbanyak Bulan Ini</h5>
                     <div class="card-body d-flex w-100">
                         <div class="align-self-center chart chart-lg">
                             <canvas id="chartjs-dashboard-bar"></canvas>
                         </div>
+                    </div>
+                    <div class="chart-legend d-flex justify-content-center mt-3">
+                        <div class="legend-item" style="background-color: #0F0890;" data-label="Lazada"></div>
+                        <div class="legend-item" style="background-color: #F1582E;" data-label="Shopee"></div>
+                        <div class="legend-item" style="background-color: #469546;" data-label="Tokopedia"></div>
+                        <div class="legend-item" style="background-color: #3A77FF;" data-label="OLX"></div>
+                        <div class="legend-item" style="background-color: #BCBCBC;" data-label="Web Deepublish"></div>
+                        <div class="legend-item" style="background-color: #E31F51;" data-label="Bukalapak"></div>
                     </div>
                 </div>
             </div>
@@ -367,6 +375,31 @@
                 </div>
             </div>
         </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryDropdown = document.getElementById('categoryDropdown');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+
+            // Toggle dropdown visibility when button is clicked
+            categoryDropdown.addEventListener('click', function(event) {
+                event.stopPropagation(); // Prevent the click from bubbling up
+                dropdownMenu.classList.toggle('show'); // Toggle visibility
+            });
+
+            // Prevent dropdown from closing when clicking inside the menu
+            dropdownMenu.addEventListener('click', function(event) {
+                event.stopPropagation(); // Prevent dropdown from closing
+            });
+
+            // Close dropdown if clicking outside both button and menu
+            document.addEventListener('click', function(event) {
+                if (!dropdownMenu.contains(event.target) && !categoryDropdown.contains(event.target)) {
+                    dropdownMenu.classList.remove('show'); // Hide dropdown
+                }
+            });
+        });
+    </script>    
 </main>
 
 @endsection

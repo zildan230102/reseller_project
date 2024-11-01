@@ -4,6 +4,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 
 <script>
 	// Seleksi semua tombol
@@ -182,6 +183,9 @@
 							stacked: false,
 							gridLines: {
 								color: "transparent"
+							},
+							tricks: {
+								display: window.innerWidth > 768
 							}
 						}]
 					}
@@ -200,6 +204,11 @@
 			document.getElementById("buku-btn").addEventListener("click", function() {
 				updateChart("buku");
 			});
+
+			window.addEventListener("resize", function() {
+				chart.options.scales.xAxes[0].ticks.display = window.innerWidth > 768;
+				chart.update();
+        	});
 
 			// Get the dropdown menu items
 			const dropdownItems = document.querySelectorAll('.dropdown-item');

@@ -1,6 +1,6 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="shortcut icon" href="{{ ('style/static/img/icons/icon-48x48.png') }}" />
+	<link rel="shortcut icon" href="{{ ('style/src/img/icons/d1.png') }}" />
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
 

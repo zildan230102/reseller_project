@@ -594,6 +594,32 @@ tr.deactive {
   display: none;
 }
 
+.chart-legend {
+  display: none !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.legend-item {
+  width: 10px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 8px;
+  display: inline-block;
+  position: relative;
+}
+
+.legend-item::after {
+  content: attr(data-label);
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #333;
+}
+
 /* Media query card untuk tampilan mobile */
 @media (max-width: 768px) {
   .chart {
@@ -647,6 +673,9 @@ tr.deactive {
   }
 
   .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 0%;
   }
 
@@ -654,7 +683,7 @@ tr.deactive {
     padding: 1rem; 
   }
 
-  h1, h3, h5, .title-total, .data-marketplace, .data-penjualan {
+  h3, h5, .title-total, .data-marketplace, .data-penjualan {
     font-size: 0.9rem !important; 
     margin-bottom: 1%;
   }
@@ -695,27 +724,89 @@ tr.deactive {
     display: block !important;
   }
 
-  .dropdown-menu {
-      display: none;
-      position: absolute;
-      background-color: white;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      z-index: 1;
+  .btn-group-mobile:hover .dropdown-menu {
+    display: block !important;
+    position: absolute;
   }
 
-  .dropdown:hover .dropdown-menu {
-      display: block;
+  .dropdown-menu {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .btn-kategori {
+    outline: none;
+    border: none !important;
+    background-color: transparent;
+    z-index: 1;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+  }
+
+  .dropdown-menu.show {
+    display: block !important;
   }
 
   .dropdown-item {
-      padding: 10px;
-      color: #333;
-      text-decoration: none;
-      display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    display: block;
   }
 
   .dropdown-item:hover {
-      background-color: #f1f1f1;
+    background-color: #f1f1f1;
+  }
+
+  .dropdown-menu:hover {
+    display: block;
+  }
+
+  .title-chart-bar {
+    text-align: center !important;
+    margin-bottom: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 35px 0 35px !important;
+  }
+
+  .chart.chart-lg {
+      width: 100%;
+      max-width: 100%;
+  }
+
+  .bar-header .d-flex {
+    padding: 20px 20px 0px 30px !important;
+  }
+
+  .chart-legend {
+    display: flex !important;
+    align-items: center;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    text-align: center;
+    margin: 5px;
+    font-size: 12px;
+    color: #333;
+  }
+
+  .legend-item::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
   }
 }
 
