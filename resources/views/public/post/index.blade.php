@@ -13,21 +13,23 @@
                     <div class="header-sale d-flex justify-content-between align-items-center">
                         <h5 class="penjualan-keseluruhan mt-1">Penjualan Keseluruhan</h5>
                         <div class="dropdown">
-                            <button class="month-dropdown">September  <i class="bi bi-chevron-down"></i></button>
-                            <div class="dropdown-content">
-                                <a href="#">January</a>
-                                <a href="#">February</a>
-                                <a href="#">March</a>
-                                <a href="#">April</a>
-                                <a href="#">May</a>
-                                <a href="#">June</a>
-                                <a href="#">July</a>
-                                <a href="#">August</a>
-                                <a href="#">September</a>
-                                <a href="#">October</a>
-                                <a href="#">November</a>
-                                <a href="#">December</a>
-                            </div>
+                            <button class="month-dropdown" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                September<i class="bi bi-chevron-down ml-2"></i>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" data-bs-offset="0,10">
+                                <li><a class="dropdown-item" href="#">Januari</a></li>
+                                <li><a class="dropdown-item" href="#">Februari</a></li>
+                                <li><a class="dropdown-item" href="#">Maret</a></li>
+                                <li><a class="dropdown-item" href="#">April</a></li>
+                                <li><a class="dropdown-item" href="#">Mei</a></li>
+                                <li><a class="dropdown-item" href="#">Juni</a></li>
+                                <li><a class="dropdown-item" href="#">Juli</a></li>
+                                <li><a class="dropdown-item" href="#">Agustus</a></li>
+                                <li><a class="dropdown-item" href="#">September</a></li>
+                                <li><a class="dropdown-item" href="#">Oktober</a></li>
+                                <li><a class="dropdown-item" href="#">November</a></li>
+                                <li><a class="dropdown-item" href="#">Desember</a></li>
+                            </ul>
                         </div>
                     </div>
                     <div class="title-sale d-flex  align-items-center">
@@ -139,7 +141,7 @@
 
                             <div class="dropdown">
                                 <button class="btn btn-dropdown" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Pilih Kategori
+                                    Pilih Kategori<i class="bi bi-chevron-down ml-2"></i>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" data-bs-offset="0,10">
                                     <li><a class="dropdown-item" href="#">Marketplace</a></li>
@@ -148,23 +150,24 @@
                                 </ul>
                             </div>
 
-                            <!-- Month Dropdown -->
                             <div class="dropdown">
-                                <button class="month-dropdown">September  <i class="bi bi-chevron-down"></i></button>
-                                <div class="dropdown-content">
-                                    <a href="#">January</a>
-                                    <a href="#">February</a>
-                                    <a href="#">March</a>
-                                    <a href="#">April</a>
-                                    <a href="#">May</a>
-                                    <a href="#">June</a>
-                                    <a href="#">July</a>
-                                    <a href="#">August</a>
-                                    <a href="#">September</a>
-                                    <a href="#">October</a>
-                                    <a href="#">November</a>
-                                    <a href="#">December</a>
-                                </div>
+                                <button class="month-dropdown" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                    September<i class="bi bi-chevron-down ml-2"></i>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" data-bs-offset="0,10">
+                                    <li><a class="dropdown-item" href="#">Januari</a></li>
+                                    <li><a class="dropdown-item" href="#">Februari</a></li>
+                                    <li><a class="dropdown-item" href="#">Maret</a></li>
+                                    <li><a class="dropdown-item" href="#">April</a></li>
+                                    <li><a class="dropdown-item" href="#">Mei</a></li>
+                                    <li><a class="dropdown-item" href="#">Juni</a></li>
+                                    <li><a class="dropdown-item" href="#">Juli</a></li>
+                                    <li><a class="dropdown-item" href="#">Agustus</a></li>
+                                    <li><a class="dropdown-item" href="#">September</a></li>
+                                    <li><a class="dropdown-item" href="#">Oktober</a></li>
+                                    <li><a class="dropdown-item" href="#">November</a></li>
+                                    <li><a class="dropdown-item" href="#">Desember</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -180,7 +183,7 @@
                         <div class="legend-item" style="background-color: #469546;" data-label="Tokopedia"></div>
                         <div class="legend-item" style="background-color: #3A77FF;" data-label="OLX"></div>
                         <div class="legend-item" style="background-color: #BCBCBC;" data-label="Web Deepublish"></div>
-                        <div class="legend-item" style="background-color: #E31F51;" data-label="Bukalapak"></div>
+                        <div class="legend-item" style="background-color: #E37F51;" data-label="Bukalapak"></div>
                     </div>
                 </div>
             </div>

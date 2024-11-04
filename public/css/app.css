@@ -8,11 +8,6 @@ h2.h3.h5 {
   margin-bottom: 1em;
 }
 
-/* Style for tablet */
-@media (max-width: 768px) {
-  
-}
-
 /* Halaman Daftar Toko */
 .custom-button .bi {
   font-weight: bold !important;
@@ -219,7 +214,7 @@ h2.h3.h5 {
 /* Dropdown button */
 .month-dropdown {
   font-size: 1em;
-  padding: 8px 10px; 
+  padding: 5px 7px; 
   color: #ff8c42; 
   border: 1px solid #ff8c42; 
   border-radius: 5px; 
@@ -698,15 +693,6 @@ tr.deactive {
     margin-top: 0;
   }
 
-  .month-dropdown {
-    font-size: 0.8em;
-    padding: 6px 12px;
-    box-shadow: none;
-    border: none;
-  }
-  .dropdown-content {
-      width: 100%; 
-  }
   .title-sale .ms-3 {
     margin-left: 4px !important;
   }
@@ -736,6 +722,32 @@ tr.deactive {
     z-index: 1;
   }
 
+  .month-dropdown {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 0.8em;
+    padding: 6px 12px;
+    box-shadow: none;
+    border: 1px solid transparent;
+  }
+
+  .month-dropdown:hover {
+    border: 1px solid #f57c00;
+  }
+
+  .month-dropdown:hover,
+  .month-dropdown:focus,
+  .dropdown.show .month-dropdown {
+    background-color: transparent !important;
+    color: #f57c00;
+    outline: none;
+    box-shadow: none;
+    border-color: #f57c00 !important; 
+    box-shadow: 0 0 5px rgba(255, 148, 82, 0.5);
+    outline: none;
+  }
+
   .dropdown-menu {
     position: absolute;
     background-color: white;
@@ -745,6 +757,8 @@ tr.deactive {
     top: 100% !important;
     left: 0 !important;
     transform: translateY(0) !important;
+    padding: 5px;
+    min-width: 120px !important;
   }
 
   .dropdown-item:hover {
@@ -754,32 +768,33 @@ tr.deactive {
 
   .btn-dropdown {
     border: 1px solid transparent;
+    font-size: 0.8em;
+    padding: 6px 10px 6px 10px;
   }
 
   .btn-dropdown:hover,
   .btn-dropdown:focus,
   .dropdown.show .btn-dropdown {
-    border-color: #f57c00;
     background-color: transparent;
     color: #f57c00;
     outline: none;
     box-shadow: none;
+    border-color: #f57c00; 
+    box-shadow: 0 0 5px rgba(255, 148, 82, 0.5);
+    outline: none;
   }
 
   .dropdown-item:hover {
     background-color: #e0e0e0;
     color: #f57c00;
-}
-
-  .dropdown-menu.show {
-    display: block !important;
   }
 
   .dropdown-item {
-    padding: 10px;
     color: #333;
     text-decoration: none;
     display: block;
+    padding: 5px 10px !important;
+    font-size: 15px !important;
   }
 
   .dropdown-item:hover {
@@ -798,8 +813,8 @@ tr.deactive {
   }
 
   .chart.chart-lg {
-      width: 100%;
-      max-width: 100%;
+    width: 100%;
+    max-width: 100%;
   }
 
   .bar-header .d-flex {
@@ -807,27 +822,33 @@ tr.deactive {
   }
 
   .chart-legend {
-    display: flex !important;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    gap: 10px;
+    flex-wrap: wrap !important;
   }
 
   .legend-item {
     display: flex;
     align-items: center;
-    flex-direction: column; 
-    text-align: center;
-    margin: 5px;
-    font-size: 12px;
-    color: #333;
+    padding-right: 8px;
+    font-size: 10px;
   }
 
   .legend-item::before {
-    content: "";
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
+    content: '';
     display: inline-block;
-    margin-right: 5px;
+    width: 16px;
+    height: 16px;
+    background-color: currentColor;
+    margin-right: 4px;
+  }
+
+  .legend-item[data-label]::after {
+    content: attr(data-label);
+    color: #333;
+    font-size: 14px;
   }
 }
 
@@ -857,11 +878,6 @@ tr.deactive {
   .mb-0 {
     margin-top: 0; 
     font-size: 1rem;
-  }
-
-  .month-dropdown {
-    font-size: 1em;
-    padding: 6px 8px;
   }
 
   h2, h5, .title-total, .data-marketplace, .data-penjualan {
@@ -910,5 +926,45 @@ tr.deactive {
 
   .card-total .mb-0 i {
     margin-right: 3px;
+  }
+
+  .dropdown-menu {
+    top: 100% !important;
+    left: 0 !important;
+    transform: translateY(0) !important;
+    min-width: 120px !important
+  }
+
+  .dropdown-item {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 5px 20px !important;
+    font-size: 18px !important;
+  }
+
+  .btn-dropdown {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .dropdown-menu {
+    top: 100% !important;
+    left: 0 !important;
+    transform: translateY(0) !important;
+    min-width: 120px !important
+  }
+
+  .dropdown-item {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 5px 20px !important;
+    font-size: 18px !important;
+  }
+
+  .btn-dropdown {
+    display: none;
   }
 }
