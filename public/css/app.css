@@ -421,19 +421,19 @@ h2.h3.h5 {
 
 /* Data Toko Reseller & Data Penjualan Buku*/
 .data-reseller, .data-penjualan, .data-marketplace {
-    color: #F58635;
-    font-weight: bold;
-    font-size: 18px;
+  color: #F58635;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .judul-th {
-    font-weight: bold;
-    font-size: 14px;
-    color: #000000 !important;
-    border-bottom: 1px solid #EFEFEF;
-    text-align: left;
-    margin: 0px;
-    padding-top: 0px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #000000 !important;
+  border-bottom: 1px solid #EFEFEF;
+  text-align: left;
+  margin: 0px;
+  padding-top: 0px;
 }
 
 th.judul-th {
@@ -445,10 +445,10 @@ th.judul-th {
 }
 
 .name-column, .status-dot {
-    color: black ;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
+  color: black ;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
 }
 
 .name-column + td, .name-column + td + td {
@@ -458,19 +458,19 @@ th.judul-th {
 }
 
 .status-dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-right: 5px;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
 }
 
 .tr td.deactive {
-    color: grey;
+  color: grey;
 }
 
 tr.deactive {
-    opacity:0.6
+  opacity:0.6
 }
 
 /* Data Marketplace */
@@ -729,13 +729,6 @@ tr.deactive {
     position: absolute;
   }
 
-  .dropdown-menu {
-    position: absolute;
-    background-color: white;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-
   .btn-kategori {
     outline: none;
     border: none !important;
@@ -745,10 +738,38 @@ tr.deactive {
 
   .dropdown-menu {
     position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    position: absolute;
+    top: 100% !important;
+    left: 0 !important;
+    transform: translateY(0) !important;
   }
+
+  .dropdown-item:hover {
+    background-color: #e0e0e0;
+    color: #333;
+  }
+
+  .btn-dropdown {
+    border: 1px solid transparent;
+  }
+
+  .btn-dropdown:hover,
+  .btn-dropdown:focus,
+  .dropdown.show .btn-dropdown {
+    border-color: #f57c00;
+    background-color: transparent;
+    color: #f57c00;
+    outline: none;
+    box-shadow: none;
+  }
+
+  .dropdown-item:hover {
+    background-color: #e0e0e0;
+    color: #f57c00;
+}
 
   .dropdown-menu.show {
     display: block !important;

@@ -137,18 +137,17 @@
                                 <button type="button" class="btn" id="buku-btn">Buku</button>
                             </div>
 
-                            <!-- New dropdown button for mobile -->
-                            <div class="dropdown btn-group-mobile" id="dropdownContainer">
-                                <button class="btn-kategori" type="button" id="categoryDropdown">
-                                    Pilih Kategori <i class="bi bi-chevron-down"></i>
+                            <div class="dropdown">
+                                <button class="btn btn-dropdown" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Pilih Kategori
                                 </button>
-                                <div class="dropdown-menu" aria-labelledby="categoryDropdown">
-                                    <a class="dropdown-item" href="#" id="marketplace-option">Marketplace</a>
-                                    <a class="dropdown-item" href="#" id="toko-option">Toko</a>
-                                    <a class="dropdown-item" href="#" id="buku-option">Buku</a>
-                                </div>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" data-bs-offset="0,10">
+                                    <li><a class="dropdown-item" href="#">Marketplace</a></li>
+                                    <li><a class="dropdown-item" href="#">Toko</a></li>
+                                    <li><a class="dropdown-item" href="#">Buku</a></li>
+                                </ul>
                             </div>
-                            
+
                             <!-- Month Dropdown -->
                             <div class="dropdown">
                                 <button class="month-dropdown">September  <i class="bi bi-chevron-down"></i></button>

@@ -211,6 +211,16 @@
     border-color: #ff9800; 
 }
 
+.btn-pesanan:hover,
+.btn-pesanan:focus,
+.dropdown.show .btn-dropdown {
+    border-color: #f57c00;
+    background-color: transparent;
+    color: #f57c00;
+    outline: none;
+    box-shadow: none;
+}
+
 /* Dropdown menu base styles */
 .dropdown-menu {
     display: none;
