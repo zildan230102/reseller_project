@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TokoController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\UkuranController; // Import UkuranController
 
 // Rute untuk homepage yang mengarahkan ke login
 Route::get('/', function () {
@@ -39,8 +40,17 @@ Route::middleware('auth')->group(function () {
         Route::post('/{toko}/toggle-status', [TokoController::class, 'toggleStatus'])->name('toko.toggle-status'); // Mengubah status aktif/tidak aktif
     });
 
-Route::resource('orders', OrderController::class);
+    // Rute untuk pengelolaan Orders
+    Route::resource('orders', OrderController::class);
 
+    // Rute untuk pengelolaan Buku
+    Route::resource('bukus', BukuController::class);
+    
+    // Menambahkan rute untuk menyimpan buku
+    Route::post('/bukus', [BukuController::class, 'store'])->name('bukus.store');
+
+    // Rute untuk pengelolaan Ukuran
+    Route::resource('ukurans', UkuranController::class);
 
     // Rute untuk logout
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout'); // Logout pengguna
@@ -54,6 +64,3 @@ Route::middleware('guest')->group(function () {
     Route::get('/login', Login::class)->name('login'); // Halaman login
     Route::get('/register', Register::class)->name('register'); // Halaman registrasi
 });
-
-
-Route::resource('bukus', BukuController::class);
