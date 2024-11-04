@@ -185,7 +185,12 @@
                             </div>
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="ukuran" class="form-label">Ukuran</label>
-                                <input type="text" class="form-control" name="ukuran" required>
+                                <select class="form-select" id="ukuran" name="ukuran_id" required>
+                                    <option value="">Pilih Ukuran</option>
+                                    @foreach ($ukurans as $ukuran)
+                                        <option value="{{ $ukuran->id }}">{{ $ukuran->nama }} ({{ $ukuran->dimensi }})</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
@@ -196,15 +201,30 @@
                             </div>
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="jenis_kertas" class="form-label">Jenis Kertas</label>
-                                <input type="text" class="form-control" name="jenis_kertas" required>
+                                <select class="form-select" name="jenis_kertas" required>
+                                    <option value="">Pilih Jenis Kertas</option>
+                                    <option value="HVS / A4">HVS / A4</option>
+                                    <option value="Kertas Art Paper">Kertas Art Paper</option>
+                                    <option value="Art Karton">Art Karton</option>
+                                    <option value="Matt Paper">Matt Paper</option>
+                                    <option value="Fancy Paper">Fancy Paper</option>
+                                    <option value="Ivory">Ivory</option>
+                                </select>
                             </div>
+                            
                         </div>
 
                         <div class="row">
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="jenis_sampul" class="form-label">Jenis Sampul</label>
-                                <input type="text" class="form-control" name="jenis_sampul" required>
+                                <select class="form-select" name="jenis_sampul" required>
+                                    <option value="">Pilih Jenis Sampul</option>
+                                    <option value="Softcover">Softcover</option>
+                                    <option value="Hardcover">Hardcover</option>
+                                    <option value="Ring Binding">Ring Binding</option>
+                                </select>
                             </div>
+                            
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="berat" class="form-label">Berat (kg)</label>
                                 <input type="number" class="form-control" name="berat" step="0.01" min="0"
@@ -264,8 +284,8 @@
                             <tr>
                                 <th scope="row" style="width: 150px;">Ukuran</th>
                                 <td style="padding: 0 5px;">:</td>
-                                <td>{{ $buku->ukuran }}</td>
-                            </tr>
+                                <td>{{ $buku->ukuran->nama ?? 'Tidak tersedia' }} - {{ $buku->ukuran->dimensi ?? 'Tidak tersedia' }}</td>
+                            </tr>                                                      
                             <tr>
                                 <th scope="row" style="width: 150px;">Halaman</th>
                                 <td style="padding: 0 5px;">:</td>
@@ -350,9 +370,14 @@
                                     value="{{ $buku->tahun_terbit }}" required>
                             </div>
                             <div class="col-sm-12 col-md-6 mb-3">
-                                <label for="ukuran" class="form-label">Ukuran</label>
-                                <input type="text" class="form-control" name="ukuran" value="{{ $buku->ukuran }}"
-                                    required>
+                                <label for="ukuran_id" class="form-label">Ukuran</label>
+                                <select class="form-select" name="ukuran_id" id="ukuran_id" required>
+                                    @foreach ($ukurans as $ukuran)
+                                        <option value="{{ $ukuran->id }}" {{ isset($buku) && $ukuran->id == $buku->ukuran_id ? 'selected' : '' }}>
+                                            {{ $ukuran->nama }} ({{ $ukuran->dimensi }})
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
@@ -364,17 +389,29 @@
                             </div>
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="jenis_kertas" class="form-label">Jenis Kertas</label>
-                                <input type="text" class="form-control" name="jenis_kertas"
-                                    value="{{ $buku->jenis_kertas }}" required>
+                                <select class="form-select" name="jenis_kertas" required>
+                                    <option value="HVS / A4">HVS / A4</option>
+                                    <option value="Kertas Art Paper">Kertas Art Paper</option>
+                                    <option value="Art Karton">Art Karton</option>
+                                    <option value="Matt Paper">Matt Paper</option>
+                                    <option value="Fancy Paper">Fancy Paper</option>
+                                    <option value="Ivory">Ivory</option>
+                                </select>
                             </div>
+                            
                         </div>
 
                         <div class="row">
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="jenis_sampul" class="form-label">Jenis Sampul</label>
-                                <input type="text" class="form-control" name="jenis_sampul"
-                                    value="{{ $buku->jenis_sampul }}" required>
+                                <select class="form-select" name="jenis_sampul" required>
+                                    <option value="">Pilih Jenis Sampul</option>
+                                    <option value="Softcover">Softcover</option>
+                                    <option value="Hardcover">Hardcover</option>
+                                    <option value="Ring Binding">Ring Binding</option>
+                                </select>
                             </div>
+                            
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="berat" class="form-label">Berat (kg)</label>
                                 <input type="number" class="form-control" name="berat" value="{{ $buku->berat }}"
@@ -423,3 +460,15 @@
     </div>
 
 @endsection
+
+<!-- Script to handle modal data -->
+<script>
+    function showDetailBuku(data) {
+        // Set the ukuran dimension value from the data
+        document.getElementById('ukuranDimensi').textContent = data.dimensi;
+        
+        // Show the modal
+        var detailModal = new bootstrap.Modal(document.getElementById('detailBukuModal'));
+        detailModal.show();
+    }
+</script>

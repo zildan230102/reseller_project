@@ -3,35 +3,56 @@
 namespace App\Http\Controllers;
 
 use App\Models\Buku;
-use App\Models\Kategori; // Mengambil model Kategori
+use App\Models\Kategori;
+use App\Models\Ukuran;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log; // Tambahkan ini untuk mengimpor Log
 
 class BukuController extends Controller
 {
+    // Menampilkan semua buku beserta kategori dan ukuran
     public function index()
     {
-        // Mengambil semua buku beserta kategorinya
-        $bukus = Buku::with('kategori')->get();
+        // Mengambil semua buku beserta kategori dan ukuran
+        $bukus = Buku::with(['kategori', 'ukuran'])->get();
         
-        // Mengambil semua kategori untuk ditampilkan pada form create/edit
+        // Mengambil semua kategori dan ukuran untuk ditampilkan pada form create/edit
         $kategoris = Kategori::all(); 
+        $ukurans = Ukuran::all(); // Menambahkan ukuran untuk opsi pada form
 
-        // Mengembalikan view dengan data buku dan kategori
-        return view('buku.index', compact('bukus', 'kategoris'));
+        // Mengembalikan view dengan data buku, kategori, dan ukuran
+        return view('buku.index', compact('bukus', 'kategoris', 'ukurans'));
     }
 
+    // Menyimpan buku baru
     public function store(Request $request)
     {
-        // Validasi input untuk menambah buku
-        $this->validateRequest($request);
+        // Log data yang diterima
+        Log::info('Data yang diterima:', $request->all()); // Gunakan Log yang telah diimpor
 
-        // Simpan buku dengan berat dalam kg
-        Buku::create($this->prepareData($request));
+        // Validasi input
+        $validatedData = $request->validate([
+            'nama_buku' => 'required|string|max:255',
+            'nama_penulis' => 'required|string|max:255',
+            'kategori_id' => 'required|exists:kategoris,id',
+            'isbn' => 'required|string|max:20',
+            'tahun_terbit' => 'required|integer',
+            'ukuran_id' => 'required|exists:ukurans,id', // Menggunakan ukuran_id sebagai relasi
+            'halaman' => 'required|integer',
+            'jenis_kertas' => 'required|string|max:50',
+            'jenis_sampul' => 'required|string|max:50',
+            'berat' => 'required|numeric|min:0',
+            'harga' => 'required|numeric|min:0',
+        ]);
 
-        // Redirect kembali dengan pesan sukses
-        return redirect()->back()->with('success', 'Buku berhasil ditambahkan');
+        // Simpan data ke dalam database
+        Buku::create($validatedData);
+
+        // Redirect atau memberikan feedback
+        return redirect()->route('bukus.index')->with('success', 'Buku berhasil ditambahkan!');
     }
 
+    // Memperbarui buku yang sudah ada
     public function update(Request $request, Buku $buku)
     {
         // Validasi input untuk memperbarui buku
@@ -41,22 +62,25 @@ class BukuController extends Controller
         $buku->update($this->prepareData($request));
 
         // Redirect kembali dengan pesan sukses
-        return redirect()->back()->with('success', 'Buku berhasil diperbarui');
+        return redirect()->route('bukus.index')->with('success', 'Buku berhasil diperbarui'); // Ganti dengan rute index
     }
 
+    // Menghapus buku dari database
     public function destroy(Buku $buku)
     {
-        // Hapus buku dari database
-        $buku->delete();
+        // Cek jika buku ada sebelum menghapus
+        if ($buku) {
+            $buku->delete();
+            return redirect()->route('bukus.index')->with('success', 'Buku berhasil dihapus'); // Ganti dengan rute index
+        }
 
-        // Redirect kembali dengan pesan sukses
-        return redirect()->back()->with('success', 'Buku berhasil dihapus');
+        return redirect()->route('bukus.index')->with('error', 'Buku tidak ditemukan'); // Ganti dengan rute index
     }
 
-    // Menambahkan metode untuk mendapatkan semua buku
+    // Menambahkan metode untuk mendapatkan semua buku (misalnya untuk pesanan)
     public function getBukuForOrder()
     {
-        return Buku::all(['id', 'nama_buku', 'berat', 'harga']); // Mengambil ID, nama buku, berat, dan harga
+        return Buku::all(['id', 'nama_buku', 'berat', 'harga']);
     }
 
     // Metode untuk validasi request
@@ -66,13 +90,13 @@ class BukuController extends Controller
             'nama_buku' => 'required|string|max:255',
             'nama_penulis' => 'required|string|max:255',
             'kategori_id' => 'required|exists:kategoris,id',
-            'isbn' => 'required|string|max:13',
-            'tahun_terbit' => 'required|date_format:Y',
-            'ukuran' => 'required|string',
+            'isbn' => 'required|string|max:20',
+            'tahun_terbit' => 'required|integer',
+            'ukuran_id' => 'required|exists:ukurans,id', // Menggunakan ukuran_id sebagai relasi
             'halaman' => 'required|integer',
-            'jenis_kertas' => 'required|string',
-            'jenis_sampul' => 'required|string',
-            'berat' => 'required|numeric|min:0', // Berat dalam kg
+            'jenis_kertas' => 'required|string|max:50',
+            'jenis_sampul' => 'required|string|max:50',
+            'berat' => 'required|numeric|min:0',
             'harga' => 'required|numeric|min:0',
         ]);
     }
@@ -86,11 +110,11 @@ class BukuController extends Controller
             'kategori_id' => $request->kategori_id,
             'isbn' => $request->isbn,
             'tahun_terbit' => $request->tahun_terbit,
-            'ukuran' => $request->ukuran,
+            'ukuran_id' => $request->ukuran_id, // Pastikan ini adalah ID, bukan objek
             'halaman' => $request->halaman,
             'jenis_kertas' => $request->jenis_kertas,
             'jenis_sampul' => $request->jenis_sampul,
-            'berat' => $request->berat, // Menyimpan berat dalam kg
+            'berat' => $request->berat,
             'harga' => $request->harga,
         ];
     }
