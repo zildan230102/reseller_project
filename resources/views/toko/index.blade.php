@@ -81,17 +81,16 @@
                 {{ session('error') }}
             </div>
         @endif
+        
         <div class="container">
-            <!-- Card untuk menampung tombol dan tabel -->
             <div class="card mb-4">
                 <div class="card-body">
-                    <!-- Button Tambah Toko -->
+
                     <button type="button" class="custom-button-daftar mb-3" data-bs-toggle="modal"
                         data-bs-target="#tokoModal">
                         <i class="bi bi-plus-lg me-2"></i>Tambah Toko
                     </button>
 
-                    <!-- Tabel Data Toko -->
                     <table class="table table-bordered">
                         <thead class="thead text-center">
                             <tr>
@@ -195,7 +194,7 @@
 
                             <div class="form-group">
                                 <label for="ekspedisi_id">Ekspedisi</label>
-                                <select name="ekspedisi_id" class="form-control" required>
+                                <select name="ekspedisi_id" class="form-select" required>
                                     <option value="" disabled selected>Pilih Ekspedisi</option>
                                     @foreach ($ekspedisis as $ekspedisi)
                                         <option value="{{ $ekspedisi->id }}">{{ $ekspedisi->nama_ekspedisi }}</option>
@@ -255,7 +254,7 @@
 
                             <div class="form-group">
                                 <label for="edit_is_active">Status</label>
-                                <select id="edit_is_active" name="is_active" class="form-control">
+                                <select id="edit_is_active" name="is_active" class="form-select">
                                     <option value="1">Aktif</option>
                                     <option value="0">Tidak Aktif</option>
                                 </select>
