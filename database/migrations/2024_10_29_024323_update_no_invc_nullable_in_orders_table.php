@@ -12,14 +12,14 @@ return new class extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->string('no_invc')->nullable()->change();
+            $table->string('no_invoice')->nullable()->change();
         });
     }
     
     public function down()
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->string('no_invc')->nullable(false)->change();
+            $table->string('no_invoice')->nullable(false)->change();
         });
     }
 };
