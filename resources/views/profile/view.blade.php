@@ -3,8 +3,8 @@
 @section('title', 'Profil')
 
 @section('content')
-<div class="container mt-5">
-    <h2 class="text-center">Profil Pengguna</h2>
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Profil Pengguna</h2>
 
     @if(session('success'))
     <div class="alert alert-success">{{ session('success') }}</div>

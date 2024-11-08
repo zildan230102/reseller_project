@@ -3,6 +3,16 @@
 @section('content')
 
     <style>
+        .container {
+            width: 100%;
+            padding: 20px;
+        }
+        .card-header-button {
+            padding: 15px 0px 0px 15px;
+            display: flex;
+            background-color: transparent;
+            border-bottom: none;
+        }
         .custom-button-daftar {
             background-color: #ff9800;
             color: white;
@@ -10,26 +20,23 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            width: auto;
         }
-
         .custom-button-daftar:hover {
             background-color: #ff7b29;
         }
-
         .dropdown .btn-no-border {
             border: none;
             outline: none;
             box-shadow: none;
             padding: 0;
         }
-
         .dropdown-menu {
             min-width: auto;
             width: max-content;
             padding: 0.5rem;
             z-index: 1050;
         }
-
         .custom-dropdown-item {
             display: flex;
             align-items: center;
@@ -40,31 +47,132 @@
             box-sizing: border-box;
             transition: background-color 0.2s ease;
         }
-
         .custom-dropdown-item:hover {
             background-color: #f0f0f0;
             color: #000;
             text-decoration: none;
         }
-
         .custom-dropdown-item i {
             margin-right: 8px;
             margin-left: 0;
         }
-
         .no-border-dropdown {
             border: none;
             box-shadow: none;
         }
-
         .no-border-item {
             border: none;
             background-color: transparent;
         }
-
         .no-border-item:hover {
             background-color: #f8f9fa;
             border: none;
+        }
+
+        /* Responsif untuk layar 768px ke bawah */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header-title {
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .custom-button-daftar {
+                width: auto;
+                font-size: 14px;
+            }
+
+            table {
+                overflow-x: auto;
+                font-size: 16px;
+            }
+            .modal-dialog {
+                 max-width: 80%;
+            }
+            .modal-header {
+                padding: 10px 15px;
+            }
+            .modal-title {
+                font-size: 18px !important;
+            }
+            .modal-body {
+                padding: 20px
+            }
+            .form-group label {
+                font-size: 16px;
+            }
+            .form-group input, .form-group select {
+                font-size: 14px;
+                padding: 8px;
+            }
+            
+            .custom-button {
+                font-size: 14px;
+                padding: 10px 15px;
+            }
+
+            .d-flex.justify-content-end {
+                justify-content: center;
+            }  
+        }
+
+        /* Untuk layar kecil (maks 576px) */
+        @media (max-width: 576px) {
+            .container {
+                padding: 5px;
+            }
+            .header-title {
+                font-size: 18px;
+                text-align: center;
+            }
+            .custom-button-daftar {
+                width: auto;
+                font-size: 12px;
+                padding: 8px;
+            }
+            .table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+                font-size: 12px;
+            }
+            .modal-dialog {
+                max-width: 90%;
+                margin: 0 auto;
+            }
+            .modal-content {
+                padding: 10px;
+            }
+            .modal-header {
+                padding: 5px 10px 10px 10px;
+            }
+            .modal-body {
+                font-size: 12px;
+                padding: 15px 10px 15px 10px;
+            }
+            .modal-title {
+                font-size: 16px;
+            }
+            .modal-footer {
+                padding: 5px 5px 0px 5px;
+            }
+            .form-group label {
+                font-size: 12px;
+            }
+            .form-control, .form-select {
+                font-size: 12px;
+            }
+            .custom-button {
+                font-size: 12px;
+                padding: 8px 16px;
+            }
+            .btn-custom-danger {
+                font-size: 12px; /* Menyesuaikan ukuran font button */
+                padding: 6px 10px; /* Menyesuaikan padding button */
+            }
         }
     </style>
     <div class="container mt-4">
@@ -81,16 +189,15 @@
                 {{ session('error') }}
             </div>
         @endif
-        
+
         <div class="container">
             <div class="card mb-4">
-                <div class="card-body">
-
-                    <button type="button" class="custom-button-daftar mb-3" data-bs-toggle="modal"
-                        data-bs-target="#tokoModal">
+                <div class="card-header-button">
+                    <button type="button" class="custom-button-daftar" data-bs-toggle="modal" data-bs-target="#tokoModal">
                         <i class="bi bi-plus-lg me-2"></i>Tambah Toko
                     </button>
-
+                </div>
+                <div class="card-body">
                     <table class="table table-bordered">
                         <thead class="thead text-center">
                             <tr>
@@ -176,23 +283,24 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="tokoModalLabel">Tambah Toko</h5>
-                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form id="tokoForm" action="{{ route('toko.store') }}" method="POST">
                             @csrf
-                            <div class="form-group">
+                            <div class="form-group mb-3">
                                 <label for="nama_toko">Nama Toko</label>
                                 <input type="text" class="form-control" name="nama_toko" required>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group mb-3">
                                 <label for="marketplace">Marketplace</label>
                                 <input type="text" class="form-control" name="marketplace"
                                     placeholder="Masukkan nama marketplace" required>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group mb-3">
                                 <label for="ekspedisi_id">Ekspedisi</label>
                                 <select name="ekspedisi_id" class="form-select" required>
                                     <option value="" disabled selected>Pilih Ekspedisi</option>
@@ -202,7 +310,7 @@
                                 </select>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group mb-3">
                                 <label for="is_active">Status</label>
                                 <select name="is_active" class="form-control">
                                     <option value="1">Aktif</option>
@@ -225,7 +333,8 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="editTokoModalLabel">Edit Toko</h5>
-                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form id="editTokoForm" action="" method="POST">
@@ -276,7 +385,8 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="confirmDeleteModalLabel">Konfirmasi Hapus</h5>
-                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"> </button>
+                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close">
+                        </button>
                     </div>
                     <div class="modal-body">
                         Apakah Anda yakin ingin menghapus toko ini?
