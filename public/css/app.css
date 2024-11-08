@@ -512,73 +512,74 @@ tr.deactive {
   margin-top: -20px; 
   padding: 0px;
   text-align: center;
-  margin-bottom: 20px;
 }
 
 .performa-marketplace {
-    font-size: 12px;
-    font-weight: bold;
-    text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5px;
+  margin-left: 60px;
 }
 /* Chart Pie */
 .chart-container {
-    height: 150px;
+  height: 150px;
 }
-
 #chartjs-dashboard-pie {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .legend-list {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-    font-size: 0.70rem;
-    width: 100%;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  font-size: 0.70rem;
+  width: 100%;
+  margin-top: 10px;
 }
 
 .legend-list li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .legend-list li span {
-    text-align: left; 
-    margin-right: 0px;
-    display: inline-block;
-    width: 70%;
+  text-align: left; 
+  margin-right: 0px;
+  display: inline-block;
+  width: 70%;
 }
 
 .legend-list li::before {
-    content: '';
-    display: block;
-    width: 10px;
-    height: 10px;
-    margin-right: 3px;
-    border-radius: 50%;
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin-right: 3px;
+  border-radius: 50%;
 }
 
 .legend-shopee::before {
-    background-color: #F1582E;
+  background-color: #F1582E;
 }
 .legend-deepublish::before {
-    background-color: #BCBCBC;
+  background-color: #BCBCBC;
 }
 .legend-tokopedia::before {
-    background-color: #469546;
+  background-color: #469546;
 }
 .legend-lazada::before {
-    background-color: #0F0890;
+  background-color: #0F0890;
 }
 .legend-bukalapak::before {
-    background-color: #E31F51;
+  background-color: #E31F51;
 }
 .legend-olx::before {
-    background-color: #3A77FF;
+  background-color: #3A77FF;
 }
 
 .btn-group-desktop {
@@ -672,10 +673,6 @@ tr.deactive {
     flex-direction: column;
     align-items: center;
     margin-bottom: 0%;
-  }
-
-  .card-body, .card-header {
-    padding: 1rem; 
   }
 
   h3, h5, .title-total, .data-marketplace, .data-penjualan {
@@ -850,6 +847,115 @@ tr.deactive {
     color: #333;
     font-size: 14px;
   }
+
+  .card-body .row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .col-6 {
+    width: 100%;
+  }
+
+  .col-kiri {
+    flex: 1;
+    max-width: 50%;
+  }
+
+  .col-kanan {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .col-kanan .row {
+    flex: 1;
+    /* max-width: 50%; */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+    /* width: 100%; */
+  }
+
+  .chart-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    padding: 0;
+    margin: 0;
+    height: 90px;
+    width: 90px;
+    margin-left: 40px;
+  }
+
+  #chartjs-dashboard-pie {
+    height: 90px !important;
+    width: 90px !important;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .performa-header {
+    text-align: center;
+    margin-bottom: 0%;
+  }
+
+  .performa-marketplace {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 5px;
+    margin-top: 2px;
+  }
+  
+  .legend-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 10px;
+  }
+
+  .legend-list li {
+    width: 65%;
+    text-align: center;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .table-responsive .judul-th {
+    font-size: 14px ;
+  }
+
+  .table-responsive .table td,
+  .table-responsive .table th {
+    font-size: 12px;
+  }
+
+  .table-borderless .name, 
+  .table-borderless .text-end { 
+      font-size: 12px !important; 
+  }
+
+  .card-body .table td {
+    font-size: 12px; 
+  }
+
+  .card-body .table .judul-th {
+    font-size: 14px;
+    font-weight: bold;
+  }
 }
 
 /* Media query card untuk tampilan tab */
@@ -882,7 +988,7 @@ tr.deactive {
 
   h2, h5, .title-total, .data-marketplace, .data-penjualan {
     font-size: 1rem; 
-    margin-bottom: 1%;
+    /* margin-bottom: 1%; */
   }
 
   .card-total {

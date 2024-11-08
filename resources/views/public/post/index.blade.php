@@ -232,7 +232,7 @@
 
                             <!-- Chart Pie dan Legend Data dalam satu kolom -->
                             <div class="col-kanan">
-                                <div class="row">
+                                <div class="row justify-content-center">
                                     <div class="performa-header">
                                         <h4 class="performa-marketplace">Performa Marketplace</h4>
                                     </div>
@@ -246,14 +246,11 @@
                                     <div class="col-6">
                                         <ul class="legend-list">
                                             <li class="legend-shopee"><span>Shopee</span> <strong>$30</strong></li>
-                                            <li class="legend-tokopedia"><span>Tokopedia</span> <strong>$30</strong>
-                                            </li>
+                                            <li class="legend-tokopedia"><span>Tokopedia</span> <strong>$30</strong></li>
                                             <li class="legend-lazada"><span>Lazada</span> <strong>$30</strong></li>
-                                            <li class="legend-bukalapak"><span>Bukalapak</span> <strong>$30</strong>
-                                            </li>
+                                            <li class="legend-bukalapak"><span>Bukalapak</span> <strong>$30</strong></li>
                                             <li class="legend-olx"><span>OLX </span><strong>$30</strong></li>
-                                            <li class="legend-deepublish"><span>Deepublish</span> <strong>$30</strong>
-                                            </li>
+                                            <li class="legend-deepublish"><span>Deepublish</span> <strong>$30</strong></li>
                                         </ul>
                                     </div>
                                 </div>
