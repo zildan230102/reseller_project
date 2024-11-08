@@ -15,7 +15,7 @@ class Buku extends Model
         'kategori_id',
         'isbn',
         'tahun_terbit',
-        'ukuran_id', // Ubah dari 'ukuran' menjadi 'ukuran_id' untuk foreign key
+        'ukuran',
         'halaman',
         'jenis_kertas',
         'jenis_sampul',
@@ -26,11 +26,5 @@ class Buku extends Model
     public function kategori()
     {
         return $this->belongsTo(Kategori::class);
-    }
-
-    // Tambahkan relasi ke model Ukuran
-    public function ukuran()
-    {
-        return $this->belongsTo(Ukuran::class); // Relasi yang benar
     }
 }
