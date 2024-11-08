@@ -14,7 +14,7 @@
                         <h5 class="penjualan-keseluruhan mt-1">Penjualan Keseluruhan</h5>
                         <div class="dropdown">
                             <button class="month-dropdown" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                September<i class="bi bi-chevron-down ml-2"></i>
+                                September<i class="bi bi-chevron-down ms-1"></i>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" data-bs-offset="0,10">
                                 <li><a class="dropdown-item" href="#">Januari</a></li>
@@ -67,7 +67,7 @@
                                         <p class="fw-bold fs-4">Rp15.500.000</p>
                                     </h1>
                                     <div class="mb-0">
-                                        <span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i>13.02%</span>
+                                        <span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i> 13.02%</span>
                                         <span class="text-muted">Dari Bulan Agustus</span>
                                     </div>
                                 </div>
@@ -91,7 +91,7 @@
                                         <p class="fw-bold fs-4">Rp5.150.000</p>
                                     </h1>
                                     <div class="mb-0">
-                                        <span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i>13.02%</span>
+                                        <span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i> 13.02%</span>
                                         <span class="text-muted">Dari Bulan Agustus</span>
                                     </div>
                                 </div>
@@ -141,18 +141,18 @@
 
                             <div class="dropdown">
                                 <button class="btn btn-dropdown" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Pilih Kategori<i class="bi bi-chevron-down ml-2"></i>
+                                    Pilih Kategori<i class="bi bi-chevron-down ms-1"></i>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" data-bs-offset="0,10">
-                                    <li><a class="dropdown-item" href="#">Marketplace</a></li>
-                                    <li><a class="dropdown-item" href="#">Toko</a></li>
-                                    <li><a class="dropdown-item" href="#">Buku</a></li>
+                                    <li><a class="dropdown-item" data-type="marketplace">Marketplace</a></li>
+                                    <li><a class="dropdown-item" data-type="toko">Toko</a></li>
+                                    <li><a class="dropdown-item" data-type="buku">Buku</a></li>
                                 </ul>
                             </div>
 
                             <div class="dropdown">
                                 <button class="month-dropdown" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                    September<i class="bi bi-chevron-down ml-2"></i>
+                                    September<i class="bi bi-chevron-down ms-1"></i>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" data-bs-offset="0,10">
                                     <li><a class="dropdown-item" href="#">Januari</a></li>
@@ -177,13 +177,19 @@
                             <canvas id="chartjs-dashboard-bar"></canvas>
                         </div>
                     </div>
-                    <div class="chart-legend d-flex justify-content-center mt-3">
-                        <div class="legend-item" style="background-color: #0F0890;" data-label="Lazada"></div>
-                        <div class="legend-item" style="background-color: #F1582E;" data-label="Shopee"></div>
-                        <div class="legend-item" style="background-color: #469546;" data-label="Tokopedia"></div>
-                        <div class="legend-item" style="background-color: #3A77FF;" data-label="OLX"></div>
-                        <div class="legend-item" style="background-color: #BCBCBC;" data-label="Web Deepublish"></div>
-                        <div class="legend-item" style="background-color: #E37F51;" data-label="Bukalapak"></div>
+                    <div class="chart-legend d-flex justify-content-center mb-4">
+                        <div class="legend-column me-3">
+                            <div class="legend-item"  data-label="Lazada">Lazada</div>
+                            <div class="legend-item"  data-label="Shopee">Shopee</div>
+                        </div>
+                        <div class="legend-column me-3">
+                            <div class="legend-item"  data-label="Tokopedia">Tokopedia</div>
+                            <div class="legend-item"  data-label="OLX">OLX</div>
+                        </div>    
+                        <div class="legend-column">
+                            <div class="legend-item"  data-label="Web Deepublish">Web Deepublish</div>
+                            <div class="legend-item"  data-label="Bukalapak">Bukalapak</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -398,7 +404,9 @@
                 }
             });
         });
-    </script>    
+    </script>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.5/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybDJbEfrtGPiZCJo7AEQxZ7xphhMDP1gIn54gEVIp5IWoTJYE" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9t0A0r4JrWtBIsqCUAABAGyqNbklxPSJUCcBy6E/TA9jlm0XAAE/7Nx" crossorigin="anonymous"></script>
 </main>
 
 @endsection

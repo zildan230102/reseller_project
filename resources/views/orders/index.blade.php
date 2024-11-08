@@ -369,7 +369,7 @@
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
                                             <label for="toko_id{{ $order->id }}" class="form-label">Toko</label>
-                                            <select id="toko_id{{ $order->id }}" name="toko_id" class="form-control"
+                                            <select id="toko_id{{ $order->id }}" name="toko_id" class="form-select"
                                                 required onchange="updateMarketplace({{ $order->id }})">
                                                 @foreach ($tokos as $toko)
                                                     <option value="{{ $toko->id }}"
@@ -503,7 +503,7 @@
             $('#deleteModal').on('show.bs.modal', function(event) {
                 var button = $(event.relatedTarget); // Tombol yang memicu modal
                 var orderId = button.data('order-id'); // Ambil ID order dari data atribut tombol
-                var actionUrl = '{{ url('orders') }}/' +
+                var actionUrl = '{{ url("orders") }}/' +
                 orderId; // Ganti dengan URL yang sesuai untuk penghapusan order
 
                 // Update action form dengan URL yang benar
