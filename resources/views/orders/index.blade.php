@@ -11,9 +11,7 @@
 
         .dropdown-menu {
             min-width: auto;
-            /* Menghapus lebar minimum default */
             width: max-content;
-            /* Menyesuaikan lebar dengan konten */
             padding: 0.5rem;
             z-index: 1050;
         }
@@ -46,35 +44,20 @@
             padding: 0;
         }
 
-        /* Warna default untuk tab */
         .nav-tabs .nav-link {
             color: #000000;
-            /* Teks hitam saat tidak aktif */
             border: 1px solid transparent;
         }
 
-        /* Warna saat aktif */
         .nav-tabs .nav-link.active {
             color: #FFA500;
-            /* Teks oranye saat aktif */
         }
 
-        /* Warna saat hover */
         .nav-tabs .nav-link:hover {
             color: #FFA500;
-            /* Teks oranye saat hover */
         }
 
-        @media (max-width: 576px) {
-            h2 {
-                font-size: 1.5rem;
-            }
 
-            .custom-button {
-                font-size: 0.9rem;
-                padding: 0.5rem 1rem;
-            }
-        }
     </style>
     <div class="container mt-4">
         <div class="card">
@@ -248,13 +231,14 @@
         </div>
     </div>
 
-    <!-- Tabel Daftar Order -->
-    <div class="container mt-5">
-        <div class="card">
-            <div class="card-body-order">
-                <h3 class="mb-4">Daftar Order</h3>
-                <table class="table">
-                    <thead>
+<!-- Tabel Daftar Order Responsif -->
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h3 class="mb-4">Daftar Order</h3>
+            <div class="table-responsive-sm">
+                <table class="table table-bordered">
+                    <thead class="table-light">
                         <tr>
                             <th>No</th>
                             <th>Tanggal</th>
@@ -280,7 +264,7 @@
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <a class="custom-dropdown-item" data-bs-toggle="modal"
+                                                <a class="dropdown-item" data-bs-toggle="modal"
                                                     data-bs-target="#editOrderModal{{ $order->id }}">
                                                     <i class="bi bi-pencil text-warning me-2"></i> Edit
                                                 </a>
@@ -289,7 +273,7 @@
                                                 <form id="deleteForm" action="" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <a type="button" class="custom-dropdown-item" data-bs-toggle="modal"
+                                                    <a type="button" class="dropdown-item" data-bs-toggle="modal"
                                                         data-bs-target="#deleteModal"
                                                         data-order-id="{{ $order->id }}">
                                                         <i class="bi bi-trash text-danger me-2 fs-6"></i> Hapus
@@ -306,6 +290,7 @@
             </div>
         </div>
     </div>
+</div>
 
     <!-- Modal Konfirmasi Hapus -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true"
