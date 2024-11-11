@@ -288,7 +288,7 @@
                                         <td>32 pcs</td>
                                         <td><span class="status-dot in-stock"></span>In Stock</td>
                                     </tr>
-                                    <tr>
+                                    <tr class="deactive">
                                         <td class="name-column">Judul Buku</td>
                                         <td>Rp 150.000</td>
                                         <td>24 pcs</td>

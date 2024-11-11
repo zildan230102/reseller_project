@@ -947,7 +947,7 @@ tr.deactive {
 }
 
 /* Media query card untuk tampilan tab */
-@media only screen and (min-width: 768px) and (max-width: 1366px) {
+@media (min-width: 768px) and (max-width: 1366px) {
   .card-right .col-auto {
     padding: 15px;
   }
