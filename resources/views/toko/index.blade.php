@@ -119,7 +119,6 @@
             }  
         }
 
-        /* Untuk layar kecil (maks 576px) */
         @media (max-width: 576px) {
             .container {
                 padding: 5px;
@@ -135,7 +134,6 @@
             }
             .table {
                 display: block;
-                overflow-x: auto;
                 white-space: nowrap;
                 font-size: 12px;
             }
@@ -170,8 +168,8 @@
                 padding: 8px 16px;
             }
             .btn-custom-danger {
-                font-size: 12px; /* Menyesuaikan ukuran font button */
-                padding: 6px 10px; /* Menyesuaikan padding button */
+                font-size: 12px;
+                padding: 6px 10px;
             }
         }
     </style>
