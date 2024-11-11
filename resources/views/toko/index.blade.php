@@ -140,7 +140,7 @@
                 font-size: 12px;
             }
             .modal-dialog {
-                max-width: 90%;
+                max-width: 80%;
                 margin: 0 auto;
             }
             .modal-content {

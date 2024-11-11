@@ -17,12 +17,14 @@
         }
 
         .custom-dropdown-item {
+            font-size: 1rem;
             display: flex;
             align-items: center;
             justify-content: start;
-            padding: 4px;
+            padding: 0.4rem 0.8rem;
             color: #333;
             text-decoration: none;
+            box-sizing: border-box;
             transition: background-color 0.2s ease;
         }
 
@@ -57,13 +59,106 @@
             color: #FFA500;
         }
 
+        .order-title {
+            font-size: 1.5rem;
+        }
 
+        @media (max-width: 768px) {
+            .order-title {
+                font-size: 1.25rem;
+            }
+
+            .table th,
+            .table td {
+                font-size: 0.9rem;
+                padding: 0.5rem;
+            }
+
+            .custom-dropdown-item {
+                font-size: 0.9rem;
+                padding: 0.3rem 0.6rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0.5rem;
+            }
+
+            .card h3 {
+                font-size: 1.1rem !important;
+            }
+
+            .card-body-order,
+            .form-label,
+            .form-control {
+                font-size: 0.8rem;
+                /* Smaller body text */
+            }
+
+            .nav-tabs .nav-item .nav-link {
+                font-size: 0.8rem;
+                padding: 0.4rem;
+            }
+
+            .custom-button {
+                font-size: 0.7rem;
+                padding: 0.4rem 0.8rem;
+            }
+            .btn-custom-danger {
+                font-size: 0.7rem; 
+                padding: 0.3rem 0.6rem; /* Menyesuaikan padding button */
+            }
+            .card-header {
+                padding: 15px 15px 0px 15px;
+            }
+            .order-title {
+                font-size: 1.1rem;
+            }
+
+            .table th,
+            .table td {
+                font-size: 0.6rem;
+                padding: 0.2rem;
+            }
+
+            .custom-dropdown-item {
+                font-size: 0.8rem;
+                padding: 0.2rem 0.5rem;
+            }
+
+            .dropdown-menu {
+                width: auto;
+                min-width: 120px;
+                max-width: 90px;
+            }
+            .modal-dialog {
+                max-width: 85%;
+                margin: 0 auto;
+            }
+            .modal-content {
+                padding: 10px;
+            }
+            .modal-header {
+                padding: 5px 10px 10px 10px;
+            }
+            .modal-body {
+                font-size: 12px;
+                padding: 15px 10px 15px 10px;
+            }
+            .modal-title {
+                font-size: 1.1rem !important;
+            }
+            .modal-footer {
+                padding: 5px 5px 0px 5px;
+            }
+        }
     </style>
     <div class="container mt-4">
         <div class="card">
-            <div class="card-body-order">
+            <div class="card-header">
                 <h3 class="mb-4">Tambah Order</h3>
-
+            </div>
                 @if (session('success'))
                     <div class="alert alert-success">
                         {{ session('success') }}
@@ -79,7 +174,8 @@
                         </ul>
                     </div>
                 @endif
-
+                
+            <div class="card-body-order">
                 <!-- Nav Tabs -->
                 <ul class="nav nav-tabs nav-fill mb-4" id="orderTab" role="tablist">
                     <li class="nav-item" role="presentation">
@@ -228,69 +324,73 @@
                     </div>
                 </form>
             </div>
-        </div>
-    </div>
-
-<!-- Tabel Daftar Order Responsif -->
-<div class="container mt-5">
-    <div class="card">
-        <div class="card-body">
-            <h3 class="mb-4">Daftar Order</h3>
-            <div class="table-responsive-sm">
-                <table class="table table-bordered">
-                    <thead class="table-light">
-                        <tr>
-                            <th>No</th>
-                            <th>Tanggal</th>
-                            <th>No Invoice</th>
-                            <th>Kode Booking</th>
-                            <th>Toko</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($orders as $order)
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $order->tanggal }}</td>
-                                <td>{{ $order->no_invoice }}</td>
-                                <td>{{ $order->kode_booking }}</td>
-                                <td>{{ $order->toko->nama_toko }}</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button type="button" class="btn btn-sm btn-no-border" id="dropdownMenuButton"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="bi bi-eye-fill text-black"></i>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a class="dropdown-item" data-bs-toggle="modal"
-                                                    data-bs-target="#editOrderModal{{ $order->id }}">
-                                                    <i class="bi bi-pencil text-warning me-2"></i> Edit
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <form id="deleteForm" action="" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <a type="button" class="dropdown-item" data-bs-toggle="modal"
-                                                        data-bs-target="#deleteModal"
-                                                        data-order-id="{{ $order->id }}">
-                                                        <i class="bi bi-trash text-danger me-2 fs-6"></i> Hapus
-                                                    </a>
-                                                </form>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>
-</div>
+
+    <!-- Tabel Daftar Order Responsif -->
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0 order-title">Daftar Order</h3>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive-sm">
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>No</th>
+                                <th>Tanggal</th>
+                                <th>No Invoice</th>
+                                <th>Kode Booking</th>
+                                <th>Toko</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($orders as $order)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $order->tanggal }}</td>
+                                    <td>{{ $order->no_invoice }}</td>
+                                    <td>{{ $order->kode_booking }}</td>
+                                    <td>{{ $order->toko->nama_toko }}</td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button type="button" class="btn btn-sm btn-no-border"
+                                                id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="bi bi-eye-fill text-black"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a class="custom-dropdown-item" data-bs-toggle="modal"
+                                                        data-bs-target="#editOrderModal{{ $order->id }}">
+                                                        <i class="bi bi-pencil text-warning me-2"></i> Edit
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <form id="deleteForm" action="" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <a type="button" class="custom-dropdown-item"
+                                                            data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                                            data-order-id="{{ $order->id }}">
+                                                            <i class="bi bi-trash text-danger me-2 fs-6"></i> Hapus
+                                                        </a>
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
 
     <!-- Modal Konfirmasi Hapus -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true"
@@ -299,7 +399,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="deleteModalLabel">Konfirmasi Hapus</h5>
-                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     Apakah Anda yakin ingin menghapus order ini?
@@ -321,7 +422,8 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="editOrderModalLabel{{ $order->id }}">Edit Order</h5>
-                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <!-- Nav Tabs dalam Modal -->
@@ -504,7 +606,7 @@
                 var button = $(event.relatedTarget); // Tombol yang memicu modal
                 var orderId = button.data('order-id'); // Ambil ID order dari data atribut tombol
                 var actionUrl = '{{ url('orders') }}/' +
-                orderId; // Ganti dengan URL yang sesuai untuk penghapusan order
+                    orderId; // Ganti dengan URL yang sesuai untuk penghapusan order
 
                 // Update action form dengan URL yang benar
                 $('#deleteForm').attr('action', actionUrl);
