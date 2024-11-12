@@ -121,9 +121,12 @@
 
 	.footer-bottom {
 		text-align: center;
-		margin-top: 20px;
-		font-size: 14px;
+		padding-top: 20px;
+		font-size: 12px;
 		color: #818181;
+		text-align: center;
+		width: 100%;
+		margin: 0 auto;
 	}
 
 	/* Responsive Design */
@@ -147,7 +150,7 @@
 			color: #ff8c42;
 		}
 		.footer-section.company-info {
-			width: 200px; 
+			width: 300px; 
 			font-size: 12px;
 		}
 		.footer-section.quick-links { 
@@ -175,9 +178,13 @@
 			font-size: 14px; 
 		}
 		.footer-bottom {
-			font-size: 12px;
+			font-size: 11px;
 			margin-top: 0px;
-			margin-bottom: 10px;
+			max-width: 300px;
+			text-align: center;
+			max-width: 300px;
+			justify-content: center;
+			padding: 0px 10px 10px 10px;
 		}
 	}
 
@@ -251,8 +258,8 @@
 		</div>
     </div>
 	<div class="footer-bottom">
-        <p>&copy; 2024 Deepublish. All Rights Reserved.</p>
-    </div>
+        <p>&copy; 20204 All Rights Reserved | Penerbit Buku Deepublish - CV. Budi Utama</p>
+	</div>
 </footer>
 
 
