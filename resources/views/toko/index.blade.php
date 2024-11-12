@@ -129,13 +129,14 @@
             }
             .custom-button-daftar {
                 width: auto;
-                font-size: 12px;
+                font-size: 14px;
                 padding: 8px;
             }
             .table {
                 display: block;
+                overflow-x: auto;
                 white-space: nowrap;
-                font-size: 12px;
+                font-size: 14px;
             }
             .modal-dialog {
                 max-width: 80%;
@@ -148,7 +149,7 @@
                 padding: 5px 10px 10px 10px;
             }
             .modal-body {
-                font-size: 12px;
+                font-size: 14px;
                 padding: 15px 10px 15px 10px;
             }
             .modal-title {
@@ -158,17 +159,17 @@
                 padding: 5px 5px 0px 5px;
             }
             .form-group label {
-                font-size: 12px;
+                font-size: 14px;
             }
             .form-control, .form-select {
                 font-size: 12px;
             }
             .custom-button {
-                font-size: 12px;
+                font-size: 14px;
                 padding: 8px 16px;
             }
             .btn-custom-danger {
-                font-size: 12px;
+                font-size: 14px;
                 padding: 6px 10px;
             }
         }
