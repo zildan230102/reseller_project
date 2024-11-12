@@ -5,21 +5,25 @@ namespace App\Http\Controllers;
 use App\Models\Buku;
 use App\Models\Kategori;
 use App\Models\Ukuran;
+use App\Models\JenisKertas;
+use App\Models\JenisSampul; // Import model JenisSampul
 use Illuminate\Http\Request;
 
 class BukuController extends Controller
 {
     public function index()
     {
-        // Mengambil semua data buku beserta relasi kategori dan ukuran
-        $bukus = Buku::with('kategori', 'ukuran')->get();
+        // Mengambil semua data buku beserta relasi kategori, ukuran, jenis kertas, dan jenis sampul
+        $bukus = Buku::with('kategori', 'ukuran', 'jenisKertas', 'jenisSampul')->get();
         
-        // Mengambil semua data kategori dan ukuran untuk dropdown pada form create/edit
+        // Mengambil semua data kategori, ukuran, jenis kertas, dan jenis sampul untuk dropdown pada form create/edit
         $kategoris = Kategori::all(); 
         $ukurans = Ukuran::all(); 
+        $jenisKertas = JenisKertas::all();
+        $jenisSampuls = JenisSampul::all(); // Ambil semua data jenis sampul
 
-        // Mengembalikan view 'buku.index' dengan data buku, kategori, dan ukuran
-        return view('buku.index', compact('bukus', 'kategoris', 'ukurans'));
+        // Mengembalikan view 'buku.index' dengan data buku, kategori, ukuran, jenis kertas, dan jenis sampul
+        return view('buku.index', compact('bukus', 'kategoris', 'ukurans', 'jenisKertas', 'jenisSampuls'));
     }
 
     public function store(Request $request)
@@ -73,8 +77,8 @@ class BukuController extends Controller
             'tahun_terbit' => 'required|integer|digits:4',  // Validasi tahun harus 4 digit
             'ukuran_id' => 'required|exists:ukurans,id',
             'halaman' => 'required|integer|min:1',
-            'jenis_kertas' => 'required|string|max:50',
-            'jenis_sampul' => 'required|string|max:50',
+            'jenis_kertas_id' => 'required|exists:jenis_kertas,id', // Memastikan jenis kertas valid
+            'jenis_sampul_id' => 'required|exists:jenis_sampuls,id', // Validasi untuk jenis sampul menggunakan ID
             'berat' => 'required|numeric|min:0.01',
             'harga' => 'required|numeric|min:0',
         ]);
@@ -89,10 +93,10 @@ class BukuController extends Controller
             'kategori_id' => $request->kategori_id,
             'isbn' => $request->isbn,
             'tahun_terbit' => $request->tahun_terbit,
-            'ukuran_id' => $request->ukuran_id, // pastikan ukuran_id sesuai dengan relasi
+            'ukuran_id' => $request->ukuran_id,
             'halaman' => $request->halaman,
-            'jenis_kertas' => $request->jenis_kertas,
-            'jenis_sampul' => $request->jenis_sampul,
+            'jenis_kertas_id' => $request->jenis_kertas_id, // Memastikan jenis_kertas_id sesuai dengan relasi
+            'jenis_sampul_id' => $request->jenis_sampul_id, // Menggunakan ID untuk jenis sampul
             'berat' => $request->berat,
             'harga' => $request->harga,
         ];
