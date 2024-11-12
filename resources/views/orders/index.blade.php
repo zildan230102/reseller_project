@@ -27,7 +27,7 @@
             box-sizing: border-box;
             transition: background-color 0.2s ease;
         }
-
+        
         .custom-dropdown-item:hover {
             background-color: #f0f0f0;
             color: #000;
@@ -86,14 +86,13 @@
             }
 
             .card h3 {
-                font-size: 1.1rem !important;
+                font-size: 1.2rem !important;
             }
 
             .card-body-order,
             .form-label,
             .form-control {
-                font-size: 0.8rem;
-                /* Smaller body text */
+                font-size: 1rem;
             }
 
             .nav-tabs .nav-item .nav-link {
@@ -107,26 +106,25 @@
             }
             .btn-custom-danger {
                 font-size: 0.7rem; 
-                padding: 0.3rem 0.6rem; /* Menyesuaikan padding button */
+                padding: 0.3rem 0.6rem;
             }
             .card-header {
                 padding: 15px 15px 0px 15px;
             }
             .order-title {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
-
-            .table th,
-            .table td {
-                font-size: 0.6rem;
-                padding: 0.2rem;
+            .form-label {
+                font-size: 14px;
             }
-
+            table {
+                overflow-x: auto;
+                font-size: 14px;
+            }
             .custom-dropdown-item {
                 font-size: 0.8rem;
                 padding: 0.2rem 0.5rem;
             }
-
             .dropdown-menu {
                 width: auto;
                 min-width: 120px;
@@ -157,7 +155,7 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-                <h3 class="mb-4">Tambah Order</h3>
+                <h3>Tambah Order</h3>
             </div>
                 @if (session('success'))
                     <div class="alert alert-success">
@@ -355,7 +353,7 @@
                                     <td>{{ $order->no_invoice }}</td>
                                     <td>{{ $order->kode_booking }}</td>
                                     <td>{{ $order->toko->nama_toko }}</td>
-                                    <td>
+                                    <td class="text-center">
                                         <div class="dropdown">
                                             <button type="button" class="btn btn-sm btn-no-border"
                                                 id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
