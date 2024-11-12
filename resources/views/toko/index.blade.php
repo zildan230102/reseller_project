@@ -409,7 +409,7 @@
                 $('#confirmDeleteModal').on('show.bs.modal', function(event) {
                     var button = $(event.relatedTarget);
                     var tokoId = button.data('id');
-                    var actionUrl = '{{ url('toko') }}/' + tokoId;
+                    var actionUrl = '{{ url("toko") }}/' + tokoId;
 
                     $('#deleteForm').attr('action', actionUrl);
                 });
@@ -445,7 +445,7 @@
                     $('#edit_is_active').val(status);
 
                     // Set URL action untuk form edit
-                    $('#editTokoForm').attr('action', '{{ url('toko') }}/' + tokoId);
+                    $('#editTokoForm').attr('action', '{{ url("toko") }}/' + tokoId);
                 });
             });
         </script>

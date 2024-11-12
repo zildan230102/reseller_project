@@ -19,7 +19,7 @@
                     <a class="navbar-brand" href="#">
                         <!-- Logo besar (untuk desktop) -->
                         <img src="{{ ('style/src/img/icons/d2.png') }}" class="img logo-desktop" alt="Deepublish Logo Digital">
-                        <!-- Logo kecil (huruf D untuk mobile) -->
+                        <!-- Logo kecil (untuk mobile) -->
                         <img src="{{ ('style/src/img/icons/d2.png') }}" class="img logo-mobile" alt="Deepublish Logo Mobile">
                         <div class="navbar-toggler-container">
                             <button class="navbar-toggler" type="button" id="hamburgerButton" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
