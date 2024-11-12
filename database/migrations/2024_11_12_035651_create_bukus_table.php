@@ -1,7 +1,5 @@
 <?php
 
-// database/migrations/xxxx_xx_xx_create_bukus_table.php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,17 +16,18 @@ class CreateBukusTable extends Migration
             $table->string('isbn')->unique(); // ISBN buku
             $table->year('tahun_terbit'); // Tahun terbit
             $table->integer('halaman'); // Jumlah halaman
-            $table->string('jenis_kertas'); // Jenis kertas
-            $table->string('jenis_sampul'); // Jenis sampul
+            $table->foreignId('jenis_kertas_id')->constrained('jenis_kertas')->onDelete('cascade'); // ID jenis kertas
+            $table->foreignId('jenis_sampul_id')->constrained('jenis_sampuls')->onDelete('cascade'); // Relasi ke jenis_sampul
             $table->decimal('berat', 8, 2); // Berat dalam kg
             $table->decimal('harga', 10, 2); // Harga buku
-            $table->foreignId('ukuran_id')->nullable()->constrained('ukurans')->onDelete('set null'); // ID ukuran
+            $table->foreignId('ukuran_id')->nullable()->constrained('ukurans')->onDelete('set null'); // ID ukuran (opsional)
             $table->timestamps(); // Kolom timestamps (created_at, updated_at)
         });
     }
 
     public function down()
     {
+        // Drop tabel bukus
         Schema::dropIfExists('bukus');
     }
 }

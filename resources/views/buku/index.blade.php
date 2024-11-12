@@ -202,7 +202,15 @@
 </style>
 
 <div class="container mt-4">
+
     <h1 class="text-center mb-4">Daftar Buku</h1>
+        <!-- Menampilkan Flash Message -->
+        @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
 
     <div class="container">
         <div class="card">
@@ -266,6 +274,8 @@
                                 </div>
                             </td>
                         </tr>
+
+
                         <!-- Detail Modal -->
                         <div class="modal fade" id="detailModal{{ $buku->id }}" data-bs-backdrop="static"
                             data-bs-keyboard="false" tabindex="-1" aria-labelledby="detailModalLabel{{ $buku->id }}"
@@ -274,58 +284,60 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="detailModalLabel{{ $buku->id }}">Detail Buku:
-                                            {{ $buku->nama_buku }}
-                                        </h5>
+                                            {{ $buku->nama_buku }}</h5>
                                         <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <dl class="row">
+                                            <!-- Nama Penulis -->
                                             <dt class="col-sm-3 mb-3">Nama Penulis</dt>
-                                            <dd class="col-sm-1">:</dd>
-                                            <dd class="col-sm-8 mb-3">{{ $buku->nama_penulis }}</dd>
+                                            <dd class="col-sm-9 mb-3">{{ $buku->nama_penulis }}</dd>
 
+                                            <!-- Kategori -->
                                             <dt class="col-sm-3 mb-3">Kategori</dt>
-                                            <dd class="col-sm-1">:</dd>
-                                            <dd class="col-sm-8 mb-3">{{ $buku->kategori->nama_kategori }}</dd>
+                                            <dd class="col-sm-9 mb-3">{{ $buku->kategori->nama_kategori }}</dd>
 
+                                            <!-- ISBN -->
                                             <dt class="col-sm-3 mb-3">ISBN</dt>
-                                            <dd class="col-sm-1">:</dd>
-                                            <dd class="col-sm-8 mb-3">{{ $buku->isbn }}</dd>
+                                            <dd class="col-sm-9 mb-3">{{ $buku->isbn }}</dd>
 
+                                            <!-- Tahun Terbit -->
                                             <dt class="col-sm-3 mb-3">Tahun Terbit</dt>
-                                            <dd class="col-sm-1">:</dd>
-                                            <dd class="col-sm-8 mb-3">{{ $buku->tahun_terbit }}</dd>
+                                            <dd class="col-sm-9 mb-3">{{ $buku->tahun_terbit }}</dd>
 
+                                            <!-- Ukuran -->
                                             <dt class="col-sm-3 mb-3">Ukuran</dt>
-                                            <dd class="col-sm-1">:</dd>
-                                            <dd class="col-sm-8 mb-3">{{ $buku->ukuran->ukuran }}
+                                            <dd class="col-sm-9 mb-3">{{ $buku->ukuran->ukuran }}
                                                 {{ $buku->ukuran->dimensi }}</dd>
 
+                                            <!-- Halaman -->
                                             <dt class="col-sm-3 mb-3">Halaman</dt>
-                                            <dd class="col-sm-1">:</dd>
-                                            <dd class="col-sm-8 mb-3">{{ $buku->halaman }}</dd>
+                                            <dd class="col-sm-9 mb-3">{{ $buku->halaman }}</dd>
 
+                                            <!-- Jenis Kertas -->
                                             <dt class="col-sm-3 mb-3">Jenis Kertas</dt>
-                                            <dd class="col-sm-1">:</dd>
-                                            <dd class="col-sm-8 mb-3">{{ $buku->jenis_kertas }}</dd>
+                                            <dd class="col-sm-9 mb-3">{{ $buku->jenisKertas->nama_kertas }}</dd>
 
+                                            <!-- Jenis Sampul -->
                                             <dt class="col-sm-3 mb-3">Jenis Sampul</dt>
-                                            <dd class="col-sm-1">:</dd>
-                                            <dd class="col-sm-8 mb-3">{{ $buku->jenis_sampul }}</dd>
+                                            <dd class="col-sm-9 mb-3">{{ $buku->jenisSampul->nama_sampul }}</dd>
 
+                                            <!-- Berat -->
                                             <dt class="col-sm-3 mb-3">Berat</dt>
-                                            <dd class="col-sm-1">:</dd>
-                                            <dd class="col-sm-8 mb-3">{{ number_format($buku->berat, 2) }} kg</dd>
+                                            <dd class="col-sm-9 mb-3">{{ number_format($buku->berat, 2) }} kg</dd>
 
-                                            <dt class="col-sm-3">Harga</dt>
-                                            <dd class="col-sm-1">:</dd>
-                                            <dd class="col-sm-8">{{ number_format($buku->harga, 0, ',', '.') }}</dd>
+                                            <!-- Harga -->
+                                            <dt class="col-sm-3 mb-3">Harga</dt>
+                                            <dd class="col-sm-9">Rp {{ number_format($buku->harga, 0, ',', '.') }}</dd>
                                         </dl>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
+
                         <!-- Edit Modal -->
                         <div class="modal fade" id="editModal{{ $buku->id }}" data-bs-backdrop="static"
                             data-bs-keyboard="false" tabindex="-1" aria-labelledby="editModalLabel{{ $buku->id }}"
@@ -342,7 +354,6 @@
                                     <form action="{{ route('bukus.update', $buku->id) }}" method="POST">
                                         @csrf
                                         @method('PUT')
-                                        <!-- Pastikan metode adalah PUT untuk update -->
                                         <div class="modal-body">
                                             <!-- Input Fields -->
                                             <div class="mb-3">
@@ -369,7 +380,6 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-
                                                 <div class="col-sm-12 col-md-6 mb-3">
                                                     <label for="isbn" class="form-label">ISBN</label>
                                                     <input type="text" class="form-control" name="isbn"
@@ -403,17 +413,29 @@
                                                         value="{{ $buku->halaman }}" required>
                                                 </div>
                                                 <div class="col-sm-12 col-md-6 mb-3">
-                                                    <label for="jenis_kertas" class="form-label">Jenis Kertas</label>
-                                                    <input type="text" class="form-control" name="jenis_kertas"
-                                                        value="{{ $buku->jenis_kertas }}" required>
+                                                    <label for="jenis_kertas_id" class="form-label">Jenis Kertas</label>
+                                                    <select class="form-select" name="jenis_kertas_id" required>
+                                                        @foreach ($jenisKertas as $kertas)
+                                                        <option value="{{ $kertas->id }}"
+                                                            {{ $kertas->id == $buku->jenis_kertas_id ? 'selected' : '' }}>
+                                                            {{ $kertas->nama_kertas }}
+                                                        </option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col-sm-12 col-md-6 mb-3">
-                                                    <label for="jenis_sampul" class="form-label">Jenis Sampul</label>
-                                                    <input type="text" class="form-control" name="jenis_sampul"
-                                                        value="{{ $buku->jenis_sampul }}" required>
+                                                    <label for="jenis_sampul_id" class="form-label">Jenis Sampul</label>
+                                                    <select class="form-select" name="jenis_sampul_id" required>
+                                                        @foreach ($jenisSampuls as $jenisSampul)
+                                                        <option value="{{ $jenisSampul->id }}"
+                                                            {{ $jenisSampul->id == $buku->jenis_sampul_id ? 'selected' : '' }}>
+                                                            {{ $jenisSampul->nama_sampul }}
+                                                        </option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                                 <div class="col-sm-12 col-md-6 mb-3">
                                                     <label for="berat" class="form-label">Berat (kg)</label>
@@ -436,6 +458,8 @@
                                 </div>
                             </div>
                         </div>
+
+
 
 
                         <!-- Delete Modal -->
@@ -473,97 +497,107 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-sm-12 col-md-6 mb-3">
-        <!-- Modal Create -->
-        <div class="modal fade" id="createModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="createModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="createModalLabel">Tambah Buku</h5>
-                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                    </div>
-                    <form action="{{ route('bukus.store') }}" method="POST">
-                        @csrf
-                        <div class="modal-body">
-                            <!-- Input Fields -->
-                            <div class="mb-3">
-                                <label for="nama_buku" class="form-label">Nama Buku</label>
-                                <input type="text" class="form-control" name="nama_buku" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="nama_penulis" class="form-label">Nama Penulis</label>
-                                <input type="text" class="form-control" name="nama_penulis" required>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-12 col-md-6 mb-3">
-                                    <label for="kategori_id" class="form-label">Kategori</label>
-                                    <select class="form-select" name="kategori_id" required>
-                                        @foreach ($kategoris as $kategori)
-                                        <option value="{{ $kategori->id }}">{{ $kategori->nama_kategori }}
-                                        </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="col-sm-12 col-md-6 mb-3">
-                                    <label for="isbn" class="form-label">ISBN</label>
-                                    <input type="text" class="form-control" name="isbn" required>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-12 col-md-6 mb-3">
-                                    <label for="tahun_terbit" class="form-label">Tahun Terbit</label>
-                                    <input type="number" class="form-control" name="tahun_terbit" required>
-                                </div>
-                                <div class="col-sm-12 col-md-6 mb-3">
-                                    <label for="ukuran_id" class="form-label">Ukuran</label>
-                                    <select class="form-select" name="ukuran_id" required>
-                                        @foreach ($ukurans as $ukuran)
-                                        <option value="{{ $ukuran->id }}">{{ $ukuran->ukuran }} {{ $ukuran->dimensi }}
-                                        </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-12 col-md-6 mb-3">
-                                    <label for="halaman" class="form-label">Halaman</label>
-                                    <input type="number" class="form-control" name="halaman" required>
-                                </div>
-                                <div class="col-sm-12 col-md-6 mb-3">
-                                    <label for="jenis_kertas" class="form-label">Jenis Kertas</label>
-                                    <input type="text" class="form-control" name="jenis_kertas" required>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-12 col-md-6 mb-3">
-                                    <label for="jenis_sampul" class="form-label">Jenis Sampul</label>
-                                    <input type="text" class="form-control" name="jenis_sampul" required>
-                                </div>
-                                <div class="col-sm-12 col-md-6 mb-3">
-                                    <label for="berat" class="form-label">Berat (kg)</label>
-                                    <input type="number" class="form-control" name="berat" step="0.01" min="0" required>
-                                    <!-- Memungkinkan input berat desimal -->
-                                </div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="harga" class="form-label">Harga</label>
-                                <input type="number" class="form-control" name="harga" step="0.01" min="0" required>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="custom-button">Simpan</button>
-                        </div>
-                    </form>
-                </div>
+<!-- Modal Create -->
+<div class="modal fade" id="createModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createModalLabel">Tambah Buku</h5>
+                <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-        </div>
+            <form action="{{ route('bukus.store') }}" method="POST">
+                @csrf
+                <div class="modal-body">
+                    <!-- Input Fields -->
+                    <div class="mb-3">
+                        <label for="nama_buku" class="form-label">Nama Buku</label>
+                        <input type="text" class="form-control" name="nama_buku" required>
+                    </div>
 
-        @endsection
+                    <div class="mb-3">
+                        <label for="nama_penulis" class="form-label">Nama Penulis</label>
+                        <input type="text" class="form-control" name="nama_penulis" required>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 mb-3">
+                            <label for="kategori_id" class="form-label">Kategori</label>
+                            <select class="form-select" name="kategori_id" required>
+                            <option class="text-body-secondary" value="">Pilih Kategori</option>
+                                @foreach ($kategoris as $kategori)
+                                <option value="{{ $kategori->id }}">{{ $kategori->nama_kategori }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-sm-12 col-md-6 mb-3">
+                            <label for="isbn" class="form-label">ISBN</label>
+                            <input type="text" class="form-control" name="isbn" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 mb-3">
+                            <label for="tahun_terbit" class="form-label">Tahun Terbit</label>
+                            <input type="number" class="form-control" name="tahun_terbit" required>
+                        </div>
+                        <div class="col-sm-12 col-md-6 mb-3">
+                            <label for="ukuran_id" class="form-label">Ukuran</label>
+                            <select class="form-select" name="ukuran_id" required>
+                            <option class="text-body-secondary" value="">Pilih Ukuran</option>
+                                @foreach ($ukurans as $ukuran)
+                                <option value="{{ $ukuran->id }}">{{ $ukuran->ukuran }} {{ $ukuran->dimensi }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 mb-3">
+                            <label for="halaman" class="form-label">Halaman</label>
+                            <input type="number" class="form-control" name="halaman" required>
+                        </div>
+                        <div class="col-sm-12 col-md-6 mb-3">
+                            <label for="jenis_kertas_id" class="form-label">Jenis Kertas</label>
+                            <select class="form-select" name="jenis_kertas_id" required>
+                            <option class="text-body-secondary" value="">Pilih Kertas</option>
+                                @foreach ($jenisKertas as $kertas)
+                                <option value="{{ $kertas->id }}">{{ $kertas->nama_kertas }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 mb-3">
+                            <label for="jenis_sampul_id" class="form-label">Jenis Sampul</label>
+                            <select class="form-select" name="jenis_sampul_id" required>
+                            <option class="text-body-secondary" value="">Pilih Sampul</option>
+                                @foreach ($jenisSampuls as $jenisSampul)
+                                <option value="{{ $jenisSampul->id }}">{{ $jenisSampul->nama_sampul }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-sm-12 col-md-6 mb-3">
+                            <label for="berat" class="form-label">Berat (kg)</label>
+                            <input type="number" class="form-control" name="berat" step="0.01" min="0" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="harga" class="form-label">Harga</label>
+                        <input type="number" class="form-control" name="harga" step="0.01" min="0" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="custom-button">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+@endsection
