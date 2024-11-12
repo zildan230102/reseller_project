@@ -226,6 +226,11 @@ h2.h3.h5 {
   justify-content: center;
 }
 
+.dropdown-menu {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
 .month-dropdown:focus {
   border-color: #ff7b29; 
   box-shadow: 0 0 5px rgba(255, 148, 82, 0.5);
@@ -512,73 +517,74 @@ tr.deactive {
   margin-top: -20px; 
   padding: 0px;
   text-align: center;
-  margin-bottom: 20px;
 }
 
 .performa-marketplace {
-    font-size: 12px;
-    font-weight: bold;
-    text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5px;
+  margin-left: 60px;
 }
 /* Chart Pie */
 .chart-container {
-    height: 150px;
+  height: 150px;
 }
-
 #chartjs-dashboard-pie {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .legend-list {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-    font-size: 0.70rem;
-    width: 100%;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  font-size: 0.70rem;
+  width: 100%;
+  margin-top: 10px;
 }
 
 .legend-list li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .legend-list li span {
-    text-align: left; 
-    margin-right: 0px;
-    display: inline-block;
-    width: 70%;
+  text-align: left; 
+  margin-right: 0px;
+  display: inline-block;
+  width: 70%;
 }
 
 .legend-list li::before {
-    content: '';
-    display: block;
-    width: 10px;
-    height: 10px;
-    margin-right: 3px;
-    border-radius: 50%;
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin-right: 3px;
+  border-radius: 50%;
 }
 
 .legend-shopee::before {
-    background-color: #F1582E;
+  background-color: #F1582E;
 }
 .legend-deepublish::before {
-    background-color: #BCBCBC;
+  background-color: #BCBCBC;
 }
 .legend-tokopedia::before {
-    background-color: #469546;
+  background-color: #469546;
 }
 .legend-lazada::before {
-    background-color: #0F0890;
+  background-color: #0F0890;
 }
 .legend-bukalapak::before {
-    background-color: #E31F51;
+  background-color: #E31F51;
 }
 .legend-olx::before {
-    background-color: #3A77FF;
+  background-color: #3A77FF;
 }
 
 .btn-group-desktop {
@@ -589,34 +595,16 @@ tr.deactive {
   display: none;
 }
 
-.chart-legend {
-  display: none !important;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-
-.legend-item {
-  width: 10px;
-  height: 12px;
-  border-radius: 50%;
-  margin: 0 8px;
-  display: inline-block;
-  position: relative;
-}
-
-.legend-item::after {
-  content: attr(data-label);
-  position: absolute;
-  top: 50%;
-  left: 20px;
-  transform: translateY(-50%);
-  font-size: 12px;
-  color: #333;
-}
-
 /* Media query card untuk tampilan mobile */
 @media (max-width: 768px) {
+  #dashboard,
+  #pesanan-btn,
+  #toko-btn,
+  #pembayaran-btn, 
+  .user-profile .text-dark {
+    font-size: 14px;
+  }
+
   .chart {
     padding: 10px 10px;
   }
@@ -672,10 +660,6 @@ tr.deactive {
     flex-direction: column;
     align-items: center;
     margin-bottom: 0%;
-  }
-
-  .card-body, .card-header {
-    padding: 1rem; 
   }
 
   h3, h5, .title-total, .data-marketplace, .data-penjualan {
@@ -761,9 +745,9 @@ tr.deactive {
     min-width: 120px !important;
   }
 
-  .dropdown-item:hover {
-    background-color: #e0e0e0;
-    color: #333;
+  .dropdown-menu {
+    max-height: 200px;
+    overflow-y: auto;
   }
 
   .btn-dropdown {
@@ -794,7 +778,7 @@ tr.deactive {
     text-decoration: none;
     display: block;
     padding: 5px 10px !important;
-    font-size: 15px !important;
+    font-size: 12px;
   }
 
   .dropdown-item:hover {
@@ -803,6 +787,10 @@ tr.deactive {
 
   .dropdown-menu:hover {
     display: block;
+  }
+
+  .dropdown-menu.show {
+    display: block !important;
   }
 
   .title-chart-bar {
@@ -821,39 +809,145 @@ tr.deactive {
     padding: 20px 20px 0px 30px !important;
   }
 
+  .card-body .row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .col-6 {
+    width: 100%;
+  }
+
+  .col-kiri {
+    flex: 1;
+    max-width: 50%;
+  }
+
+  .col-kanan {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .col-kanan .row {
+    flex: 1;
+    /* max-width: 50%; */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+    /* width: 100%; */
+  }
+
   .chart-legend {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap !important;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 400px;
   }
 
   .legend-item {
     display: flex;
     align-items: center;
-    padding-right: 8px;
     font-size: 10px;
+    color: #000;
+    padding-left: 0;
+    position: relative;
   }
 
   .legend-item::before {
     content: '';
     display: inline-block;
-    width: 16px;
-    height: 16px;
-    background-color: currentColor;
-    margin-right: 4px;
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    border-radius: 50%;
+    position: relative;
+    top: 0;
+    left: 0;
   }
 
-  .legend-item[data-label]::after {
-    content: attr(data-label);
-    color: #333;
+  .legend-item[data-label="Lazada"]::before { background-color: #0F0890; }
+  .legend-item[data-label="Shopee"]::before { background-color: #F1582E; }
+  .legend-item[data-label="Tokopedia"]::before { background-color: #469546; }
+  .legend-item[data-label="OLX"]::before { background-color: #3A77FF; }
+  .legend-item[data-label="Web Deepublish"]::before { background-color: #BCBCBC; }
+  .legend-item[data-label="Bukalapak"]::before { background-color: #E31F51; }
+
+  .chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    padding: 0;
+    margin: 0;
+    height: 90px;
+    width: 90px;
+    margin-left: 40px;
+  }
+
+  #chartjs-dashboard-pie {
+    height: 90px !important;
+    width: 90px !important;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .performa-header {
+    text-align: center;
+    margin-bottom: 0%;
+  }
+
+  .performa-marketplace {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 5px;
+    margin-top: 2px;
+  }
+  
+  .legend-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 10px;
+  }
+
+  .legend-list li {
+    width: 65%;
+    text-align: center;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .table-responsive .judul-th {
+    font-size: 14px ;
+  }
+
+  .table-responsive .table td,
+  .table-responsive .table th {
+    font-size: 12px;
+  }
+
+  .table-borderless .name, 
+  .table-borderless .text-end { 
+      font-size: 12px !important; 
+  }
+
+  .card-body .table td {
+    font-size: 12px; 
+  }
+
+  .card-body .table .judul-th {
     font-size: 14px;
+    font-weight: bold;
   }
 }
 
 /* Media query card untuk tampilan tab */
-@media only screen and (min-width: 768px) and (max-width: 1366px) {
+@media (min-width: 768px) and (max-width: 1366px) {
   .card-right .col-auto {
     padding: 15px;
   }
@@ -882,7 +976,7 @@ tr.deactive {
 
   h2, h5, .title-total, .data-marketplace, .data-penjualan {
     font-size: 1rem; 
-    margin-bottom: 1%;
+    /* margin-bottom: 1%; */
   }
 
   .card-total {
@@ -946,6 +1040,10 @@ tr.deactive {
   .btn-dropdown {
     display: none;
   }
+
+  .chart-legend {
+    display: none !important;
+  }
 }
 
 @media (min-width: 992px) {
@@ -966,5 +1064,9 @@ tr.deactive {
 
   .btn-dropdown {
     display: none;
+  }
+
+  .chart-legend {
+    display: none !important;
   }
 }
