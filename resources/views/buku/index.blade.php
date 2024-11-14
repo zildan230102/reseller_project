@@ -5,6 +5,7 @@
 .container {
     width: 100%;
     padding: 20px;
+    padding-top: 80px;
 }
 
 .card-header-button {
@@ -138,6 +139,12 @@
 @media (max-width: 576px) {
     .container {
         padding: 5px;
+        padding-top: 70px;
+    }
+
+    .text-title {
+        font-size: 20px;
+        text-align: center;
     }
 
     .header-title {
@@ -203,7 +210,7 @@
 
 <div class="container mt-4">
 
-    <h1 class="text-center mb-4">Daftar Buku</h1>
+    <h1 class="text-title mb-4">Daftar Buku</h1>
         <!-- Menampilkan Flash Message -->
         @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -212,7 +219,7 @@
         </div>
     @endif
 
-    <div class="container">
+    <div class="card-container">
         <div class="card">
             <div class="card-header-button">
                 <button type="button" class="custom-button-daftar" data-bs-toggle="modal" data-bs-target="#createModal">

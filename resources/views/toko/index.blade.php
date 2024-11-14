@@ -6,6 +6,7 @@
         .container {
             width: 100%;
             padding: 20px;
+            padding-top: 80px;
         }
         .card-header-button {
             padding: 15px 0px 0px 15px;
@@ -73,6 +74,7 @@
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
+                padding-top: 80px;
             }
 
             .header-title {
@@ -122,6 +124,12 @@
         @media (max-width: 576px) {
             .container {
                 padding: 5px;
+                padding-top: 60px;
+            }
+            .text-title{
+                font-size: 20px;
+                text-align: center;
+                margin-bottom: 16px !important;
             }
             .header-title {
                 font-size: 18px;
@@ -129,8 +137,11 @@
             }
             .custom-button-daftar {
                 width: auto;
-                font-size: 14px;
+                font-size: 12px;
                 padding: 8px;
+            }
+            .bi-plus-lg {
+                margin-right: 5px !important;
             }
             .table {
                 display: block;
@@ -175,7 +186,7 @@
         }
     </style>
     <div class="container mt-4">
-        <h1 class="mb-4 text-center">Daftar Toko</h1>
+        <h1 class="text-title mb-4">Daftar Toko</h1>
 
         @if (session('success'))
             <div class="alert alert-success">
@@ -189,7 +200,7 @@
             </div>
         @endif
 
-        <div class="container">
+        <div class="card-container">
             <div class="card mb-4">
                 <div class="card-header-button">
                     <button type="button" class="custom-button-daftar" data-bs-toggle="modal" data-bs-target="#tokoModal">

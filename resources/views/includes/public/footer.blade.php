@@ -67,17 +67,14 @@
 	.footer-section.company-info {
 		flex: none; 
 		width: 400px; 
-	}
-
-	.footer-section.quick-links {
-		flex: none; 
-		width: 150px; 
-		margin-left: 20px;
+		font-size: 12px;
+		margin-right: 10px;
 	}
 
 	.footer-section.contact-info {
 		flex: none; 
-		width: 250px; 
+		width: 350px; 
+		margin-left: 20px;
 	}
 
 	.footer-section.social-media {
@@ -150,11 +147,9 @@
 			color: #ff8c42;
 		}
 		.footer-section.company-info {
-			width: 300px; 
+			max-width: 200px; 
 			font-size: 12px;
-		}
-		.footer-section.quick-links { 
-			margin-left: 0px;
+			margin-right: 0px
 		}
 		.footer-section ul li {
 			font-size: 12px;
@@ -162,9 +157,12 @@
 		}
 		.footer-section.contact-info {
 			font-size: 12px;
+			margin-left: 0px;
+			max-width: 200px;
 		}
 		.footer-section.social-media {
 			margin-left: 0px;
+			margin-bottom: 20px;
 		}
 		.social-icon {
 			width: 30px;
@@ -192,10 +190,6 @@
 		.footer-section.company-info {
 			width: 320px; 
 			font-size: 14px;
-		}
-		.footer-section.quick-links { 
-			padding-top: 65px;
-			margin-left: 10px;
 		}
 		.footer-section.contact-info {
 			margin-top: 65px;
@@ -225,21 +219,11 @@
 			pernah meraih penghargaan sebagai Penerbit Terbaik pada Tahun 2017 oleh Perpustakaan Nasional Republik Indonesia (PNRI).</p>
         </div>
 
-        <!-- Quick Links Section -->
-        <div class="footer-section quick-links">
-            <h4>Quick Links</h4>
-            <ul>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Pesanan</a></li>
-                <li><a href="#">Toko</a></li>
-                <li><a href="#">Pembayaran</a></li>
-            </ul>
-        </div>
-
         <!-- Contact Info Section -->
         <div class="footer-section contact-info">
             <h4>Contact Us</h4>
             <p><i class="bi bi-envelope"></i> adminkonsultan@deepublish.co.id</p>
+			<p><i class="bi bi-envelope"></i> cs@deepublish.co.id</p>
             <p><i class="bi bi-telephone"></i> (0274) 283-6082</p>
             <p><i class="bi bi-geo-alt"></i> Jl.Rajawali G. Elang 6 No 3 RT/RW 005/033, Drono, Sardonoharjo, Ngaglik, Sleman, D.I Yogyakarta 55581</p>
         </div>

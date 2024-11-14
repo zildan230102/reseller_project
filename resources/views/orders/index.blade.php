@@ -67,13 +67,11 @@
             .order-title {
                 font-size: 1.25rem;
             }
-
             .table th,
             .table td {
                 font-size: 0.9rem;
                 padding: 0.5rem;
             }
-
             .custom-dropdown-item {
                 font-size: 0.9rem;
                 padding: 0.3rem 0.6rem;
@@ -84,22 +82,18 @@
             .container {
                 padding: 0.5rem;
             }
-
             .card h3 {
-                font-size: 1.2rem !important;
+                font-size: 1.2rem;
             }
-
             .card-body-order,
             .form-label,
             .form-control {
                 font-size: 1rem;
             }
-
             .nav-tabs .nav-item .nav-link {
                 font-size: 0.8rem;
                 padding: 0.4rem;
             }
-
             .custom-button {
                 font-size: 0.7rem;
                 padding: 0.4rem 0.8rem;
@@ -261,7 +255,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="alamat_kirim" class="form-label">Alamat Kirim</label>
+                                <label for="alamat_kirim" class="form-label">Alamat Pengiriman</label>
                                 <textarea class="form-control" id="alamat_kirim" name="alamat_kirim" required></textarea>
                             </div>
 
@@ -330,7 +324,7 @@
     <div class="container mt-5">
         <div class="card">
             <div class="card-header">
-                <h3 class="mb-0 order-title">Daftar Order</h3>
+                <h3 class="order-title mb-0">Daftar Order</h3>
             </div>
             <div class="card-body">
                 <div class="table-responsive-sm">

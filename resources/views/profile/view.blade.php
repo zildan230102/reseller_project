@@ -24,7 +24,7 @@
         </div>
         <div class="card-body">
             <table class="table table-bordered">
-                <tbody>
+                <tbody class="user-data">
                     <tr>
                         <th>Email</th>
                         <td>{{ $user->email }}</td>
@@ -107,7 +107,7 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="submit" class="custom-button btn-sm">Simpan Perubahan</button>
+                        <button type="submit" class="custom-button btn-sm">Simpan</button>
                     </div>
                 </form>
             </div>
