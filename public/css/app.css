@@ -1,7 +1,22 @@
 /* Background Modal*/
 .modal-backdrop {
   background-color: rgba(0, 0, 0, 0.5);
-  }
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.content {
+  padding-top: 80px;
+}
+
+.container {
+  padding-top: 80px;
+}
 
 h2.h3.h5 {
   font-size: 1em; 
@@ -595,8 +610,13 @@ tr.deactive {
   display: none;
 }
 
+.rounded-circle {
+  width: 150px !important;
+  height: 150px !important;
+}
+
 /* Media query card untuk tampilan mobile */
-@media (max-width: 768px) {
+@media (max-width: 676px) {
   #dashboard,
   #pesanan-btn,
   #toko-btn,
@@ -944,10 +964,48 @@ tr.deactive {
     font-size: 14px;
     font-weight: bold;
   }
+
+  .user-data {
+    font-size: 12px;
+  }
+
+  .custom-button {
+    font-size: 12px;
+    padding: 7px 10px;
+  }
+
+  .rounded-circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  #toko_id {
+    font-size: 14px;
+  }
+
+  #toko_id option {
+    font-size: 10px;
+  }
+
+  #tanggal {
+    font-size: 14px;
+  }
+
+  #no_hp {
+    font-size: 14px;
+  }
+
+  #asal_penjualan {
+    font-size: 14px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+  }
 }
 
 /* Media query card untuk tampilan tab */
-@media (min-width: 768px) and (max-width: 1366px) {
+@media (max-width: 1366px) {
   .card-right .col-auto {
     padding: 15px;
   }

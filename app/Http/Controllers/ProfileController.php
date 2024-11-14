@@ -53,7 +53,7 @@ class ProfileController extends Controller
             $path = $request->file('profilePicture')->store('profile_pictures', 'public');
             $user->profile_picture = $path;
         }
-
+        
         // Simpan perubahan profil
         $user->save();
 
