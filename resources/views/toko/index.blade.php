@@ -13,7 +13,7 @@
             display: flex;
             background-color: transparent;
             border-bottom: none;
-        }
+        }   
         .custom-button-daftar {
             background-color: #ff9800;
             color: white;
