@@ -231,7 +231,7 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr class="text-center">
-                            <th>Nama Buku</th>
+                            <th>judul Buku</th>
                             <th>Penulis</th>
                             <th>Kategori</th>
                             <th>Tahun Terbit</th>
@@ -518,20 +518,20 @@
                 <div class="modal-body">
                     <!-- Input Fields -->
                     <div class="mb-3">
-                        <label for="nama_buku" class="form-label">Nama Buku</label>
-                        <input type="text" class="form-control" name="nama_buku" required>
+                        <label for="nama_buku" class="form-label">Judul Buku</label>
+                        <input type="text" class="form-control" name="nama_buku" placeholder="Masukkan judul buku" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="nama_penulis" class="form-label">Nama Penulis</label>
-                        <input type="text" class="form-control" name="nama_penulis" required>
+                        <input type="text" class="form-control" name="nama_penulis" placeholder="Masukkan nama penulis" required>
                     </div>
 
                     <div class="row">
                         <div class="col-sm-12 col-md-6 mb-3">
                             <label for="kategori_id" class="form-label">Kategori</label>
                             <select class="form-select" name="kategori_id" required>
-                            <option class="text-body-secondary" value="">Pilih Kategori</option>
+                            <option value="" disabled selected>Pilih Kategori</option>
                                 @foreach ($kategoris as $kategori)
                                 <option value="{{ $kategori->id }}">{{ $kategori->nama_kategori }}</option>
                                 @endforeach
@@ -539,19 +539,19 @@
                         </div>
                         <div class="col-sm-12 col-md-6 mb-3">
                             <label for="isbn" class="form-label">ISBN</label>
-                            <input type="text" class="form-control" name="isbn" required>
+                            <input type="text" class="form-control" name="isbn" placeholder="Masukkan nomor ISBN" required>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-sm-12 col-md-6 mb-3">
                             <label for="tahun_terbit" class="form-label">Tahun Terbit</label>
-                            <input type="number" class="form-control" name="tahun_terbit" required>
+                            <input type="number" class="form-control" name="tahun_terbit" placeholder="Masukkan tahun terbit buku" required>
                         </div>
                         <div class="col-sm-12 col-md-6 mb-3">
                             <label for="ukuran_id" class="form-label">Ukuran</label>
                             <select class="form-select" name="ukuran_id" required>
-                            <option class="text-body-secondary" value="">Pilih Ukuran</option>
+                            <option value="" disabled selected>Pilih Ukuran</option>
                                 @foreach ($ukurans as $ukuran)
                                 <option value="{{ $ukuran->id }}">{{ $ukuran->ukuran }} {{ $ukuran->dimensi }}</option>
                                 @endforeach
@@ -562,12 +562,12 @@
                     <div class="row">
                         <div class="col-sm-12 col-md-6 mb-3">
                             <label for="halaman" class="form-label">Halaman</label>
-                            <input type="number" class="form-control" name="halaman" required>
+                            <input type="number" class="form-control" name="halaman" placeholder="Masukkan jumlah halaman buku" required>
                         </div>
                         <div class="col-sm-12 col-md-6 mb-3">
                             <label for="jenis_kertas_id" class="form-label">Jenis Kertas</label>
                             <select class="form-select" name="jenis_kertas_id" required>
-                            <option class="text-body-secondary" value="">Pilih Kertas</option>
+                            <option value="" disabled selected>Pilih Kertas</option>
                                 @foreach ($jenisKertas as $kertas)
                                 <option value="{{ $kertas->id }}">{{ $kertas->nama_kertas }}</option>
                                 @endforeach
@@ -579,7 +579,7 @@
                         <div class="col-sm-12 col-md-6 mb-3">
                             <label for="jenis_sampul_id" class="form-label">Jenis Sampul</label>
                             <select class="form-select" name="jenis_sampul_id" required>
-                            <option class="text-body-secondary" value="">Pilih Sampul</option>
+                            <option value="" disabled selected>Pilih Sampul</option>
                                 @foreach ($jenisSampuls as $jenisSampul)
                                 <option value="{{ $jenisSampul->id }}">{{ $jenisSampul->nama_sampul }}</option>
                                 @endforeach
@@ -587,13 +587,13 @@
                         </div>
                         <div class="col-sm-12 col-md-6 mb-3">
                             <label for="berat" class="form-label">Berat (kg)</label>
-                            <input type="number" class="form-control" name="berat" step="0.01" min="0" required>
+                            <input type="number" class="form-control" name="berat" step="0.01" min="0" placeholder="Masukkan berat total buku" required>
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="harga" class="form-label">Harga</label>
-                        <input type="number" class="form-control" name="harga" step="0.01" min="0" required>
+                        <input type="number" class="form-control" name="harga" step="0.01" min="0" placeholder="Masukkan harga buku" required>
                     </div>
                 </div>
                 <div class="modal-footer">
