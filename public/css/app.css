@@ -316,14 +316,12 @@ h2.h3.h5 {
 
 }
 
-/* Arrow styling */
 .arrow {
   color: #f57c00;
   font-size: 16px;
   margin-left: 8px;
 }
 
-/* Dropdown content (hidden by default) */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -333,7 +331,6 @@ h2.h3.h5 {
   z-index: 1;
 }
 
-/* Links inside the dropdown */
 .dropdown-content a {
   color: black;
   padding: 8px 10px;
@@ -342,22 +339,18 @@ h2.h3.h5 {
   font-size: 14px;
 }
 
-/* Change color of dropdown links on hover */
 .dropdown-content a:hover {
   background-color: #f2f2f2;
 }
 
-/* Show the dropdown on hover */
 .bar-dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* Change button color on hover */
 .bar-dropdown:hover .bar-month-dropdown {
   background-color: #f9f9f9;
 }
 
-/* Row Pertama Kanan */
 .card-total {
   border: 1px solid #ddd;
   background-color: auto;
@@ -541,7 +534,7 @@ tr.deactive {
   margin-top: 5px;
   margin-left: 60px;
 }
-/* Chart Pie */
+
 .chart-container {
   height: 150px;
 }
@@ -705,7 +698,6 @@ tr.deactive {
     font-size: 1em;
   }
 
-  /* Show mobile dropdown */
   .btn-group-desktop {
     display: none !important;
   }
@@ -931,6 +923,7 @@ tr.deactive {
     justify-content: center;
     grid-template-columns: repeat(2, 1fr);
     margin-top: 10px;
+    font-size: 10px;
   }
 
   .legend-list li {
@@ -940,6 +933,16 @@ tr.deactive {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .legend-list li::before {
+    width: 8px;
+    height: 8px;
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
   }
 
   .table-responsive .judul-th {
@@ -1005,7 +1008,7 @@ tr.deactive {
 }
 
 /* Media query card untuk tampilan tab */
-@media (max-width: 1366px) {
+@media (min-width: 600px) and (max-width: 1024px) {
   .card-right .col-auto {
     padding: 15px;
   }
@@ -1032,9 +1035,18 @@ tr.deactive {
     font-size: 1rem;
   }
 
-  h2, h5, .title-total, .data-marketplace, .data-penjualan {
-    font-size: 1rem; 
-    /* margin-bottom: 1%; */
+  .data-marketplace, .data-penjualan, .data-reseller {
+    font-size: 1.2rem; 
+    padding: 1rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .penjualan-keseluruhan {
+    font-size: 16px;
+  }
+
+  .percentage {
+    margin-left: 5px !important;
   }
 
   .card-total {
@@ -1101,6 +1113,57 @@ tr.deactive {
 
   .chart-legend {
     display: none !important;
+  }
+
+  .col-kanan {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .legend-list {
+      padding-right: 0 !important;
+  }
+
+  .card-body {
+    padding: 2rem;
+    padding-bottom: 0.5rem;
+    padding-top: 0;
+    padding-right: 0;
+  }
+
+  .performa-marketplace {
+    font-size: 16px;
+  }
+
+  .legend-list {
+    margin-top: 10px;
+  }
+
+  .legend-list li {
+    font-size: 12px;
+  }
+
+  .col-6 {
+    display: flex;
+    justify-content: center;
+    height: 150px;
+    width: 170px;
+  }
+
+  .chart-container {
+    width: 20%;
+    padding: 0;
+    margin: 0;
+    height: 120px;
+    width: 120px;
+    margin-top: 20px;
+  }
+
+  #chartjs-dashboard-pie {
+    height: 120px !important;
+    width: 120px !important;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 
