@@ -587,7 +587,7 @@
                         </div>
                         <div class="col-sm-12 col-md-6 mb-3">
                             <label for="berat" class="form-label">Berat (kg)</label>
-                            <input type="number" class="form-control" name="berat" step="0.01" min="0" placeholder="Masukkan berat total buku" required>
+                            <input type="number" class="form-control" name="berat" step="0.01" min="0" placeholder="Masukkan berat buku" required>
                         </div>
                     </div>
 
