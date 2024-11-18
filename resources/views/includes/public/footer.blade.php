@@ -75,6 +75,7 @@
 		flex: none; 
 		width: 350px; 
 		margin-left: 20px;
+		margin-right: 0;
 	}
 
 	.footer-section.social-media {
@@ -149,7 +150,7 @@
 		.footer-section.company-info {
 			max-width: 200px; 
 			font-size: 12px;
-			margin-right: 0px
+			margin-right: 0px;
 		}
 		.footer-section ul li {
 			font-size: 12px;
@@ -186,17 +187,18 @@
 		}
 	}
 
-	@media (min-width: 768px) and (max-width: 1366px) {
+	@media (min-width: 600px) and (max-width: 1024px) {
 		.footer-section.company-info {
 			width: 320px; 
 			font-size: 14px;
+			margin-left: 40px;
 		}
 		.footer-section.contact-info {
 			margin-top: 65px;
 		}
 		.footer-section.social-media {
 			margin-left: 0px;
-			margin-top: 65px;
+			margin-top: 0;
 		}
 		.social-media {
 			display: flex;
@@ -205,6 +207,10 @@
 		}
 		.social-icons {
 			justify-content: center;
+		}
+		.footer-bottom {
+			margin-bottom: 30px;
+			padding-top: 0;
 		}
 	}
 </style>

@@ -185,7 +185,7 @@
 								color: "transparent"
 							},
 							tricks: {
-								display: window.innerWidth > 768
+								display: window.innerWidth > 600
 							}
 						}]
 					}

@@ -34,7 +34,7 @@
                     </div>
                     <div class="title-sale d-flex  align-items-center">
                         <h3 class="">Rp6.680.000</h3>
-                        <div class="ms-3">
+                        <div class="percentage ms-3">
                             <span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i>13.02%</span>
                         </div>
                     </div>
