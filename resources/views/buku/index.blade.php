@@ -9,7 +9,7 @@
 }
 
 .card-header-button {
-    padding: 15px 0px 0px 15px;
+    padding: 15px;
     display: flex;
     background-color: transparent;
     border-bottom: none;
@@ -24,7 +24,9 @@
     cursor: pointer;
     width: auto;
 }
-
+.card-body-buku {
+    padding: 0px 15px;
+}
 .custom-button-daftar:hover {
     background-color: #ff7b29;
 }
@@ -80,61 +82,6 @@
     padding: 0;
 }
 
-@media (max-width: 768px) {
-    .container {
-        padding: 10px;
-    }
-
-    .header-title {
-        font-size: 20px;
-        text-align: center;
-    }
-
-    .custom-button-daftar {
-        width: auto;
-        font-size: 14px;
-    }
-
-    table {
-        overflow-x: auto;
-        font-size: 16px;
-    }
-
-    .modal-dialog {
-        max-width: 80%;
-    }
-
-    .modal-header {
-        padding: 10px 15px;
-    }
-
-    .modal-title {
-        font-size: 18px !important;
-    }
-
-    .modal-body {
-        padding: 20px
-    }
-
-    .form-group label {
-        font-size: 16px;
-    }
-
-    .form-group input,
-    .form-group select {
-        font-size: 14px;
-        padding: 8px;
-    }
-
-    .custom-button {
-        font-size: 14px;
-        padding: 10px 15px;
-    }
-
-    .d-flex.justify-content-end {
-        justify-content: center;
-    }
-}
 
 @media (max-width: 576px) {
     .container {
@@ -205,11 +152,11 @@
         font-size: 12px;
         padding: 6px 10px;
     }
+    
 }
 </style>
 
 <div class="container mt-4">
-
     <h1 class="text-title mb-4">Daftar Buku</h1>
         <!-- Menampilkan Flash Message -->
         @if(session('success'))
@@ -220,18 +167,18 @@
     @endif
 
     <div class="card-container">
-        <div class="card">
+        <div class="card mb-4">
             <div class="card-header-button">
                 <button type="button" class="custom-button-daftar" data-bs-toggle="modal" data-bs-target="#createModal">
                     <i class="bi bi-plus-lg"></i> <span> Tambah Buku </span>
                 </button>
             </div>
 
-            <div class="card-body">
+            <div class="card-body-buku">
                 <table class="table table-bordered">
                     <thead>
                         <tr class="text-center">
-                            <th>judul Buku</th>
+                            <th>Judul Buku</th>
                             <th>Penulis</th>
                             <th>Kategori</th>
                             <th>Tahun Terbit</th>
@@ -287,7 +234,7 @@
                         <div class="modal fade" id="detailModal{{ $buku->id }}" data-bs-backdrop="static"
                             data-bs-keyboard="false" tabindex="-1" aria-labelledby="detailModalLabel{{ $buku->id }}"
                             aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="detailModalLabel{{ $buku->id }}">Detail Buku:
@@ -298,58 +245,55 @@
                                     <div class="modal-body">
                                         <dl class="row">
                                             <!-- Nama Penulis -->
-                                            <dt class="col-sm-3 mb-3">Nama Penulis</dt>
-                                            <dd class="col-sm-9 mb-3">{{ $buku->nama_penulis }}</dd>
-
+                                            <dt class="col-5 col-sm-3 mb-3">Nama Penulis</dt>
+                                            <dd class="col-7 col-sm-9 mb-3">{{ $buku->nama_penulis }}</dd>
+                                    
                                             <!-- Kategori -->
-                                            <dt class="col-sm-3 mb-3">Kategori</dt>
-                                            <dd class="col-sm-9 mb-3">{{ $buku->kategori->nama_kategori }}</dd>
-
+                                            <dt class="col-5 col-sm-3 mb-3">Kategori</dt>
+                                            <dd class="col-7 col-sm-9 mb-3">{{ $buku->kategori->nama_kategori }}</dd>
+                                    
                                             <!-- ISBN -->
-                                            <dt class="col-sm-3 mb-3">ISBN</dt>
-                                            <dd class="col-sm-9 mb-3">{{ $buku->isbn }}</dd>
-
+                                            <dt class="col-5 col-sm-3 mb-3">ISBN</dt>
+                                            <dd class="col-7 col-sm-9 mb-3">{{ $buku->isbn }}</dd>
+                                    
                                             <!-- Tahun Terbit -->
-                                            <dt class="col-sm-3 mb-3">Tahun Terbit</dt>
-                                            <dd class="col-sm-9 mb-3">{{ $buku->tahun_terbit }}</dd>
-
+                                            <dt class="col-5 col-sm-3 mb-3">Tahun Terbit</dt>
+                                            <dd class="col-7 col-sm-9 mb-3">{{ $buku->tahun_terbit }}</dd>
+                                    
                                             <!-- Ukuran -->
-                                            <dt class="col-sm-3 mb-3">Ukuran</dt>
-                                            <dd class="col-sm-9 mb-3">{{ $buku->ukuran->ukuran }}
-                                                {{ $buku->ukuran->dimensi }}</dd>
-
+                                            <dt class="col-5 col-sm-3 mb-3">Ukuran</dt>
+                                            <dd class="col-7 col-sm-9 mb-3">{{ $buku->ukuran->ukuran }} {{ $buku->ukuran->dimensi }}</dd>
+                                    
                                             <!-- Halaman -->
-                                            <dt class="col-sm-3 mb-3">Halaman</dt>
-                                            <dd class="col-sm-9 mb-3">{{ $buku->halaman }}</dd>
-
+                                            <dt class="col-5 col-sm-3 mb-3">Halaman</dt>
+                                            <dd class="col-7 col-sm-9 mb-3">{{ $buku->halaman }}</dd>
+                                    
                                             <!-- Jenis Kertas -->
-                                            <dt class="col-sm-3 mb-3">Jenis Kertas</dt>
-                                            <dd class="col-sm-9 mb-3">{{ $buku->jenisKertas->nama_kertas }}</dd>
-
+                                            <dt class="col-5 col-sm-3 mb-3">Jenis Kertas</dt>
+                                            <dd class="col-7 col-sm-9 mb-3">{{ $buku->jenisKertas->nama_kertas }}</dd>
+                                    
                                             <!-- Jenis Sampul -->
-                                            <dt class="col-sm-3 mb-3">Jenis Sampul</dt>
-                                            <dd class="col-sm-9 mb-3">{{ $buku->jenisSampul->nama_sampul }}</dd>
-
+                                            <dt class="col-5 col-sm-3 mb-3">Jenis Sampul</dt>
+                                            <dd class="col-7 col-sm-9 mb-3">{{ $buku->jenisSampul->nama_sampul }}</dd>
+                                    
                                             <!-- Berat -->
-                                            <dt class="col-sm-3 mb-3">Berat</dt>
-                                            <dd class="col-sm-9 mb-3">{{ number_format($buku->berat, 2) }} kg</dd>
-
+                                            <dt class="col-5 col-sm-3 mb-3">Berat</dt>
+                                            <dd class="col-7 col-sm-9 mb-3">{{ number_format($buku->berat, 2) }} kg</dd>
+                                    
                                             <!-- Harga -->
-                                            <dt class="col-sm-3 mb-3">Harga</dt>
-                                            <dd class="col-sm-9">Rp {{ number_format($buku->harga, 0, ',', '.') }}</dd>
+                                            <dt class="col-5 col-sm-3 mb-3">Harga</dt>
+                                            <dd class="col-7 col-sm-9">Rp {{ number_format($buku->harga, 0, ',', '.') }}</dd>
                                         </dl>
-                                    </div>
+                                    </div>                                    
                                 </div>
                             </div>
                         </div>
-
-
 
                         <!-- Edit Modal -->
                         <div class="modal fade" id="editModal{{ $buku->id }}" data-bs-backdrop="static"
                             data-bs-keyboard="false" tabindex="-1" aria-labelledby="editModalLabel{{ $buku->id }}"
                             aria-hidden="true">
-                            <div class="modal-dialog">
+                            <div class="modal-dialog modal-dialog-scrollable">
                                 <div class="modal-content">
 
                                     <div class="modal-header">
@@ -364,8 +308,8 @@
                                         <div class="modal-body">
                                             <!-- Input Fields -->
                                             <div class="mb-3">
-                                                <label for="nama_buku" class="form-label">Nama Buku</label>
-                                                <input type="text" class="form-control" name="nama_buku"
+                                                <label for="nama_buku" class="form-label">Judul Buku</label>
+                                                <input type="text" class="form-control" name="judul_buku"
                                                     value="{{ $buku->nama_buku }}" required>
                                             </div>
 
@@ -376,7 +320,7 @@
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-sm-12 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
                                                     <label for="kategori_id" class="form-label">Kategori</label>
                                                     <select class="form-select" name="kategori_id" required>
                                                         @foreach ($kategoris as $kategori)
@@ -387,7 +331,7 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-sm-12 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
                                                     <label for="isbn" class="form-label">ISBN</label>
                                                     <input type="text" class="form-control" name="isbn"
                                                         value="{{ $buku->isbn }}" required>
@@ -395,12 +339,12 @@
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-sm-12 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
                                                     <label for="tahun_terbit" class="form-label">Tahun Terbit</label>
                                                     <input type="number" class="form-control" name="tahun_terbit"
                                                         value="{{ $buku->tahun_terbit }}" required>
                                                 </div>
-                                                <div class="col-sm-12 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
                                                     <label for="ukuran_id" class="form-label">Ukuran</label>
                                                     <select class="form-select" name="ukuran_id" required>
                                                         @foreach ($ukurans as $ukuran)
@@ -414,12 +358,12 @@
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-sm-12 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
                                                     <label for="halaman" class="form-label">Halaman</label>
                                                     <input type="number" class="form-control" name="halaman"
                                                         value="{{ $buku->halaman }}" required>
                                                 </div>
-                                                <div class="col-sm-12 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
                                                     <label for="jenis_kertas_id" class="form-label">Jenis Kertas</label>
                                                     <select class="form-select" name="jenis_kertas_id" required>
                                                         @foreach ($jenisKertas as $kertas)
@@ -433,7 +377,7 @@
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-sm-12 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
                                                     <label for="jenis_sampul_id" class="form-label">Jenis Sampul</label>
                                                     <select class="form-select" name="jenis_sampul_id" required>
                                                         @foreach ($jenisSampuls as $jenisSampul)
@@ -444,7 +388,7 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-sm-12 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
                                                     <label for="berat" class="form-label">Berat (kg)</label>
                                                     <input type="number" class="form-control" name="berat"
                                                         value="{{ $buku->berat }}" step="0.01" min="0" required>
@@ -465,9 +409,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-
 
                         <!-- Delete Modal -->
                         <div class="modal fade" id="deleteModal{{ $buku->id }}" data-bs-backdrop="static"
@@ -507,7 +448,7 @@
 <!-- Modal Create -->
 <div class="modal fade" id="createModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="createModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="createModalLabel">Tambah Buku</h5>
@@ -515,11 +456,11 @@
             </div>
             <form action="{{ route('bukus.store') }}" method="POST">
                 @csrf
-                <div class="modal-body">
+                <div class="modal-body" style="max-height: 75vh; overflow-y: auto;">
                     <!-- Input Fields -->
                     <div class="mb-3">
                         <label for="nama_buku" class="form-label">Judul Buku</label>
-                        <input type="text" class="form-control" name="nama_buku" placeholder="Masukkan judul buku" required>
+                        <input type="text" class="form-control" name="judul_buku" placeholder="Masukkan judul buku" required>
                     </div>
 
                     <div class="mb-3">
@@ -528,7 +469,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-sm-12 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 col-md-6 mb-3">
                             <label for="kategori_id" class="form-label">Kategori</label>
                             <select class="form-select" name="kategori_id" required>
                             <option value="" disabled selected>Pilih Kategori</option>
@@ -537,18 +478,18 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-sm-12 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 col-md-6 mb-3">
                             <label for="isbn" class="form-label">ISBN</label>
                             <input type="text" class="form-control" name="isbn" placeholder="Masukkan nomor ISBN" required>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-sm-12 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 col-md-6 mb-3">
                             <label for="tahun_terbit" class="form-label">Tahun Terbit</label>
                             <input type="number" class="form-control" name="tahun_terbit" placeholder="Masukkan tahun terbit buku" required>
                         </div>
-                        <div class="col-sm-12 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 col-md-6 mb-3">
                             <label for="ukuran_id" class="form-label">Ukuran</label>
                             <select class="form-select" name="ukuran_id" required>
                             <option value="" disabled selected>Pilih Ukuran</option>
@@ -560,11 +501,11 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-sm-12 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 col-md-6 mb-3">
                             <label for="halaman" class="form-label">Halaman</label>
                             <input type="number" class="form-control" name="halaman" placeholder="Masukkan jumlah halaman buku" required>
                         </div>
-                        <div class="col-sm-12 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 col-md-6 mb-3">
                             <label for="jenis_kertas_id" class="form-label">Jenis Kertas</label>
                             <select class="form-select" name="jenis_kertas_id" required>
                             <option value="" disabled selected>Pilih Kertas</option>
@@ -576,7 +517,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-sm-12 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 col-md-6 mb-3">
                             <label for="jenis_sampul_id" class="form-label">Jenis Sampul</label>
                             <select class="form-select" name="jenis_sampul_id" required>
                             <option value="" disabled selected>Pilih Sampul</option>
@@ -585,7 +526,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-sm-12 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 col-md-6 mb-3">
                             <label for="berat" class="form-label">Berat (kg)</label>
                             <input type="number" class="form-control" name="berat" step="0.01" min="0" placeholder="Masukkan berat buku" required>
                         </div>
