@@ -14,7 +14,6 @@ class Toko extends Model
     protected $fillable = [
         'nama_toko',
         'marketplace',
-        'ekspedisi_id',
         'is_active',
     ];
 
@@ -25,10 +24,7 @@ class Toko extends Model
     ];
 
         // Relasi dengan model Ekspedisi
-        public function ekspedisi()
-        {
-            return $this->belongsTo(Ekspedisi::class);
-        }
+       
     /**
      * Getter untuk mengakses tanggal_dibuat yang diambil dari created_at.
      *

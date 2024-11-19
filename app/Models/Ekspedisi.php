@@ -12,19 +12,11 @@ class Ekspedisi extends Model
     protected $fillable = [
         'nama_ekspedisi',
         'kode_ekspedisi',
-        'is_active',
     ];
 
- 
-
-
-    /**
-     * Hubungan dengan model Order jika diperlukan.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
+    // Hubungan dengan model Order
     public function orders()
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(Order::class); // Hubungan dengan model Order
     }
 }

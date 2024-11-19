@@ -213,7 +213,6 @@
                             <tr>
                                 <th>Nama Toko</th>
                                 <th>Marketplace</th>
-                                <th>Ekspedisi</th>
                                 <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
@@ -223,7 +222,6 @@
                                 <tr>
                                     <td>{{ $toko->nama_toko }}</td>
                                     <td>{{ $toko->marketplace }}</td>
-                                    <td>{{ $toko->ekspedisi->nama_ekspedisi ?? 'Tidak Ada' }}</td>
                                     <td class="text-center">
                                         <span class="badge {{ $toko->is_active ? 'badge-active' : 'badge-inactive' }}">
                                             {{ $toko->is_active ? 'Aktif' : 'Tidak Aktif' }}
@@ -301,23 +299,13 @@
                             @csrf
                             <div class="form-group mb-3">
                                 <label for="nama_toko">Nama Toko</label>
-                                <input type="text" class="form-control" name="nama_toko" required>
+                                <input type="text" class="form-control" name="nama_toko"  placeholder="Masukkan nama toko"required>
                             </div>
 
                             <div class="form-group mb-3">
                                 <label for="marketplace">Marketplace</label>
                                 <input type="text" class="form-control" name="marketplace"
                                     placeholder="Masukkan nama marketplace" required>
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label for="ekspedisi_id">Ekspedisi</label>
-                                <select name="ekspedisi_id" class="form-select" required>
-                                    <option value="" disabled selected>Pilih Ekspedisi</option>
-                                    @foreach ($ekspedisis as $ekspedisi)
-                                        <option value="{{ $ekspedisi->id }}">{{ $ekspedisi->nama_ekspedisi }}</option>
-                                    @endforeach
-                                </select>
                             </div>
 
                             <div class="form-group mb-3">
@@ -360,15 +348,6 @@
                                 <label for="edit_marketplace">Marketplace</label>
                                 <input type="text" class="form-control" id="edit_marketplace" name="marketplace"
                                     required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="edit_ekspedisi_id">Ekspedisi</label>
-                                <select id="edit_ekspedisi_id" name="ekspedisi_id" class="form-control" required>
-                                    @foreach ($ekspedisis as $ekspedisi)
-                                        <option value="{{ $ekspedisi->id }}">{{ $ekspedisi->nama_ekspedisi }}</option>
-                                    @endforeach
-                                </select>
                             </div>
 
                             <div class="form-group">

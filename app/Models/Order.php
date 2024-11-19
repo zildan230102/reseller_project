@@ -13,6 +13,7 @@ class Order extends Model
         'tanggal',
         'no_hp',
         'toko_id',
+        'ekspedisi_id', // Perbaiki penamaan kolom menjadi sesuai dengan relasi
         'asal_penjualan',
         'penerima',
         'no_hp_penerima',
@@ -25,7 +26,7 @@ class Order extends Model
         'total_berat',
         'grand_total',
         'no_invoice',
-        'kode_booking', // Tambahkan kode_booking di sini
+        'kode_booking',
     ];
 
     public static function boot()
@@ -62,6 +63,11 @@ class Order extends Model
 
     public function toko()
     {
-        return $this->belongsTo(Toko::class);
+        return $this->belongsTo(Toko::class); // Relasi ke model Toko
+    }
+
+    public function ekspedisi()
+    {
+        return $this->belongsTo(Ekspedisi::class); // Relasi ke model Ekspedisi
     }
 }
