@@ -5,7 +5,7 @@
 .container {
     width: 100%;
     padding: 20px;
-    padding-top: 80px;
+    padding-top: 80px !important;
 }
 
 .card-header-button {

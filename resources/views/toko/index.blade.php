@@ -390,53 +390,54 @@
                 </div>
             </div>
         </div>
+    </div>    
 
-        <!-- Tambahkan JavaScript untuk AJAX -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script>
-            $(document).ready(function() {
-                // Handler untuk konfirmasi penghapusan
-                $('#confirmDeleteModal').on('show.bs.modal', function(event) {
-                    var button = $(event.relatedTarget);
-                    var tokoId = button.data('id');
-                    var actionUrl = '{{ url("toko") }}/' + tokoId;
+    <!-- Tambahkan JavaScript untuk AJAX -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function()  {
+            // Handler untuk konfirmasi penghapusan
+            $('#confirmDeleteModal').on('show.bs.modal', function(event) {
+                var button = $(event.relatedTarget);
+                var tokoId = button.data('id');
+                var actionUrl = '{{ url("toko") }}/' + tokoId;
 
-                    $('#deleteForm').attr('action', actionUrl);
-                });
+                $('#deleteForm').attr('action', actionUrl);
+            });
 
-                // Tambah toko menggunakan AJAX
-                $('#tokoForm').on('submit', function(event) {
-                    event.preventDefault();
+            // Tambah toko menggunakan AJAX
+            $('#tokoForm').on('submit', function(event) {
+                event.preventDefault();
 
-                    $.ajax({
-                        type: 'POST',
-                        url: $(this).attr('action'),
-                        data: $(this).serialize(),
-                        success: function(response) {
-                            $('#tokoModal').modal('hide');
-                            location.reload();
-                        },
-                        error: function(xhr) {
-                            alert('Terjadi kesalahan saat menyimpan data');
-                        }
-                    });
-                });
-
-                // Mengisi data ke dalam form edit
-                $('#editTokoModal').on('show.bs.modal', function(event) {
-                    var button = $(event.relatedTarget);
-                    var tokoId = button.data('id');
-                    var namaToko = button.data('nama');
-                    var marketplace = button.data('marketplace');
-                    var status = button.data('status');
-
-                    $('#edit_nama_toko').val(namaToko);
-                    $('#edit_marketplace').val(marketplace);
-                    $('#edit_is_active').val(status);
-
-                    // Set URL action untuk form edit
-                    $('#editTokoForm').attr('action', '{{ url("toko") }}/' + tokoId);
+                $.ajax({
+                    type: 'POST',
+                    url: $(this).attr('action'),
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        $('#tokoModal').modal('hide');
+                        location.reload();
+                    },
+                    error: function(xhr) {
+                        alert('Terjadi kesalahan saat menyimpan data');
+                    }
                 });
             });
-        </script>
-    @endsection
+
+            // Mengisi data ke dalam form edit
+            $('#editTokoModal').on('show.bs.modal', function(event) {
+                var button = $(event.relatedTarget);
+                var tokoId = button.data('id');
+                var namaToko = button.data('nama');
+                var marketplace = button.data('marketplace');
+                var status = button.data('status');
+
+                $('#edit_nama_toko').val(namaToko);
+                $('#edit_marketplace').val(marketplace);
+                $('#edit_is_active').val(status);
+
+                // Set URL action untuk form edit
+                $('#editTokoForm').attr('action', '{{ url("toko") }}/' + tokoId);
+            });
+        });
+    </script>
+@endsection
