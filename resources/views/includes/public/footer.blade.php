@@ -2,11 +2,15 @@
 	.footer {
 		background-color: #f5f5f5;
 		padding: 20px 0 10px 0 !important;
-		min-height: 200px;
+		min-height: 100px;
 		color: #333;
 		font-size: 14px;
 		border-top: 1px solid #ccc;
 		box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+		width: 100%;
+		flex: 0 0 auto;
+		position: relative;
+		bottom: 0;
 	}
 
 	.footer-container {
@@ -127,8 +131,20 @@
 		margin: 0 auto;
 	}
 
+	html, body {
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		margin: 0;
+	}
+
+	.content {
+		box-sizing: border-box;
+		padding-bottom: 100px;
+	}
+
 	/* Responsive Design */
-	@media (max-width: 768px) {
+	@media (max-width: 676px) {
 		.footer-container {
 			flex-direction: column;
 			text-align: center;
@@ -137,14 +153,14 @@
 		.footer-section {
 			text-align: center;
         	min-width: 100%;
-			margin-bottom: 20px;
+			margin-bottom: 10px;
 		}
 		.logo-deepublish {
 			width: 120px;
 		}
 		.footer-section h4 {
 			font-size: 14px;
-			margin-bottom: 10px;
+			margin-bottom: 4px;
 			color: #ff8c42;
 		}
 		.footer-section.company-info {
@@ -163,7 +179,7 @@
 		}
 		.footer-section.social-media {
 			margin-left: 0px;
-			margin-bottom: 20px;
+			margin-bottom: 16px;
 		}
 		.social-icon {
 			width: 30px;
@@ -172,12 +188,13 @@
 		}
 		.social-icons {
 			justify-content: center;
+			gap: 5px;
 		}
 		.social-icons .social-icon {
 			font-size: 14px; 
 		}
 		.footer-bottom {
-			font-size: 11px;
+			font-size: 10px;
 			margin-top: 0px;
 			max-width: 300px;
 			text-align: center;
@@ -187,7 +204,35 @@
 		}
 	}
 
-	@media (min-width: 600px) and (max-width: 1024px) {
+	@media (min-width: 767px) {
+		.footer-section.company-info {
+			max-width: 300px; 
+			font-size: 14px;
+			margin-left: 40px;
+		}
+		.footer-section.contact-info {
+			max-width: 300px;
+			margin-top: 65px;
+		}
+		.footer-section.social-media {
+			margin-left: 0px;
+			margin-top: 0;
+		}
+		.social-media {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		.social-icons {
+			justify-content: center;
+		}
+		.footer-bottom {
+			margin-bottom: 30px;
+			padding-top: 0;
+		}
+	}
+
+	@media (min-width: 768px) and (max-width: 1024px) {
 		.footer-section.company-info {
 			width: 320px; 
 			font-size: 14px;
@@ -231,7 +276,7 @@
             <p><i class="bi bi-envelope"></i> adminkonsultan@deepublish.co.id</p>
 			<p><i class="bi bi-envelope"></i> cs@deepublish.co.id</p>
             <p><i class="bi bi-telephone"></i> (0274) 283-6082</p>
-            <p><i class="bi bi-geo-alt"></i> Jl.Rajawali G. Elang 6 No 3 RT/RW 005/033, Drono, Sardonoharjo, Ngaglik, Sleman, D.I Yogyakarta 55581</p>
+            <p><i class="bi bi-geo-alt"></i> Jl.Rajawali G. Elang 6 No 3 RT/RW 005/033, Drono, Sardonoharjo, Ngaglik, Sleman, D.I. Yogyakarta 55581</p>
         </div>
 
 		<!-- Social Media Section -->
@@ -248,7 +293,7 @@
 		</div>
     </div>
 	<div class="footer-bottom">
-        <p>&copy; 20204 All Rights Reserved | Penerbit Buku Deepublish - CV. Budi Utama</p>
+        <p>&copy; 2024 All Rights Reserved | Penerbit Buku Deepublish - CV. Budi Utama</p>
 	</div>
 </footer>
 

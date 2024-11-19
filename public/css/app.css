@@ -842,12 +842,10 @@ tr.deactive {
 
   .col-kanan .row {
     flex: 1;
-    /* max-width: 50%; */
     display: flex !important;
     flex-direction: column !important;
     align-items: center;
     text-align: center;
-    /* width: 100%; */
   }
 
   .chart-legend {
@@ -1008,7 +1006,7 @@ tr.deactive {
 }
 
 /* Media query card untuk tampilan tab */
-@media (min-width: 600px) and (max-width: 1024px) {
+@media (min-width: 767px) and (max-width: 1024px) {
   .card-right .col-auto {
     padding: 15px;
   }
