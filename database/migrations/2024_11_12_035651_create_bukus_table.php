@@ -10,7 +10,7 @@ class CreateBukusTable extends Migration
     {
         Schema::create('bukus', function (Blueprint $table) {
             $table->id(); // ID buku
-            $table->string('nama_buku'); // Nama buku
+            $table->string('judul_buku'); // Nama buku
             $table->string('nama_penulis'); // Nama penulis
             $table->foreignId('kategori_id')->constrained()->onDelete('cascade'); // ID kategori
             $table->string('isbn')->unique(); // ISBN buku
