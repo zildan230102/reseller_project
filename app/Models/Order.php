@@ -13,7 +13,7 @@ class Order extends Model
         'tanggal',
         'no_hp',
         'toko_id',
-        'ekspedisi_id', // Perbaiki penamaan kolom menjadi sesuai dengan relasi
+        'ekspedisi_id',
         'asal_penjualan',
         'penerima',
         'no_hp_penerima',
@@ -29,45 +29,90 @@ class Order extends Model
         'kode_booking',
     ];
 
+    /**
+     * Boot method untuk model Order.
+     */
     public static function boot()
     {
         parent::boot();
 
-        // Menggunakan event `creating` untuk menghasilkan no_invoice
+        // Event saat model sedang dibuat
         static::creating(function ($order) {
-            // Pastikan toko terkait sudah ada sebelum menghasilkan nomor invoice
+            // Generate no_invoice hanya jika toko valid
             if ($order->toko) {
                 $order->no_invoice = $order->generateInvoiceNumber();
+            } else {
+                throw new \Exception('Toko tidak ditemukan untuk menghasilkan nomor invoice.');
             }
         });
     }
 
+    /**
+     * Generate nomor invoice dengan format khusus.
+     *
+     * Format: INISIALTOKO-DDMMYYYY-XXX
+     * - INISIALTOKO: Inisial nama toko (huruf besar dari setiap kata).
+     * - DDMMYYYY: Tanggal pada saat order dibuat.
+     * - XXX: Urutan order pada hari yang sama (3 digit).
+     *
+     * @return string
+     * @throws \Exception
+     */
     public function generateInvoiceNumber()
     {
-        // Ambil inisial dari setiap kata di nama toko
-        $words = explode(' ', $this->toko->nama_toko);
-        $initials = '';
-
-        foreach ($words as $word) {
-            $initials .= strtoupper(substr($word, 0, 1)); // Ambil huruf pertama setiap kata dan jadikan huruf besar
+        if (!$this->toko) {
+            throw new \Exception('Toko tidak ditemukan untuk menghasilkan nomor invoice.');
         }
 
-        // Format tanggal saat ini menjadi DDMMYYYY
+        // Ambil inisial nama toko
+        $words = explode(' ', $this->toko->nama_toko);
+        $initials = implode('', array_map(fn($word) => strtoupper(substr($word, 0, 1)), $words));
+
+        // Format tanggal saat ini
         $date = now()->format('dmY');
 
-        // Ambil ID order dan format menjadi 3 digit dengan leading zero jika perlu
-        $id = str_pad($this->id, 3, '0', STR_PAD_LEFT);
+        // Hitung jumlah order dari toko ini pada hari yang sama
+        $count = self::where('toko_id', $this->toko_id)
+            ->whereDate('created_at', now()->toDateString())
+            ->count() + 1;
 
-        return "{$initials}-{$date}-{$id}";
+        // Format menjadi 3 digit
+        $countFormatted = str_pad($count, 3, '0', STR_PAD_LEFT);
+
+        return "{$initials}-{$date}-{$countFormatted}";
     }
 
+    /**
+     * Relasi ke model Toko.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function toko()
     {
-        return $this->belongsTo(Toko::class); // Relasi ke model Toko
+        return $this->belongsTo(Toko::class);
     }
 
+    /**
+     * Relasi ke model Ekspedisi.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function ekspedisi()
     {
-        return $this->belongsTo(Ekspedisi::class); // Relasi ke model Ekspedisi
+        return $this->belongsTo(Ekspedisi::class);
     }
+
+    /**
+     * Relasi ke model Buku melalui tabel pivot order_buku.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+   // app/Models/Order.php
+
+    public function bukus()
+    {
+        return $this->belongsToMany(Buku::class, 'order_buku', 'order_id', 'buku_id')
+                    ->withPivot('jumlah');  // Jika ada field tambahan di tabel pivot, misalnya jumlah
+    }
+
 }

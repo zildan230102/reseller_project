@@ -9,7 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TokoController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\BukuController;
-use App\Http\Controllers\UkuranController; // Import UkuranController
+
 
 // Rute untuk homepage yang mengarahkan ke login
 Route::get('/', function () {
@@ -49,8 +49,6 @@ Route::middleware('auth')->group(function () {
     // Menambahkan rute untuk menyimpan buku
     Route::post('/bukus', [BukuController::class, 'store'])->name('bukus.store');
 
-    // Rute untuk pengelolaan Ukuran
-    Route::resource('ukurans', UkuranController::class);
 
     // Rute untuk logout
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout'); // Logout pengguna
