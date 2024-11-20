@@ -1,7 +1,5 @@
 @extends('layouts.main')
-
 @section('title', 'Buat Order')
-
 @section('content')
 
 <style>
@@ -77,6 +75,18 @@
         .custom-dropdown-item {
             font-size: 0.9rem;
             padding: 0.3rem 0.6rem;
+        }
+        .form-select {
+            font-size: 14px;
+        }
+        .form-select option {
+            font-size: 12px;
+        }
+        #toko_id {
+        font-size: 14px;
+        }
+        #toko_id option {
+        font-size: 12px;
         }
     }
 
