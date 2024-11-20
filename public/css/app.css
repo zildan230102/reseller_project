@@ -11,7 +11,7 @@
 }
 
 .content {
-  padding-top: 80px;
+  padding-top: 80px !important;
 }
 
 .container {

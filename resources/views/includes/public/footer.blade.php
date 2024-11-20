@@ -11,6 +11,7 @@
 		flex: 0 0 auto;
 		position: relative;
 		bottom: 0;
+		margin-top: 20px;
 	}
 
 	.footer-container {
@@ -71,13 +72,14 @@
 	.footer-section.company-info {
 		flex: none; 
 		width: 400px; 
-		font-size: 12px;
+		font-size: 14px;
 		margin-right: 10px;
 	}
 
 	.footer-section.contact-info {
 		flex: none; 
 		width: 350px; 
+		font-size: 14px;
 		margin-left: 20px;
 		margin-right: 0;
 	}
@@ -130,17 +132,17 @@
 		width: 100%;
 		margin: 0 auto;
 	}
-
 	html, body {
+		height: auto;
 		margin: 0;
-		display: flex;
-		flex-direction: column;
-		margin: 0;
+		padding: 0;
 	}
-
+	.container {
+		display: block;
+		padding-bottom: 40px;
+	}
 	.content {
-		box-sizing: border-box;
-		padding-bottom: 100px;
+		padding: 20px;
 	}
 
 	/* Responsive Design */
@@ -204,7 +206,7 @@
 		}
 	}
 
-	@media (min-width: 767px) {
+	@media (min-width: 767px) and (max-width: 1024px) {
 		.footer-section.company-info {
 			max-width: 300px; 
 			font-size: 14px;
