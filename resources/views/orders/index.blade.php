@@ -61,6 +61,21 @@
         font-size: 1.5rem;
     }
 
+    .container-card {
+        display: block;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-bottom: 4px;
+    }
+
+    .container-order {
+        display: block;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-top: 80px;
+        padding-bottom: 10px;
+    }
+
     @media (max-width: 768px) {
         .order-title {
             font-size: 1.25rem;
@@ -175,7 +190,7 @@
         }
     }
 </style>
-<div class="container mt-4">
+<div class="container-order mt-4">
     <div class="card">
         <div class="card-header">
             <h3>Tambah Order</h3>
@@ -357,7 +372,7 @@
 </div>
 
 <!-- Tabel Daftar Order Responsif -->
-<div class="container mt-5">
+<div class="container-card">
     <div class="card">
         <div class="card-header">
             <h3 class="order-title mb-0">Daftar Order</h3>
