@@ -133,16 +133,12 @@ class OrderController extends Controller
     }
 
     // Menghapus order yang sudah ada
-    public function destroy($id)
+    public function destroy($orderId)
     {
-        $order = Order::find($id);
-        if (!$order) {
-            return redirect()->route('orders.index')->with('error', 'Order tidak ditemukan.');
-        }
-
-        $order->bukus()->detach(); // Hapus data buku dari tabel pivot
-        $order->delete(); // Hapus order
-
-        return redirect()->route('orders.index')->with('success', 'Order berhasil dihapus!');
+        $order = Order::findOrFail($orderId);
+        $order->delete();
+    
+        return redirect()->route('orders.index')->with('success', 'Order berhasil dihapus');
     }
+    
 }

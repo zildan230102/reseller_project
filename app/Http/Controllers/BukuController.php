@@ -62,7 +62,7 @@ class BukuController extends Controller
     public function getBukuForOrder()
     {
         // Mengambil informasi dasar buku yang dibutuhkan untuk pemesanan
-        return Buku::all(['id', 'nama_buku', 'berat', 'harga']);
+        return Buku::all(['id', 'judul_buku', 'berat', 'harga']);
     }
 
     // Metode untuk validasi input dari request
@@ -70,7 +70,7 @@ class BukuController extends Controller
     {
         // Validasi input dengan pengecualian ISBN saat melakukan update
         return $request->validate([
-            'nama_buku' => 'required|string|max:255',
+            'judul_buku' => 'required|string|max:255',
             'nama_penulis' => 'required|string|max:255',
             'kategori_id' => 'required|exists:kategoris,id',
             'isbn' => 'required|string|max:13|unique:bukus,isbn,' . $id, // Menghindari validasi ISBN yang sama saat update
@@ -88,7 +88,7 @@ class BukuController extends Controller
     private function prepareData(Request $request)
     {
         return [
-            'nama_buku' => $request->nama_buku,
+            'judul_buku' => $request->judul_buku,
             'nama_penulis' => $request->nama_penulis,
             'kategori_id' => $request->kategori_id,
             'isbn' => $request->isbn,

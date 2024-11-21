@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `bukus` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `nama_buku` varchar(255) NOT NULL,
+  `judul_buku` varchar(255) NOT NULL,
   `nama_penulis` varchar(255) NOT NULL,
   `kategori_id` bigint(20) UNSIGNED NOT NULL,
   `isbn` varchar(255) NOT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE `bukus` (
 -- Dumping data for table `bukus`
 --
 
-INSERT INTO `bukus` (`id`, `nama_buku`, `nama_penulis`, `kategori_id`, `isbn`, `tahun_terbit`, `ukuran`, `halaman`, `jenis_kertas`, `jenis_sampul`, `berat`, `harga`, `created_at`, `updated_at`) VALUES
+INSERT INTO `bukus` (`id`, `judul_buku`, `nama_penulis`, `kategori_id`, `isbn`, `tahun_terbit`, `ukuran`, `halaman`, `jenis_kertas`, `jenis_sampul`, `berat`, `harga`, `created_at`, `updated_at`) VALUES
 (1, 'Buku 1', 'Penulis 1', 5, '987-654-321', '2024', 'A4', 130, 'HVS', 'Softcopy', 1.12, 150000.00, '2024-10-30 01:00:41', '2024-10-31 00:03:31'),
 (2, 'Buku 2', 'Penulis 2', 8, '123-123-123', '2024', 'A5', 160, 'HVS', 'Softcopy', 1.20, 170000.00, '2024-10-30 01:01:37', '2024-10-30 01:01:37'),
 (3, 'Buku 3', 'Penulis 3', 3, '546-976-234', '2018', 'A5', 112, 'HVS', 'Softcopy', 0.89, 120000.00, '2024-10-30 01:02:22', '2024-10-30 01:02:22'),

@@ -42,6 +42,8 @@ Route::middleware('auth')->group(function () {
 
     // Rute untuk pengelolaan Orders
     Route::resource('orders', OrderController::class);
+    Route::delete('orders/{order}', [OrderController::class, 'destroy']);
+
 
     // Rute untuk pengelolaan Buku
     Route::resource('bukus', BukuController::class);

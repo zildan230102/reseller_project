@@ -11,7 +11,7 @@ class Buku extends Model
 
     // Menentukan kolom yang bisa diisi
     protected $fillable = [
-        'nama_buku',
+        'judul_buku',
         'nama_penulis',
         'kategori_id',
         'isbn',
