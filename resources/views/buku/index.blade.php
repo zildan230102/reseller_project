@@ -24,13 +24,12 @@
     cursor: pointer;
     width: auto;
 }
-.card-body-buku {
-    padding: 0px 15px;
-}
 .custom-button-daftar:hover {
     background-color: #ff7b29;
 }
-
+.card-body-buku {
+    padding: 0px 15px;
+}
 .dropdown-menu {
     min-width: auto;
     width: max-content;
@@ -81,30 +80,54 @@
     box-shadow: none;
     padding: 0;
 }
+select.form-select, select.form-select option {
+    font-size: 16px; /* Ukuran font default */
+}
 
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    .text-title {
+        font-size: 25px;
+        text-align: center;
+    }
+    .modal-dialog {
+        max-width: 80%;
+    }
+    .modal-header {
+        font-size: 14px;
+    }
+    .modal-body {
+        font-size: 16px;
+        padding: 10px 20px 10px 20px;
+    }
+    .modal-footer {
+        padding: 10px 20px 10px 10px;
+    }
+    select.form-select, select.form-select option {
+        font-size: 14px;
+    }
+    select.form-select {
+        max-height: 150px;
+        overflow-y: auto;
+    }
+}
 
 @media (max-width: 576px) {
     .container {
         padding: 5px;
         padding-top: 70px;
     }
-
     .text-title {
         font-size: 20px;
         text-align: center;
     }
-
-    .header-title {
-        font-size: 18px;
-        text-align: center;
-    }
-
     .custom-button-daftar {
         width: auto;
-        font-size: 12px;
-        padding: 8px;
+        font-size: 10px;
+        padding: 6px;
     }
-
     .table {
         display: block;
         overflow-x: auto;
@@ -116,26 +139,24 @@
         max-width: 80%;
         margin: 0 auto;
     }
-
-    .modal-content {
-        padding: 10px;
+    select.form-select, select.form-select option {
+        font-size: 12px;
     }
-
+    select.form-select {
+        max-height: 150px;
+        overflow-y: auto;
+    }
     .modal-header {
-        padding: 5px 10px 10px 10px;
+        padding: 10px;
+        font-size: 16px; 
     }
 
     .modal-body {
         font-size: 12px;
         padding: 15px 10px 15px 10px;
     }
-
-    .modal-title {
-        font-size: 16px;
-    }
-
     .modal-footer {
-        padding: 5px 5px 0px 5px;
+        padding: 5px;
     }
 
     .form-control,
@@ -152,12 +173,12 @@
         font-size: 12px;
         padding: 6px 10px;
     }
-    
+
 }
 </style>
 
 <div class="container mt-4">
-    <h1 class="text-title mb-4">Daftar Buku</h1>
+    <h1 class="text-title mb-4 ">Daftar Buku</h1>
         <!-- Menampilkan Flash Message -->
         @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -226,7 +247,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </td>
+                            </td>                            
                         </tr>
 
 
@@ -281,7 +302,7 @@
                                             <dd class="col-7 col-sm-9 mb-3">{{ number_format($buku->berat, 2) }} kg</dd>
                                     
                                             <!-- Harga -->
-                                            <dt class="col-5 col-sm-3 mb-3">Harga</dt>
+                                            <dt class="col-5 col-sm-3">Harga</dt>
                                             <dd class="col-7 col-sm-9">Rp {{ number_format($buku->harga, 0, ',', '.') }}</dd>
                                         </dl>
                                     </div>                                    
@@ -331,7 +352,7 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 col-md-6">
                                                     <label for="isbn" class="form-label">ISBN</label>
                                                     <input type="text" class="form-control" name="isbn"
                                                         value="{{ $buku->isbn }}" required>
@@ -339,7 +360,7 @@
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 col-md-6">
                                                     <label for="tahun_terbit" class="form-label">Tahun Terbit</label>
                                                     <input type="number" class="form-control" name="tahun_terbit"
                                                         value="{{ $buku->tahun_terbit }}" required>
@@ -358,7 +379,7 @@
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 col-md-6">
                                                     <label for="halaman" class="form-label">Halaman</label>
                                                     <input type="number" class="form-control" name="halaman"
                                                         value="{{ $buku->halaman }}" required>
@@ -388,14 +409,14 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 col-md-6">
                                                     <label for="berat" class="form-label">Berat (kg)</label>
                                                     <input type="number" class="form-control" name="berat"
                                                         value="{{ $buku->berat }}" step="0.01" min="0" required>
                                                 </div>
                                             </div>
 
-                                            <div class="mb-3">
+                                            <div class="">
                                                 <label for="harga" class="form-label">Harga</label>
                                                 <input type="number" class="form-control" name="harga"
                                                     value="{{ $buku->harga }}" step="0.01" min="0" required>
@@ -472,20 +493,20 @@
                         <div class="col-12 col-sm-6 col-md-6 mb-3">
                             <label for="kategori_id" class="form-label">Kategori</label>
                             <select class="form-select" name="kategori_id" required>
-                            <option value="" disabled selected>Pilih Kategori</option>
+                            <option value="" disabled selected="">Pilih Kategori</option>
                                 @foreach ($kategoris as $kategori)
                                 <option value="{{ $kategori->id }}">{{ $kategori->nama_kategori }}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-12 col-sm-6 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 col-md-6">
                             <label for="isbn" class="form-label">ISBN</label>
                             <input type="text" class="form-control" name="isbn" placeholder="Masukkan nomor ISBN" required>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-12 col-sm-6 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 col-md-6">
                             <label for="tahun_terbit" class="form-label">Tahun Terbit</label>
                             <input type="number" class="form-control" name="tahun_terbit" placeholder="Masukkan tahun terbit buku" required>
                         </div>
@@ -501,7 +522,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-12 col-sm-6 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 col-md-6 ">
                             <label for="halaman" class="form-label">Halaman</label>
                             <input type="number" class="form-control" name="halaman" placeholder="Masukkan jumlah halaman buku" required>
                         </div>
@@ -526,13 +547,13 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-12 col-sm-6 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 col-md-6">
                             <label for="berat" class="form-label">Berat (kg)</label>
                             <input type="number" class="form-control" name="berat" step="0.01" min="0" placeholder="Masukkan berat buku" required>
                         </div>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="">
                         <label for="harga" class="form-label">Harga</label>
                         <input type="number" class="form-control" name="harga" step="0.01" min="0" placeholder="Masukkan harga buku" required>
                     </div>
