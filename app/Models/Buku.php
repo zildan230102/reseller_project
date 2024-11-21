@@ -54,37 +54,47 @@ class Buku extends Model
         return $this->belongsTo(JenisSampul::class, 'jenis_sampul_id');
     }
 
-    // Menambahkan aksesori untuk mendapatkan nama kategori
+    // Relasi dengan model Order melalui tabel pivot order_buku
+    // app/Models/Buku.php
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class, 'order_buku', 'buku_id', 'order_id')
+                    ->withPivot('jumlah');  // Jika ada field tambahan di tabel pivot, misalnya jumlah
+    }
+
+
+    // Aksesori untuk mendapatkan nama kategori
     public function getNamaKategoriAttribute()
     {
         return $this->kategori ? $this->kategori->nama_kategori : 'Tidak tersedia';
     }
 
-    // Menambahkan aksesori untuk mendapatkan ukuran lengkap
+    // Aksesori untuk mendapatkan ukuran lengkap
     public function getUkuranDetailsAttribute()
     {
         return $this->ukuran ? $this->ukuran->ukuran . ' (' . $this->ukuran->dimensi . ')' : 'Tidak tersedia';
     }
 
-    // Menambahkan aksesori untuk mendapatkan nama jenis kertas
+    // Aksesori untuk mendapatkan nama jenis kertas
     public function getNamaJenisKertasAttribute()
     {
         return $this->jenisKertas ? $this->jenisKertas->nama_kertas : 'Tidak tersedia';
     }
 
-    // Menambahkan aksesori untuk mendapatkan nama jenis sampul
+    // Aksesori untuk mendapatkan nama jenis sampul
     public function getNamaJenisSampulAttribute()
     {
         return $this->jenisSampul ? $this->jenisSampul->nama_sampul : 'Tidak tersedia';
     }
 
-    // Menambahkan aksesori untuk mendapatkan harga dalam format IDR
+    // Aksesori untuk mendapatkan harga dalam format IDR
     public function getFormattedHargaAttribute()
     {
         return 'Rp ' . number_format($this->harga, 0, ',', '.');
     }
 
-    // Menambahkan aksesori untuk mendapatkan berat dalam format kg
+    // Aksesori untuk mendapatkan berat dalam format kg
     public function getFormattedBeratAttribute()
     {
         return number_format($this->berat, 2) . ' kg';
