@@ -210,7 +210,7 @@ select.form-select, select.form-select option {
                     <tbody>
                         @foreach ($bukus as $buku)
                         <tr>
-                            <td>{{ $buku->nama_buku }}</td>
+                            <td>{{ $buku->judul_buku }}</td>
                             <td>{{ $buku->nama_penulis }}</td>
                             <td>{{ $buku->kategori->nama_kategori }}</td>
                             <td>{{ $buku->tahun_terbit }}</td>
@@ -259,7 +259,7 @@ select.form-select, select.form-select option {
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="detailModalLabel{{ $buku->id }}">Detail Buku:
-                                            {{ $buku->nama_buku }}</h5>
+                                            {{ $buku->judul_buku }}</h5>
                                         <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
@@ -329,9 +329,9 @@ select.form-select, select.form-select option {
                                         <div class="modal-body">
                                             <!-- Input Fields -->
                                             <div class="mb-3">
-                                                <label for="nama_buku" class="form-label">Judul Buku</label>
+                                                <label for="judul_buku" class="form-label">Judul Buku</label>
                                                 <input type="text" class="form-control" name="judul_buku"
-                                                    value="{{ $buku->nama_buku }}" required>
+                                                    value="{{ $buku->judul_buku }}" required>
                                             </div>
 
                                             <div class="mb-3">
@@ -445,7 +445,7 @@ select.form-select, select.form-select option {
                                     </div>
                                     <div class="modal-body">
                                         <p>Apakah Anda yakin ingin menghapus buku
-                                            <strong>{{ $buku->nama_buku }}</strong>?
+                                            <strong>{{ $buku->judul_buku }}</strong>?
                                         </p>
                                     </div>
                                     <div class="modal-footer">
@@ -480,7 +480,7 @@ select.form-select, select.form-select option {
                 <div class="modal-body" style="max-height: 75vh; overflow-y: auto;">
                     <!-- Input Fields -->
                     <div class="mb-3">
-                        <label for="nama_buku" class="form-label">Judul Buku</label>
+                        <label for="judul_buku" class="form-label">Judul Buku</label>
                         <input type="text" class="form-control" name="judul_buku" placeholder="Masukkan judul buku" required>
                     </div>
 

@@ -326,7 +326,7 @@
                                         <select name="bukus[0][id]" class="form-select" required>
                                             <option value="">Pilih Buku</option>
                                             @foreach($bukus as $buku)
-                                            <option value="{{ $buku->id }}">{{ $buku->nama_buku }}</option>
+                                            <option value="{{ $buku->id }}">{{ $buku->judul_buku }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -400,7 +400,7 @@
                             <!-- Menampilkan daftar buku yang ada di dalam order -->
                             <td>
                                 @foreach($order->bukus as $buku)
-                                {{ $buku->nama_buku }} ({{ $buku->pivot->jumlah }}),
+                                {{ $buku->judul_buku }} ({{ $buku->pivot->jumlah }}),
                                 @endforeach
                             </td>
 
@@ -627,7 +627,7 @@
                                         @endif
                                         @endforeach
                                         data-jumlah="{{ $selectedBuku['jumlah'] ?? 1 }}">
-                                        {{ $buku->nama_buku }}
+                                        {{ $buku->judul_buku }}
                                     </option>
                                     @endforeach
                                 </select>
@@ -676,7 +676,7 @@ document.getElementById('add-buku').addEventListener('click', function() {
                 <select name="bukus[${index}][id]" class="form-select" required>
                     <option value="">Pilih Buku</option>
                     @foreach($bukus as $buku)
-                        <option value="{{ $buku->id }}">{{ $buku->nama_buku }}</option>
+                        <option value="{{ $buku->id }}">{{ $buku->judul_buku }}</option>
                     @endforeach
                 </select>
             </div>
