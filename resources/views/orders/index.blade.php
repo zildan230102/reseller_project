@@ -1,7 +1,5 @@
 @extends('layouts.main')
-
 @section('title', 'Buat Order')
-
 @section('content')
 
 <style>
@@ -59,9 +57,9 @@
     color: #FFA500;
 }
 
-.order-title {
-    font-size: 1.5rem;
-}
+    .order-title {
+        font-size: 1.5rem;
+    }
 
 @media (max-width: 768px) {
     .order-title {
@@ -74,11 +72,11 @@
         padding: 0.5rem;
     }
 
-    .custom-dropdown-item {
-        font-size: 0.9rem;
-        padding: 0.3rem 0.6rem;
+        .custom-dropdown-item {
+            font-size: 0.9rem;
+            padding: 0.3rem 0.6rem;
+        }
     }
-}
 
 @media (max-width: 576px) {
     .container {
@@ -165,7 +163,7 @@
     }
 }
 </style>
-<div class="container mt-4">
+<div class="container-order mt-4">
     <div class="card">
         <div class="card-header">
             <h3>Tambah Order</h3>
@@ -372,7 +370,7 @@
 </div>
 
 <!-- Tabel Daftar Order Responsif -->
-<div class="container mt-5">
+<div class="container-card">
     <div class="card">
         <div class="card-header">
             <h3 class="order-title mb-0">Daftar Order</h3>
