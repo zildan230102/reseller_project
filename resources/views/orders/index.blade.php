@@ -3,192 +3,165 @@
 @section('content')
 
 <style>
-    .card-body-order {
-        padding: 1.5rem;
-    }
+.card-body-order {
+    padding: 1.5rem;
+}
 
-    .dropdown-menu {
-        min-width: auto;
-        width: max-content;
-        padding: 0.5rem;
-        z-index: 1050;
-    }
+.dropdown-menu {
+    min-width: auto;
+    width: max-content;
+    padding: 0.5rem;
+    z-index: 1050;
+}
 
-    .custom-dropdown-item {
-        font-size: 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: start;
-        padding: 0.4rem 0.8rem;
-        color: #333;
-        text-decoration: none;
-        box-sizing: border-box;
-        transition: background-color 0.2s ease;
-    }
+.custom-dropdown-item {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0.4rem 0.8rem;
+    color: #333;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease;
+}
 
-    .custom-dropdown-item:hover {
-        background-color: #f0f0f0;
-        color: #000;
-        text-decoration: none;
-    }
+.custom-dropdown-item:hover {
+    background-color: #f0f0f0;
+    color: #000;
+    text-decoration: none;
+}
 
-    .custom-dropdown-item i {
-        margin-right: 8px;
-        margin-left: 0;
-    }
+.custom-dropdown-item i {
+    margin-right: 8px;
+    margin-left: 0;
+}
 
-    .dropdown .btn-no-border {
-        border: none;
-        outline: none;
-        box-shadow: none;
-        padding: 0;
-    }
+.dropdown .btn-no-border {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0;
+}
 
-    .nav-tabs .nav-link {
-        color: #000000;
-        border: 1px solid transparent;
-    }
+.nav-tabs .nav-link {
+    color: #000000;
+    border: 1px solid transparent;
+}
 
-    .nav-tabs .nav-link.active {
-        color: #FFA500;
-    }
+.nav-tabs .nav-link.active {
+    color: #FFA500;
+}
 
-    .nav-tabs .nav-link:hover {
-        color: #FFA500;
-    }
+.nav-tabs .nav-link:hover {
+    color: #FFA500;
+}
 
     .order-title {
         font-size: 1.5rem;
     }
 
-    .container-card {
-        display: block;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding-bottom: 4px;
+@media (max-width: 768px) {
+    .order-title {
+        font-size: 1.25rem;
     }
 
-    .container-order {
-        display: block;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding-top: 80px;
-        padding-bottom: 10px;
+    .table th,
+    .table td {
+        font-size: 0.9rem;
+        padding: 0.5rem;
     }
-
-    @media (max-width: 768px) {
-        .order-title {
-            font-size: 1.25rem;
-        }
-
-        .table th,
-        .table td {
-            font-size: 0.9rem;
-            padding: 0.5rem;
-        }
 
         .custom-dropdown-item {
             font-size: 0.9rem;
             padding: 0.3rem 0.6rem;
         }
-        .form-select {
-            font-size: 14px;
-        }
-        .form-select option {
-            font-size: 12px;
-        }
-        #toko_id {
+    }
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    .card h3 {
+        font-size: 1.2rem;
+    }
+
+    .card-body-order,
+    .form-label,
+    .form-control {
+        font-size: 1rem;
+    }
+
+    .nav-tabs .nav-item .nav-link {
+        font-size: 0.8rem;
+        padding: 0.4rem;
+    }
+
+    .custom-button {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .btn-custom-danger {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+    }
+
+    .card-header {
+        padding: 15px 15px 0px 15px;
+    }
+
+    .order-title {
+        font-size: 1rem;
+    }
+
+    .form-label {
         font-size: 14px;
-        }
-        #toko_id option {
+    }
+
+    table {
+        overflow-x: auto;
+        font-size: 14px;
+    }
+
+    .custom-dropdown-item {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.5rem;
+    }
+
+    .dropdown-menu {
+        width: auto;
+        min-width: 120px;
+        max-width: 90px;
+    }
+
+    .modal-dialog {
+        max-width: 85%;
+        margin: 0 auto;
+    }
+
+    .modal-content {
+        padding: 10px;
+    }
+
+    .modal-header {
+        padding: 5px 10px 10px 10px;
+    }
+
+    .modal-body {
         font-size: 12px;
-        }
+        padding: 15px 10px 15px 10px;
     }
 
-    @media (max-width: 576px) {
-        .container {
-            padding: 0.5rem;
-        }
-
-        .card h3 {
-            font-size: 1.2rem;
-        }
-
-        .card-body-order,
-        .form-label,
-        .form-control {
-            font-size: 1rem;
-        }
-
-        .nav-tabs .nav-item .nav-link {
-            font-size: 0.8rem;
-            padding: 0.4rem;
-        }
-
-        .custom-button {
-            font-size: 0.7rem;
-            padding: 0.4rem 0.8rem;
-        }
-
-        .btn-custom-danger {
-            font-size: 0.7rem;
-            padding: 0.3rem 0.6rem;
-        }
-
-        .card-header {
-            padding: 15px 15px 0px 15px;
-        }
-
-        .order-title {
-            font-size: 1rem;
-        }
-
-        .form-label {
-            font-size: 14px;
-        }
-
-        table {
-            overflow-x: auto;
-            font-size: 14px;
-        }
-
-        .custom-dropdown-item {
-            font-size: 0.8rem;
-            padding: 0.2rem 0.5rem;
-        }
-
-        .dropdown-menu {
-            width: auto;
-            min-width: 120px;
-            max-width: 90px;
-        }
-
-        .modal-dialog {
-            max-width: 85%;
-            margin: 0 auto;
-        }
-
-        .modal-content {
-            padding: 10px;
-        }
-
-        .modal-header {
-            padding: 5px 10px 10px 10px;
-        }
-
-        .modal-body {
-            font-size: 12px;
-            padding: 15px 10px 15px 10px;
-        }
-
-        .modal-title {
-            font-size: 1.1rem !important;
-        }
-
-        .modal-footer {
-            padding: 5px 5px 0px 5px;
-        }
+    .modal-title {
+        font-size: 1.1rem !important;
     }
+
+    .modal-footer {
+        padding: 5px 5px 0px 5px;
+    }
+}
 </style>
 <div class="container-order mt-4">
     <div class="card">
@@ -241,7 +214,8 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="tanggal" class="form-label">Tanggal</label>
-                                <input type="date" class="form-control" id="tanggal" name="tanggal" readonly value={{now()}}>
+                                <input type="date" class="form-control" id="tanggal" name="tanggal" readonly
+                                    value={{now()}}>
                             </div>
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="no_hp" class="form-label">No HP Pengirim</label>
@@ -343,6 +317,30 @@
                     <!-- Tab 3: Payment and Notes -->
                     <div class="tab-pane fade" id="payment-notes" role="tabpanel" aria-labelledby="payment-notes-tab">
                         <div class="mb-3">
+                            <label for="bukus" class="form-label">Pilih Buku</label>
+                            <div id="buku-container">
+                                <div class="row align-items-center mb-2">
+                                    <div class="col-md-6">
+                                        <select name="bukus[0][id]" class="form-select" required>
+                                            <option value="">Pilih Buku</option>
+                                            @foreach($bukus as $buku)
+                                            <option value="{{ $buku->id }}">{{ $buku->nama_buku }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="number" name="bukus[0][jumlah]" class="form-control"
+                                            placeholder="Jumlah" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button type="button" class="btn btn-danger remove-buku">Hapus</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary" id="add-buku">Tambah Buku</button>
+                        </div>
+
+                        <div class="mb-3">
                             <label for="catatan" class="form-label">Catatan</label>
                             <textarea class="form-control" id="catatan" name="catatan"></textarea>
                         </div>
@@ -385,8 +383,8 @@
                             <th>No</th>
                             <th>Tanggal</th>
                             <th>No Invoice</th>
-                            <th>Kode Booking</th>
-                            <th>Toko</th>
+                            <th>Buku</th>
+                            <th>Grand Total</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -396,8 +394,24 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $order->tanggal }}</td>
                             <td>{{ $order->no_invoice }}</td>
-                            <td>{{ $order->kode_booking }}</td>
-                            <td>{{ $order->toko->nama_toko }}</td>
+
+                            <!-- Menampilkan daftar buku yang ada di dalam order -->
+                            <td>
+                                @foreach($order->bukus as $buku)
+                                {{ $buku->nama_buku }} ({{ $buku->pivot->jumlah }}),
+                                @endforeach
+                            </td>
+
+                            <!-- Menampilkan Grand Total -->
+                            <td>
+                                @php
+                                $grandTotal = 0;
+                                foreach ($order->bukus as $buku) {
+                                $grandTotal += $buku->harga * $buku->pivot->jumlah;
+                                }
+                                @endphp
+                                {{ number_format($grandTotal, 2) }}
+                            </td>
                             <td class="text-center">
                                 <div class="dropdown">
                                     <button type="button" class="btn btn-sm btn-no-border" id="dropdownMenuButton"
@@ -600,6 +614,23 @@
                         <!-- Informasi Pembayaran -->
                         <div class="tab-pane fade" id="payment-notes{{ $order->id }}" role="tabpanel"
                             aria-labelledby="payment-notes-tab{{ $order->id }}">
+
+                            <div class="mb-3">
+                                <label for="bukus" class="form-label">Buku</label>
+                                <select class="form-control" id="bukus" name="bukus[]" multiple required>
+                                    @foreach($bukus as $buku)
+                                    <option value="{{ $buku->id }}" @foreach($selectedBukus ?? [] as $selectedBuku)
+                                        @if($selectedBuku['id']==$buku->id)
+                                        selected
+                                        @endif
+                                        @endforeach
+                                        data-jumlah="{{ $selectedBuku['jumlah'] ?? 1 }}">
+                                        {{ $buku->nama_buku }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <div class="mt-3 mb-3">
                                 <label for="catatan{{ $order->id }}" class="form-label">Catatan</label>
                                 <textarea class="form-control" id="catatan{{ $order->id }}"
@@ -633,70 +664,126 @@
 @endforeach
 
 <script>
-    console.log("TEST");
+document.getElementById('add-buku').addEventListener('click', function() {
+    const container = document.getElementById('buku-container');
+    const index = container.children.length;
 
-    document.addEventListener("DOMContentLoaded", function() {
-        // Mengambil tanggal hari ini dalam format YYYY-MM-DD
-        var today = new Date().toISOString().split('T')[0];
-        // Set nilai input dengan tanggal hari ini
-        document.getElementById('tanggal').value = today;
+    const template = `
+        <div class="row align-items-center mb-2">
+            <div class="col-md-6">
+                <select name="bukus[${index}][id]" class="form-select" required>
+                    <option value="">Pilih Buku</option>
+                    @foreach($bukus as $buku)
+                        <option value="{{ $buku->id }}">{{ $buku->nama_buku }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-md-4">
+                <input type="number" name="bukus[${index}][jumlah]" class="form-control" placeholder="Jumlah" required>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-danger remove-buku">Hapus</button>
+            </div>
+        </div>`;
+    container.insertAdjacentHTML('beforeend', template);
+});
+
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('remove-buku')) {
+        e.target.closest('.row').remove();
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const bukuSelect = document.getElementById('bukus');
+    const bukuDetails = document.getElementById('bukuDetails');
+
+    bukuSelect.addEventListener('change', function() {
+        const selectedOptions = Array.from(this.selectedOptions);
+        bukuDetails.innerHTML = ''; // Clear existing buku details
+
+        selectedOptions.forEach(function(option) {
+            const bukuId = option.value;
+            const bukuNama = option.textContent;
+            const jumlah = option.getAttribute('data-jumlah') || 1; // Default jumlah is 1
+
+            const div = document.createElement('div');
+            div.classList.add('mb-3');
+            div.innerHTML = `
+                    <label for="buku_${bukuId}" class="form-label">Jumlah Buku: ${bukuNama}</label>
+                    <input type="number" class="form-control" id="buku_${bukuId}" name="bukus[${bukuId}][jumlah]" value="${jumlah}" min="1" required>
+                `;
+            bukuDetails.appendChild(div);
+        });
     });
-    document.addEventListener('DOMContentLoaded', function() {
-        const tokoSelect = document.getElementById('toko_id');
-        const marketplaceInput = document.getElementById('asal_penjualan');
-        const tanggalInput = document.getElementById('tanggal');
 
-        tokoSelect.addEventListener('change', function() {
-            const selectedOption = tokoSelect.options[tokoSelect.selectedIndex];
-            const marketplaceValue = selectedOption.getAttribute('data-marketplace');
-            console.log({
-                selectedOption,
-                marketplaceInput
-            })
-            marketplaceInput.value = marketplaceValue || '';
-        });
+    bukuSelect.dispatchEvent(new Event('change'));
+});
 
-        const today = new Date().toISOString().split('T')[0];
-        tanggalInput.value = today;
+console.log("TEST");
 
-        // Handler untuk konfirmasi penghapusan
-        $('#deleteModal').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget); // Tombol yang memicu modal
-            var orderId = button.data('order-id'); // Ambil ID order dari data atribut tombol
-            var actionUrl = "{{ url(' orders ') }}/" +
-                orderId; // Ganti dengan URL yang sesuai untuk penghapusan order
+document.addEventListener("DOMContentLoaded", function() {
+    // Mengambil tanggal hari ini dalam format YYYY-MM-DD
+    var today = new Date().toISOString().split('T')[0];
+    // Set nilai input dengan tanggal hari ini
+    document.getElementById('tanggal').value = today;
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const tokoSelect = document.getElementById('toko_id');
+    const marketplaceInput = document.getElementById('asal_penjualan');
+    const tanggalInput = document.getElementById('tanggal');
 
-            // Update action form dengan URL yang benar
-            $('#deleteForm').attr('action', actionUrl);
-        });
-
-        // Handler untuk mengkonfirmasi penghapusan
-        $('#confirmDelete').on('click', function() {
-            $('#deleteForm').submit(); // Kirim form penghapusan
-        });
+    tokoSelect.addEventListener('change', function() {
+        const selectedOption = tokoSelect.options[tokoSelect.selectedIndex];
+        const marketplaceValue = selectedOption.getAttribute('data-marketplace');
+        console.log({
+            selectedOption,
+            marketplaceInput
+        })
+        marketplaceInput.value = marketplaceValue || '';
     });
 
-    // Modal Toko dan Marketplace
-    function updateMarketplace(orderId) {
-        // Ambil elemen select dan input marketplace
-        var tokoSelect = document.getElementById("toko_id" + orderId);
-        var marketplaceInput = document.getElementById("asal_penjualan" + orderId);
+    const today = new Date().toISOString().split('T')[0];
+    tanggalInput.value = today;
 
-        // Ambil data-marketplace dari option yang dipilih
-        var selectedOption = tokoSelect.options[tokoSelect.selectedIndex];
-        var marketplace = selectedOption.getAttribute("data-marketplace");
+    // Handler untuk konfirmasi penghapusan
+    $('#deleteModal').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget); // Tombol yang memicu modal
+        var orderId = button.data('order-id'); // Ambil ID order dari data atribut tombol
+        var actionUrl = "{{ url(' orders ') }}/" +
+            orderId; // Ganti dengan URL yang sesuai untuk penghapusan order
 
-        // Update nilai input marketplace
-        marketplaceInput.value = marketplace;
-    }
+        // Update action form dengan URL yang benar
+        $('#deleteForm').attr('action', actionUrl);
+    });
 
-    function tabSelanjutnya(tabId) {
-        document.getElementById(tabId).click();
-    }
+    // Handler untuk mengkonfirmasi penghapusan
+    $('#confirmDelete').on('click', function() {
+        $('#deleteForm').submit(); // Kirim form penghapusan
+    });
+});
 
-    function tabSebelumnya(tabId) {
-        document.getElementById(tabId).click();
-    }
+// Modal Toko dan Marketplace
+function updateMarketplace(orderId) {
+    // Ambil elemen select dan input marketplace
+    var tokoSelect = document.getElementById("toko_id" + orderId);
+    var marketplaceInput = document.getElementById("asal_penjualan" + orderId);
+
+    // Ambil data-marketplace dari option yang dipilih
+    var selectedOption = tokoSelect.options[tokoSelect.selectedIndex];
+    var marketplace = selectedOption.getAttribute("data-marketplace");
+
+    // Update nilai input marketplace
+    marketplaceInput.value = marketplace;
+}
+
+function tabSelanjutnya(tabId) {
+    document.getElementById(tabId).click();
+}
+
+function tabSebelumnya(tabId) {
+    document.getElementById(tabId).click();
+}
 </script>
 
 
