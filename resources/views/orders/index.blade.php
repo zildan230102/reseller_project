@@ -637,29 +637,32 @@
                         <div class="tab-pane fade" id="payment-notes{{ $order->id }}" role="tabpanel"
                             aria-labelledby="payment-notes-tab{{ $order->id }}">
 
-                            <div class="mb-3">
+                            <div class="mt-3">
                                 <label for="bukus" class="form-label">Pilih Buku</label>
-                                <div id="buku-container">
-                                  <div class="row align-items-center">
-                                    <div class="col-md-5">
-                                        <select name="bukus[${index}][id]" class="form-select" required>
-                                            <option value="">Pilih Buku</option>
-                                            @foreach($bukus as $item)
-                                                <option value="{{ $item->id }}" ${buku.id == {{ $item->id }} ? 'selected' : ''}>
+                                <div id="buku-container-{{ $order->id }}">
+                                    @foreach ($order->bukus as $index => $buku)
+                                    <div class="row align-items-center mb-2 buku-row">
+                                        <div class="col-md-5">
+                                            <select name="bukus[{{ $index }}][id]" class="form-select" required>
+                                                <option value="">Pilih Buku</option>
+                                                @foreach ($bukus as $item)
+                                                <option value="{{ $item->id }}" {{ $buku->id == $item->id ? 'selected' : '' }}>
                                                     {{ $item->judul_buku }}
                                                 </option>
-                                            @endforeach
-                                        </select>
-                                        
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <input type="number" name="bukus[{{ $index }}][jumlah]" class="form-control" 
+                                                value="{{ $buku->jumlah }}" placeholder="Jumlah" required>
+                                        </div>
+                                        <div class="col-md-1 d-flex justify-content-between">
+                                            <i class="bi bi-plus-circle text-primary fs-4 cursor-pointer add-buku" title="Tambah Buku"></i>
+                                            <i class="bi bi-trash text-danger fs-4 cursor-pointer remove-buku" title="Hapus Buku"></i>
+                                        </div>
                                     </div>
-                                    <div class="col-md-5">
-                                      <input type="number" name="bukus[0][jumlah]" class="form-control" placeholder="Jumlah" required>
-                                    </div>
-                                    <div class="col-md-1 d-flex justify-content-between">
-                                      <i class="bi bi-plus-circle text-primary fs-4 cursor-pointer" id="add-buku" title="Tambah Buku"></i>
-                                      <i class="bi bi-trash text-danger fs-4 cursor-pointer remove-buku" title="Hapus Buku"></i>
-                                    </div>
-                                  </div>
+                                    @endforeach
+
                                 </div>
                             </div>
 
@@ -726,45 +729,50 @@ document.addEventListener('DOMContentLoaded', function () {
         container.insertAdjacentHTML('beforeend', template);
     }
 
-    // Fungsi untuk mengisi modal edit buku
-    function openEditModal(orderId, data) {
-        const container = document.getElementById('buku-container');
-        container.innerHTML = ''; // Bersihkan elemen sebelumnya
-        bukuIndex = 0; // Reset indeks
+    document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('[id^="buku-container-"]').forEach(function (container) {
+        const orderId = container.id.split('-').pop();
 
-        // Isi modal dengan data buku
-        data.bukus.forEach((buku, index) => {
-            const row = document.createElement('div');
-            row.classList.add('row', 'align-items-center', 'mb-2');
-            row.id = `buku-row-${index}`;
-
-            row.innerHTML = `
-                <div class="col-md-5">
-                    <select name="bukus[${index}][id]" class="form-select" required>
-                        <option value="">Pilih Buku</option>
-                        @foreach($bukus as $item)
-                            <option value="{{ $item->id }}" ${buku.id == {{ $item->id }} ? 'selected' : ''}>
-                                {{ $item->judul_buku }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-md-5">
-                    <input type="number" name="bukus[${index}][jumlah]" class="form-control" value="${buku.jumlah}" placeholder="Jumlah" required>
-                </div>
-                <div class="col-md-1 d-flex justify-content-between">
-                    <i class="bi bi-plus-circle text-primary fs-4 cursor-pointer" title="Tambah Buku"></i>
-                    <i class="bi bi-trash text-danger fs-4 cursor-pointer remove-buku" title="Hapus Buku"></i>
-                </div>
-            `;
-            container.appendChild(row);
-            bukuIndex++;
+        // Tambah buku row
+        container.addEventListener("click", function (event) {
+            if (event.target.classList.contains("add-buku")) {
+                const rowCount = container.querySelectorAll(".buku-row").length;
+                const newRow = document.createElement("div");
+                newRow.className = "row align-items-center mb-2 buku-row";
+                newRow.innerHTML = `
+                    <div class="col-md-5">
+                        <select name="bukus[${rowCount}][id]" class="form-select" required>
+                            <option value="">Pilih Buku</option>
+                            @foreach ($bukus as $item)
+                            <option value="{{ $item->id }}">{{ $item->judul_buku }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="number" name="bukus[${rowCount}][jumlah]" class="form-control"
+                            placeholder="Jumlah" required>
+                    </div>
+                    <div class="col-md-1 d-flex justify-content-between">
+                        <i class="bi bi-plus-circle text-primary fs-4 cursor-pointer add-buku" title="Tambah Buku"></i>
+                        <i class="bi bi-trash text-danger fs-4 cursor-pointer remove-buku" title="Hapus Buku"></i>
+                    </div>
+                `;
+                container.appendChild(newRow);
+            }
         });
 
-        // Tampilkan modal edit (ganti ID modal sesuai dengan struktur Anda)
-        const modal = new bootstrap.Modal(document.getElementById(`editModal-${orderId}`));
-        modal.show();
-    }
+        // Hapus buku row
+        container.addEventListener("click", function (event) {
+            if (event.target.classList.contains("remove-buku")) {
+                const row = event.target.closest(".buku-row");
+                if (row) {
+                    container.removeChild(row);
+                }
+            }
+        });
+    });
+});
+
 
     // Event listener untuk tombol tambah buku
     document.getElementById('buku-container').addEventListener('click', function (e) {
