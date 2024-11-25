@@ -84,6 +84,10 @@ select.form-select, select.form-select option {
     font-size: 16px; /* Ukuran font default */
 }
 
+.small-icon {
+    font-size: 12px;
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 10px;
@@ -101,6 +105,10 @@ select.form-select, select.form-select option {
     .modal-body {
         font-size: 16px;
         padding: 10px 20px 10px 20px;
+        max-height: 70vh !important;
+    }
+    .modal-content {
+        max-height: 80vh;
     }
     .modal-footer {
         padding: 10px 20px 10px 10px;
@@ -133,6 +141,7 @@ select.form-select, select.form-select option {
         overflow-x: auto;
         white-space: nowrap;
         font-size: 12px;
+        overflow: visible;
     }
 
     .modal-dialog {
@@ -173,7 +182,15 @@ select.form-select, select.form-select option {
         font-size: 12px;
         padding: 6px 10px;
     }
-
+    .dropdown-menu {
+        font-size: 12px;
+        left: auto;
+        right: 0;
+        transform: translateX(-50%) !important;
+    }
+    .small-icon {
+        font-size: 10px;
+    }
 }
 </style>
 
@@ -225,13 +242,13 @@ select.form-select, select.form-select option {
                                         <li>
                                             <button class="custom-dropdown-item no-border-item w-100"
                                                 data-bs-toggle="modal" data-bs-target="#detailModal{{ $buku->id }}">
-                                                <i class="bi bi-file-text text-primary me-2"></i> Details
+                                                <i class="bi bi-file-text text-primary me-2 small-icon"></i> Details
                                             </button>
                                         </li>
                                         <li>
                                             <button class="custom-dropdown-item no-border-item w-100"
                                                 data-bs-toggle="modal" data-bs-target="#editModal{{ $buku->id }}">
-                                                <i class="bi bi-pencil text-warning me-2"></i> Edit
+                                                <i class="bi bi-pencil text-warning me-2 small-icon"></i> Edit
                                             </button>
                                         </li>
                                         <li>
@@ -241,7 +258,7 @@ select.form-select, select.form-select option {
                                                 @method('DELETE')
                                                 <button type="button" class="custom-dropdown-item no-border-item w-100"
                                                     data-bs-toggle="modal" data-bs-target="#deleteModal{{ $buku->id }}">
-                                                    <i class="bi bi-trash text-danger me-2 fs-6"></i> Hapus
+                                                    <i class="bi bi-trash text-danger me-2 small-icon"></i> Hapus
                                                 </button>
                                             </form>
                                         </li>
