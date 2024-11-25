@@ -70,6 +70,10 @@
             border: none;
         }
 
+        .small-icon {
+            font-size: 12px;
+        }
+
         /* Responsif untuk layar 768px ke bawah */
         @media (max-width: 768px) {
             .container {
@@ -119,6 +123,7 @@
             .d-flex.justify-content-end {
                 justify-content: center;
             }  
+            
         }
 
         @media (max-width: 576px) {
@@ -126,6 +131,7 @@
                 padding: 5px;
                 padding-top: 60px;
             }
+            
             .text-title{
                 font-size: 20px;
                 text-align: center;
@@ -148,6 +154,7 @@
                 overflow-x: auto;
                 white-space: nowrap;
                 font-size: 14px;
+                overflow: visible;
             }
             .modal-dialog {
                 max-width: 80%;
@@ -182,6 +189,15 @@
             .btn-custom-danger {
                 font-size: 14px;
                 padding: 6px 10px;
+            }
+            .dropdown-menu {
+                font-size: 12px;
+                left: auto;
+                right: 0;
+                transform: translateX(-50%) !important;
+            }
+            .small-icon {
+                font-size: 10px;
             }
         }
     </style>
@@ -242,7 +258,7 @@
                                                         <button type="submit"
                                                             class="custom-dropdown-item no-border-item w-100">
                                                             <i
-                                                                class="{{ $toko->is_active ? 'bi bi-x-square text-danger' : 'bi bi-check-square text-success' }}"></i>
+                                                                class="{{ $toko->is_active ? 'bi bi-x-square text-danger small-icon' : 'bi bi-check-square text-success' }}"></i>
                                                             {{ $toko->is_active ? 'Nonaktifkan' : 'Aktifkan' }}
                                                         </button>
                                                     </form>
@@ -255,7 +271,7 @@
                                                         data-id="{{ $toko->id }}" data-nama="{{ $toko->nama_toko }}"
                                                         data-marketplace="{{ $toko->marketplace }}"
                                                         data-status="{{ $toko->is_active }}">
-                                                        <i class="bi bi-pencil text-warning me-2"></i> Edit
+                                                        <i class="bi bi-pencil text-warning me-2 small-icon"></i> Edit
                                                     </button>
                                                 </li>
 
@@ -264,7 +280,7 @@
                                                     <button class="custom-dropdown-item no-border-item w-100" type="button"
                                                         data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"
                                                         data-id="{{ $toko->id }}">
-                                                        <i class="bi bi-trash text-danger me-2 fs-6"></i> Hapus
+                                                        <i class="bi bi-trash text-danger me-2 small-icon"></i> Hapus
                                                     </button>
                                                 </li>
                                             </ul>
