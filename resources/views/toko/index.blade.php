@@ -9,11 +9,11 @@
             padding-top: 80px;
         }
         .card-header-button {
-            padding: 15px 0px 0px 15px;
+            padding: 15px;
             display: flex;
             background-color: transparent;
             border-bottom: none;
-        }   
+        }
         .custom-button-daftar {
             background-color: #ff9800;
             color: white;
@@ -26,11 +26,8 @@
         .custom-button-daftar:hover {
             background-color: #ff7b29;
         }
-        .dropdown .btn-no-border {
-            border: none;
-            outline: none;
-            box-shadow: none;
-            padding: 0;
+        .card-body-buku {
+            padding: 0px 15px;
         }
         .dropdown-menu {
             min-width: auto;
@@ -69,6 +66,15 @@
             background-color: #f8f9fa;
             border: none;
         }
+        .dropdown .btn-no-border {
+            border: none;
+            outline: none;
+            box-shadow: none;
+            padding: 0;
+        }
+        select.form-select, select.form-select option {
+            font-size: 16px; /* Ukuran font default */
+        }
 
         .small-icon {
             font-size: 12px;
@@ -77,129 +83,88 @@
         /* Responsif untuk layar 768px ke bawah */
         @media (max-width: 768px) {
             .container {
-                padding: 10px;
-                padding-top: 80px;
-            }
+        padding: 10px;
+    }
+    .text-title {
+        font-size: 30px;
+        text-align: center;
+    }
+    .modal-dialog {
+        max-width: 80%;
+    }
+    .modal-header {
+        font-size: 14px;
+    }
+    .modal-body {
+        font-size: 16px;
+        padding: 10px 20px 10px 20px;
+    }
+    .modal-footer {
+        padding: 10px 20px 10px 10px;
+    }
+    select.form-select, select.form-select option {
+        font-size: 14px;
+    }
+    select.form-select {
+        max-height: 150px;
+        overflow-y: auto;
+    }
+}
 
-            .header-title {
-                font-size: 20px;
-                text-align: center;
-            }
-
-            .custom-button-daftar {
-                width: auto;
-                font-size: 14px;
-            }
-
-            table {
-                overflow-x: auto;
-                font-size: 16px;
-            }
-            .modal-dialog {
-                 max-width: 80%;
-            }
-            .modal-header {
-                padding: 10px 15px;
-            }
-            .modal-title {
-                font-size: 18px !important;
-            }
-            .modal-body {
-                padding: 20px
-            }
-            .form-group label {
-                font-size: 16px;
-            }
-            .form-group input, .form-group select {
-                font-size: 14px;
-                padding: 8px;
-            }
-            
-            .custom-button {
-                font-size: 14px;
-                padding: 10px 15px;
-            }
-
-            .d-flex.justify-content-end {
-                justify-content: center;
-            }  
-            
-        }
-
-        @media (max-width: 576px) {
-            .container {
-                padding: 5px;
-                padding-top: 60px;
-            }
-            
-            .text-title{
-                font-size: 20px;
-                text-align: center;
-                margin-bottom: 16px !important;
-            }
-            .header-title {
-                font-size: 18px;
-                text-align: center;
-            }
-            .custom-button-daftar {
-                width: auto;
-                font-size: 12px;
-                padding: 8px;
-            }
-            .bi-plus-lg {
-                margin-right: 5px !important;
-            }
-            .table {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
-                font-size: 14px;
-                overflow: visible;
-            }
-            .modal-dialog {
-                max-width: 80%;
-                margin: 0 auto;
-            }
-            .modal-content {
-                padding: 10px;
-            }
-            .modal-header {
-                padding: 5px 10px 10px 10px;
-            }
-            .modal-body {
-                font-size: 14px;
-                padding: 15px 10px 15px 10px;
-            }
-            .modal-title {
-                font-size: 16px;
-            }
-            .modal-footer {
-                padding: 5px 5px 0px 5px;
-            }
-            .form-group label {
-                font-size: 14px;
-            }
-            .form-control, .form-select {
-                font-size: 12px;
-            }
-            .custom-button {
-                font-size: 14px;
-                padding: 8px 16px;
-            }
-            .btn-custom-danger {
-                font-size: 14px;
-                padding: 6px 10px;
-            }
-            .dropdown-menu {
-                font-size: 12px;
-                left: auto;
-                right: 0;
-                transform: translateX(-50%) !important;
-            }
-            .small-icon {
-                font-size: 10px;
-            }
-        }
+@media (max-width: 576px) {
+    .container {
+        padding: 5px;
+        padding-top: 70px;
+    }
+    .text-title{
+        font-size: 20px;
+        text-align: center;
+    }
+    .custom-button-daftar {
+        width: auto;
+        font-size: 10px;
+        padding: 6px;
+    }
+    .table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        font-size: 12px;
+    }
+    .modal-dialog {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+    select.form-select, select.form-select option {
+        font-size: 12px !important;
+    }
+    select.form-select {
+        max-height: 150px;
+        overflow-y: auto;
+    }
+    .modal-header {
+        padding: 10px;
+        font-size: 16px; 
+    }
+    .modal-body {
+        font-size: 12px;
+        padding: 15px 10px 15px 10px;
+    }
+    .modal-footer {
+        padding: 5px;
+    }
+    .form-control, .form-select {
+        font-size: 12px;
+    }
+    .custom-button {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+    .btn-custom-danger {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+}
     </style>
     <div class="container mt-4">
         <h1 class="text-title mb-4">Daftar Toko</h1>
@@ -223,7 +188,7 @@
                         <i class="bi bi-plus-lg me-2"></i>Tambah Toko
                     </button>
                 </div>
-                <div class="card-body">
+                <div class="card-body-buku">
                     <table class="table table-bordered">
                         <thead class="thead text-center">
                             <tr>

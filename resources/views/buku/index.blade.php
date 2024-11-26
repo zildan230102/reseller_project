@@ -93,7 +93,7 @@ select.form-select, select.form-select option {
         padding: 10px;
     }
     .text-title {
-        font-size: 25px;
+        font-size: 30px;
         text-align: center;
     }
     .modal-dialog {
@@ -143,7 +143,6 @@ select.form-select, select.form-select option {
         font-size: 12px;
         overflow: visible;
     }
-
     .modal-dialog {
         max-width: 80%;
         margin: 0 auto;
