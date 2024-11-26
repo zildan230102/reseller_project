@@ -76,6 +76,10 @@
             font-size: 16px; /* Ukuran font default */
         }
 
+        .small-icon {
+            font-size: 12px;
+        }
+
         /* Responsif untuk layar 768px ke bawah */
         @media (max-width: 768px) {
             .container {
@@ -219,7 +223,7 @@
                                                         <button type="submit"
                                                             class="custom-dropdown-item no-border-item w-100">
                                                             <i
-                                                                class="{{ $toko->is_active ? 'bi bi-x-square text-danger' : 'bi bi-check-square text-success' }}"></i>
+                                                                class="{{ $toko->is_active ? 'bi bi-x-square text-danger small-icon' : 'bi bi-check-square text-success' }}"></i>
                                                             {{ $toko->is_active ? 'Nonaktifkan' : 'Aktifkan' }}
                                                         </button>
                                                     </form>
@@ -232,7 +236,7 @@
                                                         data-id="{{ $toko->id }}" data-nama="{{ $toko->nama_toko }}"
                                                         data-marketplace="{{ $toko->marketplace }}"
                                                         data-status="{{ $toko->is_active }}">
-                                                        <i class="bi bi-pencil text-warning me-2"></i> Edit
+                                                        <i class="bi bi-pencil text-warning me-2 small-icon"></i> Edit
                                                     </button>
                                                 </li>
 
@@ -241,7 +245,7 @@
                                                     <button class="custom-dropdown-item no-border-item w-100" type="button"
                                                         data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"
                                                         data-id="{{ $toko->id }}">
-                                                        <i class="bi bi-trash text-danger me-2 fs-6"></i> Hapus
+                                                        <i class="bi bi-trash text-danger me-2 small-icon"></i> Hapus
                                                     </button>
                                                 </li>
                                             </ul>

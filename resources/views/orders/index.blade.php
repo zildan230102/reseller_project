@@ -819,8 +819,4 @@ function tabSebelumnya(tabId) {
 }
 
 </script>
-
-
-
-
 @endsection
