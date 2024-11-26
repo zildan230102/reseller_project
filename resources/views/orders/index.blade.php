@@ -337,31 +337,30 @@
                         <div class="mb-3">
                             <label for="bukus" class="form-label">Pilih Buku</label>
                             <div id="buku-container">
-                                <!-- Baris pertama tanpa tombol hapus -->
+                                <!-- Baris pertama (default) -->
                                 <div class="row align-items-center mb-2 buku-row" id="buku-row-0">
                                     <div class="col-md-5">
-                                        <select name="bukus[0][id]" class="form-select" required>
-                                            <option value="">Pilih Buku</option>
+                                        <select name="bukus[0][id]" class="form-select buku-select" required>
+                                            <option value="" data-berat="0" data-harga="0">Pilih Buku</option>
                                             @foreach($bukus as $buku)
-                                            <option value="{{ $buku->id }}">{{ $buku->judul_buku }}</option>
+                                            <option value="{{ $buku->id }}" data-berat="{{ $buku->berat }}"
+                                                data-harga="{{ $buku->harga }}">
+                                                {{ $buku->judul_buku }}
+                                            </option>
                                             @endforeach
                                         </select>
                                     </div>
                                     <div class="col-md-5">
-                                        <input type="number" name="bukus[0][jumlah]" class="form-control"
+                                        <input type="number" name="bukus[0][jumlah]" class="form-control jumlah-input"
                                             placeholder="Jumlah" required>
                                     </div>
                                     <div class="col-md-1 d-flex justify-content-between">
-                                        <i class="bi bi-plus-circle text-primary fs-4 cursor-pointer" id="add-buku"
+                                        <i class="bi bi-plus-circle text-primary fs-4 cursor-pointer add-buku"
                                             title="Tambah Buku"></i>
                                     </div>
                                 </div>
-
-                                <!-- Baris tambahan buku (setiap baris setelah yang pertama) -->
-                                <!-- Ini akan dihasilkan oleh JavaScript jika menambahkan form -->
                             </div>
                         </div>
-
 
                         <div class="mb-3">
                             <label for="catatan" class="form-label">Catatan</label>
@@ -370,15 +369,14 @@
 
                         <div class="mb-3">
                             <label for="total_berat" class="form-label">Total Berat (KG)</label>
-                            <input type="number" class="form-control" id="total_berat" name="total_berat" required
-                                step="0.01" min="0.01">
+                            <input type="text" class="form-control" id="total_berat" name="total_berat" readonly>
                         </div>
 
                         <div class="mb-3">
                             <label for="grand_total" class="form-label">Grand Total</label>
-                            <input type="number" step="0.01" class="form-control" id="grand_total" name="grand_total"
-                                required>
+                            <input type="text" class="form-control" id="grand_total" name="grand_total" readonly>
                         </div>
+
                         <div class="d-flex justify-content-between">
                             <button type="button" class="custom-button"
                                 onclick="tabSebelumnya('shipping-info-tab')">Sebelumnya</button>
@@ -652,26 +650,27 @@
                                     @foreach ($order->bukus as $index => $buku)
                                     <div class="row align-items-center mb-2 buku-row" id="buku-row-{{ $index }}">
                                         <div class="col-md-5">
-                                            <select name="bukus[{{ $index }}][id]" class="form-select" required>
+                                            <select name="bukus[{{ $index }}][id]" class="form-select buku-select"
+                                                required data-index="{{ $index }}">
                                                 <option value="">Pilih Buku</option>
                                                 @foreach ($bukus as $item)
                                                 <option value="{{ $item->id }}"
-                                                    {{ $buku->id == $item->id ? 'selected' : '' }}>
+                                                    {{ $buku->id == $item->id ? 'selected' : '' }}
+                                                    data-berat="{{ $item->berat }}" data-harga="{{ $item->harga }}">
                                                     {{ $item->judul_buku }}
                                                 </option>
                                                 @endforeach
                                             </select>
                                         </div>
                                         <div class="col-md-5">
-                                            <input type="number" name="bukus[{{ $index }}][jumlah]" class="form-control"
-                                                value="{{ old('bukus.' . $index . '.jumlah', $buku->jumlah) }}"
-                                                placeholder="Jumlah" required>
+                                            <input type="number" name="bukus[{{ $index }}][jumlah]"
+                                                class="form-control jumlah-input" value="{{ $buku->pivot->jumlah }}"
+                                                placeholder="Jumlah" required data-index="{{ $index }}">
                                         </div>
                                         <div class="col-md-1 d-flex justify-content-between">
                                             <i class="bi bi-plus-circle text-primary fs-4 cursor-pointer add-buku"
                                                 title="Tambah Buku"></i>
                                             @if ($index > 0)
-                                            <!-- Tombol hapus hanya tampil jika bukan form pertama -->
                                             <i class="bi bi-trash text-danger fs-4 cursor-pointer remove-buku"
                                                 title="Hapus Buku"></i>
                                             @endif
@@ -689,19 +688,18 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="total_berat{{ $order->id }}" class="form-label">Total Berat
-                                    (KG)</label>
+                                <label for="total_berat{{ $order->id }}" class="form-label">Total Berat (KG)</label>
                                 <input type="number" class="form-control" id="total_berat{{ $order->id }}"
-                                    name="total_berat" value="{{ $order->total_berat }}" required step="0.01"
-                                    min="0.01">
+                                    name="total_berat" value="{{ $order->total_berat }}" required step="0.01" min="0.01"
+                                    readonly>
                             </div>
 
                             <div class="mb-3">
-                                <label for="grand_total{{ $order->id }}" class="form-label">Grand
-                                    Total</label>
+                                <label for="grand_total{{ $order->id }}" class="form-label">Grand Total</label>
                                 <input type="number" step="0.01" class="form-control" id="grand_total{{ $order->id }}"
-                                    name="grand_total" value="{{ $order->grand_total }}" required>
+                                    name="grand_total" value="{{ $order->grand_total }}" required readonly>
                             </div>
+
                             <div class="modal-footer">
                                 <button type="submit" class="custom-button">Simpan Perubahan</button>
                             </div>
@@ -716,58 +714,133 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    let bukuIndex = 1; // Indeks dimulai dari 1 karena baris pertama sudah ada
+    let bukuIndex = 1;
 
-    // Fungsi untuk menambahkan baris baru
+    // Fungsi menghitung total berat dan grand total
+    function calculateTotals() {
+        let totalBerat = 0;
+        let grandTotal = 0;
+
+        document.querySelectorAll('.buku-row').forEach(row => {
+            const bukuSelect = row.querySelector('.buku-select');
+            const jumlahInput = row.querySelector('.jumlah-input');
+
+            if (bukuSelect && jumlahInput) {
+                const selectedOption = bukuSelect.options[bukuSelect.selectedIndex];
+                const berat = parseFloat(selectedOption?.getAttribute('data-berat')) || 0;
+                const harga = parseFloat(selectedOption?.getAttribute('data-harga')) || 0;
+                const jumlah = parseInt(jumlahInput.value) || 0;
+
+                totalBerat += berat * jumlah;
+                grandTotal += harga * jumlah;
+            }
+        });
+
+        document.getElementById('total_berat').value = totalBerat.toFixed(2);
+        document.getElementById('grand_total').value = grandTotal.toFixed(2);
+    }
+    
+
+    // Fungsi menambah baris buku
     function addBukuRow() {
         const container = document.getElementById('buku-container');
-        const index = bukuIndex;
-        bukuIndex++; // Increment indeks untuk baris berikutnya
-
+        const index = bukuIndex++;
         const template = `
             <div class="row align-items-center mb-2 buku-row" id="buku-row-${index}">
                 <div class="col-md-5">
-                    <select name="bukus[${index}][id]" class="form-select" required>
-                        <option value="">Pilih Buku</option>
+                    <select name="bukus[${index}][id]" class="form-select buku-select" required>
+                        <option value="" data-berat="0" data-harga="0">Pilih Buku</option>
                         @foreach($bukus as $buku)
-                            <option value="{{ $buku->id }}">{{ $buku->judul_buku }}</option>
+                        <option value="{{ $buku->id }}" data-berat="{{ $buku->berat }}" data-harga="{{ $buku->harga }}">
+                            {{ $buku->judul_buku }}
+                        </option>
                         @endforeach
                     </select>
                 </div>
                 <div class="col-md-5">
-                    <input type="number" name="bukus[${index}][jumlah]" class="form-control" placeholder="Jumlah" required>
+                    <input type="number" name="bukus[${index}][jumlah]" class="form-control jumlah-input" placeholder="Jumlah" required>
                 </div>
                 <div class="col-md-1 d-flex justify-content-between">
                     <i class="bi bi-plus-circle text-primary fs-4 cursor-pointer add-buku" title="Tambah Buku"></i>
                     <i class="bi bi-trash text-danger fs-4 cursor-pointer remove-buku" title="Hapus Buku"></i>
                 </div>
-            </div>
-        `;
+            </div>`;
         container.insertAdjacentHTML('beforeend', template);
     }
 
-    // Event listener untuk tombol tambah buku
-    document.getElementById('buku-container').addEventListener('click', function(e) {
-        if (e.target.classList.contains('bi-plus-circle')) {
+    // Event listener untuk perubahan dropdown atau jumlah buku
+    document.getElementById('buku-container').addEventListener('input', e => {
+        if (e.target.matches('.buku-select, .jumlah-input')) {
+            calculateTotals();
+        }
+    });
+
+    // Event listener untuk menambah atau menghapus buku
+    document.getElementById('buku-container').addEventListener('click', e => {
+        if (e.target.classList.contains('add-buku')) {
             addBukuRow();
+        } else if (e.target.classList.contains('remove-buku')) {
+            const row = e.target.closest('.buku-row');
+            if (row) {
+                row.remove();
+                calculateTotals();
+            }
         }
     });
 
-    // Event listener untuk tombol hapus buku
-    document.getElementById('buku-container').addEventListener('click', function(e) {
-        if (e.target.classList.contains('remove-buku')) {
-            e.target.closest('.buku-row').remove();
-        }
-    });
-
-    // Hapus tombol hapus pada baris pertama
+    // Sembunyikan tombol hapus pada baris pertama
     const firstRow = document.querySelector('.buku-row');
     if (firstRow) {
         const removeButton = firstRow.querySelector('.remove-buku');
         if (removeButton) {
-            removeButton.style.display = 'none'; // Sembunyikan tombol hapus pada baris pertama
+            removeButton.style.display = 'none';
         }
     }
+
+    // Update total berat dan grand total
+    function updateTotal(orderId) {
+        let totalBerat = 0;
+        let grandTotal = 0;
+
+        const bukuContainer = document.getElementById('buku-container-' + orderId);
+        const bukuRows = bukuContainer.querySelectorAll('.buku-row');
+
+        bukuRows.forEach(function(row) {
+            const bukuSelect = row.querySelector('.buku-select');
+            const jumlahInput = row.querySelector('.jumlah-input');
+
+            const berat = parseFloat(bukuSelect.options[bukuSelect.selectedIndex]?.getAttribute(
+                'data-berat')) || 0;
+            const harga = parseFloat(bukuSelect.options[bukuSelect.selectedIndex]?.getAttribute(
+                'data-harga')) || 0;
+            const jumlah = parseInt(jumlahInput.value) || 0;
+
+            totalBerat += berat * jumlah;
+            grandTotal += harga * jumlah;
+        });
+
+        // Update nilai total berat dan grand total
+        document.getElementById('total_berat' + orderId).value = totalBerat.toFixed(2);
+        document.getElementById('grand_total' + orderId).value = grandTotal.toFixed(2);
+    }
+
+    // Event listener untuk perubahan select buku atau input jumlah
+    document.querySelectorAll('.buku-select, .jumlah-input').forEach(function(input) {
+        input.addEventListener('change', function() {
+            const orderId = input.closest('.modal').querySelector('form').action.split('/')
+                .pop(); // Mengambil ID order dari URL form
+            updateTotal(orderId);
+        });
+    });
+
+    // Panggil fungsi updateTotal saat modal dibuka
+    document.querySelectorAll('.modal').forEach(function(modal) {
+        modal.addEventListener('shown.bs.modal', function() {
+            const orderId = modal.querySelector('form').action.split('/')
+                .pop(); // Mengambil ID order dari URL form
+            updateTotal(orderId);
+        });
+    });
 
     // Update marketplace berdasarkan toko yang dipilih
     const tokoSelect = document.getElementById('toko_id');
@@ -817,6 +890,6 @@ function tabSelanjutnya(tabId) {
 function tabSebelumnya(tabId) {
     document.getElementById(tabId).click();
 }
-
 </script>
+
 @endsection
