@@ -199,6 +199,12 @@
             .small-icon {
                 font-size: 10px;
             }
+            .custom-dropdown option {
+                font-size: 11px;
+            }
+            .alert-success {
+                font-size: 14px;
+            }
         }
     </style>
     <div class="container mt-4">
@@ -368,7 +374,7 @@
 
                             <div class="form-group">
                                 <label for="edit_is_active">Status</label>
-                                <select id="edit_is_active" name="is_active" class="form-select">
+                                <select id="edit_is_active" name="is_active" class="form-select custom-dropdown">
                                     <option value="1">Aktif</option>
                                     <option value="0">Tidak Aktif</option>
                                 </select>

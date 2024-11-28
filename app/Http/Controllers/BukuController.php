@@ -47,7 +47,7 @@ class BukuController extends Controller
         $buku->update($this->prepareData($request));
 
         // Kembalikan ke halaman index buku dengan pesan sukses
-        return redirect()->route('bukus.index')->with('success', 'Buku berhasil diperbarui');
+        return redirect()->route('bukus.index')->with('success', 'Data buku berhasil diperbarui.');
     }
 
     public function destroy(Buku $buku)
@@ -56,7 +56,7 @@ class BukuController extends Controller
         $buku->delete();
 
         // Redirect kembali ke halaman index buku dengan pesan sukses
-        return redirect()->route('bukus.index')->with('success', 'Buku berhasil dihapus');
+        return redirect()->route('bukus.index')->with('success', 'Buku berhasil dihapus.');
     }
 
     public function getBukuForOrder()
