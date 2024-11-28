@@ -434,6 +434,9 @@
                                 {{ number_format($grandTotal, 2) }}
                             </td>
                             <td class="text-center">
+                                @if($order->status == 'confirmed')
+                                <span class="badge bg-success">Terkonfirmasi</span>
+                                @else
                                 <div class="dropdown">
                                     <button type="button" class="btn btn-sm btn-no-border" id="dropdownMenuButton"
                                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -456,8 +459,18 @@
                                                 </a>
                                             </form>
                                         </li>
+                                        <!-- Tombol Konfirmasi -->
+                                        <li>
+                                            <form action="{{ route('order.confirm', $order->id) }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="custom-dropdown-item">
+                                                    <i class="bi bi-check-circle text-success me-2"></i> Konfirmasi
+                                                </button>
+                                            </form>
+                                        </li>
                                     </ul>
                                 </div>
+                                @endif
                             </td>
                         </tr>
                         @endforeach
@@ -466,7 +479,6 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <!-- Modal Konfirmasi Hapus -->
@@ -739,7 +751,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('total_berat').value = totalBerat.toFixed(2);
         document.getElementById('grand_total').value = grandTotal.toFixed(2);
     }
-    
+
 
     // Fungsi menambah baris buku
     function addBukuRow() {
