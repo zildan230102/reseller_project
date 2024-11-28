@@ -43,6 +43,10 @@ Route::middleware('auth')->group(function () {
     // Rute untuk pengelolaan Orders
     Route::resource('orders', OrderController::class);
     Route::delete('orders/{order}', [OrderController::class, 'destroy']);
+    Route::post('/order/confirm/{order}', [OrderController::class, 'confirm'])->name('order.confirm');
+    Route::get('/order/history', [OrderController::class, 'history'])->name('order.history');
+    Route::patch('/order/{order}/cancel', [OrderController::class, 'cancel'])->name('order.cancel');
+
 
 
     // Rute untuk pengelolaan Buku

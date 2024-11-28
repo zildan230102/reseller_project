@@ -71,9 +71,14 @@ class OrderController extends Controller
         return redirect()->route('orders.index')->with('success', 'Order berhasil ditambahkan!');
     }
 
-      // Menampilkan form untuk mengedit order yang sudah ada
+    // Menampilkan form untuk mengedit order yang sudah ada
     public function edit(Order $order)
     {
+        // Cek jika order sudah terkonfirmasi, maka tidak bisa diedit
+        if ($order->status === 'confirmed') {
+            return redirect()->route('orders.index')->with('error', 'Pesanan sudah terkonfirmasi dan tidak bisa diedit.');
+        }
+
         $tokos = Toko::where('is_active', 1)->get();
         $ekspedisis = Ekspedisi::all();
         $bukus = Buku::all(); // Ambil semua buku untuk pilihan
@@ -92,6 +97,11 @@ class OrderController extends Controller
     // Memperbarui data order yang sudah ada
     public function update(Request $request, Order $order)
     {
+        // Cek jika order sudah terkonfirmasi, maka tidak bisa diperbarui
+        if ($order->status === 'confirmed') {
+            return redirect()->route('orders.index')->with('error', 'Pesanan sudah terkonfirmasi dan tidak bisa diperbarui.');
+        }
+
         $request->validate([
             'tanggal' => 'required|date',
             'no_hp' => 'required|string',
@@ -132,6 +142,50 @@ class OrderController extends Controller
         return redirect()->route('orders.index')->with('success', 'Order berhasil diperbarui!');
     }
 
+    // Fungsi untuk mengonfirmasi pesanan
+    public function confirm($id)
+    {
+        $order = Order::findOrFail($id);
+
+        // Periksa apakah pesanan sudah terkonfirmasi
+        if ($order->status === 'confirmed') {
+            return redirect()->route('orders.index')->with('error', 'Pesanan sudah terkonfirmasi.');
+        }
+
+        // Tandai pesanan sebagai terkonfirmasi
+        $order->status = 'confirmed';
+        $order->save();
+
+        // Pindahkan order ke riwayat jika perlu
+        // RiwayatPesanan::create($order->toArray()); // Jika ada tabel riwayat_pesanan
+
+        return redirect()->route('orders.index')->with('success', 'Pesanan berhasil dikonfirmasi.');
+    }
+
+    // Menampilkan daftar riwayat order yang sudah terkonfirmasi
+    public function history()
+    {
+        $orders = Order::where('status', 'confirmed')->get(); // Ambil order dengan status 'confirmed'
+        return view('orders.history', compact('orders'));
+    }
+
+    // Fungsi untuk membatalkan pesanan
+    public function cancel($id)
+    {
+        $order = Order::findOrFail($id);
+
+        // Pastikan pesanan yang akan dibatalkan belum dibatalkan sebelumnya
+        if ($order->status == 'canceled') {
+            return redirect()->route('order.history')->with('error', 'Pesanan sudah dibatalkan.');
+        }
+
+        // Ubah status pesanan menjadi 'canceled'
+        $order->status = 'canceled';
+        $order->save();
+
+        return redirect()->route('order.history')->with('success', 'Pesanan berhasil dibatalkan.');
+    }
+
     // Menghapus order yang sudah ada
     public function destroy($orderId)
     {
@@ -140,5 +194,4 @@ class OrderController extends Controller
     
         return redirect()->route('orders.index')->with('success', 'Order berhasil dihapus');
     }
-    
 }

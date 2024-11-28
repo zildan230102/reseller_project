@@ -43,7 +43,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ url('orders') }}">Buat Order</a></li>
-                                    <li><a class="dropdown-item" href="#">Riwayat Pesanan</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('order.history') }}">Riwayat Pesanan</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
