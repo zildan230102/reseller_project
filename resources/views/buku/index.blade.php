@@ -93,7 +93,7 @@ select.form-select, select.form-select option {
         padding: 10px;
     }
     .text-title {
-        font-size: 30px;
+        font-size: 25px;
         text-align: center;
     }
     .modal-dialog {
@@ -136,8 +136,8 @@ select.form-select, select.form-select option {
     }
     .custom-button-daftar {
         width: auto;
-        font-size: 10px;
-        padding: 6px;
+        font-size: 12px;
+        padding: 8px 10px 8px 10px;
     }
     .table {
         display: block;
@@ -146,6 +146,7 @@ select.form-select, select.form-select option {
         font-size: 12px;
         overflow: visible;
     }
+
     .modal-dialog {
         max-width: 80%;
         margin: 0 auto;
@@ -159,14 +160,14 @@ select.form-select, select.form-select option {
         overflow-y: auto;
     }
     select.form-select option {
-        font-size: 9px;
+        font-size: 10px;
     }
     .modal-header {
         padding: 10px;
         font-size: 16px; 
     }
     .modal-content {
-        max-height: 80vh !important;
+        max-height: 90vh !important;
     }
     .modal-body {
         font-size: 12px;
@@ -175,12 +176,10 @@ select.form-select, select.form-select option {
     .modal-footer {
         padding: 5px;
     }
-
     .form-control,
     .form-select {
         font-size: 12px;
     }
-
     .custom-button {
         font-size: 12px;
         padding: 8px 16px;
@@ -204,8 +203,8 @@ select.form-select, select.form-select option {
 
 <div class="container mt-4">
     <h1 class="text-title mb-4 ">Daftar Buku</h1>
-        <!-- Menampilkan Flash Message -->
-        @if(session('success'))
+    <!-- Menampilkan Flash Message -->
+    @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -227,8 +226,8 @@ select.form-select, select.form-select option {
                             <th>Judul Buku</th>
                             <th>Penulis</th>
                             <th>Kategori</th>
-                            <th>Tahun Terbit</th>
-                            <!-- <th>ISBN</th> -->
+                            <!-- <th>Tahun Terbit</th> -->
+                            <th>ISBN</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -238,8 +237,8 @@ select.form-select, select.form-select option {
                             <td>{{ $buku->judul_buku }}</td>
                             <td>{{ $buku->nama_penulis }}</td>
                             <td>{{ $buku->kategori->nama_kategori }}</td>
-                            <td class="text-center">{{ $buku->tahun_terbit }}</td>
-                            <!-- <td>{{ $buku->isbn }}</td> -->
+                            <!-- <td class="text-center">{{ $buku->tahun_terbit }}</td> -->
+                            <td>{{ $buku->isbn }}</td>
                             <td class="text-center">
                                 <div class="dropdown">
                                     <button type="button" class="btn btn-sm btn-no-border" id="dropdownMenuButton"
@@ -505,18 +504,18 @@ select.form-select, select.form-select option {
                 <div class="modal-body" style="max-height: 75vh; overflow-y: auto;">
                     <!-- Input Fields -->
                     <div class="mb-3">
-                        <label for="judul_buku" class="form-label">Judul Buku</label>
+                        <label for="judul_buku" class="form-label"><b>Judul Buku</b></label>
                         <input type="text" class="form-control" name="judul_buku" placeholder="Masukkan judul buku" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="nama_penulis" class="form-label">Nama Penulis</label>
+                        <label for="nama_penulis" class="form-label"><b>Nama Penulis</b></label>
                         <input type="text" class="form-control" name="nama_penulis" placeholder="Masukkan nama penulis" required>
                     </div>
 
                     <div class="row">
                         <div class="col-12 col-sm-6 col-md-6 mb-3">
-                            <label for="kategori_id" class="form-label">Kategori</label>
+                            <label for="kategori_id" class="form-label"><b>Kategori</b></label>
                             <select class="form-select" name="kategori_id" required>
                             <option value="" disabled selected="">Pilih Kategori</option>
                                 @foreach ($kategoris as $kategori)
@@ -524,19 +523,19 @@ select.form-select, select.form-select option {
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-12 col-sm-6 col-md-6">
-                            <label for="isbn" class="form-label">ISBN</label>
+                        <div class="col-12 col-sm-6 col-md-6  mb-3">
+                            <label for="isbn" class="form-label"><b>ISBN</b></label>
                             <input type="text" class="form-control" name="isbn" placeholder="Masukkan nomor ISBN" required>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-12 col-sm-6 col-md-6">
-                            <label for="tahun_terbit" class="form-label">Tahun Terbit</label>
+                        <div class="col-12 col-sm-6 col-md-6  mb-3">
+                            <label for="tahun_terbit" class="form-label"><b>Tahun Terbit</b></label>
                             <input type="number" class="form-control" name="tahun_terbit" placeholder="Masukkan tahun terbit buku" required>
                         </div>
                         <div class="col-12 col-sm-6 col-md-6 mb-3">
-                            <label for="ukuran_id" class="form-label">Ukuran</label>
+                            <label for="ukuran_id" class="form-label"><b>Ukuran</b></label>
                             <select class="form-select" name="ukuran_id" required>
                             <option value="" disabled selected>Pilih Ukuran</option>
                                 @foreach ($ukurans as $ukuran)
@@ -547,14 +546,14 @@ select.form-select, select.form-select option {
                     </div>
 
                     <div class="row">
-                        <div class="col-12 col-sm-6 col-md-6 ">
-                            <label for="halaman" class="form-label">Halaman</label>
+                        <div class="col-12 col-sm-6 col-md-6 mb-3">
+                            <label for="halaman" class="form-label"><b>Halaman</b></label>
                             <input type="number" class="form-control" name="halaman" placeholder="Masukkan jumlah halaman buku" required>
                         </div>
                         <div class="col-12 col-sm-6 col-md-6 mb-3">
-                            <label for="jenis_kertas_id" class="form-label">Jenis Kertas</label>
+                            <label for="jenis_kertas_id" class="form-label"><b>Jenis Kertas</b></label>
                             <select class="form-select" name="jenis_kertas_id" required>
-                            <option value="" disabled selected>Pilih Kertas</option>
+                            <option value="" disabled selected><b>Pilih Kertas</b></option>
                                 @foreach ($jenisKertas as $kertas)
                                 <option value="{{ $kertas->id }}">{{ $kertas->nama_kertas }}</option>
                                 @endforeach
@@ -564,7 +563,7 @@ select.form-select, select.form-select option {
 
                     <div class="row">
                         <div class="col-12 col-sm-6 col-md-6 mb-3">
-                            <label for="jenis_sampul_id" class="form-label">Jenis Sampul</label>
+                            <label for="jenis_sampul_id" class="form-label"><b>Jenis Sampul</b></label>
                             <select class="form-select" name="jenis_sampul_id" required>
                             <option value="" disabled selected>Pilih Sampul</option>
                                 @foreach ($jenisSampuls as $jenisSampul)
@@ -572,14 +571,14 @@ select.form-select, select.form-select option {
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-12 col-sm-6 col-md-6">
-                            <label for="berat" class="form-label">Berat (kg)</label>
+                        <div class="col-12 col-sm-6 col-md-6 mb-3">
+                            <label for="berat" class="form-label"><b>Berat (kg)</b></label>
                             <input type="number" class="form-control" name="berat" step="0.01" min="0" placeholder="Masukkan berat buku" required>
                         </div>
                     </div>
 
                     <div class="">
-                        <label for="harga" class="form-label">Harga</label>
+                        <label for="harga" class="form-label"><b>Harga</b></label>
                         <input type="number" class="form-control" name="harga" step="0.01" min="0" placeholder="Masukkan harga buku" required>
                     </div>
                 </div>
