@@ -177,10 +177,13 @@
                 padding: 5px 5px 0px 5px;
             }
             .form-group label {
-                font-size: 14px;
+                font-size: 12px;
             }
             .form-control, .form-select {
-                font-size: 12px;
+                font-size: 9px;
+            }
+            .form-control option {
+                font-size: 10px;
             }
             .custom-button {
                 font-size: 14px;
@@ -211,8 +214,9 @@
         <h1 class="text-title mb-4">Daftar Toko</h1>
 
         @if (session('success'))
-            <div class="alert alert-success">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
 

@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
         Route::delete('/{toko}', [TokoController::class, 'destroy'])->name('toko.destroy'); // Menghapus toko
         Route::post('/{toko}/toggle-status', [TokoController::class, 'toggleStatus'])->name('toko.toggle-status'); // Mengubah status aktif/tidak aktif
     });
-
+ 
     // Rute untuk pengelolaan Orders
     Route::resource('orders', OrderController::class);
     Route::delete('orders/{order}', [OrderController::class, 'destroy']);
