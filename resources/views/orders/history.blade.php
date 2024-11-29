@@ -183,16 +183,15 @@
 </style>
 
 <!-- Halaman Riwayat Order -->
-<div class="container-card">
+<div class="container-order">
     <div class="card">
         <div class="card-header">
             <h3 class="order-title mb-0">Riwayat Order</h3>
         </div>
         <div class="card-body">
-            <div class="table-responsive-sm">
                 <table class="table table-bordered">
-                    <thead class="table-light">
-                        <tr class="text-center">
+                    <thead class="thead text-center">
+                        <tr>
                             <th>No</th>
                             <th>Tanggal</th>
                             <th>No Invoice</th>
@@ -257,7 +256,7 @@
                         <!-- Modal Detail Pesanan -->
                         <div class="modal fade" id="detailModal{{ $order->id }}" tabindex="-1"
                             aria-labelledby="detailModalLabel{{ $order->id }}" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
+                            <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="detailModalLabel{{ $order->id }}">Detail Pesanan
@@ -284,7 +283,7 @@
                         <!-- Modal Batalkan Pesanan -->
                         <div class="modal fade" id="cancelModal{{ $order->id }}" tabindex="-1"
                             aria-labelledby="cancelModalLabel{{ $order->id }}" aria-hidden="true">
-                            <div class="modal-dialog">
+                            <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="cancelModalLabel{{ $order->id }}">Batalkan Pesanan
@@ -299,9 +298,7 @@
                                         <form action="{{ route('order.cancel', $order->id) }}" method="POST">
                                             @csrf
                                             @method('PATCH')
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Batal</button>
-                                            <button type="submit" class="btn btn-danger">Batalkan Pesanan</button>
+                                            <button type="submit" class="btn-custom-danger">Batalkan Pesanan</button>
                                         </form>
                                     </div>
                                 </div>
@@ -311,9 +308,17 @@
                         @endforeach
                     </tbody>
                 </table>
-            </div>
         </div>
     </div>
 </div>
+<!-- Tambahkan jQuery terlebih dahulu -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Tambahkan file JS Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+</script>
 
 @endsection
