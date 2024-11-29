@@ -230,8 +230,8 @@
                     </button>
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered">
-                        <thead class="thead text-center">
+                    <table class="table table-bordered ">
+                        <thead class="thead text-center ">
                             <tr>
                                 <th>Nama Toko</th>
                                 <th>Marketplace</th>
