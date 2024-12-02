@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
 @section('title', 'Riwayat Pesanan')
-
 @section('content')
 
 <style>

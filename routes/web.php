@@ -44,9 +44,12 @@ Route::middleware('auth')->group(function () {
     Route::resource('orders', OrderController::class);
     Route::delete('orders/{order}', [OrderController::class, 'destroy']);
     Route::post('/order/confirm/{order}', [OrderController::class, 'confirm'])->name('order.confirm');
-    Route::get('/order/history', [OrderController::class, 'history'])->name('order.history');
+    // Route::get('/order/riwayat', [OrderController::class, 'riwayat'])->name('order.riwayat');
     Route::patch('/order/{order}/cancel', [OrderController::class, 'cancel'])->name('order.cancel');
 
+    // Rute untuk pengelolaan Riwayat Pesanan
+    Route::get('/riwayat-pesanan', [OrderController::class, 'riwayatPesanan'])->name('riwayat.pesanan');
+    Route::post('/orders/confirm/{id}', [OrderController::class, 'confirmOrder'])->name('order.confirm');
 
 
     // Rute untuk pengelolaan Buku
