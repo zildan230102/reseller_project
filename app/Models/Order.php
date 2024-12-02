@@ -27,6 +27,8 @@ class Order extends Model
         'grand_total',
         'no_invoice',
         'kode_booking',
+        'status',  // Menambahkan kolom status
+        'metode_pembayaran',  // Menambahkan kolom metode pembayaran
     ];
 
     /**
@@ -107,12 +109,9 @@ class Order extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-   // app/Models/Order.php
-
     public function bukus()
     {
         return $this->belongsToMany(Buku::class, 'order_buku', 'order_id', 'buku_id')
                     ->withPivot('jumlah');  // Jika ada field tambahan di tabel pivot, misalnya jumlah
     }
-
 }

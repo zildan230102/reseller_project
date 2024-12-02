@@ -61,7 +61,6 @@
           <h3 class="order-title mb-0">Riwayat Pesanan</h3>
         </div>
         <div class="card-body">
-        <div class="table-responsive">
           <table class="table table-bordered">
             <thead class="text-center table-light">
                 <tr>
@@ -189,20 +188,21 @@
                             <div class="modal-body">
                                 <p>Apakah Anda yakin ingin membatalkan pesanan ini?</p>
                             </div>
+                            @if ($order->status !== 'canceled')
                             <div class="modal-footer">
                                 <form action="{{ route('order.cancel', $order->id) }}" method="POST">
                                     @csrf
                                     @method('PATCH')
                                     <button type="submit" class="btn-custom-danger">Batalkan Pesanan</button>
                                 </form>
-                            </div>
+                            </div>    
+                            @endif
                         </div>
                     </div>
                 </div>
                 @endforeach
             </tbody>
           </table>
-          </div>
         </div>
       </div>
 </div>

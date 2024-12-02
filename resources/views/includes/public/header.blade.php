@@ -60,9 +60,10 @@
                                     Pembayaran
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="">Riwayat Pembayaran</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('logout') }}">Tagihan</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('payment.history') }}">Riwayat Pembayaran</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('payment.bills') }}">Tagihan</a></li>
                                 </ul>
+                                
                             </li>    
                         </ul>
                         <!-- Baris Ketiga -->

@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TokoController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\PaymentController;
 
 
 // Rute untuk homepage yang mengarahkan ke login
@@ -51,6 +52,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/riwayat-pesanan', [OrderController::class, 'riwayatPesanan'])->name('riwayat.pesanan');
     Route::post('/orders/confirm/{id}', [OrderController::class, 'confirmOrder'])->name('order.confirm');
 
+    // Rute untuk metode Payment
+    Route::get('/riwayat-pembayaran', [PaymentController::class, 'history'])->name('payment.history');
+    Route::get('/tagihan', [PaymentController::class, 'bills'])->name('payment.bills');
+    Route::post('/payment/update', [PaymentController::class, 'update'])->name('payment.update');
+    Route::get('/orders/history', [OrderController::class, 'history'])->name('orders.history');
 
     // Rute untuk pengelolaan Buku
     Route::resource('bukus', BukuController::class);

@@ -176,14 +176,14 @@ class OrderController extends Controller
 
         // Pastikan pesanan yang akan dibatalkan belum dibatalkan sebelumnya
         if ($order->status == 'canceled') {
-            return redirect()->route('order.riwayat')->with('error', 'Pesanan sudah dibatalkan.');
+            return redirect()->route('riwayat.pesanan')->with('error', 'Pesanan sudah dibatalkan.');
         }
 
         // Ubah status pesanan menjadi 'canceled'
         $order->status = 'canceled';
         $order->save();
 
-        return redirect()->route('order.riwayat')->with('success', 'Pesanan berhasil dibatalkan.');
+        return redirect()->route('riwayat.pesanan')->with('success', 'Pesanan berhasil dibatalkan.');
     }
 
     // Menghapus order yang sudah ada
