@@ -163,10 +163,10 @@ class OrderController extends Controller
     }
 
     // Menampilkan daftar riwayat order yang sudah terkonfirmasi
-    public function history()
+    public function riwayat()
     {
         $orders = Order::where('status', 'confirmed')->get(); // Ambil order dengan status 'confirmed'
-        return view('orders.history', compact('orders'));
+        return view('orders.riwayat', compact('orders'));
     }
 
     // Fungsi untuk membatalkan pesanan
@@ -176,14 +176,14 @@ class OrderController extends Controller
 
         // Pastikan pesanan yang akan dibatalkan belum dibatalkan sebelumnya
         if ($order->status == 'canceled') {
-            return redirect()->route('order.history')->with('error', 'Pesanan sudah dibatalkan.');
+            return redirect()->route('order.riwayat')->with('error', 'Pesanan sudah dibatalkan.');
         }
 
         // Ubah status pesanan menjadi 'canceled'
         $order->status = 'canceled';
         $order->save();
 
-        return redirect()->route('order.history')->with('success', 'Pesanan berhasil dibatalkan.');
+        return redirect()->route('order.riwayat')->with('success', 'Pesanan berhasil dibatalkan.');
     }
 
     // Menghapus order yang sudah ada
@@ -194,4 +194,32 @@ class OrderController extends Controller
     
         return redirect()->route('orders.index')->with('success', 'Order berhasil dihapus');
     }
+
+    //
+    public function riwayatPesanan()
+    {
+        // Ambil hanya pesanan yang sudah dikonfirmasi
+        $orders = Order::where('status', 'confirmed')->get();
+    
+        return view('orders.riwayat', compact('orders'));
+    }
+    
+    
+    public function confirmOrder($id)
+{
+    // Cari order berdasarkan ID
+    $order = Order::find($id);
+
+    if ($order) {
+        // Update status menjadi "confirmed"
+        $order->status = 'confirmed';
+        $order->save();
+
+        return redirect()->back()->with('success', 'Pesanan berhasil dikonfirmasi dan dipindahkan ke riwayat.');
+    }
+
+    return redirect()->back()->with('error', 'Pesanan tidak ditemukan.');
+}
+
+
 }
