@@ -9,7 +9,7 @@
             padding-top: 80px;
         }
         .card-header-button {
-            padding: 15px 0px 0px 15px;
+            padding: 15px;
             display: flex;
             background-color: transparent;
             border-bottom: none;
@@ -74,6 +74,10 @@
             font-size: 12px;
         }
 
+        .card-body-toko {
+            padding: 0 15px;
+        }
+
         /* Responsif untuk layar 768px ke bawah */
         @media (max-width: 768px) {
             .container {
@@ -84,6 +88,11 @@
             .header-title {
                 font-size: 20px;
                 text-align: center;
+            }
+
+            .text-title {
+                text-align: center;
+                font-size: 25px;
             }
 
             .custom-button-daftar {
@@ -233,7 +242,7 @@
                         <i class="bi bi-plus-lg me-2"></i>Tambah Toko
                     </button>
                 </div>
-                <div class="card-body">
+                <div class="card-body-toko">
                     <table class="table table-bordered ">
                         <thead class="thead text-center ">
                             <tr>
@@ -324,19 +333,19 @@
                         <form id="tokoForm" action="{{ route('toko.store') }}" method="POST">
                             @csrf
                             <div class="form-group mb-3">
-                                <label for="nama_toko">Nama Toko</label>
+                                <label for="nama_toko"><b>Nama Toko</b></label>
                                 <input type="text" class="form-control" name="nama_toko"  placeholder="Masukkan nama toko"required>
                             </div>
 
                             <div class="form-group mb-3">
-                                <label for="marketplace">Marketplace</label>
+                                <label for="marketplace"><b>Marketplace</b></label>
                                 <input type="text" class="form-control" name="marketplace"
                                     placeholder="Masukkan nama marketplace" required>
                             </div>
 
-                            <div class="form-group mb-3">
-                                <label for="is_active">Status</label>
-                                <select name="is_active" class="form-control">
+                            <div class="form-group">
+                                <label for="edit_is_active"><b>Status</b></label>
+                                <select id="edit_is_active" name="is_active" class="form-select custom-dropdown">
                                     <option value="1">Aktif</option>
                                     <option value="0">Tidak Aktif</option>
                                 </select>
@@ -365,19 +374,19 @@
                             @csrf
                             @method('PUT')
                             <div class="form-group">
-                                <label for="edit_nama_toko">Nama Toko</label>
+                                <label for="edit_nama_toko"><b>Nama Toko</b></label>
                                 <input type="text" class="form-control" id="edit_nama_toko" name="nama_toko"
                                     required>
                             </div>
 
                             <div class="form-group">
-                                <label for="edit_marketplace">Marketplace</label>
+                                <label for="edit_marketplace"><b>Marketplace</b></label>
                                 <input type="text" class="form-control" id="edit_marketplace" name="marketplace"
                                     required>
                             </div>
 
                             <div class="form-group">
-                                <label for="edit_is_active">Status</label>
+                                <label for="edit_is_active"><b>Status</b></label>
                                 <select id="edit_is_active" name="is_active" class="form-select custom-dropdown">
                                     <option value="1">Aktif</option>
                                     <option value="0">Tidak Aktif</option>

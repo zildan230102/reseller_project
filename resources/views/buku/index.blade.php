@@ -107,9 +107,6 @@ select.form-select, select.form-select option {
         padding: 10px 20px 10px 20px;
         max-height: 70vh !important;
     }
-    .modal-content {
-        max-height: 80vh !important;
-    }
     .modal-footer {
         padding: 10px 20px 10px 10px;
     }
