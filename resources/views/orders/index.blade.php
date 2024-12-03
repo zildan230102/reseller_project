@@ -190,23 +190,32 @@
     .form-select {
         font-size: 14px;
     }
+    .form-select option {
+        font-size: 11px;
+    }
     .books-row .col-md-5 {
-        max-width: 85%;
+        max-width: 75%;
+        margin-bottom: 5px;
     }
     .books-row .col-md-1 {
         display: flex;
-        flex-direction: column; 
-        align-items: flex-end; 
+        align-items: flex-end;
     }
     .text-end {
-        max-width: 15%;
+        max-width: 20%;
     }
-    .buku-row {
+    .buku-row .col-md-1 {
         display: flex;
-        max-width: 90%;
+        align-items: flex-end;
+        gap: 5px;
+        margin-right: 5px;
+    }
+    .buku-row .col-md-5 {
+        margin-bottom: 5px;
+        max-width: 75%;
     }
     .text-start {
-        max-width: 10%;
+        max-width: 20%;
         justify-content: flex-start;
     }
 }
