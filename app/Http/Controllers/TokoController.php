@@ -33,7 +33,13 @@ class TokoController extends Controller
     public function update(Request $request, Toko $toko)
     {
         $request->validate($this->rules());
-        // $toko->update($request->only(['nama_toko', 'marketplace', 'is_active']));
+        $toko->update([
+            'nama_toko' => $request->nama_toko,
+            'marketplace' => $request->marketplace,
+            'is_active' => $request->is_active,
+        ]);
+    
+        // Redirect ke halaman daftar toko dengan pesan sukses
         return redirect()->route('toko.index')->with('success', 'Toko berhasil diperbarui.');
     }
 

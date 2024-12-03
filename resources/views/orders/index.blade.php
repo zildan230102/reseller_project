@@ -101,6 +101,13 @@
         padding: 0.5rem;
     }
 
+    .container-order {
+        padding: 20px 20px 0 20px;
+    }
+    
+    .container-card {
+        padding: 0 20px 0 20px;
+    }
     .card h3 {
         font-size: 1.2rem;
     }
@@ -179,6 +186,29 @@
     .modal-footer {
         padding: 5px 5px 0px 5px;
     }
+
+    .form-select {
+        font-size: 14px;
+    }
+    .books-row .col-md-5 {
+        max-width: 85%;
+    }
+    .books-row .col-md-1 {
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-end; 
+    }
+    .text-end {
+        max-width: 15%;
+    }
+    .buku-row {
+        display: flex;
+        max-width: 90%;
+    }
+    .text-start {
+        max-width: 10%;
+        justify-content: flex-start;
+    }
 }
 </style>
 <div class="container-order">
@@ -247,7 +277,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="toko_id" class="form-label">Toko</label>
-                                <select id="toko_id" name="toko_id" class="form-control" required>
+                                <select id="toko_id" name="toko_id" class="form-select" required>
                                     <option value="">Pilih Toko</option>
                                     @foreach ($tokos as $toko)
                                     <option value="{{ $toko->id }}" data-marketplace="{{ $toko->marketplace }}">
@@ -338,7 +368,7 @@
                             <label for="bukus" class="form-label">Pilih Buku</label>
                             <div id="buku-container">
                                 <!-- Baris pertama (default) -->
-                                <div class="row align-items-center mb-2 buku-row" id="buku-row-0">
+                                <div class="row align-items-center mb-2 books-row" id="buku-row-0">
                                     <div class="col-md-5">
                                         <select name="bukus[0][id]" class="form-select buku-select" required>
                                             <option value="" data-berat="0" data-harga="0">Pilih Buku</option>
@@ -354,7 +384,7 @@
                                         <input type="number" name="bukus[0][jumlah]" class="form-control jumlah-input"
                                             placeholder="Jumlah" required>
                                     </div>
-                                    <div class="col-md-1 d-flex justify-content-between">
+                                    <div class="col-md-1 d-flex justify-content-between text-end">
                                         <i class="bi bi-plus-circle text-primary fs-4 cursor-pointer add-buku"
                                             title="Tambah Buku"></i>
                                     </div>
@@ -772,7 +802,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="col-md-5">
                     <input type="number" name="bukus[${index}][jumlah]" class="form-control jumlah-input" placeholder="Jumlah" required>
                 </div>
-                <div class="col-md-1 d-flex justify-content-between">
+                <div class="col-md-1 d-flex justify-content-between text-start">
                     <i class="bi bi-plus-circle text-primary fs-4 cursor-pointer add-buku" title="Tambah Buku"></i>
                     <i class="bi bi-trash text-danger fs-4 cursor-pointer remove-buku" title="Hapus Buku"></i>
                 </div>
