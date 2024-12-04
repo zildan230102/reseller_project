@@ -79,7 +79,13 @@
     font-size: 1.5rem;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 767px) and (max-width: 1180px) {
+    .container-order {
+        padding: 20px 20px 0 20px;
+    }
+    .container-card {
+        padding: 0 20px 0 20px;
+    }
     .order-title {
         font-size: 1.25rem;
     }
@@ -89,10 +95,18 @@
         font-size: 0.9rem;
         padding: 0.5rem;
     }
-
+    .nav-tabs .nav-link {
+        padding: 10px;
+    }
     .custom-dropdown-item {
         font-size: 0.9rem;
         padding: 0.3rem 0.6rem;
+    }
+    .form-select option {
+        font-size: 10px;
+    }
+    .buku-row .col-md-1 {
+        gap: 20px;
     }
 }
 
