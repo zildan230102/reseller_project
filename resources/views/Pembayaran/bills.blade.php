@@ -1,79 +1,102 @@
 @extends('layouts.main')
 
-@section('title', 'Tagihan')
-
 @section('content')
-
 <div class="container">
-    <h2>Tagihan</h2>
-    @if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-    @endif
-    <!-- Form memilih metode pembayaran -->
-    <form action="{{ route('payment.update') }}" method="POST">
+    <h2>Checkout Pembayaran</h2>
+
+    @if($orders->isEmpty())
+    <div class="alert alert-info">Tidak ada pesanan yang perlu dibayar.</div>
+    @else
+    <form action="{{ route('payment.process') }}" method="POST">
         @csrf
-        <div class="form-group">
-            <label for="order_id">Pilih Pesanan:</label>
-            <select name="order_id" id="order_id" class="form-control">
-                @foreach($orders as $order)
-                    <option value="{{ $order->id }}" 
-                        @if($order->metode_pembayaran) disabled @endif>
-                        {{ $order->no_invoice }} ({{ $order->penerima }})
-                    </option>
+
+        <div class="row">
+            <!-- Kolom Kiri: Informasi Pesanan -->
+            <div class="col-md-8">
+                @foreach ($orders as $order)
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="order_ids[]" value="{{ $order->id }}"
+                                id="order_{{ $order->id }}">
+                            <label class="form-check-label" for="order_{{ $order->id }}">
+                                <strong>Invoice:</strong> {{ $order->no_invoice }}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5>Detail Produk</h5>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nama Buku</th>
+                                    <th>Jumlah</th>
+                                    <th>Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($order->bukus as $buku)
+                                <tr>
+                                    <td>{{ $buku->judul_buku }}</td>
+                                    <td>{{ $buku->pivot->jumlah }}</td>
+                                    <td>Rp{{ number_format($buku->harga * $buku->pivot->jumlah, 0, ',', '.') }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+
+                        <h5>Alamat Pengiriman</h5>
+                        <p>
+                            {{ $order->alamat_kirim }}<br>
+                            {{ $order->kelurahan }}, {{ $order->kecamatan }}, {{ $order->kota }},
+                            {{ $order->provinsi }}<br>
+                            <strong>Penerima:</strong> {{ $order->penerima }} ({{ $order->no_hp_penerima }})
+                        </p>
+                    </div>
+                </div>
                 @endforeach
-            </select>
-        </div>
+            </div>
 
-        <div class="form-group">
-            <label for="metode_pembayaran">Pilih Metode Pembayaran:</label>
-            <select name="metode_pembayaran" id="metode_pembayaran" class="form-control">
-                <option value="cash">Cash</option>
-                <option value="transfer">Transfer</option>
-                <!-- Tambahkan metode pembayaran lainnya jika perlu -->
-            </select>
-        </div>
+            <!-- Kolom Kanan: Ringkasan dan Pembayaran -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Ringkasan Pembayaran</strong>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Total Tagihan:</strong>
+                            Rp{{ number_format($orders->sum('grand_total'), 0, ',', '.') }}</p>
 
-        <button type="submit" class="btn btn-primary">Update Metode Pembayaran</button>
+                        <div class="form-group">
+                            <label for="metode_pembayaran">Metode Pembayaran:</label>
+                            <select name="metode_pembayaran" id="metode_pembayaran" class="form-control" required>
+                                <option value="cash">Cash</option>
+                                <option value="transfer">Transfer Bank</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block mt-3" id="payButton" disabled>Konfirmasi
+                            Pembayaran</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
-
-    <br>
-
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>No Invoice</th>
-                <th>Tanggal</th>
-                <th>Penerima</th>
-                <th>Alamat Kirim</th>
-                <th>Buku yang Dipesan</th>
-                <th>Grand Total</th>
-                <th>Metode Pembayaran</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($orders as $index => $order)
-            <tr>
-                <td>{{ $index + 1 }}</td>
-                <td>{{ $order->no_invoice }}</td>
-                <td>{{ $order->tanggal }}</td>
-                <td>{{ $order->penerima }}</td>
-                <td>{{ $order->alamat_kirim }}</td>
-                <td>
-                    <ul>
-                        @foreach($order->bukus as $buku)
-                        <li>{{ $buku->judul_buku }} - {{ $buku->pivot->jumlah }} Buku</li>
-                        @endforeach
-                    </ul>
-                </td>
-                <td>{{ number_format($order->grand_total, 2) }}</td>
-                <td>{{ $order->metode_pembayaran ?? 'Belum Dibayar' }}</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+    @endif
 </div>
 
+<script>
+// Script untuk mengaktifkan tombol bayar jika ada checkbox yang dipilih
+document.addEventListener('DOMContentLoaded', function() {
+    const checkboxes = document.querySelectorAll('input[name="order_ids[]"]');
+    const payButton = document.getElementById('payButton');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+            payButton.disabled = !anyChecked;
+        });
+    });
+});
+</script>
 @endsection

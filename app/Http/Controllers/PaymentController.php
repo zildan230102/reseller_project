@@ -67,4 +67,35 @@ class PaymentController extends Controller
         // Mengarahkan ke view 'pembayaran.bills' dengan data $bills
         return view('pembayaran.bills', compact('orders'));
     }
+
+    public function selectOrderToPay()
+    {
+        // Ambil daftar pesanan dengan status 'confirmed' atau 'Belum Lunas'
+        $orders = Order::where('status', 'confirmed')
+            ->orWhere('status_pembayaran', 'Belum Lunas')
+            ->get();
+
+        // Arahkan ke view dengan data pesanan
+        return view('pembayaran.select_order', compact('orders'));
+    }
+
+    public function processPayment(Request $request)
+    {
+        $validated = $request->validate([
+            'order_ids' => 'required|array',
+            'order_ids.*' => 'exists:orders,id',
+            'metode_pembayaran' => 'required|in:cash,transfer',
+        ]);
+
+        $orders = Order::whereIn('id', $validated['order_ids'])->get();
+        foreach ($orders as $order) {
+            $order->metode_pembayaran = $validated['metode_pembayaran'];
+            $order->status_pembayaran = 'Lunas';
+            $order->save();
+        }
+
+        return redirect()->route('payment.history')->with('success', 'Pembayaran berhasil diproses.');
+    }
+
+
 }
