@@ -218,6 +218,21 @@
                 font-size: 14px;
             }
         }
+        @media (max-width: 1180px) {
+            .text-title {
+                text-align: center;
+                font-size: 25px;
+            }
+            .form-select option {
+                font-size: 11px;
+            }
+            .aksi {
+                font-size: 14px;
+                left: auto;
+                right: 0;
+                transform: translateX(-50%) !important;
+            }
+        }
     </style>
     <div class="container mt-4">
         <h1 class="text-title mb-4">Daftar Toko</h1>
@@ -268,7 +283,7 @@
                                                 data-bs-toggle="dropdown" aria-expanded="false">
                                                 <i class="bi bi-eye-fill text-black"></i>
                                             </button>
-                                            <ul class="dropdown-menu">
+                                            <ul class="dropdown-menu aksi">
                                                 <!-- Toggle Status Button -->
                                                 <li>
                                                     <form action="{{ route('toko.toggle-status', $toko) }}" method="POST"

@@ -260,6 +260,11 @@
 			padding-top: 0;
 		}
 	}
+	@media (max-width: 1180px) {
+		.footer-container {
+			padding: 0 0 0 40px;
+		}
+	}
 </style>
 
 <footer class="footer">

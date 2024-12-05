@@ -110,9 +110,6 @@ select.form-select, select.form-select option {
     .modal-footer {
         padding: 10px 20px 10px 10px;
     }
-    select.form-select, select.form-select option {
-        font-size: 14px;
-    }
     select.form-select {
         max-height: 150px;
         overflow-y: auto;
@@ -196,6 +193,36 @@ select.form-select, select.form-select option {
         font-size: 10px;
     }
 }
+
+@media (min-width:820px) {
+    .text-start {
+        font-size: 14px;
+        left: auto;
+        right: 0;
+        transform: translateX(-50%) !important;
+    }
+    .form-select option {
+        font-size: 10px !important;
+    }
+}
+
+@media (max-width: 1180px) {
+    .container {
+        padding-bottom: 0 !important;
+    }
+    .card-container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    select.form-select option {
+        font-size: 10px;
+    }
+    .text-title {
+        text-align: center;
+        font-size: 25px;
+    }
+}
+
 </style>
 
 <div class="container mt-4">
