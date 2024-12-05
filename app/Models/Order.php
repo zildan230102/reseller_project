@@ -27,20 +27,21 @@ class Order extends Model
         'grand_total',
         'no_invoice',
         'kode_booking',
-        'status',  // Menambahkan kolom status
-        'metode_pembayaran',  // Menambahkan kolom metode pembayaran
+        'status',             // Status pesanan (e.g., pending, paid, shipped, etc.)
+        'metode_pembayaran',  // Metode pembayaran (e.g., cash, transfer)
+        'tanggal_pembayaran', // Tanggal pembayaran (nullable)
     ];
 
     /**
      * Boot method untuk model Order.
      */
-    public static function boot()
+    protected static function boot()
     {
         parent::boot();
 
-        // Event saat model sedang dibuat
+        // Event sebelum order dibuat
         static::creating(function ($order) {
-            // Generate no_invoice hanya jika toko valid
+            // Generate nomor invoice secara otomatis jika toko valid
             if ($order->toko) {
                 $order->no_invoice = $order->generateInvoiceNumber();
             } else {
@@ -53,8 +54,8 @@ class Order extends Model
      * Generate nomor invoice dengan format khusus.
      *
      * Format: INISIALTOKO-DDMMYYYY-XXX
-     * - INISIALTOKO: Inisial nama toko (huruf besar dari setiap kata).
-     * - DDMMYYYY: Tanggal pada saat order dibuat.
+     * - INISIALTOKO: Inisial nama toko.
+     * - DDMMYYYY: Tanggal order dibuat.
      * - XXX: Urutan order pada hari yang sama (3 digit).
      *
      * @return string
@@ -67,18 +68,19 @@ class Order extends Model
         }
 
         // Ambil inisial nama toko
-        $words = explode(' ', $this->toko->nama_toko);
-        $initials = implode('', array_map(fn($word) => strtoupper(substr($word, 0, 1)), $words));
+        $initials = collect(explode(' ', $this->toko->nama_toko))
+            ->map(fn($word) => strtoupper(substr($word, 0, 1)))
+            ->implode('');
 
-        // Format tanggal saat ini
+        // Format tanggal
         $date = now()->format('dmY');
 
-        // Hitung jumlah order dari toko ini pada hari yang sama
+        // Hitung jumlah order dari toko ini pada tanggal yang sama
         $count = self::where('toko_id', $this->toko_id)
             ->whereDate('created_at', now()->toDateString())
             ->count() + 1;
 
-        // Format menjadi 3 digit
+        // Tambahkan 3 digit nomor urut
         $countFormatted = str_pad($count, 3, '0', STR_PAD_LEFT);
 
         return "{$initials}-{$date}-{$countFormatted}";
@@ -112,6 +114,18 @@ class Order extends Model
     public function bukus()
     {
         return $this->belongsToMany(Buku::class, 'order_buku', 'order_id', 'buku_id')
-                    ->withPivot('jumlah');  // Jika ada field tambahan di tabel pivot, misalnya jumlah
+                    ->withPivot('jumlah');  // Jika tabel pivot memiliki kolom tambahan, seperti jumlah
+    }
+
+    /**
+     * Scope untuk mengambil pesanan berdasarkan status.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param string $status
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeByStatus($query, $status)
+    {
+        return $query->where('status', $status);
     }
 }

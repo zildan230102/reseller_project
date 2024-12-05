@@ -35,15 +35,29 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                $grandTotal = 0;
+                                @endphp
                                 @foreach ($order->bukus as $buku)
+                                @php
+                                $subtotal = $buku->harga * $buku->pivot->jumlah;
+                                $grandTotal += $subtotal;
+                                @endphp
                                 <tr>
                                     <td>{{ $buku->judul_buku }}</td>
                                     <td>{{ $buku->pivot->jumlah }}</td>
-                                    <td>Rp{{ number_format($buku->harga * $buku->pivot->jumlah, 0, ',', '.') }}</td>
+                                    <td>Rp{{ number_format($subtotal, 0, ',', '.') }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="2" class="text-end"><strong>Grand Total</strong></td>
+                                    <td><strong>Rp{{ number_format($grandTotal, 0, ',', '.') }}</strong></td>
+                                </tr>
+                            </tfoot>
                         </table>
+
 
                         <h5>Alamat Pengiriman</h5>
                         <p>
@@ -86,7 +100,6 @@
 </div>
 
 <script>
-// Script untuk mengaktifkan tombol bayar jika ada checkbox yang dipilih
 document.addEventListener('DOMContentLoaded', function() {
     const checkboxes = document.querySelectorAll('input[name="order_ids[]"]');
     const payButton = document.getElementById('payButton');
