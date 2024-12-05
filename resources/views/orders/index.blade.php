@@ -358,25 +358,35 @@
 
                         <div class="row">
                             <div class="col-sm-12 col-md-6 mb-3">
-                                <label for="kelurahan" class="form-label">Kelurahan</label>
-                                <input type="text" class="form-control" id="kelurahan" name="kelurahan" required>
+                                <label for="provinsi" class="form-label">Provinsi</label>
+                                <select class="form-select" id="provinsi" name="provinsi" required>
+                                    <option value="">Pilih Provinsi</option>
+                                </select>
                             </div>
                             <div class="col-sm-12 col-md-6 mb-3">
-                                <label for="kecamatan" class="form-label">Kecamatan</label>
-                                <input type="text" class="form-control" id="kecamatan" name="kecamatan" required>
+                                <label for="kota" class="form-label">Kota</label>
+                                <select class="form-select" id="kota" name="kota" required disabled>
+                                    <option value="">Pilih Kota</option>
+                                </select>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-sm-12 col-md-6 mb-3">
-                                <label for="kota" class="form-label">Kota</label>
-                                <input type="text" class="form-control" id="kota" name="kota" required>
+                                <label for="kecamatan" class="form-label">Kecamatan</label>
+                                <select class="form-select" id="kecamatan" name="kecamatan" required disabled>
+                                    <option value="">Pilih Kecamatan</option>
+                                </select>
                             </div>
                             <div class="col-sm-12 col-md-6 mb-3">
-                                <label for="provinsi" class="form-label">Provinsi</label>
-                                <input type="text" class="form-control" id="provinsi" name="provinsi" required>
+                                <label for="kelurahan" class="form-label">Kelurahan</label>
+                                <select class="form-select" id="kelurahan" name="kelurahan" required disabled>
+                                    <option value="">Pilih Kelurahan</option>
+                                </select>
                             </div>
                         </div>
+
+                        
                         <div class="d-flex justify-content-between">
                             <button type="button" class="custom-button"
                                 onclick="tabSebelumnya('order-info-tab')">Sebelumnya</button>
@@ -535,30 +545,28 @@
 </div>
 
 <!-- Modal Konfirmasi Hapus -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true"
-    data-bs-backdrop="static" data-bs-keyboard="false">
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="deleteModalLabel">Konfirmasi Hapus</h5>
-                <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Apakah Anda yakin ingin menghapus order ini?
+                Apakah Anda yakin ingin menghapus item ini?
             </div>
             <div class="modal-footer">
-                <form id="deleteForm" method="POST" action="" style="display:none;">
+                <form id="deleteForm" method="POST" action="">
                     @csrf
                     @method('DELETE')
-                    <!-- Pastikan metode DELETE digunakan -->
-                    <input type="hidden" name="order_id" id="orderId"> <!-- Menyimpan ID Order -->
+                    <input type="hidden" name="order_id" id="orderId">
                 </form>
                 <button type="button" class="btn-custom-danger" id="confirmDelete">Hapus</button>
-
             </div>
         </div>
     </div>
 </div>
+
 
 
 
@@ -678,29 +686,28 @@
                                 <textarea class="form-control" id="alamat_kirim{{ $order->id }}" name="alamat_kirim"
                                     required>{{ $order->alamat_kirim }}</textarea>
                             </div>
-
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label for="kelurahan{{ $order->id }}" class="form-label">Kelurahan</label>
-                                    <input type="text" class="form-control" id="kelurahan{{ $order->id }}"
-                                        name="kelurahan" value="{{ $order->kelurahan }}" required>
+                                    <label for="provinsi{{ $order->id }}" class="form-label">Provinsi</label>
+                                    <input type="text" class="form-control" id="provinsi{{ $order->id }}"
+                                        name="provinsi" value="{{ $order->provinsi }}" required>
                                 </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="kecamatan{{ $order->id }}" class="form-label">Kecamatan</label>
-                                    <input type="text" class="form-control" id="kecamatan{{ $order->id }}"
-                                        name="kecamatan" value="{{ $order->kecamatan }}" required>
-                                </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="kota{{ $order->id }}" class="form-label">Kota</label>
                                     <input type="text" class="form-control" id="kota{{ $order->id }}" name="kota"
                                         value="{{ $order->kota }}" required>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label for="provinsi{{ $order->id }}" class="form-label">Provinsi</label>
-                                    <input type="text" class="form-control" id="provinsi{{ $order->id }}"
-                                        name="provinsi" value="{{ $order->provinsi }}" required>
+                                    <label for="kecamatan{{ $order->id }}" class="form-label">Kecamatan</label>
+                                    <input type="text" class="form-control" id="kecamatan{{ $order->id }}"
+                                        name="kecamatan" value="{{ $order->kecamatan }}" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="kelurahan{{ $order->id }}" class="form-label">Kelurahan</label>
+                                    <input type="text" class="form-control" id="kelurahan{{ $order->id }}"
+                                        name="kelurahan" value="{{ $order->kelurahan }}" required>
                                 </div>
                             </div>
                         </div>
@@ -778,6 +785,22 @@
 @endforeach
 
 <script>
+      document.querySelector('.custom-button').addEventListener('click', function(e) {
+    e.preventDefault(); // Mencegah pengiriman form default
+
+    // Tampilkan SweetAlert
+    Swal.fire({
+      title: "Good job!",
+      text: "You clicked the button!",
+      icon: "success",
+      confirmButtonText: 'OK'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Kirim form setelah konfirmasi
+        e.target.closest('form').submit();
+      }
+    });
+  });
 document.addEventListener('DOMContentLoaded', function() {
     let bukuIndex = 1;
 
@@ -786,9 +809,13 @@ document.addEventListener('DOMContentLoaded', function() {
         let totalBerat = 0;
         let grandTotal = 0;
 
+        console.log(document.querySelectorAll('.buku-row'));
         document.querySelectorAll('.buku-row').forEach(row => {
             const bukuSelect = row.querySelector('.buku-select');
             const jumlahInput = row.querySelector('.jumlah-input');
+
+
+            console.log({bukuSelect, jumlahInput})
 
             if (bukuSelect && jumlahInput) {
                 const selectedOption = bukuSelect.options[bukuSelect.selectedIndex];
@@ -796,10 +823,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 const harga = parseFloat(selectedOption?.getAttribute('data-harga')) || 0;
                 const jumlah = parseInt(jumlahInput.value) || 0;
 
+                console.log({selectedOption, berat, harga, jumlah})
+
                 totalBerat += berat * jumlah;
                 grandTotal += harga * jumlah;
             }
         });
+
+        console.log({totalBerat, grandTotal})
+
 
         document.getElementById('total_berat').value = totalBerat.toFixed(2);
         document.getElementById('grand_total').value = grandTotal.toFixed(2);
@@ -834,14 +866,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Event listener untuk perubahan dropdown atau jumlah buku
-    document.getElementById('buku-container').addEventListener('input', e => {
-        if (e.target.matches('.buku-select, .jumlah-input')) {
-            calculateTotals();
-        }
-    });
+    // document.getElementById('buku-container').addEventListener('input', e => {
+    //     console.log('buku container input')
+    //     if (e.target.matches('.buku-select, .jumlah-input')) {
+    //         calculateTotals();
+    //     }
+    // });
 
     // Event listener untuk menambah atau menghapus buku
     document.getElementById('buku-container').addEventListener('click', e => {
+        console.log('buku container click')
+
         if (e.target.classList.contains('add-buku')) {
             addBukuRow();
         } else if (e.target.classList.contains('remove-buku')) {
@@ -924,18 +959,25 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Handler untuk menampilkan modal dan mengatur URL penghapusan
-$('#deleteModal').on('show.bs.modal', function(event) {
-    var button = $(event.relatedTarget);
-    var orderId = button.data('order-id');
-    var actionUrl = "{{ url('orders') }}/" + orderId;
-    $('#deleteForm').attr('action', actionUrl);
-    $('#orderId').val(orderId);
+document.getElementById('deleteModal').addEventListener('show.bs.modal', function (event) {
+    // Dapatkan tombol yang memicu modal
+    const button = event.relatedTarget;
+    // Ambil ID order dari atribut data
+    const orderId = button.getAttribute('data-order-id');
+    // Buat URL aksi untuk form
+    const actionUrl = `/orders/${orderId}`;
+    // Atur URL aksi pada form
+    document.getElementById('deleteForm').setAttribute('action', actionUrl);
+    // Set nilai hidden input untuk order ID
+    document.getElementById('orderId').value = orderId;
 });
 
 // Handler untuk mengkonfirmasi penghapusan
-$('#confirmDelete').on('click', function() {
-    $('#deleteForm').submit();
+document.getElementById('confirmDelete').addEventListener('click', function () {
+    // Submit form
+    document.getElementById('deleteForm').submit();
 });
+
 
 // Modal Toko dan Marketplace - Update marketplace saat toko berubah
 function updateMarketplace(orderId) {
