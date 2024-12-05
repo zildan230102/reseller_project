@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order; // Pastikan model Order diimport
+use PDF; // Alias DOMPDF
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
