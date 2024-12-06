@@ -139,8 +139,16 @@ h2.h3.h5 {
   border-bottom: none;
 }
 
+.container-login {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  max-height: 400vh;
+}
+
 .card-login {
-  padding: 1rem;
+  padding: 20px 20px 35px 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .card-title {
@@ -282,7 +290,8 @@ h2.h3.h5 {
   border: none;
   border-radius: 5px; 
   text-decoration: none;
-  display: inline-block; 
+  float: right;
+  padding-bottom: 10px;
 }
 
 .btn:hover {
@@ -1002,6 +1011,44 @@ tr.deactive {
 
   .card h3 {
     font-size: 16px;
+  }
+
+  .reseller {
+    font-size: 22px;
+    margin-bottom: 5px;
+  }
+
+  .lead {
+    font-size: 12px;
+    margin-top: 0;
+  }
+
+  .log {
+    width: 85%;
+    margin: 0 auto;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .card-login {
+    font-size: 14px;
+    box-shadow: none;
+    padding: 20px;
+  }
+
+  .card-login .form-control {
+    font-size: 14px;
+  }
+
+  .btn-login {
+    float: right;
+    font-size: 12px;
+    text-align: center;
+    padding: 8px 16px;
+  }
+
+  .text-italic {
+    font-size: 14px;
   }
 }
 
