@@ -261,9 +261,9 @@
 		}
 	}
 	@media (max-width: 1180px) {
-		.footer-container {
+		/* .footer-container {
 			padding: 0 0 0 40px;
-		}
+		} */
 	}
 </style>
 

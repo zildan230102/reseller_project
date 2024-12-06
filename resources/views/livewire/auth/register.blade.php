@@ -1,16 +1,16 @@
 <div>
-    <div class="container d-flex flex-column">
+    <div class="container-register d-flex flex-column">
         <div class="row vh-100">
             <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto d-table h-100">
                 <div class="d-table-cell align-middle">
 
                     <div class="text-center mt-4">
-                        <h1 class="h2">Registrasi Akun</h1>
-
+                    <h2 class="text-orange reseller">Registrasi Akun</h2>
+                    <p class="lead">Isi data di bawah ini untuk melanjutkan</p>
                     </div>
 
-                    <div class="card">
-                        <div class="card-body">
+                    <div class="card log">
+                        <div class="card-login">
                             <div class="m-sm-3">
                                 <form wire:submit.prevent="registerUser">
                                     <div class="mb-3">
@@ -50,13 +50,13 @@
                                         <input type="password" class="form-control" id="password_confirmation"
                                             placeholder="Masukkan ulang password" wire:model.defer="password_confirmation">
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Daftar</button>
+                                    <button type="submit" class="btn btn-login">Daftar</button>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <div class="text-center mb-3">
-                        Sudah memiliki akun? <a href="{{route('login')}}">Masuk</a>
+                    <div class="text-center mb-3 text-italic">
+                        Sudah memiliki akun? <a href="{{route('login')}}">Klik untuk masuk</a>
                     </div>
                 </div>
             </div>
