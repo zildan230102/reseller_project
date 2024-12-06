@@ -785,25 +785,6 @@
 @endforeach
 
 <script>
-      document.querySelector('.custom-button').addEventListener('click', function(e) {
-    e.preventDefault(); // Mencegah pengiriman form default
-
-    // Tampilkan SweetAlert
-    Swal.fire({
-      title: "Good job!",
-      text: "You clicked the button!",
-      icon: "success",
-      confirmButtonText: 'OK'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // Kirim form setelah konfirmasi
-        e.target.closest('form').submit();
-      }
-    });
-  });
-document.addEventListener('DOMContentLoaded', function() {
-    let bukuIndex = 1;
-
     // Fungsi menghitung total berat dan grand total
     function calculateTotals() {
         let totalBerat = 0;
