@@ -1,8 +1,13 @@
 @extends('layouts.main')
 
 @section('content')
+<style>
+.card-header-tagihan {
+    padding: 15px 0 0 15px;
+}
+</style>
 <div class="container">
-    <h2>Checkout Pembayaran</h2>
+    <h2 class="my-4">Checkout Pembayaran</h2>
 
     @if($orders->isEmpty())
     <div class="alert alert-info">Tidak ada pesanan yang perlu dibayar.</div>
@@ -29,8 +34,8 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Nama Buku</th>
-                                    <th>Jumlah</th>
+                                    <th style="width: 500px">Nama Buku</th>
+                                    <th style="width: 150px">Jumlah</th>
                                     <th>Subtotal</th>
                                 </tr>
                             </thead>
@@ -42,25 +47,25 @@
                                 <tr>
                                     <td>{{ $buku->judul_buku }}</td>
                                     <td>{{ $buku->pivot->jumlah }}</td>
-                                    <td>Rp{{ number_format($subtotal, 0, ',', '.') }}</td>
+                                    <td class="text-end">Rp{{ number_format($subtotal, 0, ',', '.') }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td colspan="2" class="text-end"><strong>Grand Total</strong></td>
-                                    <td><strong>Rp{{ number_format($order->grand_total, 0, ',', '.') }}</strong></td>
-                                </tr>
-                            </tfoot>
                         </table>
 
+                        <p class="text-end"><strong style="margin-right: 30px;">Grand Total</strong><strong style="margin-right: 8px;">Rp{{ number_format($order->grand_total, 0, ',', '.') }}</strong></p>
+                        
                         <h5>Alamat Pengiriman</h5>
-                        <p>
-                            {{ $order->alamat_kirim }}<br>
-                            {{ $order->kelurahan }}, {{ $order->kecamatan }}, {{ $order->kota }},
-                            {{ $order->provinsi }}<br>
-                            <strong>Penerima:</strong> {{ $order->penerima }} ({{ $order->no_hp_penerima }})
-                        </p>
+                        <div class="row">
+                            <div class="col-8">
+                                {{ $order->alamat_kirim }}<br>
+                                {{ $order->kelurahan }}, {{ $order->kecamatan }}, {{ $order->kota }},
+                                {{ $order->provinsi }}<br>
+                            </div>
+                            <div class="col-4">
+                                <strong>Penerima:</strong> {{ $order->penerima }} ({{ $order->no_hp_penerima }})
+                            </div>
+                        </div>
                     </div>
                 </div>
                 @endforeach
@@ -69,8 +74,8 @@
             <!-- Kolom Kanan: Ringkasan dan Pembayaran -->
             <div class="col-md-4">
                 <div class="card">
-                    <div class="card-header">
-                        <strong>Ringkasan Pembayaran</strong>
+                    <div class="card-header-tagihan">
+                        <h4>Ringkasan Pembayaran</h4>
                     </div>
                     <div class="card-body">
                         <p><strong>Total Tagihan:</strong> 
