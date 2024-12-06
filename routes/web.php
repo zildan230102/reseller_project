@@ -57,8 +57,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/tagihan', [PaymentController::class, 'bills'])->name('payment.bills');
     Route::post('/payment/update', [PaymentController::class, 'update'])->name('payment.update');
     Route::get('/orders/history', [OrderController::class, 'history'])->name('orders.history');
-    Route::post('/payment/process', [PaymentController::class, 'processPayment'])->name('payment.process');
-    
+    Route::get('/payment-history', [PaymentController::class, 'paymentHistory'])->name('payment.history');
+    Route::post('/payment-process', [PaymentController::class, 'processPayment'])->name('payment.process');
+
     // Rute untuk pengelolaan Buku
     Route::resource('bukus', BukuController::class);
     

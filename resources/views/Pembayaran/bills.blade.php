@@ -17,8 +17,8 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="order_ids[]" value="{{ $order->id }}"
-                                id="order_{{ $order->id }}">
+                            <input class="form-check-input order-checkbox" type="checkbox" name="order_ids[]" 
+                                value="{{ $order->id }}" id="order_{{ $order->id }}" data-total="{{ $order->grand_total }}">
                             <label class="form-check-label" for="order_{{ $order->id }}">
                                 <strong>Invoice:</strong> {{ $order->no_invoice }}
                             </label>
@@ -35,13 +35,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @php
-                                $grandTotal = 0;
-                                @endphp
                                 @foreach ($order->bukus as $buku)
                                 @php
                                 $subtotal = $buku->harga * $buku->pivot->jumlah;
-                                $grandTotal += $subtotal;
                                 @endphp
                                 <tr>
                                     <td>{{ $buku->judul_buku }}</td>
@@ -53,11 +49,10 @@
                             <tfoot>
                                 <tr>
                                     <td colspan="2" class="text-end"><strong>Grand Total</strong></td>
-                                    <td><strong>Rp{{ number_format($grandTotal, 0, ',', '.') }}</strong></td>
+                                    <td><strong>Rp{{ number_format($order->grand_total, 0, ',', '.') }}</strong></td>
                                 </tr>
                             </tfoot>
                         </table>
-
 
                         <h5>Alamat Pengiriman</h5>
                         <p>
@@ -78,8 +73,8 @@
                         <strong>Ringkasan Pembayaran</strong>
                     </div>
                     <div class="card-body">
-                        <p><strong>Total Tagihan:</strong>
-                            Rp{{ number_format($orders->sum('grand_total'), 0, ',', '.') }}</p>
+                        <p><strong>Total Tagihan:</strong> 
+                            Rp<span id="totalTagihan">0</span></p>
 
                         <div class="form-group">
                             <label for="metode_pembayaran">Metode Pembayaran:</label>
@@ -89,8 +84,7 @@
                             </select>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-block mt-3" id="payButton" disabled>Konfirmasi
-                            Pembayaran</button>
+                        <button type="submit" class="btn btn-primary btn-block mt-3" id="payButton" disabled>Konfirmasi Pembayaran</button>
                     </div>
                 </div>
             </div>
@@ -101,14 +95,23 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const checkboxes = document.querySelectorAll('input[name="order_ids[]"]');
+    const checkboxes = document.querySelectorAll('.order-checkbox');
     const payButton = document.getElementById('payButton');
+    const totalTagihanElement = document.getElementById('totalTagihan');
+
+    const updateTotalTagihan = () => {
+        let totalTagihan = 0;
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                totalTagihan += parseFloat(checkbox.dataset.total);
+            }
+        });
+        totalTagihanElement.textContent = totalTagihan.toLocaleString('id-ID');
+        payButton.disabled = totalTagihan === 0;
+    };
 
     checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
-            payButton.disabled = !anyChecked;
-        });
+        checkbox.addEventListener('change', updateTotalTagihan);
     });
 });
 </script>

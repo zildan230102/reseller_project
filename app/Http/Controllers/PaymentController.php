@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order; // Pastikan model Order diimport
+use App\Models\Order; 
 use PDF; // Alias DOMPDF
 use Illuminate\Http\Request;
 
@@ -82,21 +82,38 @@ class PaymentController extends Controller
 
     public function processPayment(Request $request)
     {
+        // Validasi input
         $validated = $request->validate([
             'order_ids' => 'required|array',
-            'order_ids.*' => 'exists:orders,id',
-            'metode_pembayaran' => 'required|in:cash,transfer',
+            'metode_pembayaran' => 'required|string',
         ]);
-
-        $orders = Order::whereIn('id', $validated['order_ids'])->get();
+    
+        $orderIds = $validated['order_ids'];
+        $metodePembayaran = $validated['metode_pembayaran'];
+    
+        // Ambil pesanan yang dipilih
+        $orders = Order::whereIn('id', $orderIds)->get();
+    
+        // Pindahkan pesanan ke riwayat pembayaran
         foreach ($orders as $order) {
-            $order->metode_pembayaran = $validated['metode_pembayaran'];
-            $order->status_pembayaran = 'Lunas';
-            $order->save();
+            $order->update([
+                'status' => 'paid', // Atur status menjadi "paid" atau sesuai kebutuhan
+                'metode_pembayaran' => $metodePembayaran,
+                'tanggal_pembayaran' => now(),
+            ]);
         }
-
+    
+        // Redirect ke halaman riwayat pembayaran
         return redirect()->route('payment.history')->with('success', 'Pembayaran berhasil diproses.');
     }
-
+    public function paymentHistory()
+    {
+        // Ambil data orders yang sudah dibayar
+        $orders = Order::where('status', 'paid')->orderBy('tanggal_pembayaran', 'desc')->get();
+    
+        // Kirim data ke view 'Pembayaran.history'
+        return view('Pembayaran.history', compact('orders'));
+    }
+    
 
 }
