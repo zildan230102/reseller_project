@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Order extends Model
 {
@@ -33,6 +34,16 @@ class Order extends Model
     ];
 
     /**
+     * Cast kolom tertentu ke tipe data yang sesuai.
+     */
+    protected $casts = [
+        'tanggal_pembayaran' => 'datetime',
+        'tanggal' => 'datetime',
+        'grand_total' => 'float',
+        'total_berat' => 'float',
+    ];
+
+    /**
      * Boot method untuk model Order.
      */
     protected static function boot()
@@ -41,12 +52,11 @@ class Order extends Model
 
         // Event sebelum order dibuat
         static::creating(function ($order) {
-            // Generate nomor invoice secara otomatis jika toko valid
-            if ($order->toko) {
-                $order->no_invoice = $order->generateInvoiceNumber();
-            } else {
+            if (!$order->toko) {
                 throw new \Exception('Toko tidak ditemukan untuk menghasilkan nomor invoice.');
             }
+
+            $order->no_invoice = $order->generateInvoiceNumber();
         });
     }
 
@@ -59,7 +69,6 @@ class Order extends Model
      * - XXX: Urutan order pada hari yang sama (3 digit).
      *
      * @return string
-     * @throws \Exception
      */
     public function generateInvoiceNumber()
     {
@@ -68,9 +77,11 @@ class Order extends Model
         }
 
         // Ambil inisial nama toko
-        $initials = collect(explode(' ', $this->toko->nama_toko))
-            ->map(fn($word) => strtoupper(substr($word, 0, 1)))
-            ->implode('');
+        $initials = Str::upper(
+            collect(explode(' ', $this->toko->nama_toko))
+                ->map(fn($word) => substr($word, 0, 1))
+                ->implode('')
+        );
 
         // Format tanggal
         $date = now()->format('dmY');
