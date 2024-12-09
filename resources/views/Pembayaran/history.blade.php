@@ -2,57 +2,92 @@
 
 @section('content')
 <style>
-.dropdown-menu {
-    min-width: auto;
-    width: max-content;
-    padding: 0.5rem;
-    z-index: 1050;
+.container {
+    width: 100%;
+    padding: 20px;
+    padding-top: 80px;
 }
-
-.custom-dropdown-item {
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    padding: 0.4rem 0.8rem;
-    color: #333;
-    text-decoration: none;
-    box-sizing: border-box;
-    transition: background-color 0.2s ease;
-}
-
-.custom-dropdown-item:hover {
-    background-color: #f0f0f0;
-    color: #000;
-    text-decoration: none;
-}
-
-.custom-dropdown-item i {
-    margin-right: 8px;
-    margin-left: 0;
-}
-
 .dropdown .btn-no-border {
     border: none;
     outline: none;
     box-shadow: none;
     padding: 0;
 }
-</style>
-<div class="container mt-4">
-    <div class="card">
-        <!-- Card Header -->
-        <div class="card-header">
-            <h2 class="mb-0">Riwayat Pembayaran</h2>
-        </div>
+.no-border-dropdown {
+    border: none;
+    box-shadow: none;
+}
+.no-border-item {
+    border: none;
+    background-color: transparent;
+}
+.no-border-item:hover {
+    background-color: #f8f9fa;
+    border: none;
+}
+.card-body-toko {
+    padding: 15px;
+}
+@media (max-width: 576px) {
+    .container {
+        padding: 5px;
+        padding-top: 60px;
+    }
+    .text-title{
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 16px !important;
+    }
+    .table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        font-size: 14px;
+        overflow: visible;
+    }
+    .modal-dialog {
+        max-width: 85%;
+        margin: 0 auto;
+    }
+    .modal-content {
+        padding: 10px;
+        overflow: hidden;
+    }
+    .modal-header {
+        padding: 5px 10px 10px 10px;
+    }
+    .modal-body {
+        font-size: 14px;
+        padding: 15px 10px 15px 10px;
+        max-height: 80vh; /* Membatasi tinggi modal, agar tetap terlihat baik */
+        overflow-y: auto; 
+    }
+    .modal-body p {
+    white-space: pre-line;
+}
 
-        <!-- Card Body -->
-        <div class="card-body">
-            @if($orders->isEmpty())
-                <div class="alert alert-info">Belum ada riwayat pembayaran.</div>
-            @else
-                <table class="table table-bordered table-striped">
-                    <thead>
+    .modal-title {
+        font-size: 16px;
+    }
+    .modal-footer {
+        padding: 5px 5px 0px 5px;
+    }
+}
+</style>
+
+<div class="container mt-4">
+    <div class="card-container">
+        @if($orders->isEmpty())
+        <div class="alert alert-info">Belum ada riwayat pembayaran.</div>
+        @else
+        <div class="card mb-4">
+            <div class="card-header">
+                <h3 class="text-title mb-0">Riwayat Pembayaran</h3>
+            </div>
+            <div class="card-body-toko">
+                <div class="table-responsive-sm">
+                <table class="table table-striped table-bordered ">
+                    <thead class="text-center">
                         <tr>
                             <th>Tanggal</th>
                             <th>Invoice</th>
@@ -71,13 +106,14 @@
                             <td>{{ ucfirst($payment->metode_pembayaran ?? 'Tidak Diketahui') }}</td>
                             <td>{{ ucfirst($payment->status ?? 'Belum Dibayar') }}</td>
                             <td>
-                                <button class="btn btn-sm btn-no-border" data-bs-toggle="modal" data-bs-target="#detailModal_{{ $payment->id }}" title="Lihat Detail">
+                                <button type="button" class="btn btn-sm btn-no-border" data-bs-toggle="modal" data-bs-target="#detailModal_{{ $payment->id }}" title="Lihat Detail">
                                     <i class="bi bi-info-circle text-black"></i>
                                 </button>
 
                                 <!-- Modal untuk Detail -->
-                                <div class="modal fade" id="detailModal_{{ $payment->id }}" tabindex="-1" aria-labelledby="detailModalLabel_{{ $payment->id }}" aria-hidden="true">
-                                    <div class="modal-dialog">
+                                <div class="modal fade" id="detailModal_{{ $payment->id }}" tabindex="-1" aria-labelledby="detailModalLabel_{{ $payment->id }}" data-bs-backdrop="static"
+                                    data-bs-keyboard="false">
+                                    <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="detailModalLabel_{{ $payment->id }}">Detail Pembayaran</h5>
@@ -111,9 +147,10 @@
                         @endforeach
                     </tbody>
                 </table>
-            @endif
+                </div>
+            </div>
         </div>
+        @endif
     </div>
 </div>
-
 @endsection
