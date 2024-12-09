@@ -57,14 +57,10 @@
         padding: 5px 10px 10px 10px;
     }
     .modal-body {
-        font-size: 14px;
+        font-size: 12px;
         padding: 15px 10px 15px 10px;
-        max-height: 80vh; /* Membatasi tinggi modal, agar tetap terlihat baik */
         overflow-y: auto; 
     }
-    .modal-body p {
-    white-space: pre-line;
-}
 
     .modal-title {
         font-size: 16px;
@@ -126,9 +122,9 @@
                                                 <p><strong>Metode Pembayaran:</strong> {{ ucfirst($payment->metode_pembayaran ?? 'Tidak Diketahui') }}</p>
                                                 <p><strong>Status:</strong> {{ ucfirst($payment->status ?? 'Belum Dibayar') }}</p>
                                                 <p><strong>Alamat Kirim:</strong></p>
-                                                <p>
-                                                    {{ $payment->alamat_kirim }}, {{ $payment->kelurahan }},
-                                                    {{ $payment->kecamatan }}, {{ $payment->kota }},
+                                                <p class="alamat-kirim">
+                                                    {{ $payment->alamat_kirim }}<br>
+                                                    {{ $payment->kelurahan }}, {{ $payment->kecamatan }}, {{ $payment->kota }}<br> 
                                                     {{ $payment->provinsi }}
                                                 </p>
                                                 <p><strong>Buku yang Dipesan:</strong></p>
