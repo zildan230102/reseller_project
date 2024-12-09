@@ -2,238 +2,238 @@
 @section('title', 'Informasi Toko')
 @section('content')
 
-    <style>
-        .container {
-            width: 100%;
-            padding: 20px;
-            padding-top: 80px;
-        }
-        .card-header-button {
-            padding: 15px;
-            display: flex;
-            background-color: transparent;
-            border-bottom: none;
-        }   
-        .custom-button-daftar {
-            background-color: #ff9800;
-            color: white;
-            padding: 8px 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: auto;
-        }
-        .custom-button-daftar:hover {
-            background-color: #ff7b29;
-        }
-        .dropdown .btn-no-border {
-            border: none;
-            outline: none;
-            box-shadow: none;
-            padding: 0;
-        }
-        .dropdown-menu {
-            min-width: auto;
-            width: max-content;
-            padding: 0.5rem;
-            z-index: 1050;
-        }
-        .custom-dropdown-item {
-            display: flex;
-            align-items: center;
-            justify-content: start;
-            padding: 4px;
-            color: #333;
-            text-decoration: none;
-            box-sizing: border-box;
-            transition: background-color 0.2s ease;
-        }
-        .custom-dropdown-item:hover {
-            background-color: #f0f0f0;
-            color: #000;
-            text-decoration: none;
-        }
-        .custom-dropdown-item i {
-            margin-right: 8px;
-            margin-left: 0;
-        }
-        .no-border-dropdown {
-            border: none;
-            box-shadow: none;
-        }
-        .no-border-item {
-            border: none;
-            background-color: transparent;
-        }
-        .no-border-item:hover {
-            background-color: #f8f9fa;
-            border: none;
-        }
+<style>
+.container {
+    width: 100%;
+    padding: 20px;
+    padding-top: 80px;
+}
+.card-header-button {
+    padding: 15px;
+    display: flex;
+    background-color: transparent;
+    border-bottom: none;
+}   
+.custom-button-daftar {
+    background-color: #ff9800;
+    color: white;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: auto;
+}
+.custom-button-daftar:hover {
+    background-color: #ff7b29;
+}
+.dropdown .btn-no-border {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0;
+}
+.dropdown-menu {
+    min-width: auto;
+    width: max-content;
+    padding: 0.5rem;
+    z-index: 1050;
+}
+.custom-dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 4px;
+    color: #333;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease;
+}
+.custom-dropdown-item:hover {
+    background-color: #f0f0f0;
+    color: #000;
+    text-decoration: none;
+}
+.custom-dropdown-item i {
+    margin-right: 8px;
+    margin-left: 0;
+}
+.no-border-dropdown {
+    border: none;
+    box-shadow: none;
+}
+.no-border-item {
+    border: none;
+    background-color: transparent;
+}
+.no-border-item:hover {
+    background-color: #f8f9fa;
+    border: none;
+}
 
-        .small-icon {
-            font-size: 12px;
-        }
+.small-icon {
+    font-size: 12px;
+}
 
-        .card-body-toko {
-            padding: 0 15px;
-        }
+.card-body-toko {
+    padding: 0 15px;
+}
 
-        /* Responsif untuk layar 768px ke bawah */
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-                padding-top: 80px;
-            }
+/* Responsif untuk layar 768px ke bawah */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        padding-top: 80px;
+    }
 
-            .header-title {
-                font-size: 20px;
-                text-align: center;
-            }
+    .header-title {
+        font-size: 20px;
+        text-align: center;
+    }
 
-            .text-title {
-                text-align: center;
-                font-size: 25px;
-            }
+    .text-title {
+        text-align: center;
+        font-size: 25px;
+    }
 
-            .custom-button-daftar {
-                width: auto;
-                font-size: 14px;
-            }
+    .custom-button-daftar {
+        width: auto;
+        font-size: 14px;
+    }
 
-            table {
-                overflow-x: auto;
-                font-size: 16px;
-            }
-            .modal-dialog {
-                 max-width: 80%;
-            }
-            .modal-header {
-                padding: 10px 15px;
-            }
-            .modal-title {
-                font-size: 18px !important;
-            }
-            .modal-body {
-                padding: 20px
-            }
-            .form-group label {
-                font-size: 16px;
-            }
-            .form-group input, .form-group select {
-                font-size: 14px;
-                padding: 8px;
-            }
-            
-            .custom-button {
-                font-size: 14px;
-                padding: 10px 15px;
-            }
+    table {
+        overflow-x: auto;
+        font-size: 16px;
+    }
+    .modal-dialog {
+            max-width: 80%;
+    }
+    .modal-header {
+        padding: 10px 15px;
+    }
+    .modal-title {
+        font-size: 18px !important;
+    }
+    .modal-body {
+        padding: 20px
+    }
+    .form-group label {
+        font-size: 16px;
+    }
+    .form-group input, .form-group select {
+        font-size: 14px;
+        padding: 8px;
+    }
+    
+    .custom-button {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
 
-            .d-flex.justify-content-end {
-                justify-content: center;
-            }  
-            
-        }
+    .d-flex.justify-content-end {
+        justify-content: center;
+    }  
+    
+}
 
-        @media (max-width: 576px) {
-            .container {
-                padding: 5px;
-                padding-top: 60px;
-            }
-            
-            .text-title{
-                font-size: 20px;
-                text-align: center;
-                margin-bottom: 16px !important;
-            }
-            .header-title {
-                font-size: 18px;
-                text-align: center;
-            }
-            .custom-button-daftar {
-                width: auto;
-                font-size: 12px;
-                padding: 8px;
-            }
-            .bi-plus-lg {
-                margin-right: 5px !important;
-            }
-            .table {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
-                font-size: 14px;
-                overflow: visible;
-            }
-            .modal-dialog {
-                max-width: 80%;
-                margin: 0 auto;
-            }
-            .modal-content {
-                padding: 10px;
-            }
-            .modal-header {
-                padding: 5px 10px 10px 10px;
-            }
-            .modal-body {
-                font-size: 14px;
-                padding: 15px 10px 15px 10px;
-            }
-            .modal-title {
-                font-size: 16px;
-            }
-            .modal-footer {
-                padding: 5px 5px 0px 5px;
-            }
-            .form-group label {
-                font-size: 12px;
-            }
-            .form-control, .form-select {
-                font-size: 9px;
-            }
-            .form-control option {
-                font-size: 10px;
-            }
-            .custom-button {
-                font-size: 14px;
-                padding: 8px 16px;
-            }
-            .btn-custom-danger {
-                font-size: 14px;
-                padding: 6px 10px;
-            }
-            .dropdown-menu {
-                font-size: 12px;
-                left: auto;
-                right: 0;
-                transform: translateX(-50%) !important;
-            }
-            .small-icon {
-                font-size: 10px;
-            }
-            .custom-dropdown option {
-                font-size: 11px;
-            }
-            .alert-success {
-                font-size: 14px;
-            }
-        }
-        @media (max-width: 1180px) {
-            .text-title {
-                text-align: center;
-                font-size: 25px;
-            }
-            .form-select option {
-                font-size: 11px;
-            }
-            .aksi {
-                font-size: 14px;
-                left: auto;
-                right: 0;
-                transform: translateX(-50%) !important;
-            }
-        }
-    </style>
+@media (max-width: 576px) {
+    .container {
+        padding: 5px;
+        padding-top: 60px;
+    }
+    
+    .text-title{
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 16px !important;
+    }
+    .header-title {
+        font-size: 18px;
+        text-align: center;
+    }
+    .custom-button-daftar {
+        width: auto;
+        font-size: 12px;
+        padding: 8px;
+    }
+    .bi-plus-lg {
+        margin-right: 5px !important;
+    }
+    .table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        font-size: 14px;
+        overflow: visible;
+    }
+    .modal-dialog {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+    .modal-content {
+        padding: 10px;
+    }
+    .modal-header {
+        padding: 5px 10px 10px 10px;
+    }
+    .modal-body {
+        font-size: 14px;
+        padding: 15px 10px 15px 10px;
+    }
+    .modal-title {
+        font-size: 16px;
+    }
+    .modal-footer {
+        padding: 5px 5px 0px 5px;
+    }
+    .form-group label {
+        font-size: 12px;
+    }
+    .form-control, .form-select {
+        font-size: 9px;
+    }
+    .form-control option {
+        font-size: 10px;
+    }
+    .custom-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+    .btn-custom-danger {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+    .dropdown-menu {
+        font-size: 12px;
+        left: auto;
+        right: 0;
+        transform: translateX(-50%) !important;
+    }
+    .small-icon {
+        font-size: 10px;
+    }
+    .custom-dropdown option {
+        font-size: 11px;
+    }
+    .alert-success {
+        font-size: 14px;
+    }
+}
+@media (max-width: 1180px) {
+    .text-title {
+        text-align: center;
+        font-size: 25px;
+    }
+    .form-select option {
+        font-size: 11px;
+    }
+    .aksi {
+        font-size: 14px;
+        left: auto;
+        right: 0;
+        transform: translateX(-50%) !important;
+    }
+}
+</style>
     <div class="container mt-4">
         <h1 class="text-title mb-4">Daftar Toko</h1>
 
