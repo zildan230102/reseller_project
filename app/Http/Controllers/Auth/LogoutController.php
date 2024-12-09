@@ -16,15 +16,10 @@ class LogoutController extends Controller
      */
     public function logout(Request $request)
     {
-        Auth::logout();  // Menggunakan facade Auth untuk logout pengguna
-
-        // Menghapus semua session yang ada
+        Auth::logout();
         $request->session()->invalidate();
-
-        // Membuat session baru
         $request->session()->regenerateToken();
-
-        // Arahkan kembali ke halaman login setelah logout
-        return redirect('/login');
+    
+        return redirect('/');
     }
 }
