@@ -81,7 +81,7 @@
                                     aria-expanded="false">
                                     <!-- Cek apakah user memiliki gambar profil, jika tidak tampilkan gambar default -->
                                     <img src="{{ Auth::user()->profile_picture ? Storage::url(Auth::user()->profile_picture) : asset('style/src/img/avatars/image.png') }}"
-                                        class="avatar img-fluid rounded-circle" alt="{{ Auth::user()->name }}" />
+                                        class="avatar img-fluid" alt="{{ Auth::user()->name }}" />
                                     <span class="text-dark ms-2">{{ Auth::user()->name }}</span>
                                 </a>
 
