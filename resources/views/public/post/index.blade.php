@@ -2,14 +2,14 @@
 @section('title', 'Dashboard')
 @section('content')
 
-<main class="content">
+<main class="content-dashboard">
     <div class="container-fluid p-0">
-        <h2 class="h3 mb-3">Selamat Datang, <strong>Jenny Wilson!</strong></h2>
+    <h2 class="h3 mb-3">Selamat Datang, <strong>{{ Auth::user()->name }}!</strong></h2>
 
         <!-- Row Pertama -->
         <div class="row">
             <div class="col-xl-7 col-xxl-8">
-                <div class="card flex-fill w-100">
+                <div class="card card-penjualan flex-fill w-100">
                     <div class="header-sale d-flex justify-content-between align-items-center">
                         <h5 class="penjualan-keseluruhan mt-1">Penjualan Keseluruhan</h5>
                         <div class="dropdown">
@@ -38,7 +38,7 @@
                             <span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i>13.02%</span>
                         </div>
                     </div>
-                    <div class="card-body py-3">
+                    <div class="card-body penjualan py-3">
                         <div class="chart chart-sm">
                             <canvas id="chartjs-dashboard-line"></canvas>
                         </div>
@@ -64,7 +64,7 @@
                                         </div>
                                     </div>
                                     <h1 class="">
-                                        <p class="fw-bold fs-4">Rp15.500.000</p>
+                                        <p class="fw-bold fs-4 total-penjualan">Rp15.500.000</p>
                                     </h1>
                                     <div class="mb-0">
                                         <span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i> 13.02%</span>
@@ -88,7 +88,7 @@
                                         </div>
                                     </div>
                                     <h1 class="">
-                                        <p class="fw-bold fs-4">Rp5.150.000</p>
+                                        <p class="fw-bold fs-4 total-penjualan">Rp5.150.000</p>
                                     </h1>
                                     <div class="mb-0">
                                         <span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i> 13.02%</span>
@@ -98,7 +98,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 col-sm-12 mb-3">
+                        <div class="col-md-6 col-sm-12 card-konversi">
                             <div class="card-total">
                                 <div class="card-right">
                                     <div class="row">
@@ -112,7 +112,7 @@
                                         </div>
                                     </div>
                                     <h1 class="">
-                                        <p class="fw-bold fs-4">86.34%</p>
+                                        <p class="fw-bold fs-4 total-penjualan">86.34%</p>
                                     </h1>
                                     <div class="mb-0">
                                         <span class="text-danger"><i class="fa-solid fa-arrow-trend-down"></i> 0.32%</span>
@@ -195,8 +195,8 @@
             </div>
 
             <!-- Kolom kanan -->
-            <div class="col-xl-5 col-xxl-4 d-flex flex-column">
-                <div class="card mb-3 w-100">
+            <div class="col-xl-3 col-xxl-4 d-flex flex-column">
+                <div class="card mb-4 w-100">
                     <div class="card-header">
                         <h5 class="data-marketplace">Data Marketplace</h5>
                     </div>
@@ -266,7 +266,7 @@
                 </div>
 
                 <!-- Data Penjualan Buku -->
-                <div class="card w-100">
+                <div class="card card-buku w-100">
                     <div class="card-header">
                         <h5 class="data-penjualan">Data Penjualan Buku</h5>
                     </div>

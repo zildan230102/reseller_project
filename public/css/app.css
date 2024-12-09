@@ -10,8 +10,17 @@
   z-index: 1000;
 }
 
-.content {
+.content-dashboard {
   padding-top: 80px !important;
+  padding: 3rem 3rem 1rem;
+}
+
+.penjualan {
+  margin-bottom: 1rem !important;
+}
+
+.total-penjualan {
+  margin-bottom: 0;
 }
 
 .container {
@@ -27,7 +36,6 @@ h2.h3.h5 {
 .custom-button .bi {
   font-weight: bold !important;
 }
-/* Button Tabel Aksi */
 
 .dropdown .btn-no-border {
   border: none;
@@ -103,9 +111,6 @@ h2.h3.h5 {
   margin-bottom: 15px;
 }
 
-.form-control {
-  /* margin-bottom: 15px; */
-}
 .modal-dialog {
   max-width: 600px;
 }
@@ -132,7 +137,7 @@ h2.h3.h5 {
 }
 
 .card-header {
-  padding: 20px 0px 10px 30px;
+  padding: 25px 0px 10px 30px;
   margin: 0px 0 0 0; 
   display: flex;
   background-color: transparent;
@@ -492,7 +497,7 @@ tr.deactive {
 
 /* Data Marketplace */
 .card-body {
-  padding: 1rem;
+  padding: 1rem 1rem 1.2rem 1rem;
 }
 
 .custom-table tbody tr {
@@ -617,7 +622,11 @@ tr.deactive {
 }
 
 /* Media query card untuk tampilan mobile */
-@media (max-width: 676px) {
+@media (min-width: 375px) and (max-width: 599px) {
+  .content-dashboard {
+    padding: 1.5rem 1.5rem 0;
+  }
+
   #dashboard,
   #pesanan-btn,
   #toko-btn,
@@ -638,6 +647,10 @@ tr.deactive {
     font-size: 1em;
     padding: 10px;
     text-align: center;
+  }
+
+  .card-konversi{
+    margin-bottom: 0;
   }
 
   .title-sale {
@@ -1052,7 +1065,11 @@ tr.deactive {
 }
 
 /* Media query card untuk tampilan tab */
-@media (min-width: 767px) and (max-width: 1024px) {
+@media (min-width: 600px) and (max-width: 1024px) {
+  .content-dashboard {
+    padding: 1.5rem 1.5rem 0;
+  }
+
   .card-right .col-auto {
     padding: 15px;
   }
@@ -1170,7 +1187,7 @@ tr.deactive {
 
   .card-body {
     padding: 2rem;
-    padding-bottom: 0.5rem;
+    /* padding-bottom: 0.5rem; */
     padding-top: 0;
     padding-right: 0;
   }
