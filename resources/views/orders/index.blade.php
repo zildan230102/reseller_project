@@ -83,9 +83,11 @@
     .container-order {
         padding: 20px 20px 0 20px;
     }
+
     .container-card {
         padding: 0 20px 0 20px;
     }
+
     .order-title {
         font-size: 1.25rem;
     }
@@ -95,16 +97,20 @@
         font-size: 0.9rem;
         padding: 0.5rem;
     }
+
     .nav-tabs .nav-link {
         padding: 10px;
     }
+
     .custom-dropdown-item {
         font-size: 0.9rem;
         padding: 0.3rem 0.6rem;
     }
+
     .form-select option {
         font-size: 10px;
     }
+
     .buku-row .col-md-1 {
         gap: 20px;
     }
@@ -118,10 +124,11 @@
     .container-order {
         padding: 20px 20px 0 20px;
     }
-    
+
     .container-card {
         padding: 0 20px 0 20px;
     }
+
     .card h3 {
         font-size: 1.2rem;
     }
@@ -204,30 +211,37 @@
     .form-select {
         font-size: 14px;
     }
+
     .form-select option {
         font-size: 11px;
     }
+
     .books-row .col-md-5 {
         max-width: 75%;
         margin-bottom: 5px;
     }
+
     .books-row .col-md-1 {
         display: flex;
         align-items: flex-end;
     }
+
     .text-end {
         max-width: 20%;
     }
+
     .buku-row .col-md-1 {
         display: flex;
         align-items: flex-end;
         gap: 5px;
         margin-right: 5px;
     }
+
     .buku-row .col-md-5 {
         margin-bottom: 5px;
         max-width: 75%;
     }
+
     .text-start {
         max-width: 20%;
         justify-content: flex-start;
@@ -301,7 +315,7 @@
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="toko_id" class="form-label">Toko</label>
                                 <select id="toko_id" name="toko_id" class="form-select" required>
-                                    <option value="">Pilih Toko</option>
+                                    <option value="" disabled selected>Pilih Toko</option>
                                     @foreach ($tokos as $toko)
                                     <option value="{{ $toko->id }}" data-marketplace="{{ $toko->marketplace }}">
                                         {{ $toko->nama_toko }}
@@ -360,13 +374,13 @@
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="provinsi" class="form-label">Provinsi</label>
                                 <select class="form-select" id="provinsi" name="provinsi" required>
-                                    <option value="">Pilih Provinsi</option>
+                                    <option value="" disabled selected>Pilih Provinsi</option>
                                 </select>
                             </div>
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="kota" class="form-label">Kota</label>
-                                <select class="form-select" id="kota" name="kota" required disabled>
-                                    <option value="">Pilih Kota</option>
+                                <select class="form-select" id="kota" name="kota" required>
+                                    <option value="" disabled selected>Pilih Kota</option>
                                 </select>
                             </div>
                         </div>
@@ -374,19 +388,19 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="kecamatan" class="form-label">Kecamatan</label>
-                                <select class="form-select" id="kecamatan" name="kecamatan" required disabled>
-                                    <option value="">Pilih Kecamatan</option>
+                                <select class="form-select" id="kecamatan" name="kecamatan" required>
+                                    <option value="" disabled selected>Pilih Kecamatan</option>
                                 </select>
                             </div>
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="kelurahan" class="form-label">Kelurahan</label>
-                                <select class="form-select" id="kelurahan" name="kelurahan" required disabled>
-                                    <option value="">Pilih Kelurahan</option>
+                                <select class="form-select" id="kelurahan" name="kelurahan" required>
+                                    <option value="" disabled selected>Pilih Kelurahan</option>
                                 </select>
                             </div>
                         </div>
 
-                        
+
                         <div class="d-flex justify-content-between">
                             <button type="button" class="custom-button"
                                 onclick="tabSebelumnya('order-info-tab')">Sebelumnya</button>
@@ -404,7 +418,7 @@
                                 <div class="row align-items-center mb-2 books-row" id="buku-row-0">
                                     <div class="col-md-5">
                                         <select name="bukus[0][id]" class="form-select buku-select" required>
-                                            <option value="" data-berat="0" data-harga="0">Pilih Buku</option>
+                                            <option value="" data-berat="0" data-harga="0" disabled selected>Pilih Buku</option>
                                             @foreach($bukus as $buku)
                                             <option value="{{ $buku->id }}" data-berat="{{ $buku->berat }}"
                                                 data-harga="{{ $buku->harga }}">
@@ -720,10 +734,11 @@
                                 <label for="bukus" class="form-label">Pilih Buku</label>
                                 <div id="buku-container-{{ $order->id }}">
                                     @foreach ($order->bukus as $index => $buku)
-                                    <div class="row align-items-center mb-2 buku-row" id="buku-row-{{ $index }}">
+                                    <div class="row align-items-center mb-2 buku-row"
+                                        id="buku-row-{{ $order->id }}-{{ $index }}">
                                         <div class="col-md-5">
                                             <select name="bukus[{{ $index }}][id]" class="form-select buku-select"
-                                                required data-index="{{ $index }}">
+                                                required>
                                                 <option value="">Pilih Buku</option>
                                                 @foreach ($bukus as $item)
                                                 <option value="{{ $item->id }}"
@@ -737,11 +752,11 @@
                                         <div class="col-md-5">
                                             <input type="number" name="bukus[{{ $index }}][jumlah]"
                                                 class="form-control jumlah-input" value="{{ $buku->pivot->jumlah }}"
-                                                placeholder="Jumlah" required data-index="{{ $index }}">
+                                                placeholder="Jumlah" required>
                                         </div>
                                         <div class="col-md-1 d-flex justify-content-between">
                                             <i class="bi bi-plus-circle text-primary fs-4 cursor-pointer add-buku"
-                                                title="Tambah Buku"></i>
+                                                title="Tambah Buku" data-order-id="{{ $order->id }}"></i>
                                             @if ($index > 0)
                                             <i class="bi bi-trash text-danger fs-4 cursor-pointer remove-buku"
                                                 title="Hapus Buku"></i>
@@ -785,45 +800,56 @@
 @endforeach
 
 <script>
-    // Fungsi menghitung total berat dan grand total
-    function calculateTotals() {
-        let totalBerat = 0;
-        let grandTotal = 0;
+// Fungsi menghitung total berat dan grand total
+function calculateTotals() {
+    let totalBerat = 0;
+    let grandTotal = 0;
 
-        console.log(document.querySelectorAll('.buku-row'));
-        document.querySelectorAll('.buku-row').forEach(row => {
-            const bukuSelect = row.querySelector('.buku-select');
-            const jumlahInput = row.querySelector('.jumlah-input');
-
-
-            console.log({bukuSelect, jumlahInput})
-
-            if (bukuSelect && jumlahInput) {
-                const selectedOption = bukuSelect.options[bukuSelect.selectedIndex];
-                const berat = parseFloat(selectedOption?.getAttribute('data-berat')) || 0;
-                const harga = parseFloat(selectedOption?.getAttribute('data-harga')) || 0;
-                const jumlah = parseInt(jumlahInput.value) || 0;
-
-                console.log({selectedOption, berat, harga, jumlah})
-
-                totalBerat += berat * jumlah;
-                grandTotal += harga * jumlah;
-            }
-        });
-
-        console.log({totalBerat, grandTotal})
+    console.log(document.querySelectorAll('.buku-row'));
+    document.querySelectorAll('.buku-row').forEach(row => {
+        const bukuSelect = row.querySelector('.buku-select');
+        const jumlahInput = row.querySelector('.jumlah-input');
 
 
-        document.getElementById('total_berat').value = totalBerat.toFixed(2);
-        document.getElementById('grand_total').value = grandTotal.toFixed(2);
-    }
+        console.log({
+            bukuSelect,
+            jumlahInput
+        })
+
+        if (bukuSelect && jumlahInput) {
+            const selectedOption = bukuSelect.options[bukuSelect.selectedIndex];
+            const berat = parseFloat(selectedOption?.getAttribute('data-berat')) || 0;
+            const harga = parseFloat(selectedOption?.getAttribute('data-harga')) || 0;
+            const jumlah = parseInt(jumlahInput.value) || 0;
+
+            console.log({
+                selectedOption,
+                berat,
+                harga,
+                jumlah
+            })
+
+            totalBerat += berat * jumlah;
+            grandTotal += harga * jumlah;
+        }
+    });
+
+    console.log({
+        totalBerat,
+        grandTotal
+    })
 
 
-    // Fungsi menambah baris buku
-    function addBukuRow() {
-        const container = document.getElementById('buku-container');
-        const index = bukuIndex++;
-        const template = `
+    document.getElementById('total_berat').value = totalBerat.toFixed(2);
+    document.getElementById('grand_total').value = grandTotal.toFixed(2);
+}
+
+
+// Fungsi menambah baris buku
+function addBukuRow() {
+    const container = document.getElementById('buku-container');
+    const index = bukuIndex++;
+    const template = `
             <div class="row align-items-center mb-2 buku-row" id="buku-row-${index}">
                 <div class="col-md-5">
                     <select name="bukus[${index}][id]" class="form-select buku-select" required>
@@ -843,85 +869,76 @@
                     <i class="bi bi-trash text-danger fs-4 cursor-pointer remove-buku" title="Hapus Buku"></i>
                 </div>
             </div>`;
-        container.insertAdjacentHTML('beforeend', template);
-    }
+    container.insertAdjacentHTML('beforeend', template);
+}
 
-    // Event listener untuk perubahan dropdown atau jumlah buku
-    // document.getElementById('buku-container').addEventListener('input', e => {
-    //     console.log('buku container input')
-    //     if (e.target.matches('.buku-select, .jumlah-input')) {
-    //         calculateTotals();
-    //     }
-    // });
+document.getElementById('buku-container').addEventListener('click', e => {
+    console.log('buku container click')
 
-    // Event listener untuk menambah atau menghapus buku
-    document.getElementById('buku-container').addEventListener('click', e => {
-        console.log('buku container click')
-
-        if (e.target.classList.contains('add-buku')) {
-            addBukuRow();
-        } else if (e.target.classList.contains('remove-buku')) {
-            const row = e.target.closest('.buku-row');
-            if (row) {
-                row.remove();
-                calculateTotals();
-            }
-        }
-    });
-
-    // Sembunyikan tombol hapus pada baris pertama
-    const firstRow = document.querySelector('.buku-row');
-    if (firstRow) {
-        const removeButton = firstRow.querySelector('.remove-buku');
-        if (removeButton) {
-            removeButton.style.display = 'none';
+    if (e.target.classList.contains('add-buku')) {
+        addBukuRow();
+    } else if (e.target.classList.contains('remove-buku')) {
+        const row = e.target.closest('.buku-row');
+        if (row) {
+            row.remove();
+            calculateTotals();
         }
     }
+});
 
-    // Update total berat dan grand total
-    function updateTotal(orderId) {
-        let totalBerat = 0;
-        let grandTotal = 0;
-
-        const bukuContainer = document.getElementById('buku-container-' + orderId);
-        const bukuRows = bukuContainer.querySelectorAll('.buku-row');
-
-        bukuRows.forEach(function(row) {
-            const bukuSelect = row.querySelector('.buku-select');
-            const jumlahInput = row.querySelector('.jumlah-input');
-
-            const berat = parseFloat(bukuSelect.options[bukuSelect.selectedIndex]?.getAttribute(
-                'data-berat')) || 0;
-            const harga = parseFloat(bukuSelect.options[bukuSelect.selectedIndex]?.getAttribute(
-                'data-harga')) || 0;
-            const jumlah = parseInt(jumlahInput.value) || 0;
-
-            totalBerat += berat * jumlah;
-            grandTotal += harga * jumlah;
-        });
-
-        // Update nilai total berat dan grand total
-        document.getElementById('total_berat' + orderId).value = totalBerat.toFixed(2);
-        document.getElementById('grand_total' + orderId).value = grandTotal.toFixed(2);
+// Sembunyikan tombol hapus pada baris pertama
+const firstRow = document.querySelector('.buku-row');
+if (firstRow) {
+    const removeButton = firstRow.querySelector('.remove-buku');
+    if (removeButton) {
+        removeButton.style.display = 'none';
     }
+}
 
-    // Event listener untuk perubahan select buku atau input jumlah
-    document.querySelectorAll('.buku-select, .jumlah-input').forEach(function(input) {
-        input.addEventListener('change', function() {
-            const orderId = input.closest('.modal').querySelector('form').action.split('/')
-                .pop(); // Mengambil ID order dari URL form
-            updateTotal(orderId);
-        });
+// Update total berat dan grand total
+function updateTotal(orderId) {
+    let totalBerat = 0;
+    let grandTotal = 0;
+
+    const bukuContainer = document.getElementById('buku-container-' + orderId);
+    const bukuRows = bukuContainer.querySelectorAll('.buku-row');
+
+    bukuRows.forEach(function(row) {
+        const bukuSelect = row.querySelector('.buku-select');
+        const jumlahInput = row.querySelector('.jumlah-input');
+
+        const berat = parseFloat(bukuSelect.options[bukuSelect.selectedIndex]?.getAttribute(
+            'data-berat')) || 0;
+        const harga = parseFloat(bukuSelect.options[bukuSelect.selectedIndex]?.getAttribute(
+            'data-harga')) || 0;
+        const jumlah = parseInt(jumlahInput.value) || 0;
+
+        totalBerat += berat * jumlah;
+        grandTotal += harga * jumlah;
     });
 
-    // Panggil fungsi updateTotal saat modal dibuka
-    document.querySelectorAll('.modal').forEach(function(modal) {
-        modal.addEventListener('shown.bs.modal', function() {
-            const orderId = modal.querySelector('form').action.split('/')
-                .pop(); // Mengambil ID order dari URL form
-            updateTotal(orderId);
-        });
+    // Update nilai total berat dan grand total
+    document.getElementById('total_berat' + orderId).value = totalBerat.toFixed(2);
+    document.getElementById('grand_total' + orderId).value = grandTotal.toFixed(2);
+}
+
+// Event listener untuk perubahan select buku atau input jumlah
+document.querySelectorAll('.buku-select, .jumlah-input').forEach(function(input) {
+    input.addEventListener('change', function() {
+        const orderId = input.closest('.modal').querySelector('form').action.split('/')
+            .pop(); // Mengambil ID order dari URL form
+        updateTotal(orderId);
     });
+});
+
+// Panggil fungsi updateTotal saat modal dibuka
+document.querySelectorAll('.modal').forEach(function(modal) {
+    modal.addEventListener('shown.bs.modal', function() {
+        const orderId = modal.querySelector('form').action.split('/')
+            .pop(); // Mengambil ID order dari URL form
+        updateTotal(orderId);
+    });
+
 
     // Update marketplace berdasarkan toko yang dipilih
     const tokoSelect = document.getElementById('toko_id');
@@ -940,7 +957,7 @@
 });
 
 // Handler untuk menampilkan modal dan mengatur URL penghapusan
-document.getElementById('deleteModal').addEventListener('show.bs.modal', function (event) {
+document.getElementById('deleteModal').addEventListener('show.bs.modal', function(event) {
     // Dapatkan tombol yang memicu modal
     const button = event.relatedTarget;
     // Ambil ID order dari atribut data
@@ -954,7 +971,7 @@ document.getElementById('deleteModal').addEventListener('show.bs.modal', functio
 });
 
 // Handler untuk mengkonfirmasi penghapusan
-document.getElementById('confirmDelete').addEventListener('click', function () {
+document.getElementById('confirmDelete').addEventListener('click', function() {
     // Submit form
     document.getElementById('deleteForm').submit();
 });
@@ -978,6 +995,55 @@ function tabSelanjutnya(tabId) {
 function tabSebelumnya(tabId) {
     document.getElementById(tabId).click();
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date().toISOString().split('T')[0];
+    document.querySelectorAll('input[type="date"]').forEach(function(input) {
+        if (!input.value) {
+            input.value = today;
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const bukuContainerSelector = '#buku-container-';
+
+    // Tambahkan event listener untuk klik tombol tambah buku
+    document.body.addEventListener('click', function (e) {
+        if (e.target.classList.contains('add-buku')) {
+            const orderId = e.target.dataset.orderId;
+            const container = document.querySelector(`${bukuContainerSelector}${orderId}`);
+            const bukus = container.querySelector('.buku-select').innerHTML; // Copy opsi buku
+            const nextIndex = container.querySelectorAll('.buku-row').length; // Hitung jumlah baris
+            const newRow = document.createElement('div');
+            newRow.classList.add('row', 'align-items-center', 'mb-2', 'buku-row');
+            newRow.innerHTML = `
+                <div class="col-md-5">
+                    <select name="bukus[${nextIndex}][id]" class="form-select buku-select" required>
+                        ${bukus}
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <input type="number" name="bukus[${nextIndex}][jumlah]" class="form-control jumlah-input" placeholder="Jumlah" required>
+                </div>
+                <div class="col-md-1 d-flex justify-content-between">
+                    <i class="bi bi-plus-circle text-primary fs-4 cursor-pointer add-buku" title="Tambah Buku" data-order-id="${orderId}"></i>
+                    <i class="bi bi-trash text-danger fs-4 cursor-pointer remove-buku" title="Hapus Buku"></i>
+                </div>
+            `;
+            container.appendChild(newRow);
+        }
+    });
+
+    // Tambahkan event listener untuk klik tombol hapus buku
+    document.body.addEventListener('click', function (e) {
+        if (e.target.classList.contains('remove-buku')) {
+            const row = e.target.closest('.buku-row');
+            if (row) row.remove();
+        }
+    });
+});
+
 </script>
 
 @endsection
