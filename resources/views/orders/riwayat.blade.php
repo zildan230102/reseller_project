@@ -5,6 +5,12 @@
 @section('content')
 
 <style>
+.container-pesanan {
+    padding-top: 90px;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 420px;
+}
 .card-body {
     padding: 0 auto;
 }
@@ -55,7 +61,7 @@
     
 }
 </style>
-<div class="container">
+<div class="container-pesanan">
     <div class="card">
         <div class="card-header">
           <h3 class="order-title mb-0">Riwayat Pesanan</h3>

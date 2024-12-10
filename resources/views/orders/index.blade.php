@@ -8,7 +8,7 @@
 .container-order {
     max-width: 1200px;
     margin: 70px auto auto auto;
-    padding-top: 50px;
+    padding-top: 20px;
 }
 
 .container-card {
