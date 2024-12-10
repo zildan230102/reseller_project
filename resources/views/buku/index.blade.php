@@ -165,7 +165,7 @@ select.form-select, select.form-select option {
     }
     .modal-body {
         font-size: 12px;
-        padding: 10px 20px 15px 20px;
+        padding: 10px 20px;
     }
     .modal-footer {
         padding: 5px;
@@ -244,6 +244,7 @@ select.form-select, select.form-select option {
             </div>
 
             <div class="card-body-buku">
+                <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead>
                         <tr class="text-center">
@@ -315,43 +316,43 @@ select.form-select, select.form-select option {
                                         <dl class="row">
                                             <!-- Nama Penulis -->
                                             <dt class="col-5 col-sm-3 mb-3">Nama Penulis</dt>
-                                            <dd class="col-7 col-sm-9 mb-3">{{ $buku->nama_penulis }}</dd>
+                                            <dd class="col-7 col-sm-9 mb-3">: {{ $buku->nama_penulis }}</dd>
                                     
                                             <!-- Kategori -->
                                             <dt class="col-5 col-sm-3 mb-3">Kategori</dt>
-                                            <dd class="col-7 col-sm-9 mb-3">{{ $buku->kategori->nama_kategori }}</dd>
+                                            <dd class="col-7 col-sm-9 mb-3">: {{ $buku->kategori->nama_kategori }}</dd>
                                     
                                             <!-- ISBN -->
                                             <dt class="col-5 col-sm-3 mb-3">ISBN</dt>
-                                            <dd class="col-7 col-sm-9 mb-3">{{ $buku->isbn }}</dd>
+                                            <dd class="col-7 col-sm-9 mb-3">: {{ $buku->isbn }}</dd>
                                     
                                             <!-- Tahun Terbit -->
                                             <dt class="col-5 col-sm-3 mb-3">Tahun Terbit</dt>
-                                            <dd class="col-7 col-sm-9 mb-3">{{ $buku->tahun_terbit }}</dd>
+                                            <dd class="col-7 col-sm-9 mb-3">: {{ $buku->tahun_terbit }}</dd>
                                     
                                             <!-- Ukuran -->
                                             <dt class="col-5 col-sm-3 mb-3">Ukuran</dt>
-                                            <dd class="col-7 col-sm-9 mb-3">{{ $buku->ukuran->ukuran }} {{ $buku->ukuran->dimensi }}</dd>
+                                            <dd class="col-7 col-sm-9 mb-3">: {{ $buku->ukuran->ukuran }} {{ $buku->ukuran->dimensi }}</dd>
                                     
                                             <!-- Halaman -->
                                             <dt class="col-5 col-sm-3 mb-3">Halaman</dt>
-                                            <dd class="col-7 col-sm-9 mb-3">{{ $buku->halaman }}</dd>
+                                            <dd class="col-7 col-sm-9 mb-3">: {{ $buku->halaman }}</dd>
                                     
                                             <!-- Jenis Kertas -->
                                             <dt class="col-5 col-sm-3 mb-3">Jenis Kertas</dt>
-                                            <dd class="col-7 col-sm-9 mb-3">{{ $buku->jenisKertas->nama_kertas }}</dd>
+                                            <dd class="col-7 col-sm-9 mb-3">: {{ $buku->jenisKertas->nama_kertas }}</dd>
                                     
                                             <!-- Jenis Sampul -->
                                             <dt class="col-5 col-sm-3 mb-3">Jenis Sampul</dt>
-                                            <dd class="col-7 col-sm-9 mb-3">{{ $buku->jenisSampul->nama_sampul }}</dd>
+                                            <dd class="col-7 col-sm-9 mb-3">: {{ $buku->jenisSampul->nama_sampul }}</dd>
                                     
                                             <!-- Berat -->
                                             <dt class="col-5 col-sm-3 mb-3">Berat</dt>
-                                            <dd class="col-7 col-sm-9 mb-3">{{ number_format($buku->berat, 2) }} kg</dd>
+                                            <dd class="col-7 col-sm-9 mb-3">: {{ number_format($buku->berat, 2) }} kg</dd>
                                     
                                             <!-- Harga -->
                                             <dt class="col-5 col-sm-3">Harga</dt>
-                                            <dd class="col-7 col-sm-9">Rp {{ number_format($buku->harga, 0, ',', '.') }}</dd>
+                                            <dd class="col-7 col-sm-9">: Rp {{ number_format($buku->harga, 0, ',', '.') }}</dd>
                                         </dl>
                                     </div>                                    
                                 </div>
@@ -509,6 +510,7 @@ select.form-select, select.form-select option {
                         @endforeach
                     </tbody>
                 </table>
+            </div>
             </div>
         </div>
     </div>
