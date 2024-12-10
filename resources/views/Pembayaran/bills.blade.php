@@ -5,6 +5,50 @@
 .card-header-tagihan {
     padding: 15px 0 0 15px;
 }
+.card-body-tagihan {
+    padding: 1rem 1rem 1.2rem 1rem;
+}
+@media (max-width: 576px) {
+    h2.my-4 {
+        font-size: 18px; /* Sesuaikan ukuran font untuk h2 */
+    }
+
+    .card-header-tagihan h4 {
+        font-size: 16px; /* Sesuaikan ukuran font untuk Ringkasan Pembayaran */
+    }
+
+    .card-body p {
+        font-size: 10px; /* Sesuaikan ukuran font untuk paragraf di dalam card body */
+    }
+
+    .form-check-label {
+        font-size: 14px; /* Ukuran font untuk label checkbox */
+    }
+
+    .table th,
+    .table td {
+        font-size: 12px; /* Ukuran font untuk tabel */
+    }
+
+    .btn {
+        font-size: 0.9rem; /* Ukuran font untuk tombol */
+    }
+        /* Untuk h5 */
+        h5 {
+        font-size: 14px; /* Sesuaikan ukuran font */
+    }
+
+    /* Untuk teks dalam div */
+    .row div {
+        font-size: 12px; /* Sesuaikan ukuran font */
+    }
+
+    /* Untuk strong */
+    strong {
+        font-size: 13px; /* Sesuaikan ukuran font */
+    }
+}
+
 </style>
 <div class="container">
     <h2 class="my-4">Checkout Pembayaran</h2>
@@ -55,8 +99,9 @@
 
                         <p class="text-end"><strong style="margin-right: 30px;">Grand Total</strong><strong style="margin-right: 8px;">Rp{{ number_format($order->grand_total, 0, ',', '.') }}</strong></p>
                         
-                        <h5>Alamat Pengiriman</h5>
                         <div class="row">
+                        <h5 class="text-start">Alamat Pengiriman</h5>
+                        
                             <div class="col-8">
                                 {{ $order->alamat_kirim }}<br>
                                 {{ $order->kelurahan }}, {{ $order->kecamatan }}, {{ $order->kota }},
@@ -77,7 +122,7 @@
                     <div class="card-header-tagihan">
                         <h4>Ringkasan Pembayaran</h4>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body-tagihan">
                         <p><strong>Total Tagihan:</strong> 
                             Rp<span id="totalTagihan">0</span></p>
 
