@@ -121,6 +121,7 @@
 
 .nav-item {
     position: relative;
+    margin-right: 30px;
 }
 
 /* Menu links */
@@ -169,8 +170,8 @@
 }
 
 .avatar {
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -235,6 +236,10 @@
     list-style-type: none;
     left: 0;
     transform: none;
+}
+
+.nav-item.dropdown {
+    margin-right: 30px;
 }
 
 .dropdown-item {
