@@ -3,7 +3,7 @@
 @section('title', 'Profil')
 
 @section('content')
-<div class="container mt-4">
+<div class="container-profile mt-4">
     <h2 class="text-center mb-4">Profil Pengguna</h2>
 
     @if(session('success'))

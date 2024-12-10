@@ -621,6 +621,12 @@ tr.deactive {
   height: 150px !important;
 }
 
+.container-profile {
+  padding-top: 80px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
 /* Media query card untuk tampilan mobile */
 @media (min-width: 375px) and (max-width: 599px) {
   .content-dashboard {
