@@ -1,11 +1,16 @@
 @extends('layouts.main')
 
+@section('title', 'Riwayat Pembayaran')
+
 @section('content')
 <style>
-.container {
+.container-riwayat {
     width: 100%;
     padding: 20px;
     padding-top: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 400px;
 }
 .dropdown .btn-no-border {
     border: none;
@@ -71,7 +76,7 @@
 }
 </style>
 
-<div class="container mt-4">
+<div class="container-riwayat mt-4">
     <div class="card-container">
         @if($orders->isEmpty())
         <div class="alert alert-info">Belum ada riwayat pembayaran.</div>
