@@ -7,7 +7,18 @@
     <h2 class="text-center mb-4">Profil Pengguna</h2>
 
     @if(session('success'))
-    <div class="alert alert-success">{{ session('success') }}</div>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: '{{ session('success') }}',
+                confirmButtonText: 'OK',
+                customClass: {
+                    popup: 'sweetalert',
+                    confirmButton: 'buttonallert'
+                }
+            });
+        </script>
     @endif
 
     <div class="card mb-4">

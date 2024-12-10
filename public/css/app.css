@@ -627,6 +627,16 @@ tr.deactive {
   max-width: 1200px;
 }
 
+.buttonallert {
+  background-color: #ff9800;
+  box-shadow: none;
+  outline: none;
+}
+
+.buttonallert:focus{
+  box-shadow: none;
+}
+
 /* Media query card untuk tampilan mobile */
 @media (min-width: 375px) and (max-width: 599px) {
   .content-dashboard {
@@ -1067,6 +1077,11 @@ tr.deactive {
 
   .text-italic {
     font-size: 14px;
+  }
+
+  .sweetalert {
+    max-width: 300px;
+    font-size: 12px;
   }
 }
 
