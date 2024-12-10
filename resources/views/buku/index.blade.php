@@ -88,6 +88,16 @@ select.form-select, select.form-select option {
     font-size: 12px;
 }
 
+.buttonallert {
+    background-color: #ff9800;
+    box-shadow: none;
+    outline: none;
+}
+
+.buttonallert:focus{
+    box-shadow: none;
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 10px;
@@ -140,7 +150,6 @@ select.form-select, select.form-select option {
         font-size: 12px;
         overflow: visible;
     }
-
     .modal-dialog {
         max-width: 80%;
         margin: 0 auto;
@@ -192,9 +201,13 @@ select.form-select, select.form-select option {
     .small-icon {
         font-size: 10px;
     }
+    .sweetalert {
+        max-width: 300px;
+        font-size: 12px;
+    }
 }
 
-@media (min-width:820px) {
+@media (min-width: 820px) {
     .text-start {
         font-size: 14px;
         left: auto;
@@ -229,10 +242,18 @@ select.form-select, select.form-select option {
     <h1 class="text-title mb-4 ">Daftar Buku</h1>
     <!-- Menampilkan Flash Message -->
     @if(session('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: '{{ session('success') }}',
+                confirmButtonText: 'OK',
+                customClass: {
+                    popup: 'sweetalert',
+                    confirmButton: 'buttonallert'
+                }
+            });
+        </script>
     @endif
 
     <div class="card-container">

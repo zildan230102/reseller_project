@@ -21,7 +21,8 @@
 .logo-desktop {
     display: inline-block;
     max-width: 100%; 
-    height: auto; 
+    height: 55px;
+    width: auto;
 }
 
 /* Ketika layar lebih kecil dari 768px */
@@ -107,7 +108,7 @@
     align-items: center;
     list-style-type: none;
     width: 100%;
-    padding: 0 16px;
+    padding: 0 22px;
     z-index: 1030;
     position: fixed;
 }

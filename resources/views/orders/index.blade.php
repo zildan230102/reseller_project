@@ -8,7 +8,7 @@
 .container-order {
     max-width: 1200px;
     margin: 70px auto auto auto;
-    padding-top: 50px;
+    padding-top: 20px;
 }
 
 .container-card {
@@ -253,10 +253,20 @@
         <div class="card-header">
             <h3 class="order-title mb-0">Tambah Order</h3>
         </div>
-        @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
+        
+        @if(session('success'))
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: '{{ session('success') }}',
+                    confirmButtonText: 'OK',
+                    customClass: {
+                        popup: 'sweetalert',
+                        confirmButton: 'buttonallert'
+                    }
+                });
+            </script>
         @endif
 
         @if ($errors->any())
