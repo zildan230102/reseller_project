@@ -1225,7 +1225,7 @@ tr.deactive {
     font-size: 12px;
   }
 
-  .col-6 {
+  .col-kanan .col-6 {
     display: flex;
     justify-content: center;
     height: 150px;

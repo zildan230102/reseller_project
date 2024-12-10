@@ -12,6 +12,9 @@
     margin: 0 auto;
     height: 400px;
 }
+.header-title {
+    padding: 20px;
+}
 .btn-no-border {
     border: none;
     outline: none;
@@ -27,49 +30,22 @@
     padding: 0px 10px;
 }
 @media (max-width: 768px) {
-    .container {
-        padding: 10px; /* Lebih longgar dibanding 576px */
+    .container-riwayat {
+        padding: 10px;
         padding-top: 70px;
     }
     .header-title {
-        padding: 20px; /* Tambah padding agar lebih rapi */
+        padding: 20px;
     }
     .text-title {
-        font-size: 22px; /* Ukuran font sedikit lebih besar */
-        text-align: center;
-    }
-    .table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-        font-size: 12px; /* Font lebih besar dibanding 576px */
-    }
-    .table th,
-    .table td {
-        font-size: 14px; /* Tetapkan font-size untuk header dan data */
-        padding: 8px;    /* Tambah sedikit padding agar lebih nyaman */
+        font-size: 22px;
     }
     .modal-dialog {
-        max-width: 90%; /* Modal lebih lebar dibanding 576px */
-        margin: 0 auto;
-    }
-    .modal-content {
-        max-height: 90vh;
-        padding: 15px; /* Tambahkan padding dalam modal */
-    }
-    .modal-header {
-        font-size: 18px; /* Judul modal lebih besar */
-        padding: 10px 15px;
-    }
-    .modal-body {
-        font-size: 14px; /* Ukuran teks modal lebih besar */
-        padding: 15px 20px;
-        overflow-y: auto;
+        max-width: 90%;;
     }
 }
-
 @media (max-width: 576px) {
-    .container {
+    .container-riwayat {
         padding: 5px;
         padding-top: 60px;
     }
@@ -77,7 +53,7 @@
         padding: 15px;
     }
     .text-title{
-        font-size: 20px;
+        font-size: 18px;
         text-align: center;
     }
     .table {
