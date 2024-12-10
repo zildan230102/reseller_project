@@ -7,36 +7,73 @@
     padding: 20px;
     padding-top: 80px;
 }
-.dropdown .btn-no-border {
+.btn-no-border {
     border: none;
     outline: none;
     box-shadow: none;
     padding: 0;
 }
-.no-border-dropdown {
-    border: none;
+.btn-no-border:focus,
+.btn-no-border:focus-visible {
+    outline: none;
     box-shadow: none;
 }
-.no-border-item {
-    border: none;
-    background-color: transparent;
-}
-.no-border-item:hover {
-    background-color: #f8f9fa;
-    border: none;
-}
 .card-body-toko {
-    padding: 15px;
+    padding: 0px 10px;
 }
+@media (max-width: 768px) {
+    .container {
+        padding: 10px; /* Lebih longgar dibanding 576px */
+        padding-top: 70px;
+    }
+    .header-title {
+        padding: 20px; /* Tambah padding agar lebih rapi */
+    }
+    .text-title {
+        font-size: 22px; /* Ukuran font sedikit lebih besar */
+        text-align: center;
+    }
+    .table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        font-size: 12px; /* Font lebih besar dibanding 576px */
+    }
+    .table th,
+    .table td {
+        font-size: 14px; /* Tetapkan font-size untuk header dan data */
+        padding: 8px;    /* Tambah sedikit padding agar lebih nyaman */
+    }
+    .modal-dialog {
+        max-width: 90%; /* Modal lebih lebar dibanding 576px */
+        margin: 0 auto;
+    }
+    .modal-content {
+        max-height: 90vh;
+        padding: 15px; /* Tambahkan padding dalam modal */
+    }
+    .modal-header {
+        font-size: 18px; /* Judul modal lebih besar */
+        padding: 10px 15px;
+    }
+    .modal-body {
+        font-size: 14px; /* Ukuran teks modal lebih besar */
+        padding: 15px 20px;
+        overflow-y: auto;
+    }
+}
+
 @media (max-width: 576px) {
     .container {
         padding: 5px;
         padding-top: 60px;
     }
+    .header-title {
+        padding: 15px;
+    }
     .text-title{
         font-size: 20px;
         text-align: center;
-        margin-bottom: 16px !important;
     }
     .table {
         display: block;
@@ -45,28 +82,26 @@
         font-size: 14px;
         overflow: visible;
     }
+    .table th,
+    .table td {
+        font-size: 10px; /* Pastikan th dan td ikut mengecil */
+        padding: 5px;    /* Kurangi padding agar lebih rapih */
+    }
     .modal-dialog {
         max-width: 85%;
         margin: 0 auto;
     }
     .modal-content {
-        padding: 10px;
-        overflow: hidden;
+        max-height: 90vh;
     }
     .modal-header {
-        padding: 5px 10px 10px 10px;
+        font-size: 16px;
+        padding: 10px;
     }
     .modal-body {
         font-size: 12px;
-        padding: 15px 10px 15px 10px;
+        padding: 10px 20px;
         overflow-y: auto; 
-    }
-
-    .modal-title {
-        font-size: 16px;
-    }
-    .modal-footer {
-        padding: 5px 5px 0px 5px;
     }
 }
 </style>
@@ -76,12 +111,12 @@
         @if($orders->isEmpty())
         <div class="alert alert-info">Belum ada riwayat pembayaran.</div>
         @else
-        <div class="card mb-4">
-            <div class="card-header">
-                <h3 class="text-title mb-0">Riwayat Pembayaran</h3>
+        <div class="card">
+            <div class="header-title">
+                <h3 class="text-title mb-0 text-start">Riwayat Pembayaran</h3>
             </div>
             <div class="card-body-toko">
-                <div class="table-responsive-sm">
+                <div class="table-responsive">
                 <table class="table table-striped table-bordered ">
                     <thead class="text-center">
                         <tr>
@@ -116,23 +151,36 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <p><strong>Tanggal Pembayaran:</strong> {{ $payment->tanggal_pembayaran ? $payment->tanggal_pembayaran->format('d-m-Y') : 'Belum Dibayar' }}</p>
-                                                <p><strong>Invoice:</strong> {{ $payment->no_invoice }}</p>
-                                                <p><strong>Total:</strong> Rp{{ number_format($payment->grand_total, 0, ',', '.') }}</p>
-                                                <p><strong>Metode Pembayaran:</strong> {{ ucfirst($payment->metode_pembayaran ?? 'Tidak Diketahui') }}</p>
-                                                <p><strong>Status:</strong> {{ ucfirst($payment->status ?? 'Belum Dibayar') }}</p>
-                                                <p><strong>Alamat Kirim:</strong></p>
-                                                <p class="alamat-kirim">
-                                                    {{ $payment->alamat_kirim }}<br>
-                                                    {{ $payment->kelurahan }}, {{ $payment->kecamatan }}, {{ $payment->kota }}<br> 
-                                                    {{ $payment->provinsi }}
-                                                </p>
-                                                <p><strong>Buku yang Dipesan:</strong></p>
-                                                <ul>
-                                                    @foreach ($payment->bukus as $buku)
-                                                        <li>{{ $buku->judul_buku }} - {{ $buku->pivot->jumlah }} pcs</li>
-                                                    @endforeach
-                                                </ul>
+                                                <dl class="row">
+                                                    <dt class="col-5 col-sm-3 mb-3">Tanggal Pembayaran</dt>
+                                                    <dd class="col-7 col-sm-9 mb-3">: {{ $payment->tanggal_pembayaran ? $payment->tanggal_pembayaran->format('d-m-Y') : 'Belum Dibayar' }}</dd>
+                                                    
+                                                    <dt class="col-5 col-sm-3 mb-3">Invoice</dt>
+                                                    <dd class="col-7 col-sm-9 mb-3">: {{ $payment->no_invoice }}</dd>
+                                                    
+                                                    <dt class="col-5 col-sm-3 mb-3">Total</dt>
+                                                    <dd class="col-7 col-sm-9 mb-3">: Rp{{ number_format($payment->grand_total, 0, ',', '.') }}</dd>
+
+                                                    <dt class="col-5 col-sm-3 mb-3">Metode Pembayaran</dt>
+                                                    <dd class="col-7 col-sm-9 mb-3">: {{ ucfirst($payment->metode_pembayaran ?? 'Tidak Diketahui') }}</dd>
+
+                                                    <dt class="col-5 col-sm-3 mb-3">Status</dt>
+                                                    <dd class="col-7 col-sm-9 mb-3">: {{ ucfirst($payment->status ?? 'Belum Dibayar') }}</dd>
+
+                                                    <dt class="col-5 col-sm-3 mb-3">Alamat Kirim</dt>
+                                                    <dd class="col-7 col-sm-9 mb-3">: {{ $payment->alamat_kirim }}<br>
+                                                        {{ $payment->kelurahan }}, {{ $payment->kecamatan }}, {{ $payment->kota }}<br> 
+                                                        {{ $payment->provinsi }}</dd>
+                                                    
+                                                    <dt class="col-5 col-sm-3">Buku yang Dipesan</dt>
+                                                    <dd>
+                                                        <ul>
+                                                            @foreach ($payment->bukus as $buku)
+                                                                <li>{{ $buku->judul_buku }} - {{ $buku->pivot->jumlah }} pcs</li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
                                             </div>
                                         </div>
                                     </div>

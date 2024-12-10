@@ -84,12 +84,6 @@
         padding: 10px;
         padding-top: 80px;
     }
-
-    .header-title {
-        font-size: 20px;
-        text-align: center;
-    }
-
     .text-title {
         text-align: center;
         font-size: 25px;
@@ -145,10 +139,6 @@
         font-size: 20px;
         text-align: center;
         margin-bottom: 16px !important;
-    }
-    .header-title {
-        font-size: 18px;
-        text-align: center;
     }
     .custom-button-daftar {
         width: auto;
