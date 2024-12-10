@@ -195,7 +195,7 @@
             </div>
 
             <!-- Kolom kanan -->
-            <div class="col-xl-3 col-xxl-4 d-flex flex-column">
+            <div class="col-xl-5 col-xxl-4 d-flex flex-column">
                 <div class="card mb-4 w-100">
                     <div class="card-header">
                         <h5 class="data-marketplace">Data Marketplace</h5>

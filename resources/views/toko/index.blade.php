@@ -78,6 +78,16 @@
     padding: 0 15px;
 }
 
+.buttonallert {
+    background-color: #ff9800;
+    box-shadow: none;
+    outline: none;
+}
+
+.buttonallert:focus{
+    box-shadow: none;
+}
+
 /* Responsif untuk layar 768px ke bawah */
 @media (max-width: 768px) {
     .container {
@@ -196,7 +206,7 @@
         font-size: 12px;
         left: auto;
         right: 0;
-        transform: translateX(-50%) !important;
+        /* transform: translateY(30%) !important; */
     }
     .small-icon {
         font-size: 10px;
@@ -206,6 +216,10 @@
     }
     .alert-success {
         font-size: 14px;
+    }
+    .sweetalert {
+        max-width: 300px;
+        font-size: 12px;
     }
 }
 @media (max-width: 1180px) {
@@ -227,11 +241,19 @@
     <div class="container mt-4">
         <h1 class="text-title mb-4">Daftar Toko</h1>
 
-        @if (session('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+        @if(session('success'))
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: '{{ session('success') }}',
+                    confirmButtonText: 'OK',
+                    customClass: {
+                        popup: 'sweetalert',
+                        confirmButton: 'buttonallert'
+                    }
+                });
+            </script>
         @endif
 
         @if (session('error'))
