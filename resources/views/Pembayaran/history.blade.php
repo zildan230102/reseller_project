@@ -10,7 +10,6 @@
     padding-top: 80px;
     max-width: 1200px;
     margin: 0 auto;
-    height: 400px;
 }
 .header-title {
     padding: 20px;
