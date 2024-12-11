@@ -638,7 +638,7 @@ tr.deactive {
 }
 
 /* Media query card untuk tampilan mobile */
-@media (min-width: 375px) and (max-width: 599px) {
+@media (min-width: 360px) and (max-width: 599px) {
   .content-dashboard {
     padding: 1.5rem 1.5rem 0;
   }
