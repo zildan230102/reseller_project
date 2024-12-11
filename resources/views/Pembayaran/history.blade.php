@@ -7,7 +7,7 @@
 .container-riwayat {
     width: 100%;
     padding: 20px;
-    padding-top: 80px;
+    padding-top: 40px;
     max-width: 1200px;
     margin: 0 auto;
 }

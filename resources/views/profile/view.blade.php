@@ -21,8 +21,8 @@
         </script>
     @endif
 
-    <div class="card mb-4">
-        <div class="card-body text-center">
+    <div class="card mb-4 card-profile">
+        <div class="card-body text-center profile-picture">
             @if ($user->profile_picture)
             <img src="{{ asset('storage/' . $user->profile_picture) }}?{{ time() }}" alt="Foto Profil"
                 class="rounded-circle" width="150" height="150" id="profileImage" data-bs-toggle="modal" data-bs-target="#imageModal">
@@ -31,7 +31,7 @@
                 height="150" id="profileImage" data-bs-toggle="modal" data-bs-target="#imageModal">
             @endif
 
-            <h4 class="mt-5">{{ $user->name }}</h4>
+            <h4 class="mt-3">{{ $user->name }}</h4>
         </div>
         <div class="card-body">
             <table class="table table-bordered">
@@ -79,12 +79,12 @@
 <!-- Modal untuk Edit Profil -->
 <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content modal-profil">
             <div class="modal-header">
                 <h5 class="modal-title" id="editProfileModalLabel">Edit Profil</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body modal-profil">
                 <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mb-3">

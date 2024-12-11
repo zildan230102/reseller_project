@@ -1,110 +1,72 @@
 @extends('layouts.main')
-
+@section('title', 'Checkout')
 @section('content')
 <style>
-.container{
+.container-checkout {
     width: 100%;
     padding: 20px;
-    padding-top: 80px;
+    padding-top: 60px;
     max-width: 1200px;
+    margin: 0 auto;
+    height: 420px;
 }
 .card-header-tagihan {
     padding: 15px 0 0 15px;
 }
 .card-body-tagihan {
-    padding: 16px;
-}
-.title {
-    padding: 10px 0px 10px 30px;
-    font-size: 18px;
-    font-weight: bold;
+    padding: 1rem 1rem 1.2rem 1rem;
 }
 @media (max-width: 576px) {
-    h2 {
+    h2.my-4 {
         font-size: 18px;
     }
     .card-header-tagihan h4 {
-        font-size: 16px;
+        font-size: 16px; 
     }
     .card-body p {
-        font-size: 10px;
+        font-size: 10px; 
     }
     .form-check-label {
-        font-size: 14px;
+        font-size: 14px; 
     }
     .table th,
     .table td {
-        font-size: 12px;
+        font-size: 12px; 
     }
     .btn {
-        font-size: 12px;
+        font-size: 0.9rem; 
     }
-    h5 {
+        h5 {
         font-size: 14px; 
     }
     .row div {
         font-size: 12px; 
     }
     strong {
-        font-size: 13px;
+        font-size: 13px; 
     }
-    select.form-control {
-    font-size: 12px;
-    padding: 4px;
-    height: auto;
-    }
-    option {
-        font-size: 10px;
-    }
-    .title {
-        padding: 15px 0px 5px 15px;
-        font-size: 16px;
-    }
-    .grand-total {
-    text-align: right !important;
-    display: block; 
-    width: 100%;
-    margin: 0; 
-    padding-right: 5px; 
-    font-size: 14px;
-}
-.grand-total strong {
-    margin-right: 0 !important;
-}
-}
-@media (max-width: 768px) {
-    .card-header-tagihan h4{
-        font-size: 16px;
-        padding-bottom: 0;
-    }
-    .card-body-tagihan {
-        padding-top: 10px;
-        font-size: 14px;
-    }
-    .title {
-        font-size: 18px;
-        padding-left: 20px;
-    }
-    .btn {
-        white-space: nowrap; 
-        display: inline-block;
-        padding: 10px 20px; 
-        font-size: 14px; 
-    }
-    select.form-control {
-        font-size: 14px;
-        padding: 4px;
-        height: auto;
-    }
-    option {
+    .alert-info {
+        margin: 0 10px 0 10px;
+        padding: 16px;
         font-size: 12px;
-        padding: 4px;
+    }
+    .text-title {
+        font-size: 14px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+    .container-checkout {
+        padding: 60px 30px 0 30px;
+        height: 650px;
+        max-width: 1200px;
     }
 }
 
 </style>
-<div class="container">
-    <h2 class="my-4">Checkout Pembayaran</h2>
+<div class="container-checkout">
+    <h2 class="my-4 text-title">Checkout Pembayaran</h2>
 
     @if($orders->isEmpty())
     <div class="alert alert-info">Tidak ada pesanan yang perlu dibayar.</div>
@@ -117,7 +79,7 @@
             <div class="col-md-8">
                 @foreach ($orders as $order)
                 <div class="card mb-4">
-                    <div class="card-header-tagihan">
+                    <div class="card-header">
                         <div class="form-check">
                             <input class="form-check-input order-checkbox" type="checkbox" name="order_ids[]" 
                                 value="{{ $order->id }}" id="order_{{ $order->id }}" data-total="{{ $order->grand_total }}">
@@ -126,10 +88,8 @@
                             </label>
                         </div>
                     </div>
-
-                    <div class="title">Detail Produk</div>
-
-                    <div class="card-body-tagihan">
+                    <div class="card-body">
+                        <h5>Detail Produk</h5>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -152,13 +112,10 @@
                             </tbody>
                         </table>
 
-                        <div class="grand-total text-end">
-                            <strong style="margin-right: 30px;">Grand Total</strong>
-                            <strong style="margin-right: 8px;">Rp{{ number_format($order->grand_total, 0, ',', '.') }}</strong>
-                        </div>
+                        <p class="text-end"><strong style="margin-right: 30px;">Grand Total</strong><strong style="margin-right: 8px;">Rp{{ number_format($order->grand_total, 0, ',', '.') }}</strong></p>
                         
                         <div class="row">
-                        <h6 class="text-start mt-2">Alamat Pengiriman</h6>
+                        <h5 class="text-start">Alamat Pengiriman</h5>
                         
                             <div class="col-8">
                                 {{ $order->alamat_kirim }}<br>
@@ -192,9 +149,8 @@
                             </select>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-block " id="payButton" disabled>Konfirmasi Pembayaran</button>
+                        <button type="submit" class="btn btn-primary btn-block mt-3" id="payButton" disabled>Konfirmasi Pembayaran</button>
                     </div>
-                    
                 </div>
             </div>
         </div>

@@ -2,10 +2,11 @@
 @section('title', 'Informasi Buku')
 @section('content')
 <style>
-.container {
+.container-buku {
     width: 100%;
-    padding: 20px;
-    padding-top: 80px !important;
+    padding-top: 60px;
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
 .card-header-button {
@@ -29,6 +30,9 @@
 }
 .card-body-buku {
     padding: 0px 15px;
+}
+.card-container {
+    height: 250px;
 }
 .dropdown-menu {
     min-width: auto;
@@ -99,8 +103,9 @@ select.form-select, select.form-select option {
 }
 
 @media (max-width: 768px) {
-    .container {
+    .container-buku {
         padding: 10px;
+        height: 600px;
     }
     .text-title {
         font-size: 25px;
@@ -127,7 +132,7 @@ select.form-select, select.form-select option {
 }
 
 @media (max-width: 576px) {
-    .container {
+    .container-buku {
         padding: 5px;
         padding-top: 70px;
     }
@@ -220,7 +225,7 @@ select.form-select, select.form-select option {
 }
 
 @media (max-width: 1180px) {
-    .container {
+    .container-buku {
         padding-bottom: 0 !important;
     }
     .card-container {
@@ -238,7 +243,7 @@ select.form-select, select.form-select option {
 
 </style>
 
-<div class="container mt-4">
+<div class="container-buku mt-4">
     <h1 class="text-title mb-4 ">Daftar Buku</h1>
     <!-- Menampilkan Flash Message -->
     @if(session('success'))
