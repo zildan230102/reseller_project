@@ -633,12 +633,21 @@ tr.deactive {
   outline: none;
 }
 
+.profile-picture {
+  padding: 20px 20px 0 20px;
+}
+
 .buttonallert:focus{
   box-shadow: none;
 }
 
+.modal-profil {
+  font-size: 14px;
+  max-height: 650px;
+}
+
 /* Media query card untuk tampilan mobile */
-@media (min-width: 360px) and (max-width: 599px) {
+@media (min-width: 320px) and (max-width: 599px) {
   .content-dashboard {
     padding: 1.5rem 1.5rem 0;
   }
@@ -1082,6 +1091,10 @@ tr.deactive {
   .sweetalert {
     max-width: 300px;
     font-size: 12px;
+  }
+
+  .card-profile {
+    padding: 0 20px 0 20px;
   }
 }
 

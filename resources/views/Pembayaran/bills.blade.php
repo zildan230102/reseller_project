@@ -3,6 +3,8 @@
 @section('content')
 <style>
 .container-checkout {
+    width: 100%;
+    padding: 20px;
     padding-top: 60px;
     max-width: 1200px;
     margin: 0 auto;

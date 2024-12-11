@@ -3,10 +3,11 @@
 @section('content')
 
 <style>
-.container {
+.container-toko {
     width: 100%;
-    padding: 20px;
-    padding-top: 80px;
+    padding-top: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 .card-header-button {
     padding: 15px;
@@ -90,7 +91,7 @@
 
 /* Responsif untuk layar 768px ke bawah */
 @media (max-width: 768px) {
-    .container {
+    .container-toko {
         padding: 10px;
         padding-top: 80px;
     }
@@ -140,7 +141,7 @@
 }
 
 @media (max-width: 576px) {
-    .container {
+    .container-toko {
         padding: 5px;
         padding-top: 60px;
     }
@@ -238,7 +239,7 @@
     }
 }
 </style>
-    <div class="container mt-4">
+    <div class="container-toko mt-4">
         <h1 class="text-title mb-4">Daftar Toko</h1>
 
         @if(session('success'))
@@ -263,7 +264,7 @@
         @endif
 
         <div class="card-container">
-            <div class="card mb-4">
+            <div class="card">
                 <div class="card-header-button">
                     <button type="button" class="custom-button-daftar" data-bs-toggle="modal" data-bs-target="#tokoModal">
                         <i class="bi bi-plus-lg me-2"></i>Tambah Toko

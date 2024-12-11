@@ -26,7 +26,7 @@
   
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
-			const isMobile = window.innerWidth >= 600;
+			const isMobile = window.innerWidth <= 600;
 			var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");
 
 			// Line chart
