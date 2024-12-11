@@ -1,7 +1,13 @@
 @extends('layouts.main')
-
+@section('title', 'Checkout')
 @section('content')
 <style>
+.container-checkout {
+    padding-top: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 420px;
+}
 .card-header-tagihan {
     padding: 15px 0 0 15px;
 }
@@ -10,48 +16,55 @@
 }
 @media (max-width: 576px) {
     h2.my-4 {
-        font-size: 18px; /* Sesuaikan ukuran font untuk h2 */
+        font-size: 18px;
     }
-
     .card-header-tagihan h4 {
-        font-size: 16px; /* Sesuaikan ukuran font untuk Ringkasan Pembayaran */
+        font-size: 16px; 
     }
-
     .card-body p {
-        font-size: 10px; /* Sesuaikan ukuran font untuk paragraf di dalam card body */
+        font-size: 10px; 
     }
-
     .form-check-label {
-        font-size: 14px; /* Ukuran font untuk label checkbox */
+        font-size: 14px; 
     }
-
     .table th,
     .table td {
-        font-size: 12px; /* Ukuran font untuk tabel */
+        font-size: 12px; 
     }
-
     .btn {
-        font-size: 0.9rem; /* Ukuran font untuk tombol */
+        font-size: 0.9rem; 
     }
-        /* Untuk h5 */
         h5 {
-        font-size: 14px; /* Sesuaikan ukuran font */
+        font-size: 14px; 
     }
-
-    /* Untuk teks dalam div */
     .row div {
-        font-size: 12px; /* Sesuaikan ukuran font */
+        font-size: 12px; 
     }
-
-    /* Untuk strong */
     strong {
-        font-size: 13px; /* Sesuaikan ukuran font */
+        font-size: 13px; 
+    }
+    .alert-info {
+        margin: 0 10px 0 10px;
+        padding: 16px;
+        font-size: 12px;
+    }
+    .text-title {
+        font-size: 14px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+    .container-checkout {
+        padding: 60px 30px 0 30px;
+        height: 650px;
+        max-width: 1200px;
     }
 }
 
 </style>
-<div class="container">
-    <h2 class="my-4">Checkout Pembayaran</h2>
+<div class="container-checkout">
+    <h2 class="my-4 text-title">Checkout Pembayaran</h2>
 
     @if($orders->isEmpty())
     <div class="alert alert-info">Tidak ada pesanan yang perlu dibayar.</div>

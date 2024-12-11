@@ -65,8 +65,8 @@
     }
     .table th,
     .table td {
-        font-size: 10px; /* Pastikan th dan td ikut mengecil */
-        padding: 5px;    /* Kurangi padding agar lebih rapih */
+        font-size: 10px;
+        padding: 5px;    
     }
     .modal-dialog {
         max-width: 85%;
@@ -84,11 +84,24 @@
         padding: 10px 20px;
         overflow-y: auto; 
     }
+    .alert-info {
+        margin: 0 10px 0 10px;
+        padding: 16px;
+        font-size: 12px;
+    }
+}
+@media (min-width: 600px) and (max-width: 1024px) {
+    .container-riwayat {
+        padding: 40px 30px 0 30px;
+        height: 600px;
+        max-width: 1200px;
+    }
 }
 </style>
 
 <div class="container-riwayat mt-4">
     <div class="card-container">
+    <h2 class="my-4 text-title">Riwayat Pembayaran</h2>
         @if($orders->isEmpty())
         <div class="alert alert-info">Belum ada riwayat pembayaran.</div>
         @else
