@@ -253,20 +253,21 @@
         <div class="card-header">
             <h3 class="order-title mb-0">Tambah Order</h3>
         </div>
-        
+
         @if(session('success'))
-            <script>
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Berhasil!',
-                    text: '{{ session('success') }}',
-                    confirmButtonText: 'OK',
-                    customClass: {
-                        popup: 'sweetalert',
-                        confirmButton: 'buttonallert'
-                    }
-                });
-            </script>
+        <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil!',
+            text: '{{ session('
+            success ') }}',
+            confirmButtonText: 'OK',
+            customClass: {
+                popup: 'sweetalert',
+                confirmButton: 'buttonallert'
+            }
+        });
+        </script>
         @endif
 
         @if ($errors->any())
@@ -383,14 +384,14 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="provinsi" class="form-label">Provinsi</label>
-                                <select class="form-select" id="provinsi" name="provinsi" required>
-                                    <option value="" disabled selected>Pilih Provinsi</option>
+                                <select class="form-control" id="provinsi" name="provinsi" required>
+                                    @include('includes.public.dataprovinsi')
                                 </select>
                             </div>
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="kota" class="form-label">Kota</label>
-                                <select class="form-select" id="kota" name="kota" required>
-                                    <option value="" disabled selected>Pilih Kota</option>
+                                <select class="form-control" id="kota" name="kota" required>
+                                    @include('includes.public.datakabupaten')
                                 </select>
                             </div>
                         </div>
@@ -398,14 +399,14 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="kecamatan" class="form-label">Kecamatan</label>
-                                <select class="form-select" id="kecamatan" name="kecamatan" required>
-                                    <option value="" disabled selected>Pilih Kecamatan</option>
+                                <select class="form-control" id="kecamatan" name="kecamatan" required>
+
                                 </select>
                             </div>
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="kelurahan" class="form-label">Kelurahan</label>
-                                <select class="form-select" id="kelurahan" name="kelurahan" required>
-                                    <option value="" disabled selected>Pilih Kelurahan</option>
+                                <select class="form-control" id="kelurahan" name="kelurahan" required>
+
                                 </select>
                             </div>
                         </div>
@@ -428,7 +429,8 @@
                                 <div class="row align-items-center mb-2 books-row" id="buku-row-0">
                                     <div class="col-md-5">
                                         <select name="bukus[0][id]" class="form-select buku-select" required>
-                                            <option value="" data-berat="0" data-harga="0" disabled selected>Pilih Buku</option>
+                                            <option value="" data-berat="0" data-harga="0" disabled selected>Pilih Buku
+                                            </option>
                                             @foreach($bukus as $buku)
                                             <option value="{{ $buku->id }}" data-berat="{{ $buku->berat }}"
                                                 data-harga="{{ $buku->harga }}">
@@ -810,6 +812,41 @@
 @endforeach
 
 <script>
+$(document).ready(function() {
+    $.ajax({
+        type: 'POST',
+        url: '/get-provinsi',
+        success: function(hasil_provinsi) {
+            $("select[name=provinsi").html(hasil_provinsi);
+        }
+    });
+
+    // Ketika provinsi dipilih, muat data kabupaten
+    $("select[name='provinsi']").on("change", function() {
+        // Ambil id_provinsi dari atribut data-id_provinsi
+        var id_provinsi_terpilih = $("option:selected", this).data("id_provinsi");
+
+        if (id_provinsi_terpilih) {
+            $.ajax({
+                type: 'GET',
+                url: '/get-kabupaten', // Ganti dengan URL atau route ke controller untuk mendapatkan data kabupaten
+                data: {
+                    id_provinsi: id_provinsi_terpilih
+                },
+                success: function(hasil_kabupaten) {
+                    $("select[name='kabupaten']").html(hasil_kabupaten);
+                },
+                error: function() {
+                    alert("Gagal memuat data kabupaten.");
+                }
+            });
+        } else {
+            $("select[name='kabupaten']").html(
+                "<option value='' disabled selected>Pilih Kabupaten</option>");
+        }
+    });
+});
+
 // Fungsi menghitung total berat dan grand total
 function calculateTotals() {
     let totalBerat = 0;
@@ -1015,11 +1052,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const bukuContainerSelector = '#buku-container-';
 
     // Tambahkan event listener untuk klik tombol tambah buku
-    document.body.addEventListener('click', function (e) {
+    document.body.addEventListener('click', function(e) {
         if (e.target.classList.contains('add-buku')) {
             const orderId = e.target.dataset.orderId;
             const container = document.querySelector(`${bukuContainerSelector}${orderId}`);
@@ -1046,14 +1083,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Tambahkan event listener untuk klik tombol hapus buku
-    document.body.addEventListener('click', function (e) {
+    document.body.addEventListener('click', function(e) {
         if (e.target.classList.contains('remove-buku')) {
             const row = e.target.closest('.buku-row');
             if (row) row.remove();
         }
     });
 });
-
 </script>
 
 @endsection
