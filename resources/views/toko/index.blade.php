@@ -8,6 +8,7 @@
     padding-top: 60px;
     max-width: 1200px;
     margin: 0 auto;
+    height: 400px;
 }
 .card-header-button {
     padding: 15px;
