@@ -46,7 +46,6 @@
         font-size: 13px; 
     }
     .alert-info {
-        margin: 0 10px 0 10px;
         padding: 16px;
         font-size: 12px;
     }
@@ -58,7 +57,7 @@
 
 @media (min-width: 600px) and (max-width: 1024px) {
     .container-checkout {
-        padding: 60px 30px 0 30px;
+        padding: 40px 30px 0 30px;
         height: 650px;
         max-width: 1200px;
     }
