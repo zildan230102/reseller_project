@@ -21,7 +21,7 @@
         </script>
     @endif
 
-    <div class="card mb-4 card-profile">
+    <div class="card mb-4 card-profile mx-3">
         <div class="card-body text-center profile-picture">
             @if ($user->profile_picture)
             <img src="{{ asset('storage/' . $user->profile_picture) }}?{{ time() }}" alt="Foto Profil"
@@ -31,10 +31,10 @@
                 height="150" id="profileImage" data-bs-toggle="modal" data-bs-target="#imageModal">
             @endif
 
-            <h4 class="mt-3">{{ $user->name }}</h4>
+            <h4 class="mt-3 profile-name">{{ $user->name }}</h4>
         </div>
-        <div class="card-body">
-            <table class="table table-bordered">
+        <div class="card-body profile">
+            <table class="table table-bordered table-profile">
                 <tbody class="user-data">
                     <tr>
                         <th>Email</th>
@@ -49,7 +49,7 @@
                         <td>{{ $user->address }}</td>
                     </tr>
                     <tr>
-                        <th>Tanggal bergabung</th>
+                        <th>Tanggal Bergabung</th>
                         <td>{{ $user->join_date ? \Carbon\Carbon::parse($user->join_date)->format('d M Y') : 'Belum ada' }}</td>
                     </tr>
                 </tbody>

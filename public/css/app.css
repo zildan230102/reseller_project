@@ -624,7 +624,15 @@ tr.deactive {
 .container-profile {
   padding-top: 80px;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1000px;
+}
+
+.table-profile th {
+  width: 40%;
+}
+
+.table-profile td {
+  width: 60%;
 }
 
 .buttonallert {
@@ -1259,6 +1267,26 @@ tr.deactive {
     width: 120px !important;
     margin-top: 0;
     margin-bottom: 0;
+  }
+
+  .profile-picture {
+    margin-top: 30px;
+  }
+
+  .profile-name {
+    margin-bottom: 0;
+    margin-top: 20px !important;
+  }
+
+  .profile {
+    padding: 0 30px 30px 30px;
+  }
+
+  #joindate {
+    font-size: 14px;
+    height: auto;
+    transform: scale(0.9);
+    width: 100%;
   }
 }
 

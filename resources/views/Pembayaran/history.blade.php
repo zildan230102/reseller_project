@@ -10,6 +10,7 @@
     padding-top: 40px;
     max-width: 1200px;
     margin: 0 auto;
+    height: 400px;
 }
 .header-title {
     padding: 20px;
@@ -47,6 +48,7 @@
     .container-riwayat {
         padding: 5px;
         padding-top: 60px;
+        height: 300px;
     }
     .header-title {
         padding: 15px;
