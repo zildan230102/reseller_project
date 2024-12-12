@@ -46,7 +46,6 @@
 }
 @media (max-width: 576px) {
     .container-riwayat {
-        padding: 5px;
         padding-top: 60px;
         height: 300px;
     }
@@ -93,7 +92,7 @@
 }
 @media (min-width: 600px) and (max-width: 1024px) {
     .container-riwayat {
-        padding: 40px 30px 0 30px;
+        padding: 60px 30px 0 30px;
         height: 600px;
         max-width: 1200px;
     }
