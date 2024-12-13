@@ -1,8 +1,7 @@
 @extends('layouts.profil')
-
 @section('title', 'Profil')
-
 @section('content')
+
 <div class="container-profile mt-4">
     <h2 class="text-center mb-4">Profil Pengguna</h2>
 
@@ -78,7 +77,7 @@
 
 <!-- Modal untuk Edit Profil -->
 <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content modal-profil">
             <div class="modal-header">
                 <h5 class="modal-title" id="editProfileModalLabel">Edit Profil</h5>
@@ -88,7 +87,7 @@
                 <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mb-3">
-                        <label for="fullName">Nama Lengkap:</label>
+                        <label class="form-profile" for="fullName">Nama Lengkap:</label>
                         <input type="text" id="fullName" name="fullName" class="form-control" value="{{ old('fullName', $user->name) }}" required>
                     </div>
 

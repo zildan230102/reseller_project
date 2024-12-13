@@ -29,22 +29,8 @@
 .card-body-toko {
     padding: 0px 10px;
 }
-@media (max-width: 768px) {
-    .container-riwayat {
-        padding: 10px;
-        padding-top: 70px;
-    }
-    .header-title {
-        padding: 20px;
-    }
-    .text-title {
-        font-size: 22px;
-    }
-    .modal-dialog {
-        max-width: 90%;;
-    }
-}
-@media (max-width: 576px) {
+
+@media (min-width: 320px) and (max-width: 599px){
     .container-riwayat {
         padding-top: 60px;
         height: 300px;
@@ -90,13 +76,24 @@
         font-size: 12px;
     }
 }
-@media (min-width: 600px) and (max-width: 1024px) {
+@media (min-width: 600px) and (max-width: 1180px) {
     .container-riwayat {
-        padding: 60px 30px 0 30px;
-        height: 600px;
+        padding: 40px 30px 0 30px;
+        height: 500px;
         max-width: 1200px;
     }
+    .text-title {
+        font-size: 25px;
+        text-align: center;
+    }
+    .header-title {
+        padding: 20px;
+    }
+    .modal-dialog {
+        max-width: 90%;;
+    }
 }
+
 </style>
 
 <div class="container-riwayat mt-4">

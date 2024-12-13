@@ -22,6 +22,13 @@ class TokoController extends Controller
     {
         $request->validate($this->rules());
         Toko::create($request->only(['nama_toko', 'marketplace', 'is_active']));
+
+        if ($request->ajax()) {
+            return response()->json([
+                'message' => 'Toko berhasil ditambahkan.',
+            ]);
+        }
+
         return redirect()->route('toko.index')->with('success', 'Toko berhasil ditambahkan.');
     }
 

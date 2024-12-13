@@ -90,58 +90,7 @@
     box-shadow: none;
 }
 
-/* Responsif untuk layar 768px ke bawah */
-@media (max-width: 768px) {
-    .container-toko {
-        padding: 10px;
-        padding-top: 80px;
-    }
-    .text-title {
-        text-align: center;
-        font-size: 25px;
-    }
-
-    .custom-button-daftar {
-        width: auto;
-        font-size: 14px;
-    }
-
-    table {
-        overflow-x: auto;
-        font-size: 16px;
-    }
-    .modal-dialog {
-            max-width: 80%;
-    }
-    .modal-header {
-        padding: 10px 15px;
-    }
-    .modal-title {
-        font-size: 18px !important;
-    }
-    .modal-body {
-        padding: 20px
-    }
-    .form-group label {
-        font-size: 16px;
-    }
-    .form-group input, .form-group select {
-        font-size: 14px;
-        padding: 8px;
-    }
-    
-    .custom-button {
-        font-size: 14px;
-        padding: 10px 15px;
-    }
-
-    .d-flex.justify-content-end {
-        justify-content: center;
-    }  
-    
-}
-
-@media (max-width: 576px) {
+@media (min-width: 320px) and (max-width: 599px) {
     .container-toko {
         padding: 5px;
         padding-top: 60px;
@@ -191,10 +140,10 @@
         font-size: 12px;
     }
     .form-control, .form-select {
-        font-size: 9px;
+        font-size: 12px;
     }
     .form-control option {
-        font-size: 10px;
+        font-size: 11px;
     }
     .custom-button {
         font-size: 14px;
@@ -224,11 +173,53 @@
         font-size: 12px;
     }
 }
-@media (max-width: 1180px) {
+@media (min-width: 600px) and (max-width: 1180px) {
+    .container-toko {
+        padding: 10px;
+        padding-top: 80px;
+        height: 500px;
+    }
+    .card-container {
+        padding: 0 20px 0 20px;
+    }
     .text-title {
         text-align: center;
         font-size: 25px;
     }
+    .custom-button-daftar {
+        width: auto;
+        font-size: 14px;
+    }
+    table {
+        overflow-x: auto;
+        font-size: 16px;
+    }
+    .modal-dialog {
+            max-width: 80%;
+    }
+    .modal-header {
+        padding: 10px 15px;
+    }
+    .modal-title {
+        font-size: 18px !important;
+    }
+    .modal-body {
+        padding: 20px
+    }
+    .form-group label {
+        font-size: 16px;
+    }
+    .form-group input, .form-group select {
+        font-size: 14px;
+        padding: 8px;
+    }
+    .custom-button {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+    .d-flex.justify-content-end {
+        justify-content: center;
+    }  
     .form-select option {
         font-size: 11px;
     }
@@ -240,6 +231,7 @@
     }
 }
 </style>
+
     <div class="container-toko mt-4">
         <h1 class="text-title mb-4">Daftar Toko</h1>
 
@@ -442,7 +434,8 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Apakah Anda yakin ingin menghapus toko ini?
+                        Apakah Anda yakin ingin menghapus toko 
+                        <strong>{{ $toko->nama_toko }}</strong> ini?
                     </div>
                     <div class="modal-footer">
                         <form id="deleteForm" action="" method="POST">
@@ -479,10 +472,26 @@
                     data: $(this).serialize(),
                     success: function(response) {
                         $('#tokoModal').modal('hide');
-                        location.reload();
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: response.message,
+                            icon: 'success',
+                            confirmButtonText: 'OK',
+                            customClass: {
+                                popup: 'sweetalert',
+                                confirmButton: 'buttonallert'
+                            }
+                        }).then(() => {
+                            location.reload();
+                        });
                     },
                     error: function(xhr) {
-                        alert('Terjadi kesalahan saat menyimpan data');
+                        Swal.fire({
+                            title: 'Gagal!',
+                            text: 'Terjadi kesalahan saat menyimpan data',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
                     }
                 });
             });
