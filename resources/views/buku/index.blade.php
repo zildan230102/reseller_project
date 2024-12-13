@@ -40,7 +40,6 @@
     padding: 0.5rem;
     z-index: 1050;
 }
-
 .custom-dropdown-item {
     display: flex;
     align-items: center;
@@ -51,33 +50,27 @@
     box-sizing: border-box;
     transition: background-color 0.2s ease;
 }
-
 .custom-dropdown-item:hover {
     background-color: #f0f0f0;
     color: #000;
     text-decoration: none;
 }
-
 .custom-dropdown-item i {
     margin-right: 8px;
     margin-left: 0;
 }
-
 .no-border-dropdown {
     border: none;
     box-shadow: none;
 }
-
 .no-border-item {
     border: none;
     background-color: transparent;
 }
-
 .no-border-item:hover {
     background-color: #f8f9fa;
     border: none;
 }
-
 .dropdown .btn-no-border {
     border: none;
     outline: none;
@@ -85,53 +78,21 @@
     padding: 0;
 }
 select.form-select, select.form-select option {
-    font-size: 16px; /* Ukuran font default */
+    font-size: 16px;
 }
-
 .small-icon {
     font-size: 12px;
 }
-
 .buttonallert {
     background-color: #ff9800;
     box-shadow: none;
     outline: none;
 }
-
 .buttonallert:focus{
     box-shadow: none;
 }
 
-@media (max-width: 768px) {
-    .container-buku {
-        padding: 10px;
-        height: 600px;
-    }
-    .text-title {
-        font-size: 25px;
-        text-align: center;
-    }
-    .modal-dialog {
-        max-width: 80%;
-    }
-    .modal-header {
-        font-size: 14px;
-    }
-    .modal-body {
-        font-size: 16px;
-        padding: 10px 20px 10px 20px;
-        max-height: 70vh !important;
-    }
-    .modal-footer {
-        padding: 10px 20px 10px 10px;
-    }
-    select.form-select {
-        max-height: 150px;
-        overflow-y: auto;
-    }
-}
-
-@media (max-width: 576px) {
+@media (min-width: 320px) and (max-width: 599px) {
     .container-buku {
         padding: 5px;
         padding-top: 70px;
@@ -212,7 +173,37 @@ select.form-select, select.form-select option {
     }
 }
 
-@media (min-width: 820px) {
+@media (min-width: 600px) and (max-width: 1180px) {
+    .container-buku {
+        padding: 10px;
+        height: 600px;
+        padding-top: 70px;
+    }
+    .card-container {
+        padding: 0 20px 0 20px;
+    }
+    .text-title {
+        font-size: 25px;
+        text-align: center;
+    }
+    .modal-dialog {
+        max-width: 80%;
+    }
+    .modal-header {
+        font-size: 14px;
+    }
+    .modal-body {
+        font-size: 16px;
+        padding: 10px 20px 10px 20px;
+        max-height: 70vh !important;
+    }
+    .modal-footer {
+        padding: 10px 20px 10px 10px;
+    }
+    select.form-select {
+        max-height: 150px;
+        overflow-y: auto;
+    }
     .text-start {
         font-size: 14px;
         left: auto;
@@ -222,9 +213,6 @@ select.form-select, select.form-select option {
     .form-select option {
         font-size: 10px !important;
     }
-}
-
-@media (max-width: 1180px) {
     .container-buku {
         padding-bottom: 0 !important;
     }
@@ -234,10 +222,6 @@ select.form-select, select.form-select option {
     }
     select.form-select option {
         font-size: 10px;
-    }
-    .text-title {
-        text-align: center;
-        font-size: 25px;
     }
 }
 
@@ -520,7 +504,7 @@ select.form-select, select.form-select option {
                                     </div>
                                     <div class="modal-body">
                                         <p>Apakah Anda yakin ingin menghapus buku
-                                            <strong>{{ $buku->judul_buku }}</strong>?
+                                            <strong>{{ $buku->judul_buku }}</strong> ini?
                                         </p>
                                     </div>
                                     <div class="modal-footer">

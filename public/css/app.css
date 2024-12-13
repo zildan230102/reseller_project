@@ -1104,6 +1104,14 @@ tr.deactive {
   .card-profile {
     padding: 0 20px 0 20px;
   }
+
+  .form-group {
+    font-size: 14px;
+  }
+
+  .form-profile {
+    font-size: 12px;
+  }
 }
 
 /* Media query card untuk tampilan tab */
