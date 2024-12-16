@@ -7,6 +7,11 @@ use App\Models\Toko;
 use App\Models\Ekspedisi;
 use App\Models\Buku;
 use Illuminate\Http\Request;
+use App\Models\Province;
+use App\Models\Regency;
+use App\Models\District;
+use App\Models\Village;
+
 
 class OrderController extends Controller
 {
@@ -17,7 +22,11 @@ class OrderController extends Controller
         $tokos = Toko::where('is_active', 1)->get(); // Ambil hanya toko yang aktif
         $ekspedisis = Ekspedisi::all();
         $bukus = Buku::all();
-        return view('orders.index', compact('orders', 'tokos', 'ekspedisis', 'bukus'));
+        $provinces = Province::all();
+        $regencies = Regency::all();
+        $districts = District::all();
+        $villages = Village::all();
+        return view('orders.index', compact('orders', 'tokos', 'ekspedisis', 'bukus','provinces','regencies','districts','villages'));
     }
 
     // Menampilkan form untuk membuat order baru
@@ -26,7 +35,11 @@ class OrderController extends Controller
         $tokos = Toko::where('is_active', 1)->get();
         $ekspedisis = Ekspedisi::all();
         $bukus = Buku::all(); // Mengambil semua buku untuk pilihan
-        return view('orders.create', compact('tokos', 'ekspedisis', 'bukus'));
+        $provinces = Province::all();
+        $regencies = Regency::all();
+        $districts = District::all();
+        $villages = Village::all();
+        return view('orders.create', compact('tokos', 'ekspedisis', 'bukus','provinces','regencies','districts','villages'));
     }
 
     // Menyimpan order baru ke database
@@ -42,10 +55,10 @@ class OrderController extends Controller
             'penerima' => 'required|string',
             'no_hp_penerima' => 'required|string',
             'alamat_kirim' => 'required|string',
-            'kelurahan' => 'required|string',
-            'kecamatan' => 'required|string',
-            'kota' => 'required|string',
-            'provinsi' => 'required|string',
+            'village_id' => 'required|exists:villages,id',
+            'district_id' => 'required|exists:districts,id',
+            'regency_id' => 'required|exists:regencies,id',
+            'province_id' => 'required|exists:provinces,id',
             'catatan' => 'nullable|string',
             'total_berat' => 'required|numeric',
             'grand_total' => 'required|numeric',
@@ -69,6 +82,30 @@ class OrderController extends Controller
         }
 
         return redirect()->route('orders.index')->with('success', 'Order berhasil ditambahkan!');
+    }
+
+    public function getProvinsi()
+    {
+        $provinsi = Province::all(); // Mengambil semua data Provinsi
+        return response()->json($provinsi);
+    }
+
+    public function getKabupaten($provinsiId)
+    {
+        $kabupaten = Regency::where('province_id', $provinsiId)->get(); // Mengambil kabupaten berdasarkan provinsi
+        return response()->json($kabupaten);
+    }
+
+    public function getKecamatan($kabupatenId)
+    {
+        $kecamatan = District::where('regency_id', $kabupatenId)->get(); // Mengambil kecamatan berdasarkan kabupaten
+        return response()->json($kecamatan);
+    }
+
+    public function getKelurahan($kecamatanId)
+    {
+        $kelurahan = Village::where('district_id', $kecamatanId)->get(); // Mengambil kelurahan berdasarkan kecamatan
+        return response()->json($kelurahan);
     }
 
     // Menampilkan form untuk mengedit order yang sudah ada
@@ -112,10 +149,10 @@ class OrderController extends Controller
             'penerima' => 'required|string',
             'no_hp_penerima' => 'required|string',
             'alamat_kirim' => 'required|string',
-            'kelurahan' => 'required|string',
-            'kecamatan' => 'required|string',
-            'kota' => 'required|string',
-            'provinsi' => 'required|string',
+            'village_id' => 'required|exists:villages,id',
+            'district_id' => 'required|exists:districts,id',
+            'regency_id' => 'required|exists:regencies,id',
+            'province_id' => 'required|exists:provinces,id',
             'catatan' => 'nullable|string',
             'total_berat' => 'required|numeric',
             'grand_total' => 'required|numeric',

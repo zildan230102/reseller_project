@@ -10,6 +10,9 @@ class Order extends Model
 {
     use HasFactory;
 
+    /**
+     * Kolom yang dapat diisi (mass assignable).
+     */
     protected $fillable = [
         'tanggal',
         'no_hp',
@@ -19,18 +22,18 @@ class Order extends Model
         'penerima',
         'no_hp_penerima',
         'alamat_kirim',
-        'kelurahan',
-        'kecamatan',
-        'kota',
-        'provinsi',
+        'village_id',
+        'district_id',
+        'regency_id',
+        'province_id',
         'catatan',
         'total_berat',
         'grand_total',
         'no_invoice',
         'kode_booking',
-        'status',             // Status pesanan (e.g., pending, paid, shipped, etc.)
-        'metode_pembayaran',  // Metode pembayaran (e.g., cash, transfer)
-        'tanggal_pembayaran', // Tanggal pembayaran (nullable)
+        'status',
+        'metode_pembayaran',
+        'tanggal_pembayaran',
     ];
 
     /**
@@ -129,6 +132,38 @@ class Order extends Model
     }
 
     /**
+     * Relasi ke lokasi administratif (Kelurahan).
+     */
+    public function village()
+    {
+        return $this->belongsTo(Village::class);
+    }
+
+    /**
+     * Relasi ke lokasi administratif (Kecamatan).
+     */
+    public function district()
+    {
+        return $this->belongsTo(District::class);
+    }
+
+    /**
+     * Relasi ke lokasi administratif (Kabupaten/Kota).
+     */
+    public function regency()
+    {
+        return $this->belongsTo(Regency::class);
+    }
+
+    /**
+     * Relasi ke lokasi administratif (Provinsi).
+     */
+    public function province()
+    {
+        return $this->belongsTo(Province::class);
+    }
+
+    /**
      * Scope untuk mengambil pesanan berdasarkan status.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
@@ -138,5 +173,17 @@ class Order extends Model
     public function scopeByStatus($query, $status)
     {
         return $query->where('status', $status);
+    }
+
+    /**
+     * Scope untuk filter berdasarkan tanggal.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param string $date
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeByDate($query, $date)
+    {
+        return $query->whereDate('tanggal', $date);
     }
 }

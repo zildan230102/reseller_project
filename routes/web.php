@@ -10,6 +10,12 @@ use App\Http\Controllers\TokoController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\PaymentController;
+use App\Models\Order;
+
+Route::get('/get-provinsi', [OrderController::class, 'getProvinsi']);
+Route::get('/get-kabupaten/{provinsiId}', [OrderController::class, 'getKabupaten']);
+Route::get('/get-kecamatan/{kabupatenId}', [OrderController::class, 'getKecamatan']);
+Route::get('/get-kelurahan/{kecamatanId}', [OrderController::class, 'getKelurahan']);
 
 
 // Rute untuk homepage yang mengarahkan ke login
