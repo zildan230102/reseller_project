@@ -33,8 +33,8 @@ class District extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'regency_id', // Sesuaikan dengan kolom yang ada pada tabel 'districts'
+    protected $hidden = [
+        'regency_id'
     ];
 
     /**
@@ -55,10 +55,5 @@ class District extends Model
     public function villages()
     {
         return $this->hasMany(Village::class);
-    }
-
-    public function province()
-    {
-        return $this->belongsToThrough(Province::class, Regency::class);
     }
 }

@@ -1,8 +1,7 @@
 @extends('layouts.main')
-
 @section('title', 'Riwayat Pembayaran')
-
 @section('content')
+
 <style>
 .container-riwayat {
     width: 100%;
@@ -32,7 +31,7 @@
 
 @media (min-width: 320px) and (max-width: 599px){
     .container-riwayat {
-        padding-top: 60px;
+        padding-top: 40px;
         height: 300px;
     }
     .header-title {
@@ -71,7 +70,6 @@
         overflow-y: auto; 
     }
     .alert-info {
-        margin: 0 10px 0 10px;
         padding: 16px;
         font-size: 12px;
     }

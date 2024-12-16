@@ -31,8 +31,8 @@ class Regency extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'province_id', // Sesuaikan dengan kolom yang ada pada tabel 'regencies'
+    protected $hidden = [
+        'province_id'
     ];
 
     /**
@@ -53,10 +53,5 @@ class Regency extends Model
     public function districts()
     {
         return $this->hasMany(District::class);
-    }
-
-    public function villages()
-    {
-        return $this->hasManyThrough(Village::class, District::class);
     }
 }

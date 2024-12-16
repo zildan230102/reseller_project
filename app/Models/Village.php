@@ -32,8 +32,8 @@ class Village extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'district_id', // Sesuaikan dengan kolom yang ada pada tabel 'villages'
+    protected $hidden = [
+        'district_id'
     ];
 
 	/**
@@ -44,15 +44,5 @@ class Village extends Model
     public function district()
     {
         return $this->belongsTo(District::class);
-    }
-
-    public function regency()
-    {
-        return $this->belongsToThrough(Regency::class, District::class);
-    }
-
-    public function province()
-    {
-        return $this->belongsToThrough(Province::class, Regency::class);
     }
 }
