@@ -1109,8 +1109,16 @@ tr.deactive {
     font-size: 14px;
   }
 
+  .modal-profil {
+    padding: 0 12px 10px 12px;
+  }
+
   .form-profile {
     font-size: 12px;
+  }
+
+  #editProfileModal .form-control {
+    font-size: 14px;
   }
 }
 
