@@ -351,31 +351,41 @@
                         </div>
 
                         <div class="row">
+                            <!-- Provinsi -->
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="provinsi" class="form-label">Provinsi</label>
                                 <select class="form-control" id="provinsi" name="provinsi" required>
-                                    @include('includes.public.dataprovinsi')
+                                    <option value="">Pilih Provinsi</option>
+                                    <!-- Provinsi options akan dimuat di sini melalui AJAX -->
                                 </select>
                             </div>
+
+                            <!-- Kabupaten -->
                             <div class="col-sm-12 col-md-6 mb-3">
-                                <label for="kota" class="form-label">Kota</label>
-                                <select class="form-control" id="kota" name="kota" required>
-                                    @include('includes.public.datakabupaten')
+                                <label for="kabupaten" class="form-label">Kabupaten/Kota</label>
+                                <select class="form-control" id="kabupaten" name="kabupaten" required>
+                                    <option value="">Pilih Kabupaten</option>
+                                    <!-- Kabupaten options akan dimuat setelah memilih Provinsi -->
                                 </select>
                             </div>
                         </div>
 
                         <div class="row">
+                            <!-- Kecamatan -->
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="kecamatan" class="form-label">Kecamatan</label>
                                 <select class="form-control" id="kecamatan" name="kecamatan" required>
-
+                                    <option value="">Pilih Kecamatan</option>
+                                    <!-- Kecamatan options akan dimuat setelah memilih Kabupaten -->
                                 </select>
                             </div>
-                            <div class="col-sm-12 col-md-6 mb-3">
-                                <label for="kelurahan" class="form-label">Kelurahan</label>
-                                <select class="form-control" id="kelurahan" name="kelurahan" required>
 
+                            <!-- Kelurahan -->
+                            <div class="col-sm-12 col-md-6 mb-3">
+                                <label for="kelurahan" class="form-label">Kelurahan/Desa</label>
+                                <select class="form-control" id="kelurahan" name="kelurahan" required>
+                                    <option value="">Pilih Kelurahan</option>
+                                    <!-- Kelurahan options akan dimuat setelah memilih Kecamatan -->
                                 </select>
                             </div>
                         </div>
@@ -782,36 +792,88 @@
 
 <script>
 $(document).ready(function() {
+    // Muat Provinsi ketika halaman dimuat
     $.ajax({
-        type: 'POST',
-        url: '/get-provinsi',
-        success: function(hasil_provinsi) {
-            $("select[name=provinsi").html(hasil_provinsi);
+        url: '/get-provinsi', // URL untuk mendapatkan daftar Provinsi
+        type: 'GET',
+        success: function(data) {
+            $('#provinsi').empty();
+            $('#provinsi').append('<option value="">Pilih Provinsi</option>');
+            data.forEach(function(province) {
+                $('#provinsi').append('<option value="' + province.id + '">' + province.name + '</option>');
+            });
+        },
+        error: function(xhr, status, error) {
+            console.error("Error fetching provinces:", error);
         }
     });
 
-    // Ketika provinsi dipilih, muat data kabupaten
-    $("select[name='provinsi']").on("change", function() {
-        // Ambil id_provinsi dari atribut data-id_provinsi
-        var id_provinsi_terpilih = $("option:selected", this).data("id_provinsi");
-
-        if (id_provinsi_terpilih) {
+    // Ketika Provinsi dipilih
+    $('#provinsi').on('change', function() {
+        var provinsiId = $(this).val();
+        if (provinsiId) {
             $.ajax({
+                url: '/get-kabupaten/' + provinsiId,
                 type: 'GET',
-                url: '/get-kabupaten', // Ganti dengan URL atau route ke controller untuk mendapatkan data kabupaten
-                data: {
-                    id_provinsi: id_provinsi_terpilih
+                success: function(data) {
+                    $('#kabupaten').empty();
+                    $('#kabupaten').append('<option value="">Pilih Kabupaten</option>');
+                    data.forEach(function(kabupaten) {
+                        $('#kabupaten').append('<option value="' + kabupaten.id + '">' + kabupaten.name + '</option>');
+                    });
                 },
-                success: function(hasil_kabupaten) {
-                    $("select[name='kabupaten']").html(hasil_kabupaten);
-                },
-                error: function() {
-                    alert("Gagal memuat data kabupaten.");
+                error: function(xhr, status, error) {
+                    console.error("Error fetching kabupaten:", error);
                 }
             });
         } else {
-            $("select[name='kabupaten']").html(
-                "<option value='' disabled selected>Pilih Kabupaten</option>");
+            $('#kabupaten').empty().append('<option value="">Pilih Kabupaten</option>');
+        }
+    });
+
+    // Ketika Kabupaten dipilih
+    $('#kabupaten').on('change', function() {
+        var kabupatenId = $(this).val();
+        if (kabupatenId) {
+            $.ajax({
+                url: '/get-kecamatan/' + kabupatenId,
+                type: 'GET',
+                success: function(data) {
+                    $('#kecamatan').empty();
+                    $('#kecamatan').append('<option value="">Pilih Kecamatan</option>');
+                    data.forEach(function(kecamatan) {
+                        $('#kecamatan').append('<option value="' + kecamatan.id + '">' + kecamatan.name + '</option>');
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching kecamatan:", error);
+                }
+            });
+        } else {
+            $('#kecamatan').empty().append('<option value="">Pilih Kecamatan</option>');
+        }
+    });
+
+    // Ketika Kecamatan dipilih
+    $('#kecamatan').on('change', function() {
+        var kecamatanId = $(this).val();
+        if (kecamatanId) {
+            $.ajax({
+                url: '/get-kelurahan/' + kecamatanId,
+                type: 'GET',
+                success: function(data) {
+                    $('#kelurahan').empty();
+                    $('#kelurahan').append('<option value="">Pilih Kelurahan</option>');
+                    data.forEach(function(kelurahan) {
+                        $('#kelurahan').append('<option value="' + kelurahan.id + '">' + kelurahan.name + '</option>');
+                    });76
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching kelurahan:", error);
+                }
+            });
+        } else {
+            $('#kelurahan').empty().append('<option value="">Pilih Kelurahan</option>');
         }
     });
 });
