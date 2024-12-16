@@ -92,8 +92,8 @@
 
 @media (min-width: 320px) and (max-width: 599px) {
     .container-toko {
-        padding: 5px;
-        padding-top: 60px;
+        padding: 60px 20px 0 20px;
+        height: 400px;
     }
     
     .text-title{
@@ -157,7 +157,7 @@
         font-size: 12px;
         left: auto;
         right: 0;
-        /* transform: translateY(30%) !important; */
+        transform: translateX(-40%) !important;
     }
     .small-icon {
         font-size: 10px;
@@ -265,7 +265,7 @@
                 </div>
                 <div class="card-body-toko">
                     <table class="table table-bordered ">
-                        <thead class="thead text-center ">
+                        <thead class="thead text-center">
                             <tr>
                                 <th>Nama Toko</th>
                                 <th>Marketplace</th>

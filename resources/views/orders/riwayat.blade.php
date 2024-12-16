@@ -67,8 +67,12 @@
 
 @media (min-width: 320px) and (max-width: 599px) {
     .container-riwayat {
-        padding: 5px;
-        padding-top: 60px;
+        padding-top: 40px;
+        height: 300px;
+    }
+    .text-title {
+        font-size: 18px;
+        text-align: center;
     }
     .header-title {
         padding: 15px;
@@ -106,15 +110,13 @@
         overflow-y: auto; 
     }
     .alert-info {
-        margin: 0 10px 0 10px;
         padding: 16px;
         font-size: 12px;
     }
 }
 @media (min-width: 600px) and (max-width: 1180px){
     .container-riwayat {
-        padding: 60px 30px 0 30px;;
-        padding-top: 70px;
+        padding: 40px 30px 0 30px;
         height: 600px;
         max-width: 1200px;
     }
