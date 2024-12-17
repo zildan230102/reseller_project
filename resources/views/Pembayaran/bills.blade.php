@@ -1,11 +1,12 @@
 @extends('layouts.main')
 @section('title', 'Checkout')
 @section('content')
+
 <style>
 .container{
     width: 100%;
     padding: 20px;
-    padding-top: 80px;
+    padding-top: 70px;
     max-width: 1200px;
 }
 .card-header-tagihan {
@@ -19,7 +20,16 @@
     font-size: 18px;
     font-weight: bold;
 }
-@media (max-width: 576px) {
+
+@media (min-width: 320px) and (max-width: 599px) {
+    .container-checkout {
+        height: 300px;
+    }
+    .text-title {
+        font-size: 18px;
+        text-align: center;
+    }
+
     h2 {
         font-size: 18px;
     }

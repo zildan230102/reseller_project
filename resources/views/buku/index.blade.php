@@ -93,9 +93,9 @@ select.form-select, select.form-select option {
 }
 
 @media (min-width: 320px) and (max-width: 599px) {
-    .container-buku {
-        padding: 5px;
-        padding-top: 70px;
+    .container-buku{
+        padding: 60px 20px 0 20px;
+        height: 400px;
     }
     .text-title {
         font-size: 20px;
@@ -109,7 +109,7 @@ select.form-select, select.form-select option {
         font-size: 12px;
         padding: 8px 10px 8px 10px;
     }
-    .table {
+    .table-responsive{
         display: block;
         overflow-x: auto;
         white-space: nowrap;
@@ -260,7 +260,7 @@ select.form-select, select.form-select option {
                         <tr class="text-center">
                             <th>Judul Buku</th>
                             <th>Penulis</th>
-                            <th>Kategori</th>
+                            <!-- <th>Kategori</th> -->
                             <!-- <th>Tahun Terbit</th> -->
                             <th>ISBN</th>
                             <th>Aksi</th>
@@ -271,7 +271,7 @@ select.form-select, select.form-select option {
                         <tr>
                             <td>{{ $buku->judul_buku }}</td>
                             <td>{{ $buku->nama_penulis }}</td>
-                            <td>{{ $buku->kategori->nama_kategori }}</td>
+                            <!-- <td>{{ $buku->kategori->nama_kategori }}</td> -->
                             <!-- <td class="text-center">{{ $buku->tahun_terbit }}</td> -->
                             <td>{{ $buku->isbn }}</td>
                             <td class="text-center">
@@ -520,7 +520,6 @@ select.form-select, select.form-select option {
                         @endforeach
                     </tbody>
                 </table>
-            </div>
             </div>
         </div>
     </div>

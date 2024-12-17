@@ -1285,6 +1285,10 @@ tr.deactive {
     margin-bottom: 0;
   }
 
+  .container-profile {
+    padding: 60px 18px 4px 18px;
+  }
+
   .profile-picture {
     margin-top: 30px;
   }
