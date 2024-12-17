@@ -23,10 +23,7 @@ class OrderController extends Controller
         $ekspedisis = Ekspedisi::all();
         $bukus = Buku::all();
         $provinces = Province::all();
-        $regencies = Regency::all();
-        $districts = District::all();
-        $villages = Village::all();
-        return view('orders.index', compact('orders', 'tokos', 'ekspedisis', 'bukus','provinces','regencies','districts','villages'));
+        return view('orders.index', compact('orders', 'tokos', 'ekspedisis', 'bukus','provinces'));
     }
 
     // Menampilkan form untuk membuat order baru
@@ -36,10 +33,18 @@ class OrderController extends Controller
         $ekspedisis = Ekspedisi::all();
         $bukus = Buku::all(); // Mengambil semua buku untuk pilihan
         $provinces = Province::all();
-        $regencies = Regency::all();
-        $districts = District::all();
-        $villages = Village::all();
-        return view('orders.create', compact('tokos', 'ekspedisis', 'bukus','provinces','regencies','districts','villages'));
+        return view('orders.create', compact('tokos', 'ekspedisis', 'bukus','provinces'));
+    }
+
+    public function getkabupaten(request $request)
+    {
+        $id_provinsi = $request->id_provinsi;
+
+        $kabupatens = Regency::where('province_id',$id_provinsi)->get();
+
+        foreach($kabupatens as $kabupaten){
+            echo "<option value='$kabupaten->id'>$kabupaten->name</option>";
+        }
     }
 
     // Menyimpan order baru ke database
@@ -82,30 +87,6 @@ class OrderController extends Controller
         }
 
         return redirect()->route('orders.index')->with('success', 'Order berhasil ditambahkan!');
-    }
-
-    public function getProvinsi()
-    {
-        $provinsi = Province::all(); // Mengambil semua data Provinsi
-        return response()->json($provinsi);
-    }
-
-    public function getKabupaten($provinsiId)
-    {
-        $kabupaten = Regency::where('province_id', $provinsiId)->get(); // Mengambil kabupaten berdasarkan provinsi
-        return response()->json($kabupaten);
-    }
-
-    public function getKecamatan($kabupatenId)
-    {
-        $kecamatan = District::where('regency_id', $kabupatenId)->get(); // Mengambil kecamatan berdasarkan kabupaten
-        return response()->json($kecamatan);
-    }
-
-    public function getKelurahan($kecamatanId)
-    {
-        $kelurahan = Village::where('district_id', $kecamatanId)->get(); // Mengambil kelurahan berdasarkan kecamatan
-        return response()->json($kelurahan);
     }
 
     // Menampilkan form untuk mengedit order yang sudah ada

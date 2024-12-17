@@ -225,6 +225,21 @@
         </div>
 
         @if(session('success'))
+        
+        <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil!',
+            text: '{{ session('
+            success: ') }}',
+            confirmButtonText: 'OK',
+            customClass: {
+                popup: 'sweetalert',
+                confirmButton: 'buttonallert'
+            }
+        });
+        </script>
+
             <script>
                 Swal.fire({
                     icon: 'success',
@@ -237,6 +252,7 @@
                     }
                 });
             </script>
+
         @endif
 
         @if ($errors->any())
@@ -356,7 +372,9 @@
                                 <label for="provinsi" class="form-label">Provinsi</label>
                                 <select class="form-control" id="provinsi" name="provinsi" required>
                                     <option value="">Pilih Provinsi</option>
-                                    <!-- Provinsi options akan dimuat di sini melalui AJAX -->
+                                    @foreach ( $provinces as $provinsi )
+                                    <option value="{{$provinsi->id}}">{{$provinsi->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
@@ -365,7 +383,7 @@
                                 <label for="kabupaten" class="form-label">Kabupaten/Kota</label>
                                 <select class="form-control" id="kabupaten" name="kabupaten" required>
                                     <option value="">Pilih Kabupaten</option>
-                                    <!-- Kabupaten options akan dimuat setelah memilih Provinsi -->
+                                    
                                 </select>
                             </div>
                         </div>
@@ -376,7 +394,7 @@
                                 <label for="kecamatan" class="form-label">Kecamatan</label>
                                 <select class="form-control" id="kecamatan" name="kecamatan" required>
                                     <option value="">Pilih Kecamatan</option>
-                                    <!-- Kecamatan options akan dimuat setelah memilih Kabupaten -->
+                                    
                                 </select>
                             </div>
 
@@ -385,7 +403,7 @@
                                 <label for="kelurahan" class="form-label">Kelurahan/Desa</label>
                                 <select class="form-control" id="kelurahan" name="kelurahan" required>
                                     <option value="">Pilih Kelurahan</option>
-                                    <!-- Kelurahan options akan dimuat setelah memilih Kecamatan -->
+                                   
                                 </select>
                             </div>
                         </div>
@@ -791,92 +809,33 @@
 @endforeach
 
 <script>
-$(document).ready(function() {
-    // Muat Provinsi ketika halaman dimuat
-    $.ajax({
-        url: '/get-provinsi', // URL untuk mendapatkan daftar Provinsi
-        type: 'GET',
-        success: function(data) {
-            $('#provinsi').empty();
-            $('#provinsi').append('<option value="">Pilih Provinsi</option>');
-            data.forEach(function(province) {
-                $('#provinsi').append('<option value="' + province.id + '">' + province.name + '</option>');
-            });
-        },
-        error: function(xhr, status, error) {
-            console.error("Error fetching provinces:", error);
-        }
-    });
-
-    // Ketika Provinsi dipilih
-    $('#provinsi').on('change', function() {
-        var provinsiId = $(this).val();
-        if (provinsiId) {
-            $.ajax({
-                url: '/get-kabupaten/' + provinsiId,
-                type: 'GET',
-                success: function(data) {
-                    $('#kabupaten').empty();
-                    $('#kabupaten').append('<option value="">Pilih Kabupaten</option>');
-                    data.forEach(function(kabupaten) {
-                        $('#kabupaten').append('<option value="' + kabupaten.id + '">' + kabupaten.name + '</option>');
-                    });
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error fetching kabupaten:", error);
-                }
-            });
-        } else {
-            $('#kabupaten').empty().append('<option value="">Pilih Kabupaten</option>');
-        }
-    });
-
-    // Ketika Kabupaten dipilih
-    $('#kabupaten').on('change', function() {
-        var kabupatenId = $(this).val();
-        if (kabupatenId) {
-            $.ajax({
-                url: '/get-kecamatan/' + kabupatenId,
-                type: 'GET',
-                success: function(data) {
-                    $('#kecamatan').empty();
-                    $('#kecamatan').append('<option value="">Pilih Kecamatan</option>');
-                    data.forEach(function(kecamatan) {
-                        $('#kecamatan').append('<option value="' + kecamatan.id + '">' + kecamatan.name + '</option>');
-                    });
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error fetching kecamatan:", error);
-                }
-            });
-        } else {
-            $('#kecamatan').empty().append('<option value="">Pilih Kecamatan</option>');
-        }
-    });
-
-    // Ketika Kecamatan dipilih
-    $('#kecamatan').on('change', function() {
-        var kecamatanId = $(this).val();
-        if (kecamatanId) {
-            $.ajax({
-                url: '/get-kelurahan/' + kecamatanId,
-                type: 'GET',
-                success: function(data) {
-                    $('#kelurahan').empty();
-                    $('#kelurahan').append('<option value="">Pilih Kelurahan</option>');
-                    data.forEach(function(kelurahan) {
-                        $('#kelurahan').append('<option value="' + kelurahan.id + '">' + kelurahan.name + '</option>');
-                    });76
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error fetching kelurahan:", error);
-                }
-            });
-        } else {
-            $('#kelurahan').empty().append('<option value="">Pilih Kelurahan</option>');
-        }
-    });
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
 });
+
+    $(function(){
+        $('#provinsi').on('change', function(){
+            let id_provinsi = $('#provinsi').val();
+
+            $.ajax({
+                type : 'POST',
+                url : "{{route('getkabupaten')}}",
+                data : {id_provinsi:id_provinsi},
+                cache : false,
+
+                success: function(msg){
+                    $('#kabupaten').html(msg);
+                    $('#kecamatan').html('');
+                    $('#kelurahan'),html('');
+                },
+                error: function(data){
+                    console.log('error:' ,data)
+                },
+            })
+        })
+    })
 
 // Fungsi menghitung total berat dan grand total
 function calculateTotals() {
