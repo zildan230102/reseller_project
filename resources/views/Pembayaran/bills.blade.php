@@ -3,7 +3,7 @@
 @section('content')
 
 <style>
-.container-checkout{
+.container{
     width: 100%;
     padding: 20px;
     padding-top: 70px;
@@ -20,6 +20,7 @@
     font-size: 18px;
     font-weight: bold;
 }
+
 @media (min-width: 320px) and (max-width: 599px) {
     .container-checkout {
         height: 300px;
@@ -28,6 +29,7 @@
         font-size: 18px;
         text-align: center;
     }
+
     h2 {
         font-size: 18px;
     }
@@ -57,9 +59,9 @@
         font-size: 13px;
     }
     select.form-control {
-        font-size: 12px;
-        padding: 4px;
-        height: auto;
+    font-size: 12px;
+    padding: 4px;
+    height: auto;
     }
     option {
         font-size: 10px;
@@ -77,23 +79,14 @@
         font-size: 14px;
     }
     .grand-total strong {
-        margin-right: 0 !important;
+    margin-right: 0 !important;
     }
     .alert-info {
         padding: 16px;
         font-size: 12px;
     }
 }
-@media (min-width: 600px) and (max-width: 1180px) {
-    .container-checkout {
-        padding: 60px 30px 0 30px;
-        height: 500px;
-        max-width: 1200px;
-    }
-    .text-title {
-        font-size: 25px;
-        text-align: center;
-    }
+@media (max-width: 768px) {
     .card-header-tagihan h4{
         font-size: 16px;
         padding-bottom: 0;
@@ -122,9 +115,17 @@
         padding: 4px;
     }
 }
-</style>
 
-<div class="container-checkout">
+@media (min-width: 600px) and (max-width: 1024px) {
+    .container-checkout {
+        padding: 40px 30px 0 30px;
+        height: 650px;
+        max-width: 1200px;
+    }
+}
+
+</style>
+<div class="container">
     <h2 class="my-4 text-title">Checkout Pembayaran</h2>
 
     @if($orders->isEmpty())
