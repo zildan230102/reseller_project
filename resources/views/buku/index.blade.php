@@ -168,7 +168,7 @@ select.form-select, select.form-select option {
     }
 }
 
-@media (min-width: 600px) and (max-width: 1180px) {
+@media (min-width: 600px) and (max-width: 1280px) {
     .container-buku {
         height: auto;
         padding-top: 70px;

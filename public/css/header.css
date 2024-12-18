@@ -11,61 +11,18 @@
     margin: 0 auto;
 }
 
-/* Sembunyikan logo mobile secara default */
+/* Sembunyikan logo mobile */
 .logo-mobile {
     display: none;
     height: 30px;
 }
 
-/* Tampilkan logo desktop secara default */
+/* Tampilkan logo desktop */
 .logo-desktop {
     display: inline-block;
     max-width: 100%; 
     height: 55px;
     width: auto;
-}
-
-/* Ketika layar lebih kecil dari 768px */
-@media (max-width: 768px) {
-    .logo-desktop {
-        display: none;
-    }
-    .logo-mobile {
-        height: 40px; 
-        width: auto;
-        display:inline-block;
-    }
-
-    .dropdown-menu {
-        position: relative;
-        width: auto;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 992px) {
-    .user-profile {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        margin-bottom: 10px;
-    }
-    .user-profile .dropdown-menu {
-        left: 50%;
-        transform: translateX(-50%);
-        text-align: center; 
-    }
-
-    .navbar-nav .nav-item .dropdown-menu {
-        left: 0; 
-        transform: none; 
-        text-align: center;
-    }
-
-    .dropdown-item {
-        text-align: center;
-    }
 }
   
 .navbar-toggler {
@@ -84,7 +41,6 @@
 .navbar-toggler-container {
     position: absolute;
     right: 0;
-    top: 0;
     padding: 15px 20px 10px 10px;
     margin-left: auto;
 }
@@ -122,7 +78,8 @@
 
 .nav-item {
     position: relative;
-    margin-right: 30px;
+    /* margin-right: 30px; */
+    margin-left: 0px;
 }
 
 /* Menu links */
@@ -266,9 +223,83 @@
     transform: none;
 }
 
+@media (min-width: 320px) and (max-width: 599px) {
+    .navbar {
+        padding: 10px 0px 10px 10px;
+    }
+    .logo-desktop {
+        display: none;
+    }
+    .logo-mobile {
+        height: 50px; 
+        width: auto;
+        display:inline-block;
+    }
+
+    .dropdown-menu {
+        position: relative;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .nav-link {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    .dropdown-item {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    .navbar-collapse {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
 
 /* Responsive for tablets and mobile */
-@media (max-width: 768px) {
+@media (min-width: 600px) and (max-width: 1024px) {
+    .user-profile {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .user-profile .dropdown-menu {
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center; 
+    }
+
+    .navbar-nav .nav-item .dropdown-menu {
+        left: 0; 
+        transform: none; 
+        text-align: center;
+    }
+    .dropdown-item {
+        text-align: center;
+    }
+    .container {
+        max-width: 700px;
+    }
+    .navbar {
+        padding: 10px 15px;
+    }
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-item {
+        width: 100%;
+    }
+    .nav-link {
+        width: 100%;
+        text-align: left;
+        padding: 15px 20px;
+        margin-right: 0 !important;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
     .container {
         max-width: 700px;
     }
@@ -292,21 +323,48 @@
     }
 }
 
-/* Further adjustments for smaller devices */
-@media (max-width: 480px) {
-    .nav-link {
-        padding: 10px 15px;
-        font-size: 14px;
+
+/* Ketika layar lebih kecil dari 768px */
+/* @media (max-width: 768px) {
+    .logo-desktop {
+        display: none;
+    }
+    .logo-mobile {
+        height: 50px; 
+        width: auto;
+        display:inline-block;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .dropdown-menu {
+        position: relative;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+} */
+
+/* @media (min-width: 768px) and (max-width: 992px) {
+    .user-profile {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .user-profile .dropdown-menu {
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center; 
+    }
+
+    .navbar-nav .nav-item .dropdown-menu {
+        left: 0; 
+        transform: none; 
+        text-align: center;
     }
 
     .dropdown-item {
-        padding: 10px 15px;
-        font-size: 14px;
+        text-align: center;
     }
-
-    .navbar-collapse {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-}
+} */

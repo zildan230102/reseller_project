@@ -5,7 +5,7 @@
 <style>
 .container-riwayat {
     width: 100%;
-    padding: 20px;
+    padding: 0 20px 0 20px;
     padding-top: 80px;
     max-width: 1200px;
     margin: 0 auto;
@@ -67,8 +67,8 @@
 
 @media (min-width: 320px) and (max-width: 599px) {
     .container-riwayat {
-        padding-top: 40px;
-        height: 300px;
+        padding-top: 80px;
+        height: auto;
     }
     .text-title {
         font-size: 18px;
@@ -116,8 +116,8 @@
 }
 @media (min-width: 600px) and (max-width: 1180px){
     .container-riwayat {
-        padding: 40px 30px 0 30px;
-        height: 600px;
+        padding: 80px 30px 0 30px;
+        height: auto;
         max-width: 1200px;
     }
     .header-title {
@@ -135,8 +135,8 @@
 
 <div class="container-riwayat mt-4">
     <div class="card-container">
-    <h2 class="my-4 text-title">Riwayat Pesanan</h2>
         @if($orders->isEmpty())
+        <h2 class="my-4 text-title">Riwayat Pesanan</h2>
         <div class="alert alert-info">Belum ada riwayat pesanan.</div>
         @else
         <div class="card">
