@@ -233,7 +233,7 @@ class OrderController extends Controller
         $order->status = 'confirmed';
         $order->save();
 
-        return redirect()->back()->with('success', 'Pesanan berhasil dikonfirmasi dan dipindahkan ke riwayat.');
+        return redirect()->back()->with('success', 'Pesanan berhasil dikonfirmasi dan dipindahkan ke halaman riwayat pesanan.');
     }
 
     return redirect()->back()->with('error', 'Pesanan tidak ditemukan.');
