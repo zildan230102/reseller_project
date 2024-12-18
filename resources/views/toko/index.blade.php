@@ -8,7 +8,7 @@
     padding-top: 60px;
     max-width: 1200px;
     margin: 0 auto;
-    height: 400px;
+    height: auto;
 }
 .card-header-button {
     padding: 15px;
@@ -92,7 +92,7 @@
 @media (min-width: 320px) and (max-width: 599px) {
     .container-toko {
         padding: 60px 20px 0 20px;
-        height: 400px;
+        height: auto;
     }
     .text-title{
         font-size: 20px;
@@ -168,11 +168,11 @@
         font-size: 12px;
     }
 }
-@media (min-width: 600px) and (max-width: 1180px) {
+@media (min-width: 600px) and (max-width: 1280px) {
     .container-toko {
         padding: 10px;
         padding-top: 80px;
-        height: 500px;
+        height: auto;
     }
     .card-container {
         padding: 0 20px 0 20px;

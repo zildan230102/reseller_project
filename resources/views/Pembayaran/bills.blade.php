@@ -3,11 +3,12 @@
 @section('content')
 
 <style>
-.container{
+.container-checkout {
     width: 100%;
-    padding: 20px;
+    padding: 0 20px 0 20px;
     padding-top: 70px;
     max-width: 1200px;
+    margin: 0 auto;
 }
 .card-header-tagihan {
     padding: 15px 0 0 15px;
@@ -20,10 +21,22 @@
     font-size: 18px;
     font-weight: bold;
 }
+.text-title {
+    text-align: center;
+}
+
+#payButton:hover {
+    background-color: #c66300;
+}
+
+.btn-secondary {
+    background-color: #f57c00;
+    color: white;
+}
 
 @media (min-width: 320px) and (max-width: 599px) {
     .container-checkout {
-        height: 300px;
+        height: auto;
     }
     .text-title {
         font-size: 18px;
@@ -86,7 +99,12 @@
         font-size: 12px;
     }
 }
-@media (max-width: 768px) {
+@media (min-width: 600px) and (max-width: 1280px) {
+    .container-checkout {
+        padding: 40px 20px 0 20px;
+        height: auto;
+        max-width: 1200px;
+    }
     .card-header-tagihan h4{
         font-size: 16px;
         padding-bottom: 0;
@@ -114,18 +132,16 @@
         font-size: 12px;
         padding: 4px;
     }
-}
-
-@media (min-width: 600px) and (max-width: 1024px) {
-    .container-checkout {
-        padding: 40px 30px 0 30px;
-        height: 650px;
-        max-width: 1200px;
+    .cform-select {
+        font-size: 14px;
+    }
+    .form-select option {
+        font-size: 12px;
     }
 }
 
 </style>
-<div class="container">
+<div class="container-checkout">
     <h2 class="my-4 text-title">Checkout Pembayaran</h2>
 
     @if($orders->isEmpty())
@@ -205,17 +221,17 @@
                     </div>
                     <div class="card-body-tagihan">
                         <p><strong>Total Tagihan:</strong> 
-                            Rp<span id="totalTagihan">0</span></p>
+                        Rp<span id="totalTagihan">0</span></p>
 
                         <div class="form-group">
                             <label for="metode_pembayaran">Metode Pembayaran:</label>
-                            <select name="metode_pembayaran" id="metode_pembayaran" class="form-control" required>
+                            <select name="metode_pembayaran" id="metode_pembayaran" class="form-select custom-dropdown" required>
                                 <option value="cash">Cash</option>
                                 <option value="transfer">Transfer Bank</option>
                             </select>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-block " id="payButton" disabled>Konfirmasi Pembayaran</button>
+                        <button type="submit" class="btn btn-secondary btn-block" id="payButton" disabled>Konfirmasi Pembayaran</button>
                     </div>
                 </div>
             </div>
@@ -229,7 +245,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const checkboxes = document.querySelectorAll('.order-checkbox');
     const payButton = document.getElementById('payButton');
     const totalTagihanElement = document.getElementById('totalTagihan');
+    const form = document.querySelector('form'); // Ambil form utama
 
+    // Fungsi update total tagihan
     const updateTotalTagihan = () => {
         let totalTagihan = 0;
         checkboxes.forEach(checkbox => {
@@ -243,6 +261,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', updateTotalTagihan);
+    });
+
+    // Event ketika form di-submit
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Mencegah form dikirim langsung
+
+        // Tampilkan SweetAlert2 untuk konfirmasi berhasil
+        Swal.fire({
+            title: 'Konfirmasi Berhasil!',
+            text: 'Pembayaran Anda telah berhasil dikonfirmasi.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit(); // Kirim form setelah SweetAlert ditutup
+            }
+        });
     });
 });
 </script>
