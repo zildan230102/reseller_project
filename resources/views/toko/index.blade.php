@@ -71,7 +71,6 @@
     background-color: #f8f9fa;
     border: none;
 }
-
 .small-icon {
     font-size: 12px;
 }
@@ -95,7 +94,6 @@
         padding: 60px 20px 0 20px;
         height: 400px;
     }
-    
     .text-title{
         font-size: 20px;
         text-align: center;
@@ -105,9 +103,6 @@
         width: auto;
         font-size: 12px;
         padding: 8px;
-    }
-    .bi-plus-lg {
-        margin-right: 5px !important;
     }
     .table {
         display: block;
