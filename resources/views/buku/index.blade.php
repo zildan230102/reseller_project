@@ -91,8 +91,10 @@ select.form-select, select.form-select option {
 
 @media (min-width: 320px) and (max-width: 599px) {
     .container-buku{
-        padding: 60px 20px 0 20px;
         height: auto;
+    }
+    .card-container {
+        padding: 0 20px 0 20px;
     }
     .text-title {
         font-size: 20px;
@@ -168,7 +170,6 @@ select.form-select, select.form-select option {
 
 @media (min-width: 600px) and (max-width: 1180px) {
     .container-buku {
-        padding: 10px;
         height: auto;
         padding-top: 70px;
     }
