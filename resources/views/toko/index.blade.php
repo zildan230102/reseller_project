@@ -34,7 +34,7 @@
     box-shadow: none;
     padding: 0;
 }
-.dropdown-menu {
+.table .dropdown-menu {
     min-width: auto;
     width: max-content;
     padding: 0.5rem;
@@ -148,7 +148,7 @@
         font-size: 14px;
         padding: 6px 10px;
     }
-    .dropdown-menu {
+    .table .dropdown-menu {
         font-size: 12px;
         left: auto;
         right: 0;
