@@ -31,6 +31,19 @@
 .card-body-toko {
     padding: 0px 10px;
 }
+dd {
+    display: block; 
+    word-wrap: break-word;
+}
+dd div {
+    margin-bottom: 5px; 
+}
+.alamat-kirim {
+    word-wrap: break-word;
+    overflow: break-word;
+    white-space: normal;
+    line-height: 1.5;
+}
 
 @media (min-width: 320px) and (max-width: 599px){
     .container-riwayat {
@@ -77,6 +90,19 @@
     .alert-info {
         padding: 16px;
         font-size: 12px;
+    }
+    dd {
+        display: block; 
+        word-wrap: break-word; 
+    }
+    dd div {
+        margin-bottom: 5px; 
+    }
+    .alamat-kirim {
+        word-wrap: break-word;
+        overflow: break-word;
+        white-space: normal;
+        line-height: 1.5;
     }
 }
 @media (min-width: 600px) and (max-width: 1280px) {
@@ -162,9 +188,13 @@
                                                     <dd class="col-7 col-sm-9 mb-3">: {{ ucfirst($payment->status ?? 'Belum Dibayar') }}</dd>
 
                                                     <dt class="col-5 col-sm-3 mb-3">Alamat Kirim</dt>
-                                                    <dd class="col-7 col-sm-9 mb-3">: {{ $payment->alamat_kirim }}<br>
-                                                        {{ $payment->kelurahan }}, {{ $payment->kecamatan }}, {{ $payment->kota }}<br> 
-                                                        {{ $payment->provinsi }}</dd>
+                                                    <dd class="col-7 col-sm-9 mb-3">
+                                                        <div class="alamat-kirim">: {{ $payment->alamat_kirim }}</div>
+                                                        <div>  {{ $payment->kelurahan }}</div>
+                                                        <div>  {{ $payment->kecamatan }}</div> 
+                                                        <div>  {{ $payment->kota }}</div> 
+                                                        <div>  {{ $payment->provinsi }}</div>
+                                                    </dd>
                                                     
                                                     <dt class="col-5 col-sm-3">Buku yang Dipesan</dt>
                                                     <dd>

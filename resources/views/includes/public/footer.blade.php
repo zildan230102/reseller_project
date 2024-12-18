@@ -146,7 +146,7 @@
 	}
 
 	/* Responsive Design */
-	@media (max-width: 676px) {
+	@media (min-width: 320px) and (max-width: 599px) {
 		.footer-container {
 			flex-direction: column;
 			text-align: center;
@@ -206,19 +206,23 @@
 		}
 	}
 
-	@media (min-width: 767px) and (max-width: 1024px) {
+	@media (min-width: 600px) and (max-width: 768px) {
+		.footer-container {
+			align-items: center;
+			justify-content: center;
+		}
 		.footer-section.company-info {
 			max-width: 300px; 
 			font-size: 14px;
-			margin-left: 40px;
+			padding-left: 1rem;
 		}
 		.footer-section.contact-info {
-			max-width: 300px;
-			margin-top: 65px;
+			max-width: 280px;
+			padding-top: 65px;
+			margin-left: 0px;
 		}
 		.footer-section.social-media {
 			margin-left: 0px;
-			margin-top: 0;
 		}
 		.social-media {
 			display: flex;
@@ -230,11 +234,43 @@
 		}
 		.footer-bottom {
 			margin-bottom: 30px;
-			padding-top: 0;
+			padding-top: 10px;
 		}
 	}
 
-	@media (min-width: 768px) and (max-width: 1024px) {
+	@media (min-width: 769px) and (max-width: 1024px) {
+		.footer-container {
+			align-items: center;
+			justify-content: center;
+			padding-left: 25px;
+		}
+		.footer-section.company-info {
+			max-width: 320px; 
+			font-size: 14px;
+		}
+		.footer-section.contact-info {
+			max-width: 340px;
+			padding-top: 65px;
+			margin-left: 0px;
+		}
+		.footer-section.social-media {
+			margin-left: 0px;
+		}
+		.social-media {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		.social-icons {
+			justify-content: center;
+		}
+		.footer-bottom {
+			margin-bottom: 30px;
+			padding-top: 10px;
+		}
+	}
+
+	@media (min-width: 1025px) and (max-width: 1280px) {
 		.footer-section.company-info {
 			width: 320px; 
 			font-size: 14px;

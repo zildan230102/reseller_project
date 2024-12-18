@@ -99,7 +99,48 @@
         font-size: 12px;
     }
 }
-@media (min-width: 600px) and (max-width: 1280px) {
+@media (min-width: 600px) and (max-width: 1024px) {
+    .container-checkout {
+        padding: 60px 40px 0 40px;
+        height: auto;
+        max-width: 1200px;
+    }
+    .card-header-tagihan h4{
+        font-size: 16px;
+        padding-bottom: 0;
+    }
+    .card-body-tagihan {
+        padding-top: 10px;
+        font-size: 14px;
+    }
+    .title {
+        font-size: 18px;
+        padding-left: 20px;
+    }
+    .btn {
+        white-space: nowrap; 
+        display: inline-block;
+        padding: 10px 20px; 
+        font-size: 14px; 
+    }
+    select.form-control {
+        font-size: 14px;
+        padding: 4px;
+        height: auto;
+    }
+    option {
+        font-size: 12px;
+        padding: 4px;
+    }
+    .cform-select {
+        font-size: 14px;
+    }
+    .form-select option {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
     .container-checkout {
         padding: 40px 20px 0 20px;
         height: auto;
