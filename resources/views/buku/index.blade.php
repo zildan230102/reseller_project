@@ -1,21 +1,21 @@
 @extends('layouts.main')
 @section('title', 'Informasi Buku')
 @section('content')
+
 <style>
 .container-buku {
     width: 100%;
     padding-top: 60px;
     margin: 0 auto;
     max-width: 1200px;
-}
-
+    height: 400px;
+} 
 .card-header-button {
     padding: 15px;
     display: flex;
     background-color: transparent;
     border-bottom: none;
 }
-
 .custom-button-daftar {
     background-color: #ff9800;
     color: white;
@@ -28,11 +28,11 @@
 .custom-button-daftar:hover {
     background-color: #ff7b29;
 }
-.card-body-buku {
-    padding: 0px 15px;
-}
-.card-container {
-    height: 250px;
+.dropdown .btn-no-border {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0;
 }
 .dropdown-menu {
     min-width: auto;
@@ -71,17 +71,14 @@
     background-color: #f8f9fa;
     border: none;
 }
-.dropdown .btn-no-border {
-    border: none;
-    outline: none;
-    box-shadow: none;
-    padding: 0;
+.small-icon {
+    font-size: 12px;
+}
+.card-body-buku {
+    padding: 0px 15px;
 }
 select.form-select, select.form-select option {
     font-size: 16px;
-}
-.small-icon {
-    font-size: 12px;
 }
 .buttonallert {
     background-color: #ff9800;
@@ -95,21 +92,19 @@ select.form-select, select.form-select option {
 @media (min-width: 320px) and (max-width: 599px) {
     .container-buku{
         padding: 60px 20px 0 20px;
-        height: 400px;
+        height: auto;
     }
     .text-title {
         font-size: 20px;
         text-align: center;
-    }
-    .alert-success {
-        font-size: 12px;
+        margin-bottom: 16px !important;
     }
     .custom-button-daftar {
         width: auto;
         font-size: 12px;
-        padding: 8px 10px 8px 10px;
+        padding: 8px;
     }
-    .table-responsive{
+    .table {
         display: block;
         overflow-x: auto;
         white-space: nowrap;
@@ -120,8 +115,19 @@ select.form-select, select.form-select option {
         max-width: 80%;
         margin: 0 auto;
     }
-    .modal-dialog-edit {
-        margin-top: 20%;
+    .modal-content {
+        max-height: 90vh !important;
+    }
+    .modal-header {
+        padding: 10px;
+        font-size: 16px; 
+    }
+    .modal-body {
+        font-size: 12px;
+        padding: 10px 20px;
+    }
+    .modal-footer {
+        padding: 5px;
     }
     select.form-select {
         font-size: 12px;
@@ -131,29 +137,13 @@ select.form-select, select.form-select option {
     select.form-select option {
         font-size: 10px;
     }
-    .modal-header {
-        padding: 10px;
-        font-size: 16px; 
-    }
-    .modal-content {
-        max-height: 90vh !important;
-    }
-    .modal-body {
-        font-size: 12px;
-        padding: 10px 20px;
-    }
-    .modal-footer {
-        padding: 5px;
-    }
-    .form-control,
-    .form-select {
+    .form-control, .form-select {
         font-size: 12px;
     }
     .custom-button {
         font-size: 12px;
         padding: 8px 16px;
     }
-
     .btn-custom-danger {
         font-size: 12px;
         padding: 6px 10px;
@@ -167,6 +157,9 @@ select.form-select, select.form-select option {
     .small-icon {
         font-size: 10px;
     }
+    .alert-success {
+        font-size: 12px;
+    }
     .sweetalert {
         max-width: 300px;
         font-size: 12px;
@@ -176,7 +169,7 @@ select.form-select, select.form-select option {
 @media (min-width: 600px) and (max-width: 1180px) {
     .container-buku {
         padding: 10px;
-        height: 600px;
+        height: auto;
         padding-top: 70px;
     }
     .card-container {
@@ -246,10 +239,10 @@ select.form-select, select.form-select option {
     @endif
 
     <div class="card-container">
-        <div class="card mb-4">
+        <div class="card">
             <div class="card-header-button">
                 <button type="button" class="custom-button-daftar" data-bs-toggle="modal" data-bs-target="#createModal">
-                    <i class="bi bi-plus-lg"></i> <span> Tambah Buku </span>
+                    <i class="bi bi-plus-lg me-2"></i> Tambah Buku
                 </button>
             </div>
 
@@ -624,8 +617,5 @@ select.form-select, select.form-select option {
         </div>
     </div>
 </div>
-
-
-
 
 @endsection
