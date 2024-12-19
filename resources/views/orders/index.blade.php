@@ -83,136 +83,173 @@
     .container {
         padding: 0.5rem;
     }
+
     .container-order {
         padding: 20px 20px 0 20px;
     }
+
     .container-card {
         padding: 0 20px 0 20px;
     }
+
     .card h3 {
         font-size: 1.2rem;
     }
+
     .card-body-order,
     .form-label {
         font-size: 1rem;
     }
+
     .form-control {
         font-size: 14px;
     }
+
     .form-control option {
         font-size: 12px;
     }
+
     .nav-tabs .nav-item .nav-link {
         font-size: 0.8rem;
         padding: 0.4rem;
     }
+
     .custom-button {
         font-size: 0.7rem;
         padding: 0.4rem 0.8rem;
     }
+
     .btn-custom-danger {
         font-size: 0.7rem;
         padding: 0.3rem 0.6rem;
     }
+
     .card-header {
         padding: 15px 15px 0px 15px;
     }
+
     .order-title {
         font-size: 1rem;
     }
+
     .form-label {
         font-size: 14px;
     }
+
     table {
         overflow-x: auto;
         font-size: 14px;
     }
+
     .custom-dropdown-item {
         font-size: 0.8rem;
         padding: 0.2rem 0.5rem;
     }
+
     .dropdown-menu {
         width: auto;
         min-width: 120px;
         max-width: 90px;
     }
+
     .modal-dialog {
         max-width: 85%;
         margin: 0 auto;
     }
+
     .modal-content {
         padding: 10px;
     }
+
     .modal-header {
         padding: 5px 10px 10px 10px;
     }
+
     .modal-body {
         font-size: 12px;
         padding: 15px 10px 15px 10px;
     }
+
     .modal-title {
         font-size: 1.1rem !important;
     }
+
     .modal-footer {
         padding: 5px 5px 0px 5px;
     }
+
     .form-select {
         font-size: 14px;
     }
+
     .form-select option {
         font-size: 11px;
     }
+
     .books-row .col-md-5 {
         max-width: 75%;
         margin-bottom: 5px;
     }
+
     .books-row .col-md-1 {
         display: flex;
         align-items: flex-end;
     }
+
     .text-end {
         max-width: 20%;
     }
+
     .buku-row .col-md-1 {
         display: flex;
         align-items: flex-end;
         gap: 5px;
         margin-right: 5px;
     }
+
     .buku-row .col-md-5 {
         margin-bottom: 5px;
         max-width: 75%;
     }
+
     .text-start {
         max-width: 20%;
         justify-content: flex-start;
     }
 }
+
 @media (min-width: 600px) and (max-width: 1180px) {
     .container-order {
         padding: 20px 20px 0 20px;
     }
+
     .container-card {
         padding: 0 20px 0 20px;
     }
+
     .order-title {
         font-size: 1.25rem;
     }
+
     .table th,
     .table td {
         font-size: 0.9rem;
         padding: 0.5rem;
     }
+
     .nav-tabs .nav-link {
         padding: 10px;
     }
+
     .custom-dropdown-item {
         font-size: 0.9rem;
         padding: 0.3rem 0.6rem;
     }
+
     .form-select option {
         font-size: 10px;
     }
+
     .buku-row .col-md-1 {
         gap: 20px;
     }
@@ -225,13 +262,13 @@
         </div>
 
         @if(session('success'))
-        
+
         <script>
         Swal.fire({
             icon: 'success',
             title: 'Berhasil!',
             text: '{{ session('
-            success: ') }}',
+            success ') }}',
             confirmButtonText: 'OK',
             customClass: {
                 popup: 'sweetalert',
@@ -239,19 +276,6 @@
             }
         });
         </script>
-
-            <script>
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Berhasil!',
-                    text: '{{ session('success') }}',
-                    confirmButtonText: 'OK',
-                    customClass: {
-                        popup: 'sweetalert',
-                        confirmButton: 'buttonallert'
-                    }
-                });
-            </script>
 
         @endif
 
@@ -371,9 +395,9 @@
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="provinsi" class="form-label">Provinsi</label>
                                 <select class="form-control" id="provinsi" name="provinsi" required>
-                                    <option value="">Pilih Provinsi</option>
-                                    @foreach ( $provinces as $provinsi )
-                                    <option value="{{$provinsi->id}}">{{$provinsi->name}}</option>
+                                    <option value="" disabled selected>Pilih Provinsi</option>
+                                    @foreach ($provinces as $provinsi)
+                                    <option value="{{ $provinsi->id }}">{{ $provinsi->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -383,7 +407,6 @@
                                 <label for="kabupaten" class="form-label">Kabupaten/Kota</label>
                                 <select class="form-control" id="kabupaten" name="kabupaten" required>
                                     <option value="">Pilih Kabupaten</option>
-                                    
                                 </select>
                             </div>
                         </div>
@@ -394,7 +417,6 @@
                                 <label for="kecamatan" class="form-label">Kecamatan</label>
                                 <select class="form-control" id="kecamatan" name="kecamatan" required>
                                     <option value="">Pilih Kecamatan</option>
-                                    
                                 </select>
                             </div>
 
@@ -403,7 +425,6 @@
                                 <label for="kelurahan" class="form-label">Kelurahan/Desa</label>
                                 <select class="form-control" id="kelurahan" name="kelurahan" required>
                                     <option value="">Pilih Kelurahan</option>
-                                   
                                 </select>
                             </div>
                         </div>
@@ -712,13 +733,13 @@
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="provinsi{{ $order->id }}" class="form-label">Provinsi</label>
-                                    <select class="form-control" id="provinsi{{ $order->id }}"
-                                        name="provinsi" value="{{ $order->provinsi }}" required>
+                                    <select class="form-control" id="provinsi{{ $order->id }}" name="provinsi"
+                                        value="{{ $order->provinsi }}" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="kota{{ $order->id }}" class="form-label">Kota</label>
-                                    <input type="text" class="form-control" id="kota{{ $order->id }}" 
-                                    name="kota" value="{{ $order->kota }}" required>
+                                    <input type="text" class="form-control" id="kota{{ $order->id }}" name="kota"
+                                        value="{{ $order->kota }}" required>
                                 </div>
                             </div>
                             <div class="row">
@@ -809,33 +830,66 @@
 @endforeach
 
 <script>
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
+$(function () {
+    // Setup CSRF Token for AJAX
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    // Saat Provinsi diubah
+    $('#provinsi').on('change', function () {
+        let id_provinsi = $(this).val();
+        $.ajax({
+            type: 'POST',
+            url: "{{ route('getkabupaten') }}", // Route untuk mendapatkan data kabupaten
+            data: { id_provinsi: id_provinsi },
+            success: function (response) {
+                $('#kabupaten').html(response); // Isi dropdown kabupaten dengan data yang diterima
+                $('#kecamatan').html('<option value="" disabled selected>Pilih Kecamatan</option>'); // Reset kecamatan
+                $('#kelurahan').html('<option value="" disabled selected>Pilih Kelurahan</option>'); // Reset kelurahan
+            },
+            error: function (error) {
+                console.error('Error:', error);
+            }
+        });
+    });
+
+    // Saat Kabupaten diubah
+    $('#kabupaten').on('change', function () {
+        let id_kabupaten = $(this).val();
+        $.ajax({
+            type: 'POST',
+            url: "{{ route('getkecamatan') }}", // Route untuk mendapatkan data kecamatan
+            data: { id_kabupaten: id_kabupaten },
+            success: function (response) {
+                $('#kecamatan').html(response); // Isi dropdown kecamatan dengan data yang diterima
+                $('#kelurahan').html('<option value="" disabled selected>Pilih Kelurahan</option>'); // Reset kelurahan
+            },
+            error: function (error) {
+                console.error('Error:', error);
+            }
+        });
+    });
+
+    // Saat Kecamatan diubah
+    $('#kecamatan').on('change', function () {
+        let id_kecamatan = $(this).val();
+        $.ajax({
+            type: 'POST',
+            url: "{{ route('getkelurahan') }}", // Route untuk mendapatkan data kelurahan
+            data: { id_kecamatan: id_kecamatan },
+            success: function (response) {
+                $('#kelurahan').html(response); // Isi dropdown kelurahan dengan data yang diterima
+            },
+            error: function (error) {
+                console.error('Error:', error);
+            }
+        });
+    });
 });
 
-    $(function(){
-        $('#provinsi').on('change', function(){
-            let id_provinsi = $('#provinsi').val();
-
-            $.ajax({
-                type : 'POST',
-                url : "{{route('getkabupaten')}}",
-                data : {id_provinsi:id_provinsi},
-                cache : false,
-
-                success: function(msg){
-                    $('#kabupaten').html(msg);
-                    $('#kecamatan').html('');
-                    $('#kelurahan'),html('');
-                },
-                error: function(data){
-                    console.log('error:' ,data)
-                },
-            })
-        })
-    })
 
 // Fungsi menghitung total berat dan grand total
 function calculateTotals() {

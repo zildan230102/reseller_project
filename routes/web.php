@@ -12,8 +12,10 @@ use App\Http\Controllers\BukuController;
 use App\Http\Controllers\PaymentController;
 use App\Models\Order;
 
+Route::post('/getkabupaten', [OrderController::class, 'getKabupaten'])->name('getkabupaten');
+Route::post('/getkecamatan', [OrderController::class, 'getKecamatan'])->name('getkecamatan');
+Route::post('/getkelurahan', [OrderController::class, 'getKelurahan'])->name('getkelurahan');
 
-Route::post('/getkabupaten', [OrderController::class, 'getkabupaten'])->name('getkabupaten');
 
 // Rute untuk homepage yang mengarahkan ke login
 Route::get('/', function () {
