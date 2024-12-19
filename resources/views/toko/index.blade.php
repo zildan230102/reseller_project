@@ -8,7 +8,7 @@
     padding-top: 60px;
     max-width: 1200px;
     margin: 0 auto;
-    height: 400px;
+    height: auto;
 }
 .card-header-button {
     padding: 15px;
@@ -34,7 +34,7 @@
     box-shadow: none;
     padding: 0;
 }
-.dropdown-menu {
+.table .dropdown-menu {
     min-width: auto;
     width: max-content;
     padding: 0.5rem;
@@ -71,7 +71,6 @@
     background-color: #f8f9fa;
     border: none;
 }
-
 .small-icon {
     font-size: 12px;
 }
@@ -93,9 +92,8 @@
 @media (min-width: 320px) and (max-width: 599px) {
     .container-toko {
         padding: 60px 20px 0 20px;
-        height: 400px;
+        height: auto;
     }
-    
     .text-title{
         font-size: 20px;
         text-align: center;
@@ -105,9 +103,6 @@
         width: auto;
         font-size: 12px;
         padding: 8px;
-    }
-    .bi-plus-lg {
-        margin-right: 5px !important;
     }
     .table {
         display: block;
@@ -153,7 +148,7 @@
         font-size: 14px;
         padding: 6px 10px;
     }
-    .dropdown-menu {
+    .table .dropdown-menu {
         font-size: 12px;
         left: auto;
         right: 0;
@@ -173,11 +168,11 @@
         font-size: 12px;
     }
 }
-@media (min-width: 600px) and (max-width: 1180px) {
+@media (min-width: 600px) and (max-width: 1280px) {
     .container-toko {
         padding: 10px;
         padding-top: 80px;
-        height: 500px;
+        height: auto;
     }
     .card-container {
         padding: 0 20px 0 20px;

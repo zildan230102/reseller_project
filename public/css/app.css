@@ -657,7 +657,7 @@ tr.deactive {
 /* Media query card untuk tampilan mobile */
 @media (min-width: 320px) and (max-width: 599px) {
   .content-dashboard {
-    padding: 1.5rem 1.5rem 0;
+    padding: 0 1.5rem 0 1.5rem;
   }
 
   #dashboard,
@@ -1125,7 +1125,7 @@ tr.deactive {
 /* Media query card untuk tampilan tab */
 @media (min-width: 600px) and (max-width: 1024px) {
   .content-dashboard {
-    padding: 1.5rem 1.5rem 0;
+    padding: 2rem 2rem 0;
   }
 
   .card-right .col-auto {

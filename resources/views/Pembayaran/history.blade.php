@@ -5,14 +5,17 @@
 <style>
 .container-riwayat {
     width: 100%;
-    padding: 20px;
+    padding: 0 20px 0 20px;
     padding-top: 40px;
     max-width: 1200px;
     margin: 0 auto;
-    height: 400px;
+    height: auto;
 }
 .header-title {
     padding: 20px;
+}
+.card-container {
+    padding-top: 40px;
 }
 .btn-no-border {
     border: none;
@@ -28,11 +31,26 @@
 .card-body-toko {
     padding: 0px 10px;
 }
+dd {
+    display: block; 
+    word-wrap: break-word;
+}
+dd div {
+    margin-bottom: 5px; 
+}
+.alamat-kirim {
+    word-wrap: break-word;
+    overflow: break-word;
+    white-space: normal;
+    line-height: 1.5;
+}
 
 @media (min-width: 320px) and (max-width: 599px){
     .container-riwayat {
+        padding: 0 20px 0 20px;
         padding-top: 40px;
-        height: 300px;
+        height: auto;
+        margin: 0 auto;
     }
     .header-title {
         padding: 15px;
@@ -73,11 +91,24 @@
         padding: 16px;
         font-size: 12px;
     }
+    dd {
+        display: block; 
+        word-wrap: break-word; 
+    }
+    dd div {
+        margin-bottom: 5px; 
+    }
+    .alamat-kirim {
+        word-wrap: break-word;
+        overflow: break-word;
+        white-space: normal;
+        line-height: 1.5;
+    }
 }
-@media (min-width: 600px) and (max-width: 1180px) {
+@media (min-width: 600px) and (max-width: 1280px) {
     .container-riwayat {
-        padding: 40px 30px 0 30px;
-        height: 500px;
+        padding: 40px 20px 0 20px;
+        height: auto;
         max-width: 1200px;
     }
     .text-title {
@@ -96,11 +127,11 @@
 
 <div class="container-riwayat mt-4">
     <div class="card-container">
-    <h2 class="my-4 text-title">Riwayat Pembayaran</h2>
         @if($orders->isEmpty())
+        <h2 class="my-4 text-title">Riwayat Pembayaran</h2>
         <div class="alert alert-info">Belum ada riwayat pembayaran.</div>
         @else
-        <div class="card">
+        <div class="card history">
             <div class="header-title">
                 <h3 class="text-title mb-0 text-start">Riwayat Pembayaran</h3>
             </div>
@@ -123,8 +154,8 @@
                             <td>{{ $payment->tanggal_pembayaran ? $payment->tanggal_pembayaran->format('d-m-Y') : 'Belum Dibayar' }}</td>
                             <td>{{ $payment->no_invoice }}</td>
                             <td>Rp{{ number_format($payment->grand_total, 0, ',', '.') }}</td>
-                            <td>{{ ucfirst($payment->metode_pembayaran ?? 'Tidak Diketahui') }}</td>
-                            <td>{{ ucfirst($payment->status ?? 'Belum Dibayar') }}</td>
+                            <td class="text-center">{{ ucfirst($payment->metode_pembayaran ?? 'Tidak Diketahui') }}</td>
+                            <td class="text-center">{{ ucfirst($payment->status ?? 'Belum Dibayar') }}</td>
                             <td>
                                 <button type="button" class="btn btn-sm btn-no-border" data-bs-toggle="modal" data-bs-target="#detailModal_{{ $payment->id }}" title="Lihat Detail">
                                     <i class="bi bi-info-circle text-black"></i>
@@ -157,9 +188,13 @@
                                                     <dd class="col-7 col-sm-9 mb-3">: {{ ucfirst($payment->status ?? 'Belum Dibayar') }}</dd>
 
                                                     <dt class="col-5 col-sm-3 mb-3">Alamat Kirim</dt>
-                                                    <dd class="col-7 col-sm-9 mb-3">: {{ $payment->alamat_kirim }}<br>
-                                                        {{ $payment->kelurahan }}, {{ $payment->kecamatan }}, {{ $payment->kota }}<br> 
-                                                        {{ $payment->provinsi }}</dd>
+                                                    <dd class="col-7 col-sm-9 mb-3">
+                                                        <div class="alamat-kirim">: {{ $payment->alamat_kirim }}</div>
+                                                        <div>  {{ $payment->kelurahan }}</div>
+                                                        <div>  {{ $payment->kecamatan }}</div> 
+                                                        <div>  {{ $payment->kota }}</div> 
+                                                        <div>  {{ $payment->provinsi }}</div>
+                                                    </dd>
                                                     
                                                     <dt class="col-5 col-sm-3">Buku yang Dipesan</dt>
                                                     <dd>
