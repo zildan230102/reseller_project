@@ -95,6 +95,8 @@
         const isExpanded = this.getAttribute('aria-expanded') === 'true';
         this.setAttribute('aria-expanded', !isExpanded);
     });
+    
+    
     </script>
 </body>
 
