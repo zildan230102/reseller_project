@@ -42,7 +42,6 @@
         font-size: 18px;
         text-align: center;
     }
-
     h2 {
         font-size: 18px;
     }
@@ -72,9 +71,9 @@
         font-size: 13px;
     }
     select.form-control {
-    font-size: 12px;
-    padding: 4px;
-    height: auto;
+        font-size: 12px;
+        padding: 4px;
+        height: auto;
     }
     option {
         font-size: 10px;
@@ -96,6 +95,15 @@
     }
     .alert-info {
         padding: 16px;
+        font-size: 12px;
+    }
+    .custom-dropdown {
+        font-size: 12px;
+    }
+    .form-select option {
+        font-size: 12px;
+    }
+    .form-select {
         font-size: 12px;
     }
 }
@@ -138,11 +146,17 @@
     .form-select option {
         font-size: 12px;
     }
+    .custom-dropdown {
+        font-size: 14px;
+    }
+    .form-select.custom-dropdown option {
+        font-size: 12px; 
+    }
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
     .container-checkout {
-        padding: 40px 20px 0 20px;
+        padding: 70px 40px 0 40px;
         height: auto;
         max-width: 1200px;
     }

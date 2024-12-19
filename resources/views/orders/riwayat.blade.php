@@ -113,8 +113,33 @@
         padding: 16px;
         font-size: 12px;
     }
+    .modal-dialog {
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    .modal-header-pesanan {
+        padding: 1rem 1rem 1rem 1.5rem;
+    }
+    .modal-pesanan {
+        padding: 1rem 1rem 0 1.5rem;
+    }
+    .modal-body dl dt {
+        flex: 0 0 40%; 
+        max-width: 40%; 
+        text-align: left;
+    }
+    .modal-body dl dd {
+        flex: 0 0 60%; 
+        max-width: 60%; 
+    }
+    .modal-body dl dd ul {
+        padding-left: 0; 
+        margin: 0; 
+        list-style-position: inside; 
+        display: block;
+    }
 }
-@media (min-width: 600px) and (max-width: 1180px){
+@media (min-width: 600px) and (max-width: 1024px){
     .container-riwayat {
         padding: 80px 30px 0 30px;
         height: auto;
@@ -129,6 +154,71 @@
     }
     .modal-dialog {
         max-width: 90%;;
+    }
+    .modal-dialog {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .modal-header-pesanan {
+        padding: 1.5rem 1rem 1rem 2rem;
+    }
+    .modal-pesanan {
+        padding: 1rem 2rem 0.5rem 2rem;
+    }
+    .modal-body dl dt {
+        flex: 0 0 35%; 
+        max-width: 40%; 
+        text-align: left;
+    }
+    .modal-body dl dd {
+        flex: 0 0 65%; 
+        max-width: 60%; 
+    }
+    .modal-body dl dd ul {
+        padding-left: 0; 
+        margin: 0; 
+        list-style-position: inside; 
+    }
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .container-riwayat {
+        padding: 80px 30px 0 30px;
+        height: auto;
+        max-width: 1200px;
+    }
+    .header-title {
+        padding: 20px;
+    }
+    .text-title {
+        font-size: 25px;
+        text-align: center;
+    }
+    .modal-dialog {
+        max-width: 90%;;
+    }
+    .modal-dialog {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .modal-header-pesanan {
+        padding: 1.5rem 1rem 1rem 2rem;
+    }
+    .modal-pesanan {
+        padding: 1rem 2rem 0.5rem 2rem;
+    }
+    .modal-body dl dt {
+        flex: 0 0 35%; 
+        max-width: 40%; 
+        text-align: left;
+    }
+    .modal-body dl dd {
+        flex: 0 0 65%; 
+        max-width: 60%; 
+    }
+    .modal-body dl dd ul {
+        padding-left: 0; 
+        margin: 0; 
+        list-style-position: inside; 
     }
 }
 </style>
@@ -214,13 +304,13 @@
                             aria-labelledby="detailModalLabel{{ $order->id }}" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
-                                    <div class="modal-header">
+                                    <div class="modal-header modal-header-pesanan">
                                         <h5 class="modal-title" id="detailModalLabel{{ $order->id }}">Detail Pesanan
                                             {{ $order->no_invoice }}</h5>
                                         <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body">
+                                    <div class="modal-body modal-pesanan">
                                         <dl class="row">
                                             <dt class="col-5 col-sm-3 mb-3">Tanggal</dt>
                                             <dd class="col-7 col-sm-9 mb-3">: {{ $order->tanggal }}</dd>

@@ -44,8 +44,32 @@ dd div {
     white-space: normal;
     line-height: 1.5;
 }
+.modal-dialog {
+    max-width: 650px;
+    margin: 0 auto;
+}
+.modal-pembayaran-header {
+    padding: 1.5rem 1rem 1rem 2rem;
+}
+.modal-pembayaran {
+    padding: 1rem 2rem 0.5rem 2rem;
+}
+.modal-body dl dt {
+    flex: 0 0 35%; 
+    max-width: 40%; 
+    text-align: left;
+}
+.modal-body dl dd {
+    flex: 0 0 65%; 
+    max-width: 60%; 
+}
+.modal-body dl dd ul {
+    padding-left: 0; 
+    margin: 0; 
+    list-style-position: inside; 
+}
 
-@media (min-width: 320px) and (max-width: 599px){
+@media (min-width: 320px) and (max-width: 599px) {
     .container-riwayat {
         padding: 0 20px 0 20px;
         padding-top: 40px;
@@ -72,20 +96,29 @@ dd div {
         padding: 5px;    
     }
     .modal-dialog {
-        max-width: 85%;
+        max-width: 320px;
         margin: 0 auto;
     }
-    .modal-content {
-        max-height: 90vh;
+    .modal-pembayaran-header {
+        padding: 1rem 1rem 1rem 1.5rem;
     }
-    .modal-header {
-        font-size: 16px;
-        padding: 10px;
+    .modal-pembayaran {
+        padding: 1rem 1rem 0 1.5rem;
     }
-    .modal-body {
-        font-size: 12px;
-        padding: 10px 20px;
-        overflow-y: auto; 
+    .modal-body dl dt {
+        flex: 0 0 40%; 
+        max-width: 40%; 
+        text-align: left;
+    }
+    .modal-body dl dd {
+        flex: 0 0 60%; 
+        max-width: 60%; 
+    }
+    .modal-body dl dd ul {
+        padding-left: 0; 
+        margin: 0; 
+        list-style-position: inside; 
+        display: block;
     }
     .alert-info {
         padding: 16px;
@@ -104,8 +137,15 @@ dd div {
         white-space: normal;
         line-height: 1.5;
     }
+    .modal-body dl dd ul {
+        display: block;
+    }
+    .modal-content ul li {
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
 }
-@media (min-width: 600px) and (max-width: 1280px) {
+@media (min-width: 600px) and (max-width: 1024px) {
     .container-riwayat {
         padding: 40px 20px 0 20px;
         height: auto;
@@ -119,7 +159,66 @@ dd div {
         padding: 20px;
     }
     .modal-dialog {
-        max-width: 90%;;
+        max-width: 650px;
+        margin: 0 auto;
+    }
+    .modal-pembayaran-header {
+        padding: 1.5rem 1rem 1rem 2rem;
+    }
+    .modal-pembayaran {
+        padding: 1rem 2rem 0.5rem 2rem;
+    }
+    .modal-body dl dt {
+        flex: 0 0 35%; 
+        max-width: 40%; 
+        text-align: left;
+    }
+    .modal-body dl dd {
+        flex: 0 0 65%; 
+        max-width: 60%; 
+    }
+    .modal-body dl dd ul {
+        padding-left: 0; 
+        margin: 0; 
+        list-style-position: inside; 
+    }
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .container-riwayat {
+        padding: 40px 40px 0 40px;
+        height: auto;
+        max-width: 1200px;
+    }
+    .text-title {
+        font-size: 25px;
+        text-align: center;
+    }
+    .header-title {
+        padding: 20px;
+    }
+    .modal-dialog {
+        max-width: 650px;
+        margin: 0 auto;
+    }
+    .modal-pembayaran-header {
+        padding: 1.5rem 1rem 1rem 2rem;
+    }
+    .modal-pembayaran {
+        padding: 1rem 2rem 0.5rem 2rem;
+    }
+    .modal-body dl dt {
+        flex: 0 0 35%; 
+        max-width: 40%; 
+        text-align: left;
+    }
+    .modal-body dl dd {
+        flex: 0 0 65%; 
+        max-width: 60%; 
+    }
+    .modal-body dl dd ul {
+        padding-left: 0; 
+        margin: 0; 
+        list-style-position: inside; 
     }
 }
 
@@ -166,28 +265,28 @@ dd div {
                                     data-bs-keyboard="false">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
-                                            <div class="modal-header">
+                                            <div class="modal-header modal-pembayaran-header">
                                                 <h5 class="modal-title" id="detailModalLabel_{{ $payment->id }}">Detail Pembayaran</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-                                            <div class="modal-body">
+                                            <div class="modal-body modal-pembayaran">
                                                 <dl class="row">
                                                     <dt class="col-5 col-sm-3 mb-3">Tanggal Pembayaran</dt>
                                                     <dd class="col-7 col-sm-9 mb-3">: {{ $payment->tanggal_pembayaran ? $payment->tanggal_pembayaran->format('d-m-Y') : 'Belum Dibayar' }}</dd>
                                                     
-                                                    <dt class="col-5 col-sm-3 mb-3">Invoice</dt>
+                                                    <dt class="col-5 col-sm-3 mb-3"> Nomor Invoice</dt>
                                                     <dd class="col-7 col-sm-9 mb-3">: {{ $payment->no_invoice }}</dd>
                                                     
-                                                    <dt class="col-5 col-sm-3 mb-3">Total</dt>
+                                                    <dt class="col-5 col-sm-3 mb-3">Total Pembayaran</dt>
                                                     <dd class="col-7 col-sm-9 mb-3">: Rp{{ number_format($payment->grand_total, 0, ',', '.') }}</dd>
 
                                                     <dt class="col-5 col-sm-3 mb-3">Metode Pembayaran</dt>
                                                     <dd class="col-7 col-sm-9 mb-3">: {{ ucfirst($payment->metode_pembayaran ?? 'Tidak Diketahui') }}</dd>
 
-                                                    <dt class="col-5 col-sm-3 mb-3">Status</dt>
+                                                    <dt class="col-5 col-sm-3 mb-3">Status Pembayaran</dt>
                                                     <dd class="col-7 col-sm-9 mb-3">: {{ ucfirst($payment->status ?? 'Belum Dibayar') }}</dd>
 
-                                                    <dt class="col-5 col-sm-3 mb-3">Alamat Kirim</dt>
+                                                    <dt class="col-5 col-sm-3 mb-3">Alamat Pengiriman</dt>
                                                     <dd class="col-7 col-sm-9 mb-3">
                                                         <div class="alamat-kirim">: {{ $payment->alamat_kirim }}</div>
                                                         <div>  {{ $payment->kelurahan }}</div>
