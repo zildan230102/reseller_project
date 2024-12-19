@@ -36,16 +36,36 @@ class OrderController extends Controller
         return view('orders.create', compact('tokos', 'ekspedisis', 'bukus','provinces'));
     }
 
-    public function getkabupaten(request $request)
-    {
-        $id_provinsi = $request->id_provinsi;
-
-        $kabupatens = Regency::where('province_id',$id_provinsi)->get();
-
-        foreach($kabupatens as $kabupaten){
-            echo "<option value='$kabupaten->id'>$kabupaten->name</option>";
-        }
+    public function getKabupaten(Request $request)
+{
+    $kabupaten = Regency::where('province_id', $request->id_provinsi)->get();
+    $options = '<option value="" disabled selected>Pilih Kabupaten</option>';
+    foreach ($kabupaten as $data) {
+        $options .= '<option value="' . $data->id . '">' . $data->name . '</option>';
     }
+    return response()->json($options);
+}
+
+public function getKecamatan(Request $request)
+{
+    $kecamatan = District::where('regency_id', $request->id_kabupaten)->get();
+    $options = '<option value="" disabled selected>Pilih Kecamatan</option>';
+    foreach ($kecamatan as $data) {
+        $options .= '<option value="' . $data->id . '">' . $data->name . '</option>';
+    }
+    return response()->json($options);
+}
+
+public function getKelurahan(Request $request)
+{
+    $kelurahan = Village::where('district_id', $request->id_kecamatan)->get();
+    $options = '<option value="" disabled selected>Pilih Kelurahan</option>';
+    foreach ($kelurahan as $data) {
+        $options .= '<option value="' . $data->id . '">' . $data->name . '</option>';
+    }
+    return response()->json($options);
+}
+
 
     // Menyimpan order baru ke database
     public function store(Request $request)
