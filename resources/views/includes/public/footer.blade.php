@@ -277,7 +277,7 @@
 			margin-left: 40px;
 		}
 		.footer-section.contact-info {
-			margin-top: 65px;
+			margin-top: 0;
 		}
 		.footer-section.social-media {
 			margin-left: 0px;
@@ -295,11 +295,6 @@
 			margin-bottom: 30px;
 			padding-top: 0;
 		}
-	}
-	@media (max-width: 1180px) {
-		/* .footer-container {
-			padding: 0 0 0 40px;
-		} */
 	}
 </style>
 
