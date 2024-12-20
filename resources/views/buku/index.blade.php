@@ -117,23 +117,15 @@ select.form-select, select.form-select option {
         font-size: 12px;
         overflow: visible;
     }
-    .modal-dialog {
-        max-width: 80%;
-        margin: 0 auto;
-    }
-    .modal-content {
+    /* .modal-content {
         max-height: 90vh !important;
-    }
-    .modal-header {
-        padding: 10px;
-        font-size: 16px; 
-    }
+    } */
     .modal-body {
         font-size: 12px;
-        padding: 10px 20px;
+        padding: 1rem 2rem 0.5rem 2rem;
     }
     .modal-footer {
-        padding: 5px;
+        padding: 0 10px 10px 0;
     }
     select.form-select {
         font-size: 12px;
@@ -167,8 +159,32 @@ select.form-select, select.form-select option {
         font-size: 12px;
     }
     .sweetalert {
-        max-width: 300px;
+        max-width: 200px;
         font-size: 12px;
+    }
+    .modal-dialog {
+        max-width: 320px;
+        margin: 0 auto;
+        padding-top: 1rem;
+    }
+    .modal-header-buku {
+        padding: 1.5rem 1rem 1rem 2rem;
+        font-size: 14px;
+    }
+    .modal-body dt {
+        flex: 0 0 40%; 
+        max-width: 40%; 
+        text-align: left;
+    }
+    .modal-body dd {
+        flex: 0 0 60%; 
+        max-width: 60%; 
+    }
+    .btn-modal-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        z-index: 1; 
     }
 }
 
@@ -185,16 +201,9 @@ select.form-select, select.form-select option {
         text-align: center;
         padding-left: 0;
     }
-    .modal-dialog {
-        max-width: 80%;
-    }
-    .modal-header {
-        font-size: 14px;
-    }
     .modal-body {
         font-size: 16px;
-        padding: 10px 20px 10px 20px;
-        max-height: 70vh !important;
+        padding: 1rem 2rem 0.5rem 2rem;
     }
     .modal-footer {
         padding: 10px 20px 10px 10px;
@@ -212,18 +221,83 @@ select.form-select, select.form-select option {
     .form-select option {
         font-size: 10px !important;
     }
-    /* .container-buku {
-        padding-bottom: 0 !important;
-    } */
-    /* .card-container {
-        max-width: 1000px;
+    .modal-dialog {
+        max-width: 480px;
         margin: 0 auto;
-    } */
-    select.form-select option {
-        font-size: 10px;
+        margin-top: 1rem;
+    }
+    .modal-header-buku {
+        padding: 1.5rem 1rem 1rem 2rem;
+        font-size: 14px;
+    }
+    .modal-body dt {
+        flex: 0 0 40%; 
+        max-width: 40%; 
+        text-align: left;
+    }
+    .modal-body dd {
+        flex: 0 0 60%; 
+        max-width: 60%; 
+    }
+    .btn-modal-close {
+        position: absolute;
+        top: 2rem;
+        right: 1.5rem;
+        z-index: 1; 
     }
 }
-
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .container-buku {
+        height: auto;
+        /* padding-top: 70px; */
+    }
+    .card-container {
+        padding: 0 40px 10px 40px;
+    }
+    .text-title {
+        font-size: 25px;
+        text-align: center;
+        padding-left: 0;
+    }
+    .modal-body {
+        font-size: 16px;
+        padding: 1rem 2rem 0.5rem 2rem;
+    }
+    .modal-footer {
+        padding: 10px 20px 10px 10px;
+    }
+    select.form-select {
+        max-height: 150px;
+        overflow-y: auto;
+    }
+    .text-start {
+        font-size: 14px;
+        left: auto;
+        right: 0;
+        transform: translateX(-50%) !important;
+    }
+    .form-select option {
+        font-size: 10px !important;
+    }
+    .modal-dialog {
+        max-width: 600px;
+        margin: 0 auto;
+        margin-top: 1rem;
+    }
+    .modal-header-buku {
+        padding: 1.5rem 1rem 1rem 2rem;
+        font-size: 14px;
+    }
+    .modal-body dt {
+        flex: 0 0 40%; 
+        max-width: 40%; 
+        text-align: left;
+    }
+    .modal-body dd {
+        flex: 0 0 60%; 
+        max-width: 60%; 
+    }
+}
 </style>
 
 <div class="container-buku mt-4">
@@ -315,11 +389,12 @@ select.form-select, select.form-select option {
                             aria-hidden="true">
                             <div class="modal-dialog modal-lg modal-dialog-centered">
                                 <div class="modal-content">
-                                    <div class="modal-header">
+                                    <div class="modal-header-buku">
                                         <h5 class="modal-title" id="detailModalLabel{{ $buku->id }}">Detail Buku:
                                             {{ $buku->judul_buku }}</h5>
-                                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                                        <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal"
+                                            aria-label="Close">
+                                        </button>
                                     </div>
                                     <div class="modal-body">
                                         <dl class="row">
@@ -375,9 +450,9 @@ select.form-select, select.form-select option {
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                 <div class="modal-content">
 
-                                    <div class="modal-header">
+                                    <div class="modal-header-buku">
                                         <h5 class="modal-title" id="editModalLabel{{ $buku->id }}">Edit Buku</h5>
-                                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
+                                        <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
 
@@ -495,10 +570,10 @@ select.form-select, select.form-select option {
                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
-                                    <div class="modal-header">
+                                    <div class="modal-header-buku">
                                         <h5 class="modal-title" id="deleteModalLabel{{ $buku->id }}">Hapus Buku
                                         </h5>
-                                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
+                                        <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -529,9 +604,9 @@ select.form-select, select.form-select option {
     aria-labelledby="createModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header-buku">
                 <h5 class="modal-title" id="createModalLabel">Tambah Buku</h5>
-                <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="{{ route('bukus.store') }}" method="POST">
                 @csrf
@@ -611,7 +686,7 @@ select.form-select, select.form-select option {
                         </div>
                     </div>
 
-                    <div class="">
+                    <div class="mb-3">
                         <label for="harga" class="form-label"><b>Harga</b></label>
                         <input type="number" class="form-control" name="harga" step="0.01" min="0" placeholder="Masukkan harga buku" required>
                     </div>
