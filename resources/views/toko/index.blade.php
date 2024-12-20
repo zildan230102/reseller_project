@@ -74,17 +74,14 @@
 .small-icon {
     font-size: 12px;
 }
-
 .card-body-toko {
     padding: 0 15px;
 }
-
 .buttonallert {
     background-color: #ff9800;
     box-shadow: none;
     outline: none;
 }
-
 .buttonallert:focus{
     box-shadow: none;
 }
@@ -176,6 +173,63 @@
     }
     .card-container {
         padding: 0 20px 0 20px;
+    }
+    .text-title {
+        text-align: center;
+        font-size: 25px;
+    }
+    .custom-button-daftar {
+        width: auto;
+        font-size: 14px;
+    }
+    table {
+        overflow-x: auto;
+        font-size: 16px;
+    }
+    .modal-dialog {
+            max-width: 80%;
+    }
+    .modal-header {
+        padding: 10px 15px;
+    }
+    .modal-title {
+        font-size: 18px !important;
+    }
+    .modal-body {
+        padding: 20px
+    }
+    .form-group label {
+        font-size: 16px;
+    }
+    .form-group input, .form-group select {
+        font-size: 14px;
+        padding: 8px;
+    }
+    .custom-button {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+    .d-flex.justify-content-end {
+        justify-content: center;
+    }  
+    .form-select option {
+        font-size: 11px;
+    }
+    .aksi {
+        font-size: 14px;
+        left: auto;
+        right: 0;
+        transform: translateX(-50%) !important;
+    }
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .container-toko {
+        padding: 10px;
+        padding-top: 60px;
+        height: auto;
+    }
+    .card-container {
+        padding: 0 40px 0 40px;
     }
     .text-title {
         text-align: center;
