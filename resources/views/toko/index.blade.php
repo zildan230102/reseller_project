@@ -85,6 +85,9 @@
 .buttonallert:focus{
     box-shadow: none;
 }
+.modal-header-toko {
+    border-bottom: 1px solid #ddd;
+}
 
 @media (min-width: 320px) and (max-width: 599px) {
     .container-toko {
@@ -105,28 +108,34 @@
         display: block;
         overflow-x: auto;
         white-space: nowrap;
-        font-size: 14px;
+        font-size: 12px;
         overflow: visible;
     }
     .modal-dialog {
-        max-width: 80%;
+        max-width: 320px;
         margin: 0 auto;
+        padding-top: 1rem;
     }
-    .modal-content {
-        padding: 10px;
-    }
-    .modal-header {
-        padding: 5px 10px 10px 10px;
-    }
-    .modal-body {
+    .modal-header-toko {
+        padding: 1.25rem 1.5rem 1rem 1.5rem;
         font-size: 14px;
-        padding: 15px 10px 15px 10px;
+    }
+    .modal-body-toko {
+        font-size: 14px;
+        padding: 0.75rem 1.5rem 1.5rem 1.5rem;
     }
     .modal-title {
         font-size: 16px;
     }
     .modal-footer {
-        padding: 5px 5px 0px 5px;
+        font-size: 12px;
+        padding: 0.75rem 1rem 0.75rem 1rem;
+    }
+    .btn-modal-close {
+        position: absolute;
+        top: 1.25rem;
+        right: 1.5rem;
+        z-index: 1; 
     }
     .form-group label {
         font-size: 12px;
@@ -187,16 +196,29 @@
         font-size: 16px;
     }
     .modal-dialog {
-            max-width: 80%;
+        max-width: 480px;
+        margin: 0 auto;
+        margin-top: 1rem;
     }
-    .modal-header {
-        padding: 10px 15px;
+    .modal-header-toko {
+        padding: 1.25rem 2rem 1rem 2rem;
     }
     .modal-title {
-        font-size: 18px !important;
+        font-size: 18px;
     }
-    .modal-body {
-        padding: 20px
+    .modal-footer {
+        font-size: 12px;
+        padding: 0.75rem 1rem 0.75rem 1rem;
+    }
+    .modal-body-toko {
+        font-size: 14px;
+        padding: 0.75rem 2rem 2rem 2rem;
+    }
+    .btn-modal-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        z-index: 1; 
     }
     .form-group label {
         font-size: 16px;
@@ -246,13 +268,13 @@
     .modal-dialog {
             max-width: 80%;
     }
-    .modal-header {
+    .modal-header-toko{
         padding: 10px 15px;
     }
     .modal-title {
         font-size: 18px !important;
     }
-    .modal-body {
+    .modal-body-toko {
         padding: 20px
     }
     .form-group label {
@@ -394,12 +416,12 @@
             role="dialog" aria-labelledby="tokoModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header-toko">
                         <h5 class="modal-title" id="tokoModalLabel">Tambah Toko</h5>
-                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
+                        <button type="button" class="btn-close btn-modal-close shadow-none" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body-toko">
                         <form id="tokoForm" action="{{ route('toko.store') }}" method="POST">
                             @csrf
                             <div class="form-group mb-3">
@@ -413,7 +435,7 @@
                                     placeholder="Masukkan nama marketplace" required>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group mb-4">
                                 <label for="edit_is_active"><b>Status</b></label>
                                 <select id="edit_is_active" name="is_active" class="form-select custom-dropdown">
                                     <option value="1">Aktif</option>
@@ -434,12 +456,12 @@
             role="dialog" aria-labelledby="editTokoModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header-toko">
                         <h5 class="modal-title" id="editTokoModalLabel">Edit Toko</h5>
-                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
+                        <button type="button" class="btn-close btn-modal-close shadow-none" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body-toko">
                         <form id="editTokoForm" action="" method="POST">
                             @csrf
                             @method('PUT')
@@ -455,7 +477,7 @@
                                     required>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group mb-4">
                                 <label for="edit_is_active"><b>Status</b></label>
                                 <select id="edit_is_active" name="is_active" class="form-select custom-dropdown">
                                     <option value="1">Aktif</option>
@@ -477,12 +499,12 @@
             tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header-toko">
                         <h5 class="modal-title" id="confirmDeleteModalLabel">Konfirmasi Hapus</h5>
-                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" class="btn-close btn-modal-close shadow-none" data-bs-dismiss="modal" aria-label="Close">
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body-toko">
                         Apakah Anda yakin ingin menghapus toko 
                         <strong>{{ $toko->nama_toko }}</strong> ini?
                     </div>
