@@ -93,9 +93,12 @@
         font-size: 10px; 
         padding: 5px; 
     }
-    .modal-dialog {
-        max-width: 85%;
-        margin: 0 auto;
+    .judul-buku {
+        display: block;
+    }
+    .modal-title {
+        font-size: 18px;
+        max-width: 240px;
     }
     .modal-content {
         max-height: 90vh;
@@ -138,6 +141,21 @@
         list-style-position: inside; 
         display: block;
     }
+    .aksi {
+        font-size: 12px;
+        left: auto;
+        right: 0;
+        transform: translateX(-50%) !important;
+    }
+    .custom-dropdown-item {
+        font-size: 12px;
+    }
+    .btn-modal-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        z-index: 1; 
+    }
 }
 @media (min-width: 600px) and (max-width: 1024px){
     .container-riwayat {
@@ -153,10 +171,7 @@
         text-align: center;
     }
     .modal-dialog {
-        max-width: 90%;;
-    }
-    .modal-dialog {
-        max-width: 600px;
+        max-width: 500px;
         margin: 0 auto;
     }
     .modal-header-pesanan {
@@ -166,18 +181,30 @@
         padding: 1rem 2rem 0.5rem 2rem;
     }
     .modal-body dl dt {
-        flex: 0 0 35%; 
-        max-width: 40%; 
+        flex: 0 0 25%; 
+        max-width: 30%; 
         text-align: left;
     }
     .modal-body dl dd {
-        flex: 0 0 65%; 
-        max-width: 60%; 
+        flex: 0 0 75%; 
+        max-width: 70%; 
     }
     .modal-body dl dd ul {
         padding-left: 0; 
         margin: 0; 
         list-style-position: inside; 
+    }
+    .aksi {
+        font-size: 14px;
+        left: auto;
+        right: 0;
+        transform: translateX(-50%) !important;
+    }
+    .btn-modal-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        z-index: 1; 
     }
 }
 @media (min-width: 1025px) and (max-width: 1280px) {
@@ -194,9 +221,6 @@
         text-align: center;
     }
     .modal-dialog {
-        max-width: 90%;;
-    }
-    .modal-dialog {
         max-width: 600px;
         margin: 0 auto;
     }
@@ -220,6 +244,18 @@
         margin: 0; 
         list-style-position: inside; 
     }
+    .aksi {
+        font-size: 14px;
+        left: auto;
+        right: 0;
+        transform: translateX(-50%) !important;
+    }
+    .btn-modal-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        z-index: 1; 
+    }
 }
 </style>
 
@@ -235,7 +271,7 @@
             </div>
             <div class="card-body-toko">
                 <div class="table-responsive">
-                <table class="table table-bordered ">
+                <table class="table table-bordered table-striped">
                     <thead class="text-center table-light">
                         <tr>
                             <th>No</th>
@@ -256,7 +292,7 @@
                             <!-- Menampilkan daftar buku yang ada di dalam order -->
                             <td>
                                 @foreach($order->bukus as $buku)
-                                {{ $buku->judul_buku }} ({{ $buku->pivot->jumlah }}),
+                                    {{ $buku->judul_buku }} ({{ $buku->pivot->jumlah }}){{ !$loop->last ? ',' : '' }}<br>
                                 @endforeach
                             </td>
         
@@ -277,7 +313,7 @@
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="bi bi-eye-fill text-black"></i>
                                     </button>
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu aksi">
                                         <!-- Modal Detail Pesanan -->
                                         <li>
                                             <a class="custom-dropdown-item" data-bs-toggle="modal"
@@ -301,13 +337,13 @@
         
                         <!-- Modal Detail Pesanan -->
                         <div class="modal fade" id="detailModal{{ $order->id }}" tabindex="-1"
-                            aria-labelledby="detailModalLabel{{ $order->id }}" aria-hidden="true">
+                            aria-labelledby="detailModalLabel{{ $order->id }}" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header modal-header-pesanan">
                                         <h5 class="modal-title" id="detailModalLabel{{ $order->id }}">Detail Pesanan
                                             {{ $order->no_invoice }}</h5>
-                                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
+                                        <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body modal-pesanan">
@@ -341,7 +377,7 @@
         
                         <!-- Modal Batalkan Pesanan -->
                         <div class="modal fade" id="cancelModal{{ $order->id }}" tabindex="-1"
-                            aria-labelledby="cancelModalLabel{{ $order->id }}" aria-hidden="true">
+                            aria-labelledby="cancelModalLabel{{ $order->id }}" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">

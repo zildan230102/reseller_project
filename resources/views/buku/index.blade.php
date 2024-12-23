@@ -93,6 +93,9 @@ select.form-select, select.form-select option {
 .buttonallert:focus{
     box-shadow: none;
 }
+.modal-header-buku {
+    border-bottom: 1px solid #ddd;
+}
 
 @media (min-width: 320px) and (max-width: 599px) {
     .container-buku{
@@ -120,6 +123,10 @@ select.form-select, select.form-select option {
     /* .modal-content {
         max-height: 90vh !important;
     } */
+    .modal-title {
+        font-size: 18px;
+        max-width: 200px;
+    }
     .modal-body {
         font-size: 12px;
         padding: 1rem 2rem 0.5rem 2rem;
@@ -201,12 +208,23 @@ select.form-select, select.form-select option {
         text-align: center;
         padding-left: 0;
     }
-    .modal-body {
-        font-size: 16px;
-        padding: 1rem 2rem 0.5rem 2rem;
+    .modal-title {
+        font-size: 18px;
+        max-width: 200px;
     }
     .modal-footer {
-        padding: 10px 20px 10px 10px;
+        font-size: 12px;
+        padding: 0.75rem 1rem 0.75rem 1rem;
+    }
+    .modal-body {
+        font-size: 14px;
+        padding: 0.75rem 2rem 2rem 2rem;
+    }
+    .btn-modal-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        z-index: 1; 
     }
     select.form-select {
         max-height: 150px;
@@ -241,7 +259,7 @@ select.form-select, select.form-select option {
     }
     .btn-modal-close {
         position: absolute;
-        top: 2rem;
+        top: 1.5rem;
         right: 1.5rem;
         z-index: 1; 
     }
@@ -386,11 +404,11 @@ select.form-select, select.form-select option {
                         <!-- Detail Modal -->
                         <div class="modal fade" id="detailModal{{ $buku->id }}" data-bs-backdrop="static"
                             data-bs-keyboard="false" tabindex="-1" aria-labelledby="detailModalLabel{{ $buku->id }}"
-                            aria-hidden="true">
+                            aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
                             <div class="modal-dialog modal-lg modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header-buku">
-                                        <h5 class="modal-title" id="detailModalLabel{{ $buku->id }}">Detail Buku:
+                                        <h5 class="modal-title modal-detail" id="detailModalLabel{{ $buku->id }}">Detail Buku:
                                             {{ $buku->judul_buku }}</h5>
                                         <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal"
                                             aria-label="Close">
@@ -446,7 +464,7 @@ select.form-select, select.form-select option {
                         <!-- Edit Modal -->
                         <div class="modal fade" id="editModal{{ $buku->id }}" data-bs-backdrop="static"
                             data-bs-keyboard="false" tabindex="-1" aria-labelledby="editModalLabel{{ $buku->id }}"
-                            aria-hidden="true">
+                            aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                 <div class="modal-content">
 
@@ -549,7 +567,7 @@ select.form-select, select.form-select option {
                                                 </div>
                                             </div>
 
-                                            <div class="">
+                                            <div class="mb-3">
                                                 <label for="harga" class="form-label"><b>Harga</b></label>
                                                 <input type="number" class="form-control" name="harga"
                                                     value="{{ $buku->harga }}" step="0.01" min="0" required>
@@ -567,7 +585,7 @@ select.form-select, select.form-select option {
                         <!-- Delete Modal -->
                         <div class="modal fade" id="deleteModal{{ $buku->id }}" data-bs-backdrop="static"
                             data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteModalLabel{{ $buku->id }}"
-                            aria-hidden="true">
+                            aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header-buku">
@@ -601,7 +619,7 @@ select.form-select, select.form-select option {
 
 <!-- Modal Create -->
 <div class="modal fade" id="createModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="createModalLabel" aria-hidden="true">
+    aria-labelledby="createModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header-buku">

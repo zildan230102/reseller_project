@@ -68,6 +68,11 @@ dd div {
     margin: 0; 
     list-style-position: inside; 
 }
+.btn-aksi:hover {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
 
 @media (min-width: 320px) and (max-width: 599px) {
     .container-riwayat {
@@ -159,7 +164,7 @@ dd div {
         padding: 20px;
     }
     .modal-dialog {
-        max-width: 650px;
+        max-width: 500px;
         margin: 0 auto;
     }
     .modal-pembayaran-header {
@@ -169,18 +174,24 @@ dd div {
         padding: 1rem 2rem 0.5rem 2rem;
     }
     .modal-body dl dt {
-        flex: 0 0 35%; 
+        flex: 0 0 40%; 
         max-width: 40%; 
         text-align: left;
     }
     .modal-body dl dd {
-        flex: 0 0 65%; 
+        flex: 0 0 60%; 
         max-width: 60%; 
     }
     .modal-body dl dd ul {
         padding-left: 0; 
         margin: 0; 
         list-style-position: inside; 
+    }
+    .btn-modal-close {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        z-index: 1; 
     }
 }
 @media (min-width: 1025px) and (max-width: 1280px) {
@@ -220,6 +231,12 @@ dd div {
         margin: 0; 
         list-style-position: inside; 
     }
+    .btn-modal-close {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        z-index: 1; 
+    }
 }
 
 </style>
@@ -256,7 +273,7 @@ dd div {
                             <td class="text-center">{{ ucfirst($payment->metode_pembayaran ?? 'Tidak Diketahui') }}</td>
                             <td class="text-center">{{ ucfirst($payment->status ?? 'Belum Dibayar') }}</td>
                             <td>
-                                <button type="button" class="btn btn-sm btn-no-border" data-bs-toggle="modal" data-bs-target="#detailModal_{{ $payment->id }}" title="Lihat Detail">
+                                <button type="button" class="btn btn-sm btn-aksi btn-no-border" data-bs-toggle="modal" data-bs-target="#detailModal_{{ $payment->id }}" title="Lihat Detail">
                                     <i class="bi bi-info-circle text-black"></i>
                                 </button>
 
@@ -267,7 +284,7 @@ dd div {
                                         <div class="modal-content">
                                             <div class="modal-header modal-pembayaran-header">
                                                 <h5 class="modal-title" id="detailModalLabel_{{ $payment->id }}">Detail Pembayaran</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <button type="button" class="btn-close btn-modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body modal-pembayaran">
                                                 <dl class="row">
