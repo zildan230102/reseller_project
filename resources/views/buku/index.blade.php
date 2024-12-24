@@ -7,9 +7,8 @@
     width: 100%;
     padding-top: 60px;
 } 
-.text-title {
-    padding-left: 150px;
-    text-align: left;
+.title-buku {
+    text-align: center;
 }
 .card-container {
     max-width: 1200px;
@@ -93,8 +92,33 @@ select.form-select, select.form-select option {
 .buttonallert:focus{
     box-shadow: none;
 }
+.modal-dialog {
+    max-width: 480px;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
 .modal-header-buku {
+    padding: 1rem 1rem 1rem 2rem;
+    font-size: 14px;
     border-bottom: 1px solid #ddd;
+}
+.modal-body {
+    padding: 1rem 2rem 0.5rem 2rem;
+}
+.modal-body dt {
+    flex: 0 0 40%; 
+    max-width: 40%; 
+    text-align: left;
+}
+.modal-body dd {
+    flex: 0 0 60%; 
+    max-width: 60%; 
+}
+.btn-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1; 
 }
 
 @media (min-width: 320px) and (max-width: 599px) {
@@ -257,12 +281,6 @@ select.form-select, select.form-select option {
         flex: 0 0 60%; 
         max-width: 60%; 
     }
-    .btn-modal-close {
-        position: absolute;
-        top: 1.5rem;
-        right: 1.5rem;
-        z-index: 1; 
-    }
 }
 @media (min-width: 1025px) and (max-width: 1280px) {
     .container-buku {
@@ -319,7 +337,7 @@ select.form-select, select.form-select option {
 </style>
 
 <div class="container-buku mt-4">
-    <h1 class="text-title mb-4 ">Daftar Buku</h1>
+    <h1 class="text-title title-buku mb-4 ">Daftar Buku</h1>
     <!-- Menampilkan Flash Message -->
     @if(session('success'))
         <script>

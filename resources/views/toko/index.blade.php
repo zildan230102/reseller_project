@@ -10,6 +10,9 @@
     margin: 0 auto;
     height: auto;
 }
+.title-toko {
+    text-align: center;
+}
 .card-header-button {
     padding: 15px;
     display: flex;
@@ -85,8 +88,33 @@
 .buttonallert:focus{
     box-shadow: none;
 }
+.modal-dialog {
+    max-width: 480px;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
 .modal-header-toko {
+    padding: 1rem 1rem 1rem 2rem;
+    font-size: 14px;
     border-bottom: 1px solid #ddd;
+}
+.modal-body-toko {
+    padding: 1rem 2rem 0.5rem 2rem;
+}
+.modal-body dt {
+    flex: 0 0 40%; 
+    max-width: 40%; 
+    text-align: left;
+}
+.modal-body dd {
+    flex: 0 0 60%; 
+    max-width: 60%; 
+}
+.btn-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1; 
 }
 
 @media (min-width: 320px) and (max-width: 599px) {
@@ -304,7 +332,7 @@
 </style>
 
     <div class="container-toko mt-4">
-        <h1 class="text-title mb-4">Daftar Toko</h1>
+        <h1 class="text-title title-toko mb-4">Daftar Toko</h1>
 
         @if(session('success'))
             <script>
@@ -442,7 +470,7 @@
                                     <option value="0">Tidak Aktif</option>
                                 </select>
                             </div>
-                            <div class="d-flex justify-content-end ">
+                            <div class="d-flex justify-content-end mb-3">
                                 <button type="submit" class="custom-button">Simpan</button>
                             </div>
                         </form>
@@ -484,7 +512,7 @@
                                     <option value="0">Tidak Aktif</option>
                                 </select>
                             </div>
-                            <div class="d-flex justify-content-end">
+                            <div class="d-flex justify-content-end mb-3">
                                 <button type="submit" class="custom-button">Update</button>
                             </div>
 
@@ -504,7 +532,7 @@
                         <button type="button" class="btn-close btn-modal-close shadow-none" data-bs-dismiss="modal" aria-label="Close">
                         </button>
                     </div>
-                    <div class="modal-body-toko">
+                    <div class="modal-body-toko mb-3">
                         Apakah Anda yakin ingin menghapus toko 
                         <strong>{{ $toko->nama_toko }}</strong> ini?
                     </div>

@@ -34,7 +34,6 @@
     padding: 0.5rem;
     z-index: 1050;
 }
-
 .custom-dropdown-item {
     font-size: 1rem;
     display: flex;
@@ -46,29 +45,66 @@
     box-sizing: border-box;
     transition: background-color 0.2s ease;
 }
-
 .custom-dropdown-item:hover {
     background-color: #f0f0f0;
     color: #000;
     text-decoration: none;
 }
-
 .custom-dropdown-item i {
     margin-right: 8px;
     margin-left: 0;
 }
-
 .dropdown .btn-no-border {
     border: none;
     outline: none;
     box-shadow: none;
     padding: 0;
 }
+.modal-header-pesanan {
+    padding: 1rem 1rem 1rem 2rem;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+}
+.modal-body {
+    padding: 1rem 2rem 0.5rem 2rem;
+}
+.modal-pesanan dt {
+    flex: 0 0 40%;  
+    text-align: left;
+}
+.modal-pesanan dd {
+    flex: 0 0 60%; 
+    text-align: left; 
+}
+.modal-pesanan dl dd ul {
+    padding-left: 0; 
+    margin: 0; 
+    list-style-position: inside; 
+    display: block;
+}
+.btn-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1; 
+}
+.container-riwayat.empty-content {
+    height: 400px;
+}
+.container-riwayat:not(.empty-content) {
+    height: auto; 
+}
 
 @media (min-width: 320px) and (max-width: 599px) {
     .container-riwayat {
-        padding-top: 80px;
+        padding-top: 40px;
         height: auto;
+    }
+    .container-riwayat.empty-content {
+        height: 250px;
+    }
+    .container-riwayat:not(.empty-content) {
+        height: auto; 
     }
     .text-title {
         font-size: 18px;
@@ -126,16 +162,16 @@
     .modal-pesanan {
         padding: 1rem 1rem 0 1.5rem;
     }
-    .modal-body dl dt {
+    .modal-pesanan dl dt {
         flex: 0 0 40%; 
         max-width: 40%; 
         text-align: left;
     }
-    .modal-body dl dd {
+    .modal-pesanan dl dd {
         flex: 0 0 60%; 
         max-width: 60%; 
     }
-    .modal-body dl dd ul {
+    .modal-pesanan dl dd ul {
         padding-left: 0; 
         margin: 0; 
         list-style-position: inside; 
@@ -163,6 +199,12 @@
         height: auto;
         max-width: 1200px;
     }
+    .container-riwayat.empty-content {
+        height: 650px;
+    }
+    .container-riwayat:not(.empty-content) {
+        height: auto; 
+    }
     .header-title {
         padding: 20px;
     }
@@ -180,16 +222,15 @@
     .modal-pesanan {
         padding: 1rem 2rem 0.5rem 2rem;
     }
-    .modal-body dl dt {
-        flex: 0 0 25%; 
-        max-width: 30%; 
+    .modal-pesanan dt {
+        flex: 0 0 40%; 
         text-align: left;
     }
-    .modal-body dl dd {
-        flex: 0 0 75%; 
-        max-width: 70%; 
+    .modal-pesanan dd {
+        flex: 0 0 60%; 
+        text-align: left;
     }
-    .modal-body dl dd ul {
+    .modal-pesanan dl dd ul {
         padding-left: 0; 
         margin: 0; 
         list-style-position: inside; 
@@ -209,15 +250,20 @@
 }
 @media (min-width: 1025px) and (max-width: 1280px) {
     .container-riwayat {
-        padding: 80px 30px 0 30px;
+        padding: 40px 40px 0 40px;
         height: auto;
         max-width: 1200px;
+    }
+    .container-riwayat.empty-content {
+        height: 400px;
+    }
+    .container-riwayat:not(.empty-content) {
+        height: auto; 
     }
     .header-title {
         padding: 20px;
     }
     .text-title {
-        font-size: 25px;
         text-align: center;
     }
     .modal-dialog {
@@ -259,7 +305,7 @@
 }
 </style>
 
-<div class="container-riwayat mt-4">
+<div class="container-riwayat mt-4 container-checkout {{ $orders->isEmpty() ? 'empty-content' : '' }}">
     <div class="card-container">
         @if($orders->isEmpty())
         <h2 class="my-4 text-title">Riwayat Pesanan</h2>
@@ -341,36 +387,38 @@
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header modal-header-pesanan">
-                                        <h5 class="modal-title" id="detailModalLabel{{ $order->id }}">Detail Pesanan
+                                        <h5 class="modal-title" id="detailModalLabel{{ $order->id }}">Detail Pesanan:
                                             {{ $order->no_invoice }}</h5>
                                         <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body modal-pesanan">
                                         <dl class="row">
-                                            <dt class="col-5 col-sm-3 mb-3">Tanggal</dt>
+                                            <dt class="col-5 col-sm-3 mb-3">Tanggal Pemesanan</dt>
                                             <dd class="col-7 col-sm-9 mb-3">: {{ $order->tanggal }}</dd>
 
-                                            <dt class="col-5 col-sm-3 mb-3">Penerima</dt>
+                                            <dt class="col-5 col-sm-3 mb-3">Nama Penerima</dt>
                                             <dd class="col-7 col-sm-9 mb-3">: {{ $order->penerima }}</dd>
 
-                                            <dt class="col-5 col-sm-3 mb-3">Alamat Kirim</dt>
+                                            <dt class="col-5 col-sm-3 mb-3">Alamat Pengiriman</dt>
                                             <dd class="col-7 col-sm-9 mb-3">: {{ $order->alamat_kirim }}</dd>
 
                                             <dt class="col-5 col-sm-3 mb-3">Buku yang Dipesan</dt>
-                                            <dd> 
-                                                <ul>
-                                                    @foreach($order->bukus as $buku)
-                                                    <li>{{ $buku->judul_buku }} - {{ $buku->pivot->jumlah }} Buku</li>
-                                                    @endforeach
-                                                </ul>
+                                            <dd class="col-7 col-sm-9 mb-3"> 
+                                                @if($order->bukus->count() == 1)
+                                                    : {{ $order->bukus->first()->judul_buku }} - {{ $order->bukus->first()->pivot->jumlah }} Buku
+                                                @else
+                                                    <ul>
+                                                        @foreach($order->bukus as $buku)
+                                                            <li> {{ $buku->judul_buku }} - {{ $buku->pivot->jumlah }} Buku</li>
+                                                        @endforeach
+                                                    </ul>
+                                                @endif
                                             </dd>
-
                                             <dt class="col-5 col-sm-3 mb-3">Total Harga</dt>
-                                            <dd class="col-7 col-sm-9 mb-3">: {{ number_format($grandTotal, 2) }}</dd>
+                                            <dd class="col-7 col-sm-9 mb-3">: Rp{{ number_format($grandTotal, 2) }}</dd>
                                         </dl>
                                     </div>
-                                    
                                 </div>
                             </div>
                         </div>

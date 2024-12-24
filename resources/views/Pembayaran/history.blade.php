@@ -14,9 +14,6 @@
 .header-title {
     padding: 20px;
 }
-.card-container {
-    padding-top: 40px;
-}
 .btn-no-border {
     border: none;
     outline: none;
@@ -73,6 +70,12 @@ dd div {
     outline: none;
     box-shadow: none;
 }
+.container-riwayat.empty-content {
+    height: 400px;
+}
+.container-riwayat:not(.empty-content) {
+    height: auto; 
+}
 
 @media (min-width: 320px) and (max-width: 599px) {
     .container-riwayat {
@@ -80,6 +83,12 @@ dd div {
         padding-top: 40px;
         height: auto;
         margin: 0 auto;
+    }
+    .container-riwayat.empty-content {
+        height: 250px;
+    }
+    .container-riwayat:not(.empty-content) {
+        height: auto; 
     }
     .header-title {
         padding: 15px;
@@ -156,6 +165,12 @@ dd div {
         height: auto;
         max-width: 1200px;
     }
+    .container-riwayat.empty-content {
+        height: 650px;
+    }
+    .container-riwayat:not(.empty-content) {
+        height: auto; 
+    }
     .text-title {
         font-size: 25px;
         text-align: center;
@@ -200,8 +215,13 @@ dd div {
         height: auto;
         max-width: 1200px;
     }
+    .container-riwayat.empty-content {
+        height: 400px;
+    }
+    .container-riwayat:not(.empty-content) {
+        height: auto; 
+    }
     .text-title {
-        font-size: 25px;
         text-align: center;
     }
     .header-title {
@@ -241,11 +261,11 @@ dd div {
 
 </style>
 
-<div class="container-riwayat mt-4">
+<div class="container-riwayat mt-4 {{ $orders->isEmpty() ? 'empty-content' : '' }}">
     <div class="card-container">
         @if($orders->isEmpty())
-        <h2 class="my-4 text-title">Riwayat Pembayaran</h2>
-        <div class="alert alert-info">Belum ada riwayat pembayaran.</div>
+            <h2 class="my-4 text-title">Riwayat Pembayaran</h2>
+            <div class="alert alert-info">Belum ada riwayat pembayaran.</div>
         @else
         <div class="card history">
             <div class="header-title">

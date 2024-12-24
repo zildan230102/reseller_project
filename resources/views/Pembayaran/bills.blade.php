@@ -33,10 +33,22 @@
     background-color: #f57c00;
     color: white;
 }
+.container-checkout.empty-content {
+    height: 400px;
+}
+.container-checkout:not(.empty-content) {
+    height: auto; 
+}
 
 @media (min-width: 320px) and (max-width: 599px) {
     .container-checkout {
         height: auto;
+    }
+    .container-checkout.empty-content {
+        height: 250px;
+    }
+    .container-checkout:not(.empty-content) {
+        height: auto; 
     }
     .text-title {
         font-size: 18px;
@@ -113,6 +125,12 @@
         height: auto;
         max-width: 1200px;
     }
+    .container-checkout.empty-content {
+        height: 650px;
+    }
+    .container-checkout:not(.empty-content) {
+        height: auto; 
+    }
     .card-header-tagihan h4{
         font-size: 16px;
         padding-bottom: 0;
@@ -160,6 +178,12 @@
         height: auto;
         max-width: 1200px;
     }
+    .container-checkout.empty-content {
+        height: 400px;
+    }
+    .container-checkout:not(.empty-content) {
+        height: auto; 
+    }
     .card-header-tagihan h4{
         font-size: 16px;
         padding-bottom: 0;
@@ -196,7 +220,7 @@
 }
 
 </style>
-<div class="container-checkout">
+<div class="container-checkout {{ $orders->isEmpty() ? 'empty-content' : '' }}">
     <h2 class="my-4 text-title">Checkout Pembayaran</h2>
 
     @if($orders->isEmpty())
