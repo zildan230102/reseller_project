@@ -7,9 +7,8 @@
     width: 100%;
     padding-top: 60px;
 } 
-.text-title {
-    padding-left: 150px;
-    text-align: left;
+.title-buku {
+    text-align: center;
 }
 .card-container {
     max-width: 1200px;
@@ -93,8 +92,33 @@ select.form-select, select.form-select option {
 .buttonallert:focus{
     box-shadow: none;
 }
+.modal-dialog {
+    max-width: 480px;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
 .modal-header-buku {
+    padding: 1rem 1rem 1rem 2rem;
+    font-size: 14px;
     border-bottom: 1px solid #ddd;
+}
+.modal-body {
+    padding: 1rem 2rem 0.5rem 2rem;
+}
+.modal-body dt {
+    flex: 0 0 40%; 
+    max-width: 40%; 
+    text-align: left;
+}
+.modal-body dd {
+    flex: 0 0 60%; 
+    max-width: 60%; 
+}
+.btn-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1; 
 }
 
 @media (min-width: 320px) and (max-width: 599px) {
@@ -127,12 +151,13 @@ select.form-select, select.form-select option {
         font-size: 18px;
         max-width: 200px;
     }
-    .modal-body {
+    .modal-body-create {
         font-size: 12px;
-        padding: 1rem 2rem 0.5rem 2rem;
+        padding: 1rem 2rem 0rem 2rem;
+        max-height: calc(90vh - 320px) !important;
     }
     .modal-footer {
-        padding: 0 10px 10px 0;
+        padding: 0.75rem 1rem 0.75rem 1rem;
     }
     select.form-select {
         font-size: 12px;
@@ -216,9 +241,10 @@ select.form-select, select.form-select option {
         font-size: 12px;
         padding: 0.75rem 1rem 0.75rem 1rem;
     }
-    .modal-body {
+    .modal-body-create {
         font-size: 14px;
-        padding: 0.75rem 2rem 2rem 2rem;
+        padding: 0.75rem 2rem 0.5rem 2rem;
+        max-height: calc(60vh - 320px) !important;
     }
     .btn-modal-close {
         position: absolute;
@@ -257,12 +283,6 @@ select.form-select, select.form-select option {
         flex: 0 0 60%; 
         max-width: 60%; 
     }
-    .btn-modal-close {
-        position: absolute;
-        top: 1.5rem;
-        right: 1.5rem;
-        z-index: 1; 
-    }
 }
 @media (min-width: 1025px) and (max-width: 1280px) {
     .container-buku {
@@ -277,9 +297,10 @@ select.form-select, select.form-select option {
         text-align: center;
         padding-left: 0;
     }
-    .modal-body {
+    .modal-body-create {
         font-size: 16px;
         padding: 1rem 2rem 0.5rem 2rem;
+        max-height: calc(70vh - 120px) !important;
     }
     .modal-footer {
         padding: 10px 20px 10px 10px;
@@ -315,11 +336,15 @@ select.form-select, select.form-select option {
         flex: 0 0 60%; 
         max-width: 60%; 
     }
+    .modal-dialog {
+        max-height: 25vh !important;
+        height: auto !important;
+    }
 }
 </style>
 
 <div class="container-buku mt-4">
-    <h1 class="text-title mb-4 ">Daftar Buku</h1>
+    <h1 class="text-title title-buku mb-4 ">Daftar Buku</h1>
     <!-- Menampilkan Flash Message -->
     @if(session('success'))
         <script>
@@ -620,7 +645,7 @@ select.form-select, select.form-select option {
 <!-- Modal Create -->
 <div class="modal fade" id="createModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="createModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-add-buku">
         <div class="modal-content">
             <div class="modal-header-buku">
                 <h5 class="modal-title" id="createModalLabel">Tambah Buku</h5>
@@ -628,7 +653,7 @@ select.form-select, select.form-select option {
             </div>
             <form action="{{ route('bukus.store') }}" method="POST">
                 @csrf
-                <div class="modal-body" style="max-height: 75vh; overflow-y: auto;">
+                <div class="modal-body modal-body-create">
                     <!-- Input Fields -->
                     <div class="mb-3">
                         <label for="judul_buku" class="form-label"><b>Judul Buku</b></label>
@@ -709,10 +734,10 @@ select.form-select, select.form-select option {
                         <input type="number" class="form-control" name="harga" step="0.01" min="0" placeholder="Masukkan harga buku" required>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="submit" class="custom-button">Simpan</button>
-                </div>
             </form>
+            <div class="modal-footer">
+                <button type="submit" class="custom-button">Simpan</button>
+            </div>
         </div>
     </div>
 </div>

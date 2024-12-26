@@ -6,16 +6,13 @@
 .container-riwayat {
     width: 100%;
     padding: 0 20px 0 20px;
-    padding-top: 40px;
+    padding-top: 60px;
     max-width: 1200px;
     margin: 0 auto;
     height: auto;
 }
 .header-title {
     padding: 20px;
-}
-.card-container {
-    padding-top: 40px;
 }
 .btn-no-border {
     border: none;
@@ -73,6 +70,12 @@ dd div {
     outline: none;
     box-shadow: none;
 }
+.container-riwayat.empty-content {
+    height: 400px;
+}
+.container-riwayat:not(.empty-content) {
+    height: auto; 
+}
 
 @media (min-width: 320px) and (max-width: 599px) {
     .container-riwayat {
@@ -80,6 +83,12 @@ dd div {
         padding-top: 40px;
         height: auto;
         margin: 0 auto;
+    }
+    .container-riwayat.empty-content {
+        height: 250px;
+    }
+    .container-riwayat:not(.empty-content) {
+        height: auto; 
     }
     .header-title {
         padding: 15px;
@@ -149,12 +158,24 @@ dd div {
         white-space: normal;
         overflow-wrap: break-word;
     }
+    .buku-pesan {
+        word-wrap: break-word;
+        overflow: break-word;
+        white-space: normal;
+        line-height: 1.5;
+    }
 }
 @media (min-width: 600px) and (max-width: 1024px) {
     .container-riwayat {
         padding: 40px 20px 0 20px;
         height: auto;
         max-width: 1200px;
+    }
+    .container-riwayat.empty-content {
+        height: 650px;
+    }
+    .container-riwayat:not(.empty-content) {
+        height: auto; 
     }
     .text-title {
         font-size: 25px;
@@ -196,12 +217,17 @@ dd div {
 }
 @media (min-width: 1025px) and (max-width: 1280px) {
     .container-riwayat {
-        padding: 40px 40px 0 40px;
+        padding: 60px 40px 0 40px;
         height: auto;
         max-width: 1200px;
     }
+    .container-riwayat.empty-content {
+        height: 400px;
+    }
+    .container-riwayat:not(.empty-content) {
+        height: auto; 
+    }
     .text-title {
-        font-size: 25px;
         text-align: center;
     }
     .header-title {
@@ -212,7 +238,7 @@ dd div {
         margin: 0 auto;
     }
     .modal-pembayaran-header {
-        padding: 1.5rem 1rem 1rem 2rem;
+        padding: 1.5rem 1rem 1.2rem 2rem;
     }
     .modal-pembayaran {
         padding: 1rem 2rem 0.5rem 2rem;
@@ -241,11 +267,11 @@ dd div {
 
 </style>
 
-<div class="container-riwayat mt-4">
+<div class="container-riwayat mt-4 {{ $orders->isEmpty() ? 'empty-content' : '' }}">
     <div class="card-container">
         @if($orders->isEmpty())
-        <h2 class="my-4 text-title">Riwayat Pembayaran</h2>
-        <div class="alert alert-info">Belum ada riwayat pembayaran.</div>
+            <h2 class="my-4 text-title">Riwayat Pembayaran</h2>
+            <div class="alert alert-info">Belum ada riwayat pembayaran.</div>
         @else
         <div class="card history">
             <div class="header-title">
@@ -313,12 +339,16 @@ dd div {
                                                     </dd>
                                                     
                                                     <dt class="col-5 col-sm-3">Buku yang Dipesan</dt>
-                                                    <dd>
-                                                        <ul>
-                                                            @foreach ($payment->bukus as $buku)
-                                                                <li>{{ $buku->judul_buku }} - {{ $buku->pivot->jumlah }} pcs</li>
-                                                            @endforeach
-                                                        </ul>
+                                                    <dd class="col-7 col-sm-9 mb-3 buku-pesan">
+                                                        @if ($payment->bukus->count() == 1)
+                                                            : {{ $payment->bukus->first()->judul_buku }} - {{ $payment->bukus->first()->pivot->jumlah }} Buku
+                                                        @else
+                                                            <ul>
+                                                                @foreach ($payment->bukus as $buku)
+                                                                    <li>{{ $buku->judul_buku }} - {{ $buku->pivot->jumlah }} Buku</li>
+                                                                @endforeach
+                                                            </ul>
+                                                        @endif
                                                     </dd>
                                                 </dl>
                                             </div>

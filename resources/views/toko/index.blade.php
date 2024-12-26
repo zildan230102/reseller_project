@@ -10,6 +10,9 @@
     margin: 0 auto;
     height: auto;
 }
+.title-toko {
+    text-align: center;
+}
 .card-header-button {
     padding: 15px;
     display: flex;
@@ -85,8 +88,37 @@
 .buttonallert:focus{
     box-shadow: none;
 }
+.modal-dialog {
+    max-width: 480px;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
 .modal-header-toko {
-    border-bottom: 1px solid #ddd;
+    padding: 1.25rem 1rem 1.25rem 2rem;
+    font-size: 14px;
+    border-bottom: 2px solid #ddd;
+}
+.modal-body-toko {
+    padding: 1rem 2rem 0.75rem 2rem;
+}
+.modal-body dt {
+    flex: 0 0 40%; 
+    max-width: 40%; 
+    text-align: left;
+}
+.modal-body dd {
+    flex: 0 0 60%; 
+    max-width: 60%; 
+}
+.btn-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1; 
+}
+.button-add {
+    border-top: 2px solid #ddd;
+    padding: 1.5rem 1.5rem 0.5rem 1.5rem;
 }
 
 @media (min-width: 320px) and (max-width: 599px) {
@@ -122,7 +154,7 @@
     }
     .modal-body-toko {
         font-size: 14px;
-        padding: 0.75rem 1.5rem 1.5rem 1.5rem;
+        padding: 0.75rem 1.5rem 0.25rem 1.5rem;
     }
     .modal-title {
         font-size: 16px;
@@ -136,6 +168,9 @@
         top: 1.25rem;
         right: 1.5rem;
         z-index: 1; 
+    }
+    .button-add {
+        padding: 1rem 1.25rem 1rem 0;
     }
     .form-group label {
         font-size: 12px;
@@ -212,13 +247,16 @@
     }
     .modal-body-toko {
         font-size: 14px;
-        padding: 0.75rem 2rem 2rem 2rem;
+        padding: 0.75rem 2rem 0.5rem 2rem;
     }
     .btn-modal-close {
         position: absolute;
         top: 1.5rem;
         right: 1.5rem;
         z-index: 1; 
+    }
+    .button-add {
+        padding: 1.2rem 1.5rem 1.2rem 0;
     }
     .form-group label {
         font-size: 16px;
@@ -266,16 +304,29 @@
         font-size: 16px;
     }
     .modal-dialog {
-            max-width: 80%;
+        max-width: 480px;
+        margin: 0 auto;
+        margin-top: 1rem;
     }
-    .modal-header-toko{
-        padding: 10px 15px;
+    .modal-header-toko {
+        padding: 1.25rem 2rem 1rem 2rem;
     }
     .modal-title {
         font-size: 18px !important;
     }
+    .modal-footer {
+        font-size: 12px;
+        padding: 0.75rem 1rem 0.75rem 1rem;
+    }
     .modal-body-toko {
-        padding: 20px
+        font-size: 14px;
+        padding: 0.75rem 2rem 0.5rem 2rem;
+    }
+    .btn-modal-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        z-index: 1; 
     }
     .form-group label {
         font-size: 16px;
@@ -304,7 +355,7 @@
 </style>
 
     <div class="container-toko mt-4">
-        <h1 class="text-title mb-4">Daftar Toko</h1>
+        <h1 class="text-title title-toko mb-4">Daftar Toko</h1>
 
         @if(session('success'))
             <script>
@@ -409,8 +460,6 @@
             </div>
         </div>
 
-
-
         <!-- Modal untuk menambah toko -->
         <div class="modal fade" id="tokoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             role="dialog" aria-labelledby="tokoModalLabel" aria-hidden="true">
@@ -435,17 +484,17 @@
                                     placeholder="Masukkan nama marketplace" required>
                             </div>
 
-                            <div class="form-group mb-4">
+                            <div class="form-group">
                                 <label for="edit_is_active"><b>Status</b></label>
                                 <select id="edit_is_active" name="is_active" class="form-select custom-dropdown">
                                     <option value="1">Aktif</option>
                                     <option value="0">Tidak Aktif</option>
                                 </select>
                             </div>
-                            <div class="d-flex justify-content-end ">
-                                <button type="submit" class="custom-button">Simpan</button>
-                            </div>
                         </form>
+                    </div>    
+                    <div class="d-flex justify-content-end button-add">
+                        <button type="submit" class="custom-button">Simpan</button>
                     </div>
                 </div>
             </div>
@@ -484,7 +533,7 @@
                                     <option value="0">Tidak Aktif</option>
                                 </select>
                             </div>
-                            <div class="d-flex justify-content-end">
+                            <div class="d-flex justify-content-end mb-3">
                                 <button type="submit" class="custom-button">Update</button>
                             </div>
 
@@ -504,7 +553,7 @@
                         <button type="button" class="btn-close btn-modal-close shadow-none" data-bs-dismiss="modal" aria-label="Close">
                         </button>
                     </div>
-                    <div class="modal-body-toko">
+                    <div class="modal-body-toko mb-3">
                         Apakah Anda yakin ingin menghapus toko 
                         <strong>{{ $toko->nama_toko }}</strong> ini?
                     </div>
