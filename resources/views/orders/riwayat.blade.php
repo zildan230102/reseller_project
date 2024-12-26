@@ -61,7 +61,7 @@
     padding: 0;
 }
 .modal-header-pesanan {
-    padding: 1rem 1rem 1rem 2rem;
+    padding: 1.25rem 1rem 1rem 2rem;
     font-size: 14px;
     border-bottom: 1px solid #ddd;
 }
@@ -84,8 +84,8 @@
 }
 .btn-modal-close {
     position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
+    top: 1.75rem;
+    right: 1.75rem;
     z-index: 1; 
 }
 .container-riwayat.empty-content {
@@ -188,8 +188,7 @@
     }
     .btn-modal-close {
         position: absolute;
-        top: 1.5rem;
-        right: 1.5rem;
+        padding: 0.25rem;
         z-index: 1; 
     }
 }
@@ -243,14 +242,13 @@
     }
     .btn-modal-close {
         position: absolute;
-        top: 1.5rem;
-        right: 1.5rem;
+        padding: 1rem;
         z-index: 1; 
     }
 }
 @media (min-width: 1025px) and (max-width: 1280px) {
     .container-riwayat {
-        padding: 40px 40px 0 40px;
+        padding: 60px 40px 0 40px;
         height: auto;
         max-width: 1200px;
     }
@@ -298,8 +296,7 @@
     }
     .btn-modal-close {
         position: absolute;
-        top: 1.5rem;
-        right: 1.5rem;
+        padding: 1rem;
         z-index: 1; 
     }
 }

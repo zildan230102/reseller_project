@@ -6,7 +6,7 @@
 .container-riwayat {
     width: 100%;
     padding: 0 20px 0 20px;
-    padding-top: 40px;
+    padding-top: 60px;
     max-width: 1200px;
     margin: 0 auto;
     height: auto;
@@ -158,6 +158,12 @@ dd div {
         white-space: normal;
         overflow-wrap: break-word;
     }
+    .buku-pesan {
+        word-wrap: break-word;
+        overflow: break-word;
+        white-space: normal;
+        line-height: 1.5;
+    }
 }
 @media (min-width: 600px) and (max-width: 1024px) {
     .container-riwayat {
@@ -211,7 +217,7 @@ dd div {
 }
 @media (min-width: 1025px) and (max-width: 1280px) {
     .container-riwayat {
-        padding: 40px 40px 0 40px;
+        padding: 60px 40px 0 40px;
         height: auto;
         max-width: 1200px;
     }
@@ -232,7 +238,7 @@ dd div {
         margin: 0 auto;
     }
     .modal-pembayaran-header {
-        padding: 1.5rem 1rem 1rem 2rem;
+        padding: 1.5rem 1rem 1.2rem 2rem;
     }
     .modal-pembayaran {
         padding: 1rem 2rem 0.5rem 2rem;
@@ -333,12 +339,16 @@ dd div {
                                                     </dd>
                                                     
                                                     <dt class="col-5 col-sm-3">Buku yang Dipesan</dt>
-                                                    <dd>
-                                                        <ul>
-                                                            @foreach ($payment->bukus as $buku)
-                                                                <li>{{ $buku->judul_buku }} - {{ $buku->pivot->jumlah }} pcs</li>
-                                                            @endforeach
-                                                        </ul>
+                                                    <dd class="col-7 col-sm-9 mb-3 buku-pesan">
+                                                        @if ($payment->bukus->count() == 1)
+                                                            : {{ $payment->bukus->first()->judul_buku }} - {{ $payment->bukus->first()->pivot->jumlah }} Buku
+                                                        @else
+                                                            <ul>
+                                                                @foreach ($payment->bukus as $buku)
+                                                                    <li>{{ $buku->judul_buku }} - {{ $buku->pivot->jumlah }} Buku</li>
+                                                                @endforeach
+                                                            </ul>
+                                                        @endif
                                                     </dd>
                                                 </dl>
                                             </div>
