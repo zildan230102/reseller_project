@@ -352,10 +352,6 @@ document.addEventListener('DOMContentLoaded', function() {
             text: 'Pembayaran Anda telah berhasil dikonfirmasi.',
             icon: 'success',
             confirmButtonText: 'OK'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                form.submit(); // Kirim form setelah SweetAlert ditutup
-            }
         });
     });
 });

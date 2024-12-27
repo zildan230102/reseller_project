@@ -6,7 +6,7 @@
 .container-riwayat {
     width: 100%;
     padding: 0 20px 0 20px;
-    padding-top: 80px;
+    padding-top: 40px;
     max-width: 1200px;
     margin: 0 auto;
     height: 400px;
@@ -305,10 +305,10 @@
 <div class="container-riwayat mt-4 container-checkout {{ $orders->isEmpty() ? 'empty-content' : '' }}">
     <div class="card-container">
         @if($orders->isEmpty())
-        <h2 class="my-4 text-title">Riwayat Pesanan</h2>
+        <h2 class="my-4 text-title text-center">Riwayat Pesanan</h2>
         <div class="alert alert-info">Belum ada riwayat pesanan.</div>
         @else
-        <div class="card">
+        <div class="card mt-3">
             <div class="header-title">
                 <h3 class="text-title mb-0 text-start">Riwayat Pesanan</h3>
             </div>
