@@ -105,6 +105,11 @@ select.form-select, select.form-select option {
 .modal-body {
     padding: 1rem 2rem 0.5rem 2rem;
 }
+.modal-body-create {
+    font-size: 16px;
+    padding: 1rem 2rem 0.5rem 2rem;
+    max-height: calc(70vh - 120px) !important;
+}
 .modal-body dt {
     flex: 0 0 40%; 
     max-width: 40%; 
@@ -502,7 +507,7 @@ select.form-select, select.form-select option {
                                     <form action="{{ route('bukus.update', $buku->id) }}" method="POST">
                                         @csrf
                                         @method('PUT')
-                                        <div class="modal-body">
+                                        <div class="modal-body modal-body-create">
                                             <!-- Input Fields -->
                                             <div class="mb-3">
                                                 <label for="judul_buku" class="form-label"><b>Judul Buku</b></label>

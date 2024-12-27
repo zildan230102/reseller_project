@@ -99,16 +99,7 @@
     border-bottom: 2px solid #ddd;
 }
 .modal-body-toko {
-    padding: 1rem 2rem 0.75rem 2rem;
-}
-.modal-body dt {
-    flex: 0 0 40%; 
-    max-width: 40%; 
-    text-align: left;
-}
-.modal-body dd {
-    flex: 0 0 60%; 
-    max-width: 60%; 
+    padding: 1rem 2rem 0.25rem 2rem;
 }
 .btn-modal-close {
     position: absolute;
@@ -118,7 +109,7 @@
 }
 .button-add {
     border-top: 2px solid #ddd;
-    padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+    padding: 1rem 1.5rem 1rem 1.5rem;
 }
 
 @media (min-width: 320px) and (max-width: 599px) {
@@ -486,7 +477,8 @@
 
                             <div class="form-group">
                                 <label for="edit_is_active"><b>Status</b></label>
-                                <select id="edit_is_active" name="is_active" class="form-select custom-dropdown">
+                                <select id="edit_is_active" name="is_active" class="form-select custom-dropdown" required>
+                                <option value="" disabled selected>Pilih Status Toko</option>
                                     <option value="1">Aktif</option>
                                     <option value="0">Tidak Aktif</option>
                                 </select>
@@ -526,18 +518,17 @@
                                     required>
                             </div>
 
-                            <div class="form-group mb-4">
+                            <div class="form-group">
                                 <label for="edit_is_active"><b>Status</b></label>
                                 <select id="edit_is_active" name="is_active" class="form-select custom-dropdown">
                                     <option value="1">Aktif</option>
                                     <option value="0">Tidak Aktif</option>
                                 </select>
                             </div>
-                            <div class="d-flex justify-content-end mb-3">
-                                <button type="submit" class="custom-button">Update</button>
-                            </div>
-
                         </form>
+                    </div>
+                    <div class="d-flex justify-content-end button-add">
+                        <button type="submit" class="custom-button">Update</button>
                     </div>
                 </div>
             </div>

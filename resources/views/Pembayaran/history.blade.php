@@ -76,6 +76,12 @@ dd div {
 .container-riwayat:not(.empty-content) {
     height: auto; 
 }
+.btn-modal-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1; 
+}
 
 @media (min-width: 320px) and (max-width: 599px) {
     .container-riwayat {
@@ -339,7 +345,7 @@ dd div {
                                                     </dd>
                                                     
                                                     <dt class="col-5 col-sm-3">Buku yang Dipesan</dt>
-                                                    <dd class="col-7 col-sm-9 mb-3 buku-pesan">
+                                                    <dd class="col-7 col-sm-9 mb-3 buku-pesan ">
                                                         @if ($payment->bukus->count() == 1)
                                                             : {{ $payment->bukus->first()->judul_buku }} - {{ $payment->bukus->first()->pivot->jumlah }} Buku
                                                         @else
