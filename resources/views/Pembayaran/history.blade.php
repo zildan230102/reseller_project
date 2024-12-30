@@ -85,7 +85,7 @@ dd div {
 
 @media (min-width: 320px) and (max-width: 599px) {
     .container-riwayat {
-        padding: 0 20px 0 20px;
+        padding: 60px 20px 0 20px !important;
         padding-top: 40px;
         height: auto;
         margin: 0 auto;
@@ -173,7 +173,7 @@ dd div {
 }
 @media (min-width: 600px) and (max-width: 1024px) {
     .container-riwayat {
-        padding: 40px 20px 0 20px;
+        padding: 60px 20px 0 20px;
         height: auto;
         max-width: 1200px;
     }

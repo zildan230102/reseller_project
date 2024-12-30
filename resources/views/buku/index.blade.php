@@ -205,8 +205,12 @@ select.form-select, select.form-select option {
         padding-top: 1rem;
     }
     .modal-header-buku {
-        padding: 1.5rem 1rem 1rem 2rem;
+        padding: 1.25rem 1rem 1rem 1.75rem;
         font-size: 14px;
+    }
+    .modal-body {
+        font-size: 14px;
+        padding: 1rem 1.5rem 0.25rem 1.75rem;
     }
     .modal-body dt {
         flex: 0 0 40%; 
@@ -219,7 +223,7 @@ select.form-select, select.form-select option {
     }
     .btn-modal-close {
         position: absolute;
-        top: 1.5rem;
+        top: 1.25rem;
         right: 1.5rem;
         z-index: 1; 
     }
@@ -249,7 +253,8 @@ select.form-select, select.form-select option {
     .modal-body-create {
         font-size: 14px;
         padding: 0.75rem 2rem 0.5rem 2rem;
-        max-height: calc(60vh - 320px) !important;
+        max-height: calc(65vh - 320px) !important;
+        min-height: calc(50vh);
     }
     .btn-modal-close {
         position: absolute;
@@ -746,5 +751,4 @@ select.form-select, select.form-select option {
         </div>
     </div>
 </div>
-
 @endsection
