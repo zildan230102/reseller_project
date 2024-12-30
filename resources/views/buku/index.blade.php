@@ -296,8 +296,8 @@ select.form-select, select.form-select option {
         font-size: 10px;
     }
     .table-responsive {
-        overflow: visible; /* Pastikan overflow tabel terlihat */
-        display: table; /* Ubah kembali ke display default tabel */
+        overflow: visible;
+        display: table;
     }
     .modal-dialog {
         max-width: 480px;
@@ -355,11 +355,13 @@ select.form-select, select.form-select option {
 
     select.form-select option {
         font-size: 10px;
-
+    }
     .modal-dialog {
         max-width: 600px;
         margin: 0 auto;
         margin-top: 1rem;
+        max-height: 25vh !important;
+        height: auto !important;
     }
     .modal-header-buku {
         padding: 1.5rem 1rem 1rem 2rem;
@@ -374,16 +376,10 @@ select.form-select, select.form-select option {
         flex: 0 0 60%; 
         max-width: 60%; 
     }
-    .modal-dialog {
-        max-height: 25vh !important;
-        height: auto !important;
-
-    }
     .table-responsive {
-        overflow: visible; /* Pastikan overflow tabel terlihat */
-        display: table; /* Ubah kembali ke display default tabel */
+        overflow: visible; 
+        display: table;
     }
-    
 }
 
 </style>
@@ -477,10 +473,10 @@ select.form-select, select.form-select option {
                             aria-hidden="true">
                             <div class="modal-dialog modal-lg modal-dialog-centered">
                                 <div class="modal-content">
-                                    <div class="modal-header">
+                                    <div class="modal-header-buku">
                                         <h5 class="modal-title" id="detailModalLabel{{ $buku->id }}">Detail Buku:
                                             {{ $buku->judul_buku }}</h5>
-                                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
+                                        <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -537,16 +533,16 @@ select.form-select, select.form-select option {
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                 <div class="modal-content">
 
-                                    <div class="modal-header">
+                                    <div class="modal-header-buku">
                                         <h5 class="modal-title" id="editModalLabel{{ $buku->id }}">Edit Buku</h5>
-                                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
+                                        <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
 
                                     <form action="{{ route('bukus.update', $buku->id) }}" method="POST">
                                         @csrf
                                         @method('PUT')
-                                        <div class="modal-body">
+                                        <div class="modal-body modal-body-create">
                                             <!-- Input Fields -->
                                             <div class="mb-3">
                                                 <label for="judul_buku" class="form-label"><b>Judul Buku</b></label>
@@ -657,10 +653,10 @@ select.form-select, select.form-select option {
                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
-                                    <div class="modal-header">
+                                    <div class="modal-header-buku">
                                         <h5 class="modal-title" id="deleteModalLabel{{ $buku->id }}">Hapus Buku
                                         </h5>
-                                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
+                                        <button type="button" class="btn-close shadow-none btn-modal-none" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -691,13 +687,13 @@ select.form-select, select.form-select option {
     aria-labelledby="createModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header-buku">
                 <h5 class="modal-title" id="createModalLabel">Tambah Buku</h5>
-                <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="{{ route('bukus.store') }}" method="POST">
                 @csrf
-                <div class="modal-body" style="max-height: 75vh; overflow-y: auto;">
+                <div class="modal-body modal-body-create" style="max-height: 75vh; overflow-y: auto;">
                     <!-- Input Fields -->
                     <div class="mb-3">
                         <label for="judul_buku" class="form-label"><b>Judul Buku</b></label>
