@@ -716,9 +716,9 @@
                                 <textarea class="form-control" id="alamat_kirim{{ $order->id }}" name="alamat_kirim" required>{{ $order->alamat_kirim }}</textarea>
                             </div>
                             
-                           <div class="row">
+                            <div class="row">
                             <!-- Provinsi -->
-                            <div class="i-col-sm-12 i-col-md-6 mb-3">
+                            <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="provinsi" class="form-label">Provinsi</label>
                                 <select class="form-control" id="provinsi" name="provinsi" required>
                                     <option value="" disabled selected>Pilih Provinsi</option>
@@ -729,7 +729,7 @@
                             </div>
 
                             <!-- Kabupaten -->
-                            <div class="i-col-sm-12 i-col-md-6 mb-3">
+                            <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="kabupaten" class="form-label">Kabupaten/Kota</label>
                                 <select class="form-control" id="kabupaten" name="kabupaten" required>
                                     <option value="">Pilih Kabupaten</option>
@@ -739,7 +739,7 @@
 
                         <div class="row">
                             <!-- Kecamatan -->
-                            <div class="i-col-sm-12 i-col-md-6 mb-3">
+                            <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="kecamatan" class="form-label">Kecamatan</label>
                                 <select class="form-control" id="kecamatan" name="kecamatan" required>
                                     <option value="">Pilih Kecamatan</option>
@@ -747,10 +747,10 @@
                             </div>
 
                             <!-- Kelurahan -->
-                            <div class="i-col-sm-12 i-col-md-6 mb-3">
+                            <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="kelurahan" class="form-label">Kelurahan/Desa</label>
                                 <select class="form-control" id="kelurahan" name="kelurahan" required>
-                                    <option value="">Pilih Kelurahan</option>
+                                    <option value="" >Pilih Kelurahan</option>
                                 </select>
                             </div>
                         </div>
@@ -827,7 +827,65 @@
 @endforeach
 
 <script>
+$(function () {
+    // Setup CSRF Token for AJAX
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 
+    // Saat Provinsi diubah
+    $('#provinsi').on('change', function () {
+        let id_provinsi = $(this).val();
+        $.ajax({
+            type: 'POST',
+            url: "{{ route('getkabupaten') }}", // Route untuk mendapatkan data kabupaten
+            data: { id_provinsi: id_provinsi },
+            success: function (response) {
+                $('#kabupaten').html(response); // Isi dropdown kabupaten dengan data yang diterima
+                $('#kecamatan').html('<option value="" disabled selected>Pilih Kecamatan</option>'); // Reset kecamatan
+                $('#kelurahan').html('<option value="" disabled selected>Pilih Kelurahan</option>'); // Reset kelurahan
+            },
+            error: function (error) {
+                console.error('Error:', error);
+            }
+        });
+    });
+
+    // Saat Kabupaten diubah
+    $('#kabupaten').on('change', function () {
+        let id_kabupaten = $(this).val();
+        $.ajax({
+            type: 'POST',
+            url: "{{ route('getkecamatan') }}", // Route untuk mendapatkan data kecamatan
+            data: { id_kabupaten: id_kabupaten },
+            success: function (response) {
+                $('#kecamatan').html(response); // Isi dropdown kecamatan dengan data yang diterima
+                $('#kelurahan').html('<option value="" disabled selected>Pilih Kelurahan</option>'); // Reset kelurahan
+            },
+            error: function (error) {
+                console.error('Error:', error);
+            }
+        });
+    });
+
+    // Saat Kecamatan diubah
+    $('#kecamatan').on('change', function () {
+        let id_kecamatan = $(this).val();
+        $.ajax({
+            type: 'POST',
+            url: "{{ route('getkelurahan') }}", // Route untuk mendapatkan data kelurahan
+            data: { id_kecamatan: id_kecamatan },
+            success: function (response) {
+                $('#kelurahan').html(response); // Isi dropdown kelurahan dengan data yang diterima
+            },
+            error: function (error) {
+                console.error('Error:', error);
+            }
+        });
+    });
+});
 
 
 // Fungsi menghitung total berat dan grand total
