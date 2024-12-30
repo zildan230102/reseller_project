@@ -432,9 +432,8 @@
     Swal.fire({
         icon: 'success',
         title: 'Berhasil!',
-        text: '{{ session('
-        success ') }}',
-        confirmButtonText: 'OK',
+        text: '{{ session( "success" ) }}',
+        confirmButtonText: 'OK', 
         customClass: {
             popup: 'sweetalert',
             confirmButton: 'buttonallert'
@@ -644,47 +643,35 @@
 <!-- Tambahkan JavaScript untuk AJAX -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    // Script untuk modal tambah toko
-    $(document).ready(function() {
-        // Form tambah toko: Jika tombol "Simpan" diklik, form disubmit
-        $('#tokoModal .custom-button').on('click', function() {
-            $('#tokoForm').submit();
-        });
+   document.addEventListener('DOMContentLoaded', function () {
+    const editTokoModal = document.getElementById('editTokoModal');
+    const confirmDeleteModal = document.getElementById('confirmDeleteModal');
 
-        // Form edit toko: Update form action dan isi form dengan data yang dipilih
-        $('#editTokoModal').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget);
-            var tokoId = button.data('id');
-            var tokoNama = button.data('nama');
-            var tokoMarketplace = button.data('marketplace');
-            var tokoStatus = button.data('status');
+    // Edit Modal
+    editTokoModal.addEventListener('show.bs.modal', function (event) {
+        const button = event.relatedTarget;
+        const id = button.getAttribute('data-id');
+        const nama = button.getAttribute('data-nama');
+        const marketplace = button.getAttribute('data-marketplace');
+        const status = button.getAttribute('data-status');
 
-            // Set nilai input form berdasarkan data toko yang dipilih
-            $('#editTokoForm').attr('action', '/toko/' + tokoId);
-            $('#edit_nama_toko').val(tokoNama);
-            $('#edit_marketplace').val(tokoMarketplace);
-            $('#edit_is_active').val(tokoStatus ? '1' : '0');
-        });
-
-        // Script untuk konfirmasi hapus toko
-        $('#confirmDeleteModal').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget);
-            var tokoId = button.data('id');
-            var tokoNama = button.data('name');  // Ambil nama toko dari data-name
-            var actionUrl = '{{ url("toko") }}/' + tokoId;
-
-            // Set nama toko di modal konfirmasi
-            $('#nama_toko').text(tokoNama);
-
-            // Update action URL form delete
-            $('#deleteForm').attr('action', actionUrl);
-        });
-
-        // Tombol submit pada modal konfirmasi hapus
-        $('#deleteForm button[type="submit"]').on('click', function() {
-            $('#deleteForm').submit();
-        });
+        const form = document.getElementById('editTokoForm');
+        form.action = `/toko/${id}`;
+        form.querySelector('#edit_nama_toko').value = nama;
+        form.querySelector('#edit_marketplace').value = marketplace;
+        form.querySelector('#edit_is_active').value = status;
     });
+
+    // Delete Modal
+    confirmDeleteModal.addEventListener('show.bs.modal', function (event) {
+        const button = event.relatedTarget;
+        const id = button.getAttribute('data-id');
+
+        const form = document.getElementById('deleteForm');
+        form.action = `/toko/${id}`;
+    });
+});
+
 </script>
 
 @endsection
