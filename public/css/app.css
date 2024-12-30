@@ -98,7 +98,7 @@
 }
 
 .header-sale {
-  margin: 20px 20px 0px 20px;
+  margin: 2rem 2rem 0 2.5rem;
 }
 
 .performa-header {
@@ -302,8 +302,6 @@
   text-decoration: none;
   display: inline-block; 
 }
-
-/* y */
 
 .btn-dropdown {
   display: flex;
@@ -641,7 +639,7 @@ h2.h3.h5 {
 }
 
 .penjualan {
-  margin-bottom: 1rem !important;
+  margin-bottom: 0.75rem !important;
 }
 
 .total-penjualan {
@@ -680,13 +678,14 @@ h2.h3.h5 {
   .col-sm-12 {
     flex: 0 0 50%;
     max-width: 50%;
-}
+  }
+
   .chart {
     padding: 10px 10px;
   }
 
   .header-sale {
-    margin: 10px 10px 0 15px;
+    margin: 15px 15px 0 30px;
   }
 
   .card-total {
@@ -744,10 +743,10 @@ h2.h3.h5 {
   }
 
   h3, h5, .title-total, .data-marketplace, .data-penjualan {
-    font-size: 14px!important; 
+    font-size: 12px !important; 
     margin-bottom: 1%;
   }
-
+  
   .card-total .fw-bold.fs-4 {
     font-size: 1rem !important; 
     margin-bottom: 0 !important; 
@@ -770,15 +769,6 @@ h2.h3.h5 {
     display: none !important;
   }
 
-  /* .btn-group-mobile {
-    display: block !important;
-  }
-
-  .btn-group-mobile:hover .dropdown-menu {
-    display: block !important;
-    position: absolute;
-  } */
-
   .btn-kategori {
     outline: none;
     border: none !important;
@@ -795,7 +785,7 @@ h2.h3.h5 {
     border: 1px solid #f57c00;
   }
 
-  .dropdown-month:hover,
+  /* .dropdown-month:hover,
   .dropdown-month:focus,
   .dropdown.show .dropdown-month {
     background-color: transparent !important;
@@ -805,7 +795,7 @@ h2.h3.h5 {
     border-color: #f57c00 !important; 
     box-shadow: 0 0 5px rgba(255, 148, 82, 0.5);
     outline: none;
-  }
+  } */
 
   .dropdown-menu {
     position: absolute;
@@ -1140,19 +1130,26 @@ h2.h3.h5 {
   }
 
   .col-md-6 {
-    flex: 0 0 calc(33.333% - 10px);
-    max-width: calc(33.333% - 10px);
-  }
-  .row-gap-15 {
-    gap: 15px;
+    flex: 0 0 calc(34% - 10px);
+    max-width: calc(34% - 10px);
+    margin: 0 auto;
   }
 
   .dropdown.d-md-none {
     display: none !important;
   }
 
+  .title-total {
+    margin-bottom: 4px;
+    font-size: 16px !important;
+  }
+
+  .total-penjualan {
+    font-size: 18px !important;
+  }
+
   .card-right .col-auto {
-    padding: 15px;
+    padding: 15px 15px 10px 15px;
   }
 
   .card-right {
@@ -1373,13 +1370,12 @@ h2.h3.h5 {
   }
 
   .row {
-    display: flex; /* Mengatur elemen dalam satu baris */
-    gap: 1rem; /* Memberikan jarak antar elemen */
-    align-items: flex-start; /* Menyelaraskan elemen di atas */
+    display: flex;
+    align-items: flex-start; 
   }
 
   .col-xl-7 {
-      flex: 1; /* Card penjualan mengambil setengah ruang */
+    flex: 1; 
   }
 
   .col-md-6 { 
