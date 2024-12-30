@@ -116,6 +116,7 @@
 			});
 		});
 	</script>
+	
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
 			// Pie chart
@@ -148,24 +149,20 @@
 		});
 	</script>
 	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			// Bar chart
-			const chart = new Chart(document.getElementById("chartjs-dashboard-bar"), {
-				type: "bar",
-				data: {
-					labels: ["Lazada", "Shopee", "Tokopedia", "OLX", "Web Deepublish", "Bukalapak"],
-					datasets: [{
-						label: "This month",
-						backgroundColor: ['#0F0890', '#F1582E', '#469546', '#3A77FF', '#BCBCBC', '#E31F51'],
-						borderColor: window.theme.primary['#0F0890', '#F1582E', '#469546', '#3A77FF', '#BCBCBC', '#E31F51'],
-						hoverBackgroundColor: window.theme.primary['#0F0890', '#F1582E', '#469546', '#3A77FF', '#BCBCBC', '#E31F51'],
-						hoverBorderColor: window.theme.primary['#0F0890', '#F1582E', '#469546', '#3A77FF', '#BCBCBC', '#E31F51'],
-						data: [9, 48, 12, 5, 20, 6],
-						barPercentage: .99,
-						categoryPercentage: .7
-					}]
-				},
-				options: {
+    document.addEventListener("DOMContentLoaded", function() {
+    const chart = new Chart(document.getElementById("chartjs-dashboard-bar"), {
+        type: "bar",
+        data: {
+            labels: ["Lazada", "Shopee", "Tokopedia", "OLX", "Web Deepublish", "Bukalapak"],
+            datasets: [{
+                label: "This month",
+                backgroundColor: ['#0F0890', '#F1582E', '#469546', '#3A77FF', '#BCBCBC', '#E31F51'],
+                data: [9, 48, 12, 5, 20, 6],
+                barPercentage: 0.99,
+                categoryPercentage: 0.7
+            }]
+        },
+        options: {
 					maintainAspectRatio: false,
 					legend: {
 						display: false
@@ -191,59 +188,78 @@
 						}]
 					}
 				}
-			});
+    });
 
-			// Add event listeners to buttons and dropdown
-			document.getElementById("marketplace-btn").addEventListener("click", function() {
-				updateChart("marketplace");
-			});
+    // Helper function to update chart title
+    function updateTitle(newTitle) {
+        document.querySelector(".title-chart-bar").textContent = newTitle;
+    }
 
-			document.getElementById("toko-btn").addEventListener("click", function() {
-				updateChart("toko");
-			});
+    // Helper function to update chart data
+    function updateChart(type) {
+        switch (type) {
+            case "marketplace":
+                chart.data.labels = ["Lazada", "Shopee", "Tokopedia", "OLX", "Web Deepublish", "Bukalapak"];
+                chart.data.datasets[0].data = [10, 50, 15, 7, 25, 8];
+                updateTitle("Marketplace dengan Penjualan Terbanyak Bulan Ini");
+                break;
+            case "toko":
+                chart.data.labels = ["Toko 1", "Toko 2", "Toko 3", "Toko 4", "Toko 5", "Toko 6"];
+                chart.data.datasets[0].data = [15, 30, 35, 40, 50, 60];
+                updateTitle("Toko dengan Penjualan Terbanyak Bulan Ini");
+                break;
+            case "buku":
+                chart.data.labels = ["Buku 1", "Buku 2", "Buku 3", "Buku 4", "Buku 5", "Buku 6"];
+                chart.data.datasets[0].data = [10, 20, 25, 30, 45, 60];
+                updateTitle("Buku dengan Penjualan Terbanyak Bulan Ini");
+                break;
+            default:
+                console.error(`Unknown type: ${type}`);
+        }
+        chart.update();
+    }
 
-			document.getElementById("buku-btn").addEventListener("click", function() {
-				updateChart("buku");
-			});
+    // Event listeners untuk tombol
+    document.getElementById('marketplace-btn').addEventListener('click', () => {
+        updateChart('marketplace');
+        setActiveButton('marketplace-btn');
+    });
 
-			window.addEventListener("resize", function() {
-				chart.options.scales.xAxes[0].ticks.display = window.innerWidth > 768;
-				chart.update();
-        	});
+    document.getElementById('btn-toko').addEventListener('click', () => {
+    updateChart('toko');
+    setActiveButton('btn-toko');
+    });
 
-			// Get the dropdown menu items
-			const dropdownItems = document.querySelectorAll('.dropdown-item');
+    document.getElementById('buku-btn').addEventListener('click', () => {
+        updateChart('buku');
+        setActiveButton('buku-btn');
+    });
 
-			// Add event Listeners to each dropdown item
-			dropdownItems.forEach((item) => {
-				item.addEventListener('click', (event) => {
-					const selectedMonth = event.target.dataset.month;
-					console.log('Selected month: ${selectedMonth}');
-				});
-			});
+    function setActiveButton(activeId) {
+        document.querySelectorAll('.btn-group-desktop .btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.getElementById(activeId).classList.add('active');
+    }
 
-			function updateChart(type) {
-				switch (type) {
-					case "marketplace":
-						chart.data.labels = ["Lazada", "Shopee", "Tokopedia", "OLX", "Web Deepublish", "Bukalapak"];
-						chart.data.datasets[0].data = [10, 50, 15, 7, 25, 8];
-						break;
-					case "toko":
-						chart.data.labels = ["Toko 1", "Toko 2", "Toko 3", "Toko 4", "Toko 5", "Toko 6"];
-						chart.data.datasets[0].data = [15, 30, 35, 40, 50, 60];
-						break;
-					case "buku":
-						chart.data.labels = ["Buku 1", "Buku 2", "Buku 3", "Buku 4", "Buku 5", "Buku 6"];
-						chart.data.datasets[0].data = [10, 20, 25, 30, 45, 60];
-						break;
-					// Add more cases for each month
-					default:
-						console.error(`Unknown month: ${type}`);
-						break;
-				}
-				chart.update();
-			}
-		});
+	document.querySelectorAll('#dropdownMenuSmall + .dropdown-menu .dropdown-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+        e.preventDefault(); // Mencegah default
+        const type = item.getAttribute('data-type'); // Ambil data tipe
+        updateChart(type); // Perbarui chart sesuai kategori
+
+        // Perbarui teks tombol dropdown
+        const dropdownButton = document.getElementById('dropdownMenuSmall');
+        dropdownButton.innerHTML = item.textContent + ' <i class="bi bi-chevron-down ms-1"></i>';
+
+        // Tutup dropdown secara paksa
+        const dropdownMenu = bootstrap.Dropdown.getOrCreateInstance(dropdownButton);
+        setTimeout(() => dropdownMenu.hide(), 150);
+    });
+});
+
+	
+});
 	</script>
 	
 	<script>

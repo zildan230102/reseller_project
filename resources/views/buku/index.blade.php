@@ -7,8 +7,9 @@
     width: 100%;
     padding-top: 60px;
 } 
-.title-buku {
-    text-align: center;
+.text-title {
+    padding-left: 150px;
+    text-align: left;
 }
 .card-container {
     max-width: 1200px;
@@ -149,20 +150,23 @@ select.form-select, select.form-select option {
         font-size: 12px;
         overflow: visible;
     }
-    /* .modal-content {
-        max-height: 90vh !important;
-    } */
-    .modal-title {
-        font-size: 18px;
-        max-width: 200px;
+    .modal-dialog {
+        max-width: 80%;
+        margin: 0 auto;
     }
-    .modal-body-create {
+    .modal-content {
+        max-height: 90vh !important;
+    }
+    .modal-header {
+        padding: 10px;
+        font-size: 16px; 
+    }
+    .modal-body {
         font-size: 12px;
-        padding: 1rem 2rem 0rem 2rem;
-        max-height: calc(90vh - 320px) !important;
+        padding: 10px 20px;
     }
     .modal-footer {
-        padding: 0.75rem 1rem 0.75rem 1rem;
+        padding: 5px;
     }
     select.form-select {
         font-size: 12px;
@@ -196,8 +200,21 @@ select.form-select, select.form-select option {
         font-size: 12px;
     }
     .sweetalert {
-        max-width: 200px;
+        max-width: 300px;
         font-size: 12px;
+    }
+    .table .dropdown-menu {
+        position: absolute;
+        top: calc(100% + 5px); 
+        left: auto;
+        right: 0;
+        z-index: 1050;
+        min-width: 150px;
+        max-width: 200px;
+        overflow: visible;
+    }
+    .table-responsive-sm {
+        position: relative; 
     }
     .modal-dialog {
         max-width: 320px;
@@ -221,7 +238,7 @@ select.form-select, select.form-select option {
         position: absolute;
         top: 1.5rem;
         right: 1.5rem;
-        z-index: 1; 
+        z-index: 1;  
     }
 }
 
@@ -269,6 +286,13 @@ select.form-select, select.form-select option {
     }
     .form-select option {
         font-size: 10px !important;
+    }
+    select.form-select option {
+        font-size: 10px;
+    }
+    .table-responsive {
+        overflow: visible; /* Pastikan overflow tabel terlihat */
+        display: table; /* Ubah kembali ke display default tabel */
     }
     .modal-dialog {
         max-width: 480px;
@@ -323,6 +347,10 @@ select.form-select, select.form-select option {
     .form-select option {
         font-size: 10px !important;
     }
+
+    select.form-select option {
+        font-size: 10px;
+
     .modal-dialog {
         max-width: 600px;
         margin: 0 auto;
@@ -344,12 +372,19 @@ select.form-select, select.form-select option {
     .modal-dialog {
         max-height: 25vh !important;
         height: auto !important;
+
     }
+    .table-responsive {
+        overflow: visible; /* Pastikan overflow tabel terlihat */
+        display: table; /* Ubah kembali ke display default tabel */
+    }
+    
 }
+
 </style>
 
 <div class="container-buku mt-4">
-    <h1 class="text-title title-buku mb-4 ">Daftar Buku</h1>
+    <h1 class="text-title mb-4 ">Daftar Buku</h1>
     <!-- Menampilkan Flash Message -->
     @if(session('success'))
         <script>
@@ -375,7 +410,7 @@ select.form-select, select.form-select option {
             </div>
 
             <div class="card-body-buku">
-                <div class="table-responsive">
+                <div class="table-responsive-sm">
                 <table class="table table-bordered">
                     <thead>
                         <tr class="text-center">
@@ -434,15 +469,14 @@ select.form-select, select.form-select option {
                         <!-- Detail Modal -->
                         <div class="modal fade" id="detailModal{{ $buku->id }}" data-bs-backdrop="static"
                             data-bs-keyboard="false" tabindex="-1" aria-labelledby="detailModalLabel{{ $buku->id }}"
-                            aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+                            aria-hidden="true">
                             <div class="modal-dialog modal-lg modal-dialog-centered">
                                 <div class="modal-content">
-                                    <div class="modal-header-buku">
-                                        <h5 class="modal-title modal-detail" id="detailModalLabel{{ $buku->id }}">Detail Buku:
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="detailModalLabel{{ $buku->id }}">Detail Buku:
                                             {{ $buku->judul_buku }}</h5>
-                                        <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal"
-                                            aria-label="Close">
-                                        </button>
+                                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <dl class="row">
@@ -494,20 +528,20 @@ select.form-select, select.form-select option {
                         <!-- Edit Modal -->
                         <div class="modal fade" id="editModal{{ $buku->id }}" data-bs-backdrop="static"
                             data-bs-keyboard="false" tabindex="-1" aria-labelledby="editModalLabel{{ $buku->id }}"
-                            aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+                            aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                 <div class="modal-content">
 
-                                    <div class="modal-header-buku">
+                                    <div class="modal-header">
                                         <h5 class="modal-title" id="editModalLabel{{ $buku->id }}">Edit Buku</h5>
-                                        <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal"
+                                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
 
                                     <form action="{{ route('bukus.update', $buku->id) }}" method="POST">
                                         @csrf
                                         @method('PUT')
-                                        <div class="modal-body modal-body-create">
+                                        <div class="modal-body">
                                             <!-- Input Fields -->
                                             <div class="mb-3">
                                                 <label for="judul_buku" class="form-label"><b>Judul Buku</b></label>
@@ -522,7 +556,7 @@ select.form-select, select.form-select option {
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                                                     <label for="kategori_id" class="form-label"><b>Kategori</b></label>
                                                     <select class="form-select" name="kategori_id" required>
                                                         @foreach ($kategoris as $kategori)
@@ -533,7 +567,7 @@ select.form-select, select.form-select option {
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                                                     <label for="isbn" class="form-label"><b>ISBN</b></label>
                                                     <input type="text" class="form-control" name="isbn"
                                                         value="{{ $buku->isbn }}" required>
@@ -541,12 +575,12 @@ select.form-select, select.form-select option {
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                                                     <label for="tahun_terbit" class="form-label"><b>Tahun Terbit</b></label>
                                                     <input type="number" class="form-control" name="tahun_terbit"
                                                         value="{{ $buku->tahun_terbit }}" required>
                                                 </div>
-                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                                                     <label for="ukuran_id" class="form-label"><b>Ukuran</b></label>
                                                     <select class="form-select" name="ukuran_id" required>
                                                         @foreach ($ukurans as $ukuran)
@@ -560,12 +594,12 @@ select.form-select, select.form-select option {
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                                                     <label for="halaman" class="form-label"><b>Halaman</b></label>
                                                     <input type="number" class="form-control" name="halaman"
                                                         value="{{ $buku->halaman }}" required>
                                                 </div>
-                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                                                     <label for="jenis_kertas_id" class="form-label"><b>Jenis Kertas</b></label>
                                                     <select class="form-select" name="jenis_kertas_id" required>
                                                         @foreach ($jenisKertas as $kertas)
@@ -579,7 +613,7 @@ select.form-select, select.form-select option {
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                                                     <label for="jenis_sampul_id" class="form-label"><b>Jenis Sampul</b></label>
                                                     <select class="form-select" name="jenis_sampul_id" required>
                                                         @foreach ($jenisSampuls as $jenisSampul)
@@ -590,14 +624,14 @@ select.form-select, select.form-select option {
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                                                     <label for="berat" class="form-label"><b>Berat (Kg)</b></label>
                                                     <input type="number" class="form-control" name="berat"
                                                         value="{{ $buku->berat }}" step="0.01" min="0" required>
                                                 </div>
                                             </div>
 
-                                            <div class="mb-3">
+                                            <div class="">
                                                 <label for="harga" class="form-label"><b>Harga</b></label>
                                                 <input type="number" class="form-control" name="harga"
                                                     value="{{ $buku->harga }}" step="0.01" min="0" required>
@@ -615,13 +649,13 @@ select.form-select, select.form-select option {
                         <!-- Delete Modal -->
                         <div class="modal fade" id="deleteModal{{ $buku->id }}" data-bs-backdrop="static"
                             data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteModalLabel{{ $buku->id }}"
-                            aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+                            aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
-                                    <div class="modal-header-buku">
+                                    <div class="modal-header">
                                         <h5 class="modal-title" id="deleteModalLabel{{ $buku->id }}">Hapus Buku
                                         </h5>
-                                        <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal"
+                                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -649,16 +683,16 @@ select.form-select, select.form-select option {
 
 <!-- Modal Create -->
 <div class="modal fade" id="createModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="createModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-add-buku">
+    aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header-buku">
+            <div class="modal-header">
                 <h5 class="modal-title" id="createModalLabel">Tambah Buku</h5>
-                <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="{{ route('bukus.store') }}" method="POST">
                 @csrf
-                <div class="modal-body modal-body-create">
+                <div class="modal-body" style="max-height: 75vh; overflow-y: auto;">
                     <!-- Input Fields -->
                     <div class="mb-3">
                         <label for="judul_buku" class="form-label"><b>Judul Buku</b></label>
@@ -671,7 +705,7 @@ select.form-select, select.form-select option {
                     </div>
 
                     <div class="row">
-                        <div class="col-12 col-sm-6 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 i-i-col-md-6 mb-3">
                             <label for="kategori_id" class="form-label"><b>Kategori</b></label>
                             <select class="form-select" name="kategori_id" required>
                             <option value="" disabled selected="">Pilih Kategori</option>
@@ -680,18 +714,18 @@ select.form-select, select.form-select option {
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-12 col-sm-6 col-md-6  mb-3">
+                        <div class="col-12 col-sm-6 i-col-md-6  mb-3">
                             <label for="isbn" class="form-label"><b>ISBN</b></label>
                             <input type="text" class="form-control" name="isbn" placeholder="Masukkan nomor ISBN" required>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-12 col-sm-6 col-md-6  mb-3">
+                        <div class="col-12 col-sm-6 i-col-md-6  mb-3">
                             <label for="tahun_terbit" class="form-label"><b>Tahun Terbit</b></label>
                             <input type="number" class="form-control" name="tahun_terbit" placeholder="Masukkan tahun terbit buku" required>
                         </div>
-                        <div class="col-12 col-sm-6 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                             <label for="ukuran_id" class="form-label"><b>Ukuran</b></label>
                             <select class="form-select" name="ukuran_id" required>
                             <option value="" disabled selected>Pilih Ukuran</option>
@@ -703,11 +737,11 @@ select.form-select, select.form-select option {
                     </div>
 
                     <div class="row">
-                        <div class="col-12 col-sm-6 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                             <label for="halaman" class="form-label"><b>Halaman</b></label>
                             <input type="number" class="form-control" name="halaman" placeholder="Masukkan jumlah halaman buku" required>
                         </div>
-                        <div class="col-12 col-sm-6 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                             <label for="jenis_kertas_id" class="form-label"><b>Jenis Kertas</b></label>
                             <select class="form-select" name="jenis_kertas_id" required>
                             <option value="" disabled selected><b>Pilih Kertas</b></option>
@@ -719,7 +753,7 @@ select.form-select, select.form-select option {
                     </div>
 
                     <div class="row">
-                        <div class="col-12 col-sm-6 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                             <label for="jenis_sampul_id" class="form-label"><b>Jenis Sampul</b></label>
                             <select class="form-select" name="jenis_sampul_id" required>
                             <option value="" disabled selected>Pilih Sampul</option>
@@ -728,21 +762,21 @@ select.form-select, select.form-select option {
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-12 col-sm-6 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                             <label for="berat" class="form-label"><b>Berat (kg)</b></label>
                             <input type="number" class="form-control" name="berat" step="0.01" min="0" placeholder="Masukkan berat buku" required>
                         </div>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="">
                         <label for="harga" class="form-label"><b>Harga</b></label>
                         <input type="number" class="form-control" name="harga" step="0.01" min="0" placeholder="Masukkan harga buku" required>
                     </div>
                 </div>
+                <div class="modal-footer">
+                    <button type="submit" class="custom-button">Simpan</button>
+                </div>
             </form>
-            <div class="modal-footer">
-                <button type="submit" class="custom-button">Simpan</button>
-            </div>
         </div>
     </div>
 </div>

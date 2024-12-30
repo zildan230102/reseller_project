@@ -1,148 +1,20 @@
-/* Background Modal*/
-.modal-backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-}
-
 .content-dashboard {
   padding-top: 80px !important;
   padding: 3rem 3rem 1rem;
 }
 
-.penjualan {
-  margin-bottom: 1rem !important;
-}
-
-.total-penjualan {
-  margin-bottom: 0;
-}
-
+/* Container */
 .container {
   padding-top: 80px;
 }
 
-h2.h3.h5 {
-  font-size: 1em; 
-  margin-bottom: 1em;
-}
-
-/* Halaman Daftar Toko */
-.custom-button .bi {
-  font-weight: bold !important;
-}
-
-.dropdown .btn-no-border {
-  border: none;
-  outline: none;
-  box-shadow: none;
-  padding: 0;
-}
-.btn-custom-info {
-  background-color: #1742b8;
-  color: white;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-.btn-custom-info:hover {
-  background-color: #138496;
-}
-.btn-custom-warning {
-  background-color: #ffc107;
-  color: white;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-.btn-custom-warning:hover {
-  background-color: #e0a800;
-}
-.btn-custom-danger {
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-.btn-custom-danger:hover {
-  background-color: #c82333;
-}
-/* Halaman Daftar Toko: Tabel Status */
-.badge-active {
-  background-color: green; 
-  color: white;           
-  padding: 5px 10px;     
-  border-radius: 5px;    
-}
-.badge-inactive {
-  background-color: red;  
-  color: white;           
-  padding: 5px 10px;    
-  border-radius: 5px;    
-}
-
-/* edit */
-.container-form {
+/* .container-form {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   background-color: #f8f9fa; 
-}
-
-.form-wrapper {
-  max-width: 500px;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-.modal-dialog {
-  max-width: 600px;
-}
-
-.modal-body {
-  padding: 20px;
-}
-
-.modal-footer {
-  justify-content: flex-end;
-}
-
-.custom-button {
-  background-color: #ff9800; 
-  color: white;
-  padding: 10px 20px; 
-  border: none;
-  border-radius: 5px; 
-  cursor: pointer;
-}
-
-.custom-button:hover {
-  background-color: #ff7b29; 
-}
-
-.card-header {
-  padding: 25px 0px 10px 30px;
-  margin: 0px 0 0 0; 
-  display: flex;
-  background-color: transparent;
-  border-bottom: none;
-}
+} */
 
 .container-login {
   display: flex;
@@ -151,22 +23,45 @@ h2.h3.h5 {
   max-height: 400vh;
 }
 
+.chart-container {
+  height: 150px;
+}
+
+.container-profile {
+  padding-top: 80px;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+/* Card */
+.card-header {
+  padding: 20px 0px 5px 20px;
+  margin: 0px 0 0 0; 
+  display: flex;
+  background-color: transparent;
+  border-bottom: none;
+}
+
 .card-login {
   padding: 20px 20px 35px 20px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.card-title {
+/* .card-title {
   margin: 0;
   color: #333;
   font-size: 14px;
   font-weight: bold;
   color: #333;
-}
+} */
 
 .card-body {
   padding: 0;
   text-align: left;
+}
+
+.card-body {
+  padding: 1rem 1rem 1.2rem 1rem;
 }
 
 .card {
@@ -175,72 +70,50 @@ h2.h3.h5 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.chart { 
-  padding: 0 20px;
+.card-total {
+  border: 1px solid #ddd;
+  background-color: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 25px;
+  padding: 5px 16px 16px 20px;
+  transition: transform 0.2s ease-in-out;
+  width: 100%;
 }
 
-/* Bar Chart */
-.bar-header .d-flex {
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header-bar .d-flex {
   display: flex;
-  padding: 30px 30px 10px 30px;
+  padding: 20px 20px 0px 20px;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
 
-#marketplace-btn {
-  border-radius: 8px;
+.header-sale {
+  margin: 20px 20px 0px 20px;
 }
 
-#toko-btn {
-  border-radius: 8px;
-}
-
-#buku-btn {
-  border-radius: 8px;
-}
-
-.btn-group {
-  background-color: transparent;
-  border: none;
-  gap: 10px;
-  cursor: pointer;
-  font-size: 14px; 
-  transition: background-color 0.3s ease, color 0.3s ease;
-  
-}
-
-.btn-group .btn:hover {
-  border: 1px solid #ff9800; 
-  color: #ff9800;
-  outline: none;
-  box-shadow: none;
-}
-
-.btn-group .active {
-  background-color: #ff9800; 
-  color: #fff !important;
-  border-radius: 8px;
-  outline: none;
-  box-shadow: none;
-}
-
-.title-chart-bar {
+.performa-header {
+  margin-top: -20px; 
+  padding: 0px;
   text-align: center;
-  font-weight: bold;
-  font-size: 1.25rem;
-  margin-top: 16px;
-  
 }
 
-/* Dropdown container */
+/* Dropdown */
 .dropdown {
   position: relative;
   display: inline-block;
 }
 
-/* Dropdown button */
-.month-dropdown {
+.dropdown-month {
   font-size: 1em;
   padding: 5px 7px; 
   color: #ff8c42; 
@@ -257,84 +130,22 @@ h2.h3.h5 {
 .dropdown-menu {
   max-height: 200px;
   overflow-y: auto;
+  z-index: 1050;
 }
 
-.month-dropdown:focus {
+.dropdown-month:focus {
   border-color: #ff7b29; 
   box-shadow: 0 0 5px rgba(255, 148, 82, 0.5);
   outline: none;
 }
 
-.month-dropdown i {
+.dropdown-month i {
   margin-left: 8px;
 }
-  
-.button-group {
-  display: flex;
-}
-  
-.button-group button {
-  margin-right: 10px; 
-}
 
-/* toko */
-.btn {
-  background-color: transparent;
-  color: #f57c00; 
-  padding: 10px 20px; 
-  border: none;
-  border-radius: 5px; 
-  text-decoration: none;
-  display: inline-block; 
-}
-
-.btn-login {
-  background-color: #f57c00;
-  color: #ffff; 
-  padding: 10px 30px; 
-  border: none;
-  border-radius: 5px; 
-  text-decoration: none;
-  float: right;
-  padding-bottom: 10px;
-}
-
-.btn:hover {
-  border: 1px solid #ff9800;
-  color: #ff9800; 
-}
-
-.btn-primary {
-  background-color: #f57c00;
-  color: #ffff; 
-  padding: 10px 30px; 
-  border: none;
-  border-radius: 5px; 
-  text-decoration: none;
-  display: inline-block; 
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1;}
+/* .dropdown-content a:hover {background-color: #f1f1f1;}
 
 .dropdown:hover .dropdown-content {display: block;}
-
-.title-chart-bar {
-  text-align: center;
-  padding: 16px 0 16px 0;
-  background-color: white;
-  color: #f57c00;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  padding-right: 30px;
-
-}
-
-.arrow {
-  color: #f57c00;
-  font-size: 16px;
-  margin-left: 8px;
-}
 
 .dropdown-content {
   display: none;
@@ -359,57 +170,191 @@ h2.h3.h5 {
 
 .bar-dropdown:hover .dropdown-content {
   display: block;
-}
+} */
 
-.bar-dropdown:hover .bar-month-dropdown {
+/* .bar-dropdown:hover .bar-dropdown-month {
   background-color: #f9f9f9;
+} */
+
+/* Button */
+.custom-button {
+  background-color: #ff9800; 
+  color: white;
+  padding: 10px 20px; 
+  border: none;
+  border-radius: 5px; 
+  cursor: pointer;
 }
 
-.card-total {
-  border: 1px solid #ddd;
-  background-color: auto;
+.custom-button:hover {
+  background-color: #ff7b29; 
+}
+
+.custom-button .bi {
+  font-weight: bold !important;
+}
+
+/* .button-group {
+  display: flex;
+}
+  
+.button-group button {
+  margin-right: 10px; 
+} */
+
+.dropdown .btn-no-border {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* .btn-custom-info {
+  background-color: #1742b8;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-custom-info:hover {
+  background-color: #138496;
+} */
+
+/* .btn-custom-warning {
+  background-color: #ffc107;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-custom-warning:hover {
+  background-color: #e0a800;
+} */
+
+.btn-custom-danger {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* .btn-custom-danger:hover {
+  background-color: #c82333;
+} */
+
+.btn-group {
+  background-color: transparent;
+  border: none;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-group .btn:hover {
+  border: 1px solid #ff9800; 
+  color: #ff9800;
+  outline: none;
+  box-shadow: none;
+}
+
+.btn-group .active {
+  background-color: #ff9800; 
+  color: #fff !important;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 25px;
-  padding: 5px 16px 16px 20px;
-  transition: transform 0.2s ease-in-out;
-  width: 100%;
+  outline: none;
+  box-shadow: none;
 }
 
-.text-orange {
-  color: #f57c00;
+.btn {
+  background-color: transparent;
+  color: #f57c00; 
+  padding: 10px 20px; 
+  border: none;
+  border-radius: 5px; 
+  text-decoration: none;
+  display: inline-block; 
 }
 
-.col-auto {
-  padding-right: 10px; 
-  padding: 20px 16px 16px 0px;
-  overflow-x: auto;
+.btn-login {
+  background-color: #f57c00;
+  color: #ffff; 
+  padding: 10px 30px; 
+  border: none;
+  border-radius: 5px; 
+  text-decoration: none;
+  float: right;
+  padding-bottom: 10px;
 }
 
-/* Warna pada persentase kenaikan dan penurunan */
-.text-success {
-  color: #28a745;
-  font-size: smaller;
+.btn-primary {
+  background-color: #f57c00;
+  color: #ffff; 
+  padding: 10px 30px; 
+  border: none;
+  border-radius: 5px; 
+  text-decoration: none;
+  display: inline-block; 
 }
 
-.text-danger {
-  color: #dc3545;
-  font-size: smaller;
+/* y */
+
+.btn-dropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.text-muted {
-  font-size: smaller;
+.btn-group-desktop a::after {
+  content: '';
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid #f57c00;
+  transform: scaleX(0);
+  transition: 0.3s linear;
 }
 
-/* Penjualan Keseluruhan */
-.penjualan-keseluruhan {
-  color: #606060;
-  font-weight: lighter;
+.btn-group-desktop a:hover::after {
+  transform: scaleX(1)
+}
+/* .btn-group-mobile {
+  display: none;
+} */
+
+/* Modal*/
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-dialog {
+  max-width: 600px;
+}
+.modal-body {
+  padding: 20px;
+}
+.modal-footer {
+  justify-content: flex-end;
+}
+.modal-profil {
   font-size: 14px;
+  max-height: 650px;
 }
 
-.header-sale {
-  margin: 30px 35px 0 40px;
+/* Tilte */
+.title-chart-bar {
+  text-align: center;
+  background-color: white;
+  color: #f57c00;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  padding-right: 30px;
+  font-weight: bold;
 }
 
 .title-sale {
@@ -428,24 +373,42 @@ h2.h3.h5 {
   margin-bottom: 5px;
 }
 
-.stat {
-  background-color: #E8E8E8; 
-  border-radius: 8px;
-  padding: 10px;
+/* Text */
+.text-orange {
+  color: #f57c00;
 }
-  
-.stat svg {
-    fill: #F58635; 
-  }
 
-.in-stock { background-color: #28a745; }
-.out-of-stock { background-color: #dc3545; }
+.text-success {
+  color: #28a745;
+  font-size: smaller;
+}
 
-/* Data Toko Reseller & Data Penjualan Buku*/
-.data-reseller, .data-penjualan, .data-marketplace {
-  color: #F58635;
-  font-weight: bold;
-  font-size: 18px;
+.text-danger {
+  color: #dc3545;
+  font-size: smaller;
+}
+
+.text-muted {
+  font-size: smaller;
+}
+
+/* Table */
+.table-custom tbody tr {
+  text-align: left;
+  padding-left: 0px;
+}
+
+.table-custom tbody tr td {
+  padding-top: 5px; 
+  padding-bottom: 5px; 
+}
+
+.table-custom tbody tr td:first-child {
+  padding-left: 0px; 
+}
+
+.table-custom tbody tr td:last-child {
+  padding-right: 0; 
 }
 
 .judul-th {
@@ -479,14 +442,6 @@ th.judul-th {
   font-size: 14px;
 }
 
-.status-dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin-right: 5px;
-}
-
 .tr td.deactive {
   color: grey;
 }
@@ -495,66 +450,87 @@ tr.deactive {
   opacity:0.6
 }
 
-/* Data Marketplace */
-.card-body {
-  padding: 1rem 1rem 1.2rem 1rem;
+.table-profile th {
+  width: 40%;
 }
 
-.custom-table tbody tr {
-  text-align: left;
-  padding-left: 0px;
+.table-profile td {
+  width: 60%;
 }
 
-.custom-table tbody tr td {
-  padding-top: 5px; 
-  padding-bottom: 5px; 
+/* Badge*/
+.badge-active {
+  background-color: green; 
+  color: white;           
+  padding: 5px 10px;     
+  border-radius: 5px;    
 }
 
-.custom-table tbody tr td:first-child {
-  padding-left: 0px; 
+.badge-inactive {
+  background-color: red;  
+  color: white;           
+  padding: 5px 10px;    
+  border-radius: 5px;    
 }
 
-.custom-table tbody tr td:last-child {
-  padding-right: 0; 
+/* Form*/
+.form-wrapper {
+  max-width: 500px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-.col-kiri {
-  width: 40%; 
-  margin-right: 10px; 
-  margin-left: 10px;
-  font-size: small;
+.form-group {
+  margin-bottom: 15px;
 }
 
-.col-kanan {
-  width: 50%; 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: flex-start; 
-  align-items: center; 
-  padding: 0; 
+/* Chart */
+.chart { 
+  padding: 0 20px;
 }
 
-.performa-header {
-  margin-top: -20px; 
-  padding: 0px;
-  text-align: center;
-}
-
-.performa-marketplace {
-  font-size: 12px;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 5px;
-  margin-left: 60px;
-}
-
-.chart-container {
-  height: 150px;
-}
 #chartjs-dashboard-pie {
   width: 100%;
   height: auto;
 }
+
+/* Component */
+.buttonallert {
+  background-color: #ff9800;
+  box-shadow: none;
+  outline: none;
+}
+
+.buttonallert:focus{
+  box-shadow: none;
+}
+
+.profile-picture {
+  padding: 20px 20px 0 20px;
+}
+
+.stat {
+  background-color: #E8E8E8; 
+  border-radius: 8px;
+  padding: 10px;
+}
+  
+.stat svg {
+    fill: #F58635; 
+}
+
+.status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.in-stock { background-color: #28a745; }
+.out-of-stock { background-color: #dc3545; }
 
 .legend-list {
   list-style: none;
@@ -608,82 +584,115 @@ tr.deactive {
   background-color: #3A77FF;
 }
 
-.btn-group-desktop {
+/* Layout */
+.col-auto {
+  padding-right: 10px; 
+  padding: 20px 16px 16px 0px;
+  overflow-x: auto;
+}
+
+.col-kiri {
+  width: 40%; 
+  margin-right: 10px; 
+  margin-left: 10px;
+  font-size: small;
+}
+
+.col-kanan {
+  width: 50%; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-start; 
+  align-items: center; 
+  padding: 0; 
+}
+
+.row {
   display: flex;
+  flex-wrap: wrap;
 }
 
-.btn-group-mobile {
-  display: none;
+.col-md-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
 }
 
+.col-sm-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+/* Typography */
+h2.h3.h5 {
+  font-size: 1em; 
+  margin-bottom: 1em;
+}
+
+.arrow {
+  color: #f57c00;
+  font-size: 16px;
+  margin-left: 8px;
+}
+
+.penjualan-keseluruhan {
+  color: #606060;
+  font-weight: lighter;
+  font-size: 14px;
+}
+
+.penjualan {
+  margin-bottom: 1rem !important;
+}
+
+.total-penjualan {
+  margin-bottom: 0;
+}
+
+.data-reseller, .data-penjualan, .data-marketplace {
+  color: #F58635;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.performa-marketplace {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5px;
+  margin-left: 60px;
+}
+
+/* Utilities */
 .rounded-circle {
   width: 150px !important;
   height: 150px !important;
 }
 
-.container-profile {
-  padding-top: 80px;
-  margin: 0 auto;
-  max-width: 1000px;
-}
-
-.table-profile th {
-  width: 40%;
-}
-
-.table-profile td {
-  width: 60%;
-}
-
-.buttonallert {
-  background-color: #ff9800;
-  box-shadow: none;
-  outline: none;
-}
-
-.profile-picture {
-  padding: 20px 20px 0 20px;
-}
-
-.buttonallert:focus{
-  box-shadow: none;
-}
-
-.modal-profil {
-  font-size: 14px;
-  max-height: 650px;
-}
-
-/* Media query card untuk tampilan mobile */
 @media (min-width: 320px) and (max-width: 599px) {
   .content-dashboard {
     padding: 0 1.5rem 0 1.5rem;
   }
-
-  #dashboard,
-  #pesanan-btn,
-  #toko-btn,
-  #pembayaran-btn, 
-  .user-profile .text-dark {
+  
+  #dashboard, #pesanan-btn, #toko-btn, #pembayaran-btn, .user-profile .text-dark {
     font-size: 14px;
   }
 
+  .col-sm-12 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
   .chart {
     padding: 10px 10px;
   }
 
   .header-sale {
-    margin: 20px 20px 0 32px;
+    margin: 10px 10px 0 15px;
   }
 
   .card-total {
     font-size: 1em;
     padding: 10px;
     text-align: center;
-  }
-
-  .card-konversi{
-    margin-bottom: 0;
   }
 
   .title-sale {
@@ -727,10 +736,15 @@ tr.deactive {
     flex-direction: column;
     align-items: center;
     margin-bottom: 0%;
+    padding: 10px;
+  }
+
+  .penjualan {
+    margin-bottom: 0 !important;
   }
 
   h3, h5, .title-total, .data-marketplace, .data-penjualan {
-    font-size: 0.9rem !important; 
+    font-size: 14px!important; 
     margin-bottom: 1%;
   }
 
@@ -756,14 +770,14 @@ tr.deactive {
     display: none !important;
   }
 
-  .btn-group-mobile {
+  /* .btn-group-mobile {
     display: block !important;
   }
 
   .btn-group-mobile:hover .dropdown-menu {
     display: block !important;
     position: absolute;
-  }
+  } */
 
   .btn-kategori {
     outline: none;
@@ -772,23 +786,18 @@ tr.deactive {
     z-index: 1;
   }
 
-  .month-dropdown {
-    border: none;
-    outline: none;
-    cursor: pointer;
+  .dropdown-month {
     font-size: 0.8em;
     padding: 6px 12px;
-    box-shadow: none;
-    border: 1px solid transparent;
   }
 
-  .month-dropdown:hover {
+  .dropdown-month:hover {
     border: 1px solid #f57c00;
   }
 
-  .month-dropdown:hover,
-  .month-dropdown:focus,
-  .dropdown.show .month-dropdown {
+  .dropdown-month:hover,
+  .dropdown-month:focus,
+  .dropdown.show .dropdown-month {
     background-color: transparent !important;
     color: #f57c00;
     outline: none;
@@ -809,12 +818,14 @@ tr.deactive {
     transform: translateY(0) !important;
     padding: 5px;
     min-width: 120px !important;
+    width: 100% !important;
+    text-align: start;
   }
 
-  .dropdown-menu {
+  /* .dropdown-menu {
     max-height: 200px;
     overflow-y: auto;
-  }
+  } */
 
   .btn-dropdown {
     border: 1px solid transparent;
@@ -871,8 +882,8 @@ tr.deactive {
     max-width: 100%;
   }
 
-  .bar-header .d-flex {
-    padding: 20px 20px 0px 30px !important;
+  .header-bar .d-flex {
+    padding: 10px 10px 0px 10px !important;
   }
 
   .card-body .row {
@@ -1016,7 +1027,7 @@ tr.deactive {
   }
 
   .card-body .table .judul-th {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
   }
 
@@ -1122,10 +1133,22 @@ tr.deactive {
   }
 }
 
-/* Media query card untuk tampilan tab */
+
 @media (min-width: 600px) and (max-width: 1024px) {
   .content-dashboard {
     padding: 2rem 2rem 0;
+  }
+
+  .col-md-6 {
+    flex: 0 0 calc(33.333% - 10px);
+    max-width: calc(33.333% - 10px);
+  }
+  .row-gap-15 {
+    gap: 15px;
+  }
+
+  .dropdown.d-md-none {
+    display: none !important;
   }
 
   .card-right .col-auto {
@@ -1140,8 +1163,252 @@ tr.deactive {
     width: 100%;
   }
 
+  .card-header {
+    padding: 10px 0px 0px 10px;
+    margin: 0px 0 0 0; 
+    display: flex;
+    background-color: transparent;
+    border-bottom: none;
+  }
+
   .title-total {
     font-size: 1.25rem;
+  }
+
+  .fw-bold.fs-4 {
+    font-size: 1.5rem;
+    margin-bottom: 0%;
+  }
+
+  .mb-0 {
+    margin-top: 0; 
+    font-size: 1rem;
+  }
+
+  .data-marketplace, .data-penjualan, .data-reseller {
+    font-size: 1.2rem; 
+    padding: 1rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .penjualan-keseluruhan {
+    font-size: 16px;
+  }
+
+  .percentage {
+    margin-left: 5px !important;
+  }
+
+  .card-total {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card-total .stat {
+    font-size: 1.25em;
+    text-align: center;
+    justify-self: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .card-total .title-total {
+    font-size: 1.1em;
+    font-weight: 500;
+  }
+
+  .card-total h1 p {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .card-total .mb-0 {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+  }
+
+  .card-total .mb-0 .text-success, 
+  .card-total .mb-0 .text-danger {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+  }
+
+  .card-total .mb-0 i {
+    margin-right: 3px;
+  }
+
+  .dropdown-menu {
+    top: 100% !important;
+    left: 0 !important;
+    transform: translateY(0) !important;
+    min-width: 120px !important
+  }
+
+  .dropdown-item {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 5px 20px !important;
+    font-size: 18px !important;
+  }
+
+  .btn-dropdown {
+    display: none;
+  }
+
+  .chart-legend {
+    display: none !important;
+  }
+
+  .col-kanan {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .legend-list {
+      padding-right: 0 !important;
+  }
+
+  .card-body {
+    padding-left: 2rem;
+  }
+
+  .performa-marketplace {
+    font-size: 16px;
+  }
+
+  .legend-list {
+    margin-top: 10px;
+  }
+
+  .legend-list li {
+    font-size: 12px;
+  }
+
+  .col-kanan .col-6 {
+    display: flex;
+    justify-content: center;
+    height: 150px;
+    width: 170px;
+  }
+
+  .chart-container {
+    width: 20%;
+    padding: 0;
+    margin: 0;
+    height: 120px;
+    width: 120px;
+    margin-top: 20px;
+  }
+
+  #chartjs-dashboard-pie {
+    height: 120px !important;
+    width: 120px !important;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .container-profile {
+    padding: 60px 18px 4px 18px;
+  }
+
+  .profile-picture {
+    margin-top: 30px;
+  }
+
+  .profile-name {
+    margin-bottom: 0;
+    margin-top: 20px !important;
+  }
+
+  .profile {
+    padding: 0 30px 30px 30px;
+  }
+
+  #joindate {
+    font-size: 14px;
+    height: auto;
+    transform: scale(0.9);
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .dropdown-menu {
+    top: 100% !important;
+    left: 0 !important;
+    transform: translateY(0) !important;
+    min-width: 120px !important
+  }
+
+  .dropdown-item {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 5px 20px !important;
+    font-size: 18px !important;
+  }
+
+  .btn-dropdown {
+    display: none;
+  }
+
+  .chart-legend {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1194px) {
+  .content-dashboard {
+    padding: 3rem 3rem 0;
+  }
+
+  .card-right .col-auto {
+    padding: 15px;
+  }
+
+  .row {
+    display: flex; /* Mengatur elemen dalam satu baris */
+    gap: 1rem; /* Memberikan jarak antar elemen */
+    align-items: flex-start; /* Menyelaraskan elemen di atas */
+  }
+
+  .col-xl-7 {
+      flex: 1; /* Card penjualan mengambil setengah ruang */
+  }
+
+  .col-md-6 { 
+    flex: 0 0 auto;
+    width: 50%;
+    flex: 1;
+  }
+
+  .card-penjualan {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+/* Card Statistik */
+  .col-xxl-4 {
+      flex: 1; /* Card statistik mengambil setengah ruang */
+      display: flex;
+      flex-wrap: wrap;
+  }
+
+/* Card Individual */
+  .card-total {
+    background-color: #ffffff;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
   }
 
   .fw-bold.fs-4 {
@@ -1307,30 +1574,5 @@ tr.deactive {
     height: auto;
     transform: scale(0.9);
     width: 100%;
-  }
-}
-
-@media (min-width: 992px) {
-  .dropdown-menu {
-    top: 100% !important;
-    left: 0 !important;
-    transform: translateY(0) !important;
-    min-width: 120px !important
-  }
-
-  .dropdown-item {
-    color: #333;
-    text-decoration: none;
-    display: block;
-    padding: 5px 20px !important;
-    font-size: 18px !important;
-  }
-
-  .btn-dropdown {
-    display: none;
-  }
-
-  .chart-legend {
-    display: none !important;
   }
 }
