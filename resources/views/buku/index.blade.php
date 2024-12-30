@@ -170,6 +170,20 @@ select.form-select, select.form-select option {
         max-width: 300px;
         font-size: 12px;
     }
+    .table .dropdown-menu {
+        position: absolute; /* Lepaskan dari layout tabel */
+        top: calc(100% + 5px); /* Jarak dropdown dari tombol */
+        left: auto;
+        right: 0;
+        z-index: 1050; /* Pastikan muncul di atas elemen lain */
+        min-width: 150px;
+        max-width: 200px;
+        overflow: visible; /* Pastikan dropdown tidak terpotong */
+    }
+    .table-responsive-sm {
+        position: relative; /* Pastikan konteks posisi terjaga */
+        
+    }
 }
 
 @media (min-width: 600px) and (max-width: 1280px) {
@@ -212,16 +226,14 @@ select.form-select, select.form-select option {
     .form-select option {
         font-size: 10px !important;
     }
-    /* .container-buku {
-        padding-bottom: 0 !important;
-    } */
-    /* .card-container {
-        max-width: 1000px;
-        margin: 0 auto;
-    } */
     select.form-select option {
         font-size: 10px;
     }
+    .table-responsive {
+        overflow: visible; /* Pastikan overflow tabel terlihat */
+        display: table; /* Ubah kembali ke display default tabel */
+    }
+    
 }
 
 </style>
@@ -253,7 +265,7 @@ select.form-select, select.form-select option {
             </div>
 
             <div class="card-body-buku">
-                <div class="table-responsive">
+                <div class="table-responsive-sm">
                 <table class="table table-bordered">
                     <thead>
                         <tr class="text-center">

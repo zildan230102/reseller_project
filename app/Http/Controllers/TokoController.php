@@ -15,7 +15,7 @@ class TokoController extends Controller
 
     public function create()
     {
-        return view('toko.create');
+        return view('toko.index');
     }
 
     public function store(Request $request)

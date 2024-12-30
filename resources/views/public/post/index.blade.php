@@ -4,7 +4,7 @@
 
 <main class="content-dashboard">
     <div class="container-fluid p-0">
-    <h2 class="h3 mb-3">Selamat Datang, <strong>{{ Auth::user()->name }}!</strong></h2>
+        <h2 class="h3 mb-3">Selamat Datang, <strong>{{ Auth::user()->name }}!</strong></h2>
 
         <!-- Row Pertama -->
         <div class="row">
@@ -13,7 +13,7 @@
                     <div class="header-sale d-flex justify-content-between align-items-center">
                         <h5 class="penjualan-keseluruhan mt-1">Penjualan Keseluruhan</h5>
                         <div class="dropdown">
-                            <button class="month-dropdown" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="dropdown-month" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                 September<i class="bi bi-chevron-down ms-1"></i>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" data-bs-offset="0,10">
@@ -32,8 +32,8 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="title-sale d-flex  align-items-center">
-                        <h3 class="">Rp6.680.000</h3>
+                    <div class="title-sale d-flex align-items-center">
+                        <h3>Rp6.680.000</h3>
                         <div class="percentage ms-3">
                             <span class="text-success"><i class="fa-solid fa-arrow-trend-up"></i>13.02%</span>
                         </div>
@@ -49,8 +49,8 @@
             {{-- Row Kanan --}}
             <div class="col-xl-5 col-xxl-4 d-flex">
                 <div class="w-100">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12 col-sm-12">
+                    <div class="row row-gap-15">
+                        <div class="col-md-6 col-12">
                             <div class="card-total">
                                 <div class="card-right">
                                     <div class="row">
@@ -74,7 +74,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 col-sm-12">
+                        <div class="col-md-6 col-12">
                             <div class="card-total">
                                 <div class="card-right">
                                     <div class="row">
@@ -98,7 +98,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 col-sm-12 card-konversi">
+                        <div class="col-md-6 col-12">
                             <div class="card-total">
                                 <div class="card-right">
                                     <div class="row">
@@ -131,27 +131,29 @@
             <!-- Kolom kiri -->
             <div class="col-xl-7 col-xxl-8">
                 <div class="card flex-fill w-100">
-                    <div class="bar-header">
+                    <div class="header-bar">
                         <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group-desktop" role="group" aria-label="Tombol Desktop">
-                                <button type="button" class="btn active" id="marketplace-btn">Marketplace</button>
-                                <button type="button" class="btn" id="toko-btn">Toko</button>
-                                <button type="button" class="btn" id="buku-btn">Buku</button>
+                            <div class="btn-group-desktop " role="group" aria-label="Tombol Desktop">
+                                <a type="button" class="btn active" id="marketplace-btn">Marketplace</a>
+                                <a type="button" class="btn" id="btn-toko">Toko</a>
+                                <a type="button" class="btn" id="buku-btn">Buku</a>
                             </div>
 
-                            <div class="dropdown">
-                                <button class="btn btn-dropdown" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Pilih Kategori<i class="bi bi-chevron-down ms-1"></i>
+
+                            <div class="dropdown d-md-none">
+                                <button class="btn btn-dropdown text-start" type="button" id="dropdownMenuSmall" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Pilih Kategori <i class="bi bi-chevron-down ms-1"></i>
                                 </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" data-bs-offset="0,10">
-                                    <li><a class="dropdown-item" data-type="marketplace">Marketplace</a></li>
-                                    <li><a class="dropdown-item" data-type="toko">Toko</a></li>
-                                    <li><a class="dropdown-item" data-type="buku">Buku</a></li>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuSmall">
+                                    <li><a class="dropdown-item" data-type="marketplace" href="#">Marketplace</a></li>
+                                    <li><a class="dropdown-item" data-type="toko" href="#">Toko</a></li>
+                                    <li><a class="dropdown-item" data-type="buku" href="#">Buku</a></li>
                                 </ul>
                             </div>
+                            
 
                             <div class="dropdown">
-                                <button class="month-dropdown" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="dropdown-month" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                     September<i class="bi bi-chevron-down ms-1"></i>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" data-bs-offset="0,10">
@@ -171,7 +173,7 @@
                             </div>
                         </div>
                     </div>
-                    <h5 class="title-chart-bar text-center mb-3">Marketplace dengan Penjualan Terbanyak Bulan Ini</h5>
+                    <h5 class="title-chart-bar text-center my-3">Marketplace dengan Penjualan Terbanyak Bulan Ini</h5>
                     <div class="card-body d-flex w-100">
                         <div class="align-self-center chart chart-lg">
                             <canvas id="chartjs-dashboard-bar"></canvas>
@@ -205,7 +207,7 @@
                             <!-- Tabel Data -->
                             <div class="col-kiri mb-3 mb-sm-0">
                                 <div class="table-responsive">
-                                    <table class="table table-borderless mb-0 custom-table">
+                                    <table class="table table-borderless mb-0 table-custom">
                                         <tbody>
                                             <tr>
                                                 <td class="name">Shopee</td>

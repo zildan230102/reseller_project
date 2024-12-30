@@ -1,7 +1,5 @@
 @extends('layouts.main')
-
 @section('title', 'Buat Order')
-
 @section('content')
 
 <style>
@@ -10,28 +8,23 @@
     margin: 70px auto auto auto;
     padding-top: 20px;
 }
-
 .container-card {
     max-width: 1200px;
     margin: 0 auto;
 }
-
 .card-header {
     position: relative;
     z-index: 1;
 }
-
 .card-body-order {
     padding: 1.5rem;
 }
-
 .table .dropdown-menu {
     min-width: auto;
     width: max-content;
     padding: 0.5rem;
     z-index: 1050;
 }
-
 .custom-dropdown-item {
     font-size: 1rem;
     display: flex;
@@ -43,38 +36,31 @@
     box-sizing: border-box;
     transition: background-color 0.2s ease;
 }
-
 .custom-dropdown-item:hover {
     background-color: #f0f0f0;
     color: #000;
     text-decoration: none;
 }
-
 .custom-dropdown-item i {
     margin-right: 8px;
     margin-left: 0;
 }
-
 .dropdown .btn-no-border {
     border: none;
     outline: none;
     box-shadow: none;
     padding: 0;
 }
-
 .nav-tabs .nav-link {
     color: #000000;
     border: 1px solid transparent;
 }
-
 .nav-tabs .nav-link.active {
     color: #FFA500;
 }
-
 .nav-tabs .nav-link:hover {
     color: #FFA500;
 }
-
 .text-title {
     font-size: 1.5rem;
 }
@@ -127,10 +113,9 @@
     .card-header {
         padding: 15px 15px 0px 15px;
     }
-
-
     .order-title {
         font-size: 1rem;
+    }
 
     .text-title {
         font-size: 18px;
@@ -152,14 +137,13 @@
     }
 
 
-    .dropdown-menu {
-
+    /* .dropdown-menu {
+    }
     .table .dropdown-menu {
-
         width: auto;
         min-width: 120px;
         max-width: 90px;
-    }
+    } */
 
     .modal-dialog {
         max-width: 85%;
@@ -237,6 +221,20 @@
         font-size: 10px; 
         padding: 5px; 
     }
+    .table .dropdown-menu {
+        position: absolute; /* Lepaskan dari layout tabel */
+        top: calc(100% + 5px); /* Jarak dropdown dari tombol */
+        left: auto;
+        right: 0;
+        z-index: 1050; /* Pastikan muncul di atas elemen lain */
+        min-width: 150px;
+        max-width: 200px;
+        overflow: visible; /* Pastikan dropdown tidak terpotong */
+    }
+    .table-responsive-sm {
+        position: relative; /* Pastikan konteks posisi terjaga */
+        
+    }
 }
 
 @media (min-width: 600px) and (max-width: 1180px) {
@@ -273,6 +271,11 @@
 
     .buku-row .col-md-1 {
         gap: 20px;
+    }
+    
+    .table-responsive {
+        overflow: visible; /* Pastikan overflow tabel terlihat */
+        display: table; /* Ubah kembali ke display default tabel */
     }
 }
 </style>
@@ -335,11 +338,11 @@
                     <!-- Tab 1: Order Info -->
                     <div class="tab-pane fade show active" id="order-info" role="tabpanel" aria-labelledby="order-info-tab">
                         <div class="row">
-                            <div class="col-sm-12 col-md-6 mb-3">
+                            <div class="i-col-sm-12 i-col-md-6 mb-3">
                                 <label for="tanggal" class="form-label">Tanggal</label>
                                 <input type="date" class="form-control" id="tanggal" name="tanggal" readonly value={{now()}}>
                             </div>
-                            <div class="col-sm-12 col-md-6 mb-3">
+                            <div class="i-col-sm-12 i-col-md-6 mb-3">
                                 <label for="no_hp" class="form-label">No HP Pengirim</label>
                                 <input type="text" class="form-control" id="no_hp" name="no_hp" required>
                                 @error('no_hp')
@@ -349,7 +352,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-sm-12 col-md-6 mb-3">
+                            <div class="i-col-sm-12 i-col-md-6 mb-3">
                                 <label for="toko_id" class="form-label">Toko</label>
                                 <select id="toko_id" name="toko_id" class="form-select" required>
                                     <option value="" disabled selected>Pilih Toko</option>
@@ -361,14 +364,14 @@
                                 </select>
                             </div>
 
-                            <div class="col-sm-12 col-md-6 mb-3">
+                            <div class="i-col-sm-12 i-col-md-6 mb-3">
                                 <label for="asal_penjualan" class="form-label">Marketplace</label>
                                 <input type="text" class="form-control" id="asal_penjualan" name="asal_penjualan" readonly>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-sm-12 col-md-6 mb-3">
+                            <div class="i-col-sm-12 i-col-md-6 mb-3">
                                 <label for="ekspedisi_id" class="form-label">Ekspedisi</label>
                                 <select class="form-select" name="ekspedisi_id" required>
                                     <option value="" disabled selected>Pilih Ekspedisi</option>
@@ -377,7 +380,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-sm-12 col-md-6 mb-3">
+                            <div class="i-col-sm-12 i-col-md-6 mb-3">
                                 <label for="kode_booking" class="form-label">Kode Booking</label>
                                 <input type="text" class="form-control" id="kode_booking" name="kode_booking" required>
                             </div>
@@ -407,39 +410,36 @@
 
                         <div class="row">
                             <!-- Provinsi -->
-                            <div class="col-sm-12 col-md-6 mb-3">
-                                <label for="provinsi" class="form-label">Provinsi</label>
-                                <select class="form-control" id="provinsi" name="provinsi" required>
-                                    <option value="" disabled selected>Pilih Provinsi</option>
+                            <div class="i-col-sm-12 i-col-md-6 mb-3">
+                                <label for="provinsi">Provinsi</label>
+                                <select class="form-control" id="provinsi">
+                                    <option>Pilih Provinsi</option>
                                     @foreach ($provinces as $provinsi)
-                                    <option value="{{ $provinsi->id }}">{{ $provinsi->name }}</option>
+                                        <option value="{{ $provinsi->id }}">{{ $provinsi->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
 
                             <!-- Kabupaten -->
-                            <div class="col-sm-12 col-md-6 mb-3">
-                                <label for="kabupaten" class="form-label">Kabupaten/Kota</label>
-                                <select class="form-control" id="kabupaten" name="kabupaten" required>
-                                    <option value="">Pilih Kabupaten</option>
+                            <div class="i-col-sm-12 i-col-md-6 mb-3">
+                                <label for="kabupaten">Kabupaten/Kota...</label>
+                                <select class="form-control" id="kabupaten">
                                 </select>
                             </div>
                         </div>
 
                         <div class="row">
                             <!-- Kecamatan -->
-                            <div class="col-sm-12 col-md-6 mb-3">
-                                <label for="kecamatan" class="form-label">Kecamatan</label>
-                                <select class="form-control" id="kecamatan" name="kecamatan" required>
-                                    <option value="">Pilih Kecamatan</option>
+                            <div class="i-col-sm-12 i-col-md-6 mb-3">
+                                <label for="kecamatan">Kecamatan</label>
+                                <select class="form-control" id="kecamatan">
                                 </select>
                             </div>
 
                             <!-- Kelurahan -->
-                            <div class="col-sm-12 col-md-6 mb-3">
-                                <label for="kelurahan" class="form-label">Kelurahan/Desa</label>
-                                <select class="form-control" id="kelurahan" name="kelurahan" required>
-                                    <option value="">Pilih Kelurahan</option>
+                            <div class="i-col-sm-12 i-col-md-6 mb-3">
+                                <label for="ecampleFormControlSelect1">Kelurahan/Desa</label>
+                                <select class="form-control" id="kelurahan">
                                 </select>
                             </div>
                         </div>
@@ -513,7 +513,7 @@
             <h3 class="text-title mb-0">Daftar Order</h3>
         </div>
         <div class="card-body">
-            <div class="table-responsive">
+            <div class="table-responsive-sm">
                 <table class="table table-bordered">
                     <thead class="table-light">
                         <tr class="text-center">
@@ -653,18 +653,18 @@
                         <!-- Informasi Order -->
                         <div class="tab-pane fade show active" id="order-info{{ $order->id }}" role="tabpanel" aria-labelledby="order-info-tab{{ $order->id }}">
                             <div class="row mt-3">
-                                <div class="col-md-6 mb-3">
+                                <div class="i-col-md-6 mb-3">
                                     <label for="tanggal{{ $order->id }}" class="form-label">Tanggal</label>
                                     <input type="date" class="form-control" id="tanggal{{ $order->id }}" name="tanggal" value="{{ $order->tanggal }}" readonly>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="i-col-md-6 mb-3">
                                     <label for="no_hp{{ $order->id }}" class="form-label">No HP Pengirim</label>
                                     <input type="text" class="form-control" id="no_hp{{ $order->id }}" name="no_hp" value="{{ $order->no_hp }}" required>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-md-6 mb-3">
+                                <div class="i-col-md-6 mb-3">
                                     <label for="toko_id{{ $order->id }}" class="form-label">Toko</label>
                                     <select id="toko_id{{ $order->id }}" name="toko_id" class="form-control" required onchange="updateMarketplace({{ $order->id }})">
                                         @foreach ($tokos as $toko)
@@ -674,14 +674,14 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="i-col-md-6 mb-3">
                                     <label for="asal_penjualan{{ $order->id }}" class="form-label">Marketplace</label>
                                     <input type="text" class="form-control" id="asal_penjualan{{ $order->id }}" name="asal_penjualan" value="{{ $order->asal_penjualan }}" readonly>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-sm-12 col-md-6 mb-3">
+                                <div class="i-col-sm-12 i-col-md-6 mb-3">
                                     <label for="ekspedisi_id" class="form-label">Ekspedisi</label>
                                     <select class="form-select" name="ekspedisi_id" required>
                                         @foreach ($ekspedisis as $ekspedisi)
@@ -692,7 +692,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-sm-12 col-md-6 mb-3">
+                                <div class="i-col-sm-12 i-col-md-6 mb-3">
                                     <label for="kode_booking" class="form-label">Kode Booking</label>
                                     <input type="text" class="form-control" id="kode_booking" name="kode_booking" value="{{ old('kode_booking', $order->kode_booking) }}" required>
                                 </div>
@@ -718,7 +718,7 @@
                             
                            <div class="row">
                             <!-- Provinsi -->
-                            <div class="col-sm-12 col-md-6 mb-3">
+                            <div class="i-col-sm-12 i-col-md-6 mb-3">
                                 <label for="provinsi" class="form-label">Provinsi</label>
                                 <select class="form-control" id="provinsi" name="provinsi" required>
                                     <option value="" disabled selected>Pilih Provinsi</option>
@@ -729,7 +729,7 @@
                             </div>
 
                             <!-- Kabupaten -->
-                            <div class="col-sm-12 col-md-6 mb-3">
+                            <div class="i-col-sm-12 i-col-md-6 mb-3">
                                 <label for="kabupaten" class="form-label">Kabupaten/Kota</label>
                                 <select class="form-control" id="kabupaten" name="kabupaten" required>
                                     <option value="">Pilih Kabupaten</option>
@@ -739,7 +739,7 @@
 
                         <div class="row">
                             <!-- Kecamatan -->
-                            <div class="col-sm-12 col-md-6 mb-3">
+                            <div class="i-col-sm-12 i-col-md-6 mb-3">
                                 <label for="kecamatan" class="form-label">Kecamatan</label>
                                 <select class="form-control" id="kecamatan" name="kecamatan" required>
                                     <option value="">Pilih Kecamatan</option>
@@ -747,7 +747,7 @@
                             </div>
 
                             <!-- Kelurahan -->
-                            <div class="col-sm-12 col-md-6 mb-3">
+                            <div class="i-col-sm-12 i-col-md-6 mb-3">
                                 <label for="kelurahan" class="form-label">Kelurahan/Desa</label>
                                 <select class="form-control" id="kelurahan" name="kelurahan" required>
                                     <option value="">Pilih Kelurahan</option>
@@ -827,65 +827,7 @@
 @endforeach
 
 <script>
-$(function () {
-    // Setup CSRF Token for AJAX
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
 
-    // Saat Provinsi diubah
-    $('#provinsi').on('change', function () {
-        let id_provinsi = $(this).val();
-        $.ajax({
-            type: 'POST',
-            url: "{{ route('getkabupaten') }}", // Route untuk mendapatkan data kabupaten
-            data: { id_provinsi: id_provinsi },
-            success: function (response) {
-                $('#kabupaten').html(response); // Isi dropdown kabupaten dengan data yang diterima
-                $('#kecamatan').html('<option value="" disabled selected>Pilih Kecamatan</option>'); // Reset kecamatan
-                $('#kelurahan').html('<option value="" disabled selected>Pilih Kelurahan</option>'); // Reset kelurahan
-            },
-            error: function (error) {
-                console.error('Error:', error);
-            }
-        });
-    });
-
-    // Saat Kabupaten diubah
-    $('#kabupaten').on('change', function () {
-        let id_kabupaten = $(this).val();
-        $.ajax({
-            type: 'POST',
-            url: "{{ route('getkecamatan') }}", // Route untuk mendapatkan data kecamatan
-            data: { id_kabupaten: id_kabupaten },
-            success: function (response) {
-                $('#kecamatan').html(response); // Isi dropdown kecamatan dengan data yang diterima
-                $('#kelurahan').html('<option value="" disabled selected>Pilih Kelurahan</option>'); // Reset kelurahan
-            },
-            error: function (error) {
-                console.error('Error:', error);
-            }
-        });
-    });
-
-    // Saat Kecamatan diubah
-    $('#kecamatan').on('change', function () {
-        let id_kecamatan = $(this).val();
-        $.ajax({
-            type: 'POST',
-            url: "{{ route('getkelurahan') }}", // Route untuk mendapatkan data kelurahan
-            data: { id_kecamatan: id_kecamatan },
-            success: function (response) {
-                $('#kelurahan').html(response); // Isi dropdown kelurahan dengan data yang diterima
-            },
-            error: function (error) {
-                console.error('Error:', error);
-            }
-        });
-    });
-});
 
 
 // Fungsi menghitung total berat dan grand total
