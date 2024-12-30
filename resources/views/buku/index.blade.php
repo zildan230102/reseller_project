@@ -93,6 +93,39 @@ select.form-select, select.form-select option {
 .buttonallert:focus{
     box-shadow: none;
 }
+.modal-dialog {
+    max-width: 480px;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+.modal-header-buku {
+    padding: 1rem 1rem 1rem 2rem;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+}
+.modal-body {
+    padding: 1rem 2rem 0.5rem 2rem;
+}
+.modal-body-create {
+    font-size: 16px;
+    padding: 1rem 2rem 0.5rem 2rem;
+    max-height: calc(70vh - 120px) !important;
+}
+.modal-body dt {
+    flex: 0 0 40%; 
+    max-width: 40%; 
+    text-align: left;
+}
+.modal-body dd {
+    flex: 0 0 60%; 
+    max-width: 60%; 
+}
+.btn-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1; 
+}
 
 @media (min-width: 320px) and (max-width: 599px) {
     .container-buku{
@@ -171,18 +204,41 @@ select.form-select, select.form-select option {
         font-size: 12px;
     }
     .table .dropdown-menu {
-        position: absolute; /* Lepaskan dari layout tabel */
-        top: calc(100% + 5px); /* Jarak dropdown dari tombol */
+        position: absolute;
+        top: calc(100% + 5px); 
         left: auto;
         right: 0;
-        z-index: 1050; /* Pastikan muncul di atas elemen lain */
+        z-index: 1050;
         min-width: 150px;
         max-width: 200px;
-        overflow: visible; /* Pastikan dropdown tidak terpotong */
+        overflow: visible;
     }
     .table-responsive-sm {
-        position: relative; /* Pastikan konteks posisi terjaga */
-        
+        position: relative; 
+    }
+    .modal-dialog {
+        max-width: 320px;
+        margin: 0 auto;
+        padding-top: 1rem;
+    }
+    .modal-header-buku {
+        padding: 1.5rem 1rem 1rem 2rem;
+        font-size: 14px;
+    }
+    .modal-body dt {
+        flex: 0 0 40%; 
+        max-width: 40%; 
+        text-align: left;
+    }
+    .modal-body dd {
+        flex: 0 0 60%; 
+        max-width: 60%; 
+    }
+    .btn-modal-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        z-index: 1;  
     }
 }
 
@@ -199,16 +255,81 @@ select.form-select, select.form-select option {
         text-align: center;
         padding-left: 0;
     }
-    .modal-dialog {
-        max-width: 80%;
+    .modal-title {
+        font-size: 18px;
+        max-width: 200px;
     }
-    .modal-header {
+    .modal-footer {
+        font-size: 12px;
+        padding: 0.75rem 1rem 0.75rem 1rem;
+    }
+    .modal-body-create {
+        font-size: 14px;
+        padding: 0.75rem 2rem 0.5rem 2rem;
+        max-height: calc(60vh - 320px) !important;
+    }
+    .btn-modal-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        z-index: 1; 
+    }
+    select.form-select {
+        max-height: 150px;
+        overflow-y: auto;
+    }
+    .text-start {
+        font-size: 14px;
+        left: auto;
+        right: 0;
+        transform: translateX(-50%) !important;
+    }
+    .form-select option {
+        font-size: 10px !important;
+    }
+    select.form-select option {
+        font-size: 10px;
+    }
+    .table-responsive {
+        overflow: visible; /* Pastikan overflow tabel terlihat */
+        display: table; /* Ubah kembali ke display default tabel */
+    }
+    .modal-dialog {
+        max-width: 480px;
+        margin: 0 auto;
+        margin-top: 1rem;
+    }
+    .modal-header-buku {
+        padding: 1.5rem 1rem 1rem 2rem;
         font-size: 14px;
     }
-    .modal-body {
+    .modal-body dt {
+        flex: 0 0 40%; 
+        max-width: 40%; 
+        text-align: left;
+    }
+    .modal-body dd {
+        flex: 0 0 60%; 
+        max-width: 60%; 
+    }
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .container-buku {
+        height: auto;
+        /* padding-top: 70px; */
+    }
+    .card-container {
+        padding: 0 40px 10px 40px;
+    }
+    .text-title {
+        font-size: 25px;
+        text-align: center;
+        padding-left: 0;
+    }
+    .modal-body-create {
         font-size: 16px;
-        padding: 10px 20px 10px 20px;
-        max-height: 70vh !important;
+        padding: 1rem 2rem 0.5rem 2rem;
+        max-height: calc(70vh - 120px) !important;
     }
     .modal-footer {
         padding: 10px 20px 10px 10px;
@@ -226,8 +347,32 @@ select.form-select, select.form-select option {
     .form-select option {
         font-size: 10px !important;
     }
+
     select.form-select option {
         font-size: 10px;
+
+    .modal-dialog {
+        max-width: 600px;
+        margin: 0 auto;
+        margin-top: 1rem;
+    }
+    .modal-header-buku {
+        padding: 1.5rem 1rem 1rem 2rem;
+        font-size: 14px;
+    }
+    .modal-body dt {
+        flex: 0 0 40%; 
+        max-width: 40%; 
+        text-align: left;
+    }
+    .modal-body dd {
+        flex: 0 0 60%; 
+        max-width: 60%; 
+    }
+    .modal-dialog {
+        max-height: 25vh !important;
+        height: auto !important;
+
     }
     .table-responsive {
         overflow: visible; /* Pastikan overflow tabel terlihat */
@@ -411,7 +556,7 @@ select.form-select, select.form-select option {
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                                                     <label for="kategori_id" class="form-label"><b>Kategori</b></label>
                                                     <select class="form-select" name="kategori_id" required>
                                                         @foreach ($kategoris as $kategori)
@@ -422,7 +567,7 @@ select.form-select, select.form-select option {
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                                                     <label for="isbn" class="form-label"><b>ISBN</b></label>
                                                     <input type="text" class="form-control" name="isbn"
                                                         value="{{ $buku->isbn }}" required>
@@ -430,12 +575,12 @@ select.form-select, select.form-select option {
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                                                     <label for="tahun_terbit" class="form-label"><b>Tahun Terbit</b></label>
                                                     <input type="number" class="form-control" name="tahun_terbit"
                                                         value="{{ $buku->tahun_terbit }}" required>
                                                 </div>
-                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                                                     <label for="ukuran_id" class="form-label"><b>Ukuran</b></label>
                                                     <select class="form-select" name="ukuran_id" required>
                                                         @foreach ($ukurans as $ukuran)
@@ -449,12 +594,12 @@ select.form-select, select.form-select option {
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                                                     <label for="halaman" class="form-label"><b>Halaman</b></label>
                                                     <input type="number" class="form-control" name="halaman"
                                                         value="{{ $buku->halaman }}" required>
                                                 </div>
-                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                                                     <label for="jenis_kertas_id" class="form-label"><b>Jenis Kertas</b></label>
                                                     <select class="form-select" name="jenis_kertas_id" required>
                                                         @foreach ($jenisKertas as $kertas)
@@ -468,7 +613,7 @@ select.form-select, select.form-select option {
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                                                     <label for="jenis_sampul_id" class="form-label"><b>Jenis Sampul</b></label>
                                                     <select class="form-select" name="jenis_sampul_id" required>
                                                         @foreach ($jenisSampuls as $jenisSampul)
@@ -479,7 +624,7 @@ select.form-select, select.form-select option {
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                <div class="col-12 col-sm-6 col-md-6 mb-3">
+                                                <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                                                     <label for="berat" class="form-label"><b>Berat (Kg)</b></label>
                                                     <input type="number" class="form-control" name="berat"
                                                         value="{{ $buku->berat }}" step="0.01" min="0" required>
@@ -560,7 +705,7 @@ select.form-select, select.form-select option {
                     </div>
 
                     <div class="row">
-                        <div class="col-12 col-sm-6 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 i-i-col-md-6 mb-3">
                             <label for="kategori_id" class="form-label"><b>Kategori</b></label>
                             <select class="form-select" name="kategori_id" required>
                             <option value="" disabled selected="">Pilih Kategori</option>
@@ -569,18 +714,18 @@ select.form-select, select.form-select option {
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-12 col-sm-6 col-md-6  mb-3">
+                        <div class="col-12 col-sm-6 i-col-md-6  mb-3">
                             <label for="isbn" class="form-label"><b>ISBN</b></label>
                             <input type="text" class="form-control" name="isbn" placeholder="Masukkan nomor ISBN" required>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-12 col-sm-6 col-md-6  mb-3">
+                        <div class="col-12 col-sm-6 i-col-md-6  mb-3">
                             <label for="tahun_terbit" class="form-label"><b>Tahun Terbit</b></label>
                             <input type="number" class="form-control" name="tahun_terbit" placeholder="Masukkan tahun terbit buku" required>
                         </div>
-                        <div class="col-12 col-sm-6 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                             <label for="ukuran_id" class="form-label"><b>Ukuran</b></label>
                             <select class="form-select" name="ukuran_id" required>
                             <option value="" disabled selected>Pilih Ukuran</option>
@@ -592,11 +737,11 @@ select.form-select, select.form-select option {
                     </div>
 
                     <div class="row">
-                        <div class="col-12 col-sm-6 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                             <label for="halaman" class="form-label"><b>Halaman</b></label>
                             <input type="number" class="form-control" name="halaman" placeholder="Masukkan jumlah halaman buku" required>
                         </div>
-                        <div class="col-12 col-sm-6 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                             <label for="jenis_kertas_id" class="form-label"><b>Jenis Kertas</b></label>
                             <select class="form-select" name="jenis_kertas_id" required>
                             <option value="" disabled selected><b>Pilih Kertas</b></option>
@@ -608,7 +753,7 @@ select.form-select, select.form-select option {
                     </div>
 
                     <div class="row">
-                        <div class="col-12 col-sm-6 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                             <label for="jenis_sampul_id" class="form-label"><b>Jenis Sampul</b></label>
                             <select class="form-select" name="jenis_sampul_id" required>
                             <option value="" disabled selected>Pilih Sampul</option>
@@ -617,7 +762,7 @@ select.form-select, select.form-select option {
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-12 col-sm-6 col-md-6 mb-3">
+                        <div class="col-12 col-sm-6 i-col-md-6 mb-3">
                             <label for="berat" class="form-label"><b>Berat (kg)</b></label>
                             <input type="number" class="form-control" name="berat" step="0.01" min="0" placeholder="Masukkan berat buku" required>
                         </div>

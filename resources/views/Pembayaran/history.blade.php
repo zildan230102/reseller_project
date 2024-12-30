@@ -6,16 +6,13 @@
 .container-riwayat {
     width: 100%;
     padding: 0 20px 0 20px;
-    padding-top: 40px;
+    padding-top: 60px;
     max-width: 1200px;
     margin: 0 auto;
     height: auto;
 }
 .header-title {
     padding: 20px;
-}
-.card-container {
-    padding-top: 40px;
 }
 .btn-no-border {
     border: none;
@@ -68,6 +65,23 @@ dd div {
     margin: 0; 
     list-style-position: inside; 
 }
+.btn-aksi:hover {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+.container-riwayat.empty-content {
+    height: 400px;
+}
+.container-riwayat:not(.empty-content) {
+    height: auto; 
+}
+.btn-modal-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1; 
+}
 
 @media (min-width: 320px) and (max-width: 599px) {
     .container-riwayat {
@@ -75,6 +89,12 @@ dd div {
         padding-top: 40px;
         height: auto;
         margin: 0 auto;
+    }
+    .container-riwayat.empty-content {
+        height: 250px;
+    }
+    .container-riwayat:not(.empty-content) {
+        height: auto; 
     }
     .header-title {
         padding: 15px;
@@ -144,6 +164,12 @@ dd div {
         white-space: normal;
         overflow-wrap: break-word;
     }
+    .buku-pesan {
+        word-wrap: break-word;
+        overflow: break-word;
+        white-space: normal;
+        line-height: 1.5;
+    }
 }
 @media (min-width: 600px) and (max-width: 1024px) {
     .container-riwayat {
@@ -151,6 +177,12 @@ dd div {
         height: auto;
         max-width: 1200px;
     }
+    .container-riwayat.empty-content {
+        height: 650px;
+    }
+    .container-riwayat:not(.empty-content) {
+        height: auto; 
+    }
     .text-title {
         font-size: 25px;
         text-align: center;
@@ -159,7 +191,7 @@ dd div {
         padding: 20px;
     }
     .modal-dialog {
-        max-width: 650px;
+        max-width: 500px;
         margin: 0 auto;
     }
     .modal-pembayaran-header {
@@ -169,28 +201,39 @@ dd div {
         padding: 1rem 2rem 0.5rem 2rem;
     }
     .modal-body dl dt {
-        flex: 0 0 35%; 
+        flex: 0 0 40%; 
         max-width: 40%; 
         text-align: left;
     }
     .modal-body dl dd {
-        flex: 0 0 65%; 
+        flex: 0 0 60%; 
         max-width: 60%; 
     }
     .modal-body dl dd ul {
         padding-left: 0; 
         margin: 0; 
         list-style-position: inside; 
+    }
+    .btn-modal-close {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        z-index: 1; 
     }
 }
 @media (min-width: 1025px) and (max-width: 1280px) {
     .container-riwayat {
-        padding: 40px 40px 0 40px;
+        padding: 60px 40px 0 40px;
         height: auto;
         max-width: 1200px;
     }
+    .container-riwayat.empty-content {
+        height: 400px;
+    }
+    .container-riwayat:not(.empty-content) {
+        height: auto; 
+    }
     .text-title {
-        font-size: 25px;
         text-align: center;
     }
     .header-title {
@@ -201,7 +244,7 @@ dd div {
         margin: 0 auto;
     }
     .modal-pembayaran-header {
-        padding: 1.5rem 1rem 1rem 2rem;
+        padding: 1.5rem 1rem 1.2rem 2rem;
     }
     .modal-pembayaran {
         padding: 1rem 2rem 0.5rem 2rem;
@@ -219,16 +262,22 @@ dd div {
         padding-left: 0; 
         margin: 0; 
         list-style-position: inside; 
+    }
+    .btn-modal-close {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        z-index: 1; 
     }
 }
 
 </style>
 
-<div class="container-riwayat mt-4">
+<div class="container-riwayat mt-4 {{ $orders->isEmpty() ? 'empty-content' : '' }}">
     <div class="card-container">
         @if($orders->isEmpty())
-        <h2 class="my-4 text-title">Riwayat Pembayaran</h2>
-        <div class="alert alert-info">Belum ada riwayat pembayaran.</div>
+            <h2 class="my-4 text-title">Riwayat Pembayaran</h2>
+            <div class="alert alert-info">Belum ada riwayat pembayaran.</div>
         @else
         <div class="card history">
             <div class="header-title">
@@ -256,7 +305,7 @@ dd div {
                             <td class="text-center">{{ ucfirst($payment->metode_pembayaran ?? 'Tidak Diketahui') }}</td>
                             <td class="text-center">{{ ucfirst($payment->status ?? 'Belum Dibayar') }}</td>
                             <td>
-                                <button type="button" class="btn btn-sm btn-no-border" data-bs-toggle="modal" data-bs-target="#detailModal_{{ $payment->id }}" title="Lihat Detail">
+                                <button type="button" class="btn btn-sm btn-aksi btn-no-border" data-bs-toggle="modal" data-bs-target="#detailModal_{{ $payment->id }}" title="Lihat Detail">
                                     <i class="bi bi-info-circle text-black"></i>
                                 </button>
 
@@ -267,7 +316,7 @@ dd div {
                                         <div class="modal-content">
                                             <div class="modal-header modal-pembayaran-header">
                                                 <h5 class="modal-title" id="detailModalLabel_{{ $payment->id }}">Detail Pembayaran</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <button type="button" class="btn-close btn-modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body modal-pembayaran">
                                                 <dl class="row">
@@ -296,12 +345,16 @@ dd div {
                                                     </dd>
                                                     
                                                     <dt class="col-5 col-sm-3">Buku yang Dipesan</dt>
-                                                    <dd>
-                                                        <ul>
-                                                            @foreach ($payment->bukus as $buku)
-                                                                <li>{{ $buku->judul_buku }} - {{ $buku->pivot->jumlah }} pcs</li>
-                                                            @endforeach
-                                                        </ul>
+                                                    <dd class="col-7 col-sm-9 mb-3 buku-pesan ">
+                                                        @if ($payment->bukus->count() == 1)
+                                                            : {{ $payment->bukus->first()->judul_buku }} - {{ $payment->bukus->first()->pivot->jumlah }} Buku
+                                                        @else
+                                                            <ul>
+                                                                @foreach ($payment->bukus as $buku)
+                                                                    <li>{{ $buku->judul_buku }} - {{ $buku->pivot->jumlah }} Buku</li>
+                                                                @endforeach
+                                                            </ul>
+                                                        @endif
                                                     </dd>
                                                 </dl>
                                             </div>

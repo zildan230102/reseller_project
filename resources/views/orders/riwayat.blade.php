@@ -6,7 +6,7 @@
 .container-riwayat {
     width: 100%;
     padding: 0 20px 0 20px;
-    padding-top: 80px;
+    padding-top: 40px;
     max-width: 1200px;
     margin: 0 auto;
     height: 400px;
@@ -34,7 +34,6 @@
     padding: 0.5rem;
     z-index: 1050;
 }
-
 .custom-dropdown-item {
     font-size: 1rem;
     display: flex;
@@ -46,29 +45,66 @@
     box-sizing: border-box;
     transition: background-color 0.2s ease;
 }
-
 .custom-dropdown-item:hover {
     background-color: #f0f0f0;
     color: #000;
     text-decoration: none;
 }
-
 .custom-dropdown-item i {
     margin-right: 8px;
     margin-left: 0;
 }
-
 .dropdown .btn-no-border {
     border: none;
     outline: none;
     box-shadow: none;
     padding: 0;
 }
+.modal-header-pesanan {
+    padding: 1.25rem 1rem 1rem 2rem;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+}
+.modal-body {
+    padding: 1rem 2rem 0.5rem 2rem;
+}
+.modal-pesanan dt {
+    flex: 0 0 40%;  
+    text-align: left;
+}
+.modal-pesanan dd {
+    flex: 0 0 60%; 
+    text-align: left; 
+}
+.modal-pesanan dl dd ul {
+    padding-left: 0; 
+    margin: 0; 
+    list-style-position: inside; 
+    display: block;
+}
+.btn-modal-close {
+    position: absolute;
+    top: 1.75rem;
+    right: 1.75rem;
+    z-index: 1; 
+}
+.container-riwayat.empty-content {
+    height: 400px;
+}
+.container-riwayat:not(.empty-content) {
+    height: auto; 
+}
 
 @media (min-width: 320px) and (max-width: 599px) {
     .container-riwayat {
-        padding-top: 80px;
+        padding-top: 40px;
         height: auto;
+    }
+    .container-riwayat.empty-content {
+        height: 250px;
+    }
+    .container-riwayat:not(.empty-content) {
+        height: auto; 
     }
     .text-title {
         font-size: 18px;
@@ -93,9 +129,12 @@
         font-size: 10px; 
         padding: 5px; 
     }
-    .modal-dialog {
-        max-width: 85%;
-        margin: 0 auto;
+    .judul-buku {
+        display: block;
+    }
+    .modal-title {
+        font-size: 18px;
+        max-width: 240px;
     }
     .modal-content {
         max-height: 90vh;
@@ -123,20 +162,34 @@
     .modal-pesanan {
         padding: 1rem 1rem 0 1.5rem;
     }
-    .modal-body dl dt {
+    .modal-pesanan dl dt {
         flex: 0 0 40%; 
         max-width: 40%; 
         text-align: left;
     }
-    .modal-body dl dd {
+    .modal-pesanan dl dd {
         flex: 0 0 60%; 
         max-width: 60%; 
     }
-    .modal-body dl dd ul {
+    .modal-pesanan dl dd ul {
         padding-left: 0; 
         margin: 0; 
         list-style-position: inside; 
         display: block;
+    }
+    .aksi {
+        font-size: 12px;
+        left: auto;
+        right: 0;
+        transform: translateX(-50%) !important;
+    }
+    .custom-dropdown-item {
+        font-size: 12px;
+    }
+    .btn-modal-close {
+        position: absolute;
+        padding: 0.25rem;
+        z-index: 1; 
     }
 }
 @media (min-width: 600px) and (max-width: 1024px){
@@ -145,6 +198,12 @@
         height: auto;
         max-width: 1200px;
     }
+    .container-riwayat.empty-content {
+        height: 650px;
+    }
+    .container-riwayat:not(.empty-content) {
+        height: auto; 
+    }
     .header-title {
         padding: 20px;
     }
@@ -153,10 +212,7 @@
         text-align: center;
     }
     .modal-dialog {
-        max-width: 90%;;
-    }
-    .modal-dialog {
-        max-width: 600px;
+        max-width: 500px;
         margin: 0 auto;
     }
     .modal-header-pesanan {
@@ -165,36 +221,48 @@
     .modal-pesanan {
         padding: 1rem 2rem 0.5rem 2rem;
     }
-    .modal-body dl dt {
-        flex: 0 0 35%; 
-        max-width: 40%; 
+    .modal-pesanan dt {
+        flex: 0 0 40%; 
         text-align: left;
     }
-    .modal-body dl dd {
-        flex: 0 0 65%; 
-        max-width: 60%; 
+    .modal-pesanan dd {
+        flex: 0 0 60%; 
+        text-align: left;
     }
-    .modal-body dl dd ul {
+    .modal-pesanan dl dd ul {
         padding-left: 0; 
         margin: 0; 
         list-style-position: inside; 
+    }
+    .aksi {
+        font-size: 14px;
+        left: auto;
+        right: 0;
+        transform: translateX(-50%) !important;
+    }
+    .btn-modal-close {
+        position: absolute;
+        padding: 1rem;
+        z-index: 1; 
     }
 }
 @media (min-width: 1025px) and (max-width: 1280px) {
     .container-riwayat {
-        padding: 80px 30px 0 30px;
+        padding: 60px 40px 0 40px;
         height: auto;
         max-width: 1200px;
+    }
+    .container-riwayat.empty-content {
+        height: 400px;
+    }
+    .container-riwayat:not(.empty-content) {
+        height: auto; 
     }
     .header-title {
         padding: 20px;
     }
     .text-title {
-        font-size: 25px;
         text-align: center;
-    }
-    .modal-dialog {
-        max-width: 90%;;
     }
     .modal-dialog {
         max-width: 600px;
@@ -220,22 +288,33 @@
         margin: 0; 
         list-style-position: inside; 
     }
+    .aksi {
+        font-size: 14px;
+        left: auto;
+        right: 0;
+        transform: translateX(-50%) !important;
+    }
+    .btn-modal-close {
+        position: absolute;
+        padding: 1rem;
+        z-index: 1; 
+    }
 }
 </style>
 
-<div class="container-riwayat mt-4">
+<div class="container-riwayat mt-4 container-checkout {{ $orders->isEmpty() ? 'empty-content' : '' }}">
     <div class="card-container">
         @if($orders->isEmpty())
-        <h2 class="my-4 text-title">Riwayat Pesanan</h2>
+        <h2 class="my-4 text-title text-center">Riwayat Pesanan</h2>
         <div class="alert alert-info">Belum ada riwayat pesanan.</div>
         @else
-        <div class="card">
+        <div class="card mt-3">
             <div class="header-title">
                 <h3 class="text-title mb-0 text-start">Riwayat Pesanan</h3>
             </div>
             <div class="card-body-toko">
                 <div class="table-responsive">
-                <table class="table table-bordered ">
+                <table class="table table-bordered table-striped">
                     <thead class="text-center table-light">
                         <tr>
                             <th>No</th>
@@ -256,7 +335,7 @@
                             <!-- Menampilkan daftar buku yang ada di dalam order -->
                             <td>
                                 @foreach($order->bukus as $buku)
-                                {{ $buku->judul_buku }} ({{ $buku->pivot->jumlah }}),
+                                    {{ $buku->judul_buku }} ({{ $buku->pivot->jumlah }}){{ !$loop->last ? ',' : '' }}<br>
                                 @endforeach
                             </td>
         
@@ -277,7 +356,7 @@
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="bi bi-eye-fill text-black"></i>
                                     </button>
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu aksi">
                                         <!-- Modal Detail Pesanan -->
                                         <li>
                                             <a class="custom-dropdown-item" data-bs-toggle="modal"
@@ -301,47 +380,49 @@
         
                         <!-- Modal Detail Pesanan -->
                         <div class="modal fade" id="detailModal{{ $order->id }}" tabindex="-1"
-                            aria-labelledby="detailModalLabel{{ $order->id }}" aria-hidden="true">
+                            aria-labelledby="detailModalLabel{{ $order->id }}" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header modal-header-pesanan">
-                                        <h5 class="modal-title" id="detailModalLabel{{ $order->id }}">Detail Pesanan
+                                        <h5 class="modal-title" id="detailModalLabel{{ $order->id }}">Detail Pesanan:
                                             {{ $order->no_invoice }}</h5>
-                                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
+                                        <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body modal-pesanan">
                                         <dl class="row">
-                                            <dt class="col-5 col-sm-3 mb-3">Tanggal</dt>
+                                            <dt class="col-5 col-sm-3 mb-3">Tanggal Pemesanan</dt>
                                             <dd class="col-7 col-sm-9 mb-3">: {{ $order->tanggal }}</dd>
 
-                                            <dt class="col-5 col-sm-3 mb-3">Penerima</dt>
+                                            <dt class="col-5 col-sm-3 mb-3">Nama Penerima</dt>
                                             <dd class="col-7 col-sm-9 mb-3">: {{ $order->penerima }}</dd>
 
-                                            <dt class="col-5 col-sm-3 mb-3">Alamat Kirim</dt>
+                                            <dt class="col-5 col-sm-3 mb-3">Alamat Pengiriman</dt>
                                             <dd class="col-7 col-sm-9 mb-3">: {{ $order->alamat_kirim }}</dd>
 
                                             <dt class="col-5 col-sm-3 mb-3">Buku yang Dipesan</dt>
-                                            <dd> 
-                                                <ul>
-                                                    @foreach($order->bukus as $buku)
-                                                    <li>{{ $buku->judul_buku }} - {{ $buku->pivot->jumlah }} Buku</li>
-                                                    @endforeach
-                                                </ul>
+                                            <dd class="col-7 col-sm-9 mb-3"> 
+                                                @if($order->bukus->count() == 1)
+                                                    : {{ $order->bukus->first()->judul_buku }} - {{ $order->bukus->first()->pivot->jumlah }} Buku
+                                                @else
+                                                    <ul>
+                                                        @foreach($order->bukus as $buku)
+                                                            <li> {{ $buku->judul_buku }} - {{ $buku->pivot->jumlah }} Buku</li>
+                                                        @endforeach
+                                                    </ul>
+                                                @endif
                                             </dd>
-
                                             <dt class="col-5 col-sm-3 mb-3">Total Harga</dt>
-                                            <dd class="col-7 col-sm-9 mb-3">: {{ number_format($grandTotal, 2) }}</dd>
+                                            <dd class="col-7 col-sm-9 mb-3">: Rp{{ number_format($grandTotal, 2) }}</dd>
                                         </dl>
                                     </div>
-                                    
                                 </div>
                             </div>
                         </div>
         
                         <!-- Modal Batalkan Pesanan -->
                         <div class="modal fade" id="cancelModal{{ $order->id }}" tabindex="-1"
-                            aria-labelledby="cancelModalLabel{{ $order->id }}" aria-hidden="true">
+                            aria-labelledby="cancelModalLabel{{ $order->id }}" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
