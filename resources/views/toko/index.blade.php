@@ -249,84 +249,67 @@
         padding-top: 80px;
         height: auto;
     }
-
     .card-container {
         padding: 0 20px 0 20px;
     }
-
     .text-title {
         text-align: center;
         font-size: 25px;
     }
-
     .custom-button-daftar {
         width: auto;
         font-size: 14px;
     }
-
     table {
         overflow-x: auto;
         font-size: 16px;
     }
-
     .modal-dialog {
         max-width: 480px;
         margin: 0 auto;
         margin-top: 1rem;
     }
-
     .modal-header-toko {
         padding: 1.25rem 2rem 1rem 2rem;
     }
-
     .modal-title {
         font-size: 18px;
     }
-
     .modal-footer {
         font-size: 12px;
         padding: 0.75rem 1rem 0.75rem 1rem;
     }
-
     .modal-body-toko {
         font-size: 14px;
         padding: 0.75rem 2rem 0.5rem 2rem;
     }
-
     .btn-modal-close {
         position: absolute;
         top: 1.5rem;
         right: 1.5rem;
         z-index: 1;
     }
-
     .button-add {
         padding: 1.2rem 1.5rem 1.2rem 0;
     }
-
     .form-group label {
         font-size: 16px;
     }
-
     .form-group input,
     .form-group select {
         font-size: 14px;
         padding: 8px;
     }
-
     .custom-button {
         font-size: 14px;
         padding: 10px 15px;
     }
-
     .d-flex.justify-content-end {
         justify-content: center;
     }
-
     .form-select option {
         font-size: 11px;
     }
-
     .aksi {
         font-size: 14px;
         left: auto;
@@ -341,80 +324,64 @@
         padding-top: 60px;
         height: auto;
     }
-
     .card-container {
         padding: 0 40px 0 40px;
     }
-
     .text-title {
         text-align: center;
         font-size: 25px;
     }
-
     .custom-button-daftar {
         width: auto;
         font-size: 14px;
     }
-
     table {
         overflow-x: auto;
         font-size: 16px;
     }
-
     .modal-dialog {
         max-width: 480px;
         margin: 0 auto;
         margin-top: 1rem;
     }
-
     .modal-header-toko {
         padding: 1.25rem 2rem 1rem 2rem;
     }
-
     .modal-title {
         font-size: 18px !important;
     }
-
     .modal-footer {
         font-size: 12px;
         padding: 0.75rem 1rem 0.75rem 1rem;
     }
-
     .modal-body-toko {
         font-size: 14px;
         padding: 0.75rem 2rem 0.5rem 2rem;
     }
-
     .btn-modal-close {
         position: absolute;
         top: 1.5rem;
         right: 1.5rem;
         z-index: 1;
     }
-
     .form-group label {
         font-size: 16px;
     }
-
     .form-group input,
     .form-group select {
         font-size: 14px;
         padding: 8px;
     }
-
     .custom-button {
         font-size: 14px;
         padding: 10px 15px;
     }
-
     .d-flex.justify-content-end {
         justify-content: center;
     }
-
     .form-select option {
         font-size: 11px;
     }
-
     .aksi {
         font-size: 14px;
         left: auto;
@@ -616,24 +583,22 @@
         aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <!-- Header Modal -->
-                <div class="modal-header">
-                    <h5 class="modal-title" id="confirmDeleteModalLabel">Konfirmasi Hapus</h5>
-                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
+                <div class="modal-header-toko">
+                    <h5 class="modal-title" id="deleteModalLabel{{ $toko->id }}">Hapus Toko
+                    </h5>
+                    <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
-                <!-- Body Modal -->
-                <div class="modal-body">
-                    Apakah Anda yakin ingin menghapus toko
-                    <strong id="nama_toko"></strong> ini?
+                <div class="modal-body-toko">
+                    <p>Apakah Anda yakin ingin menghapus toko
+                        <strong>{{ $toko->nama_toko }}</strong> ini?
+                    </p>
                 </div>
-                <!-- Footer Modal -->
                 <div class="modal-footer">
-                    <form id="deleteForm" method="POST">
+                    <form action="deleteForm" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn btn-danger">Hapus</button>
+                        <button type="submit" class="btn-custom-danger">Hapus</button>
                     </form>
                 </div>
             </div>

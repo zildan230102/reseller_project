@@ -742,13 +742,17 @@ h2.h3.h5 {
     margin-bottom: 0 !important;
   }
 
+  .total {
+    margin-bottom: 2px;
+  }
+
   h3, h5, .title-total, .data-marketplace, .data-penjualan {
-    font-size: 12px !important; 
-    margin-bottom: 1%;
+    font-size: 14px !important; 
+    margin-bottom: 2%;
   }
   
   .card-total .fw-bold.fs-4 {
-    font-size: 1rem !important; 
+    font-size: 0.75rem !important; 
     margin-bottom: 0 !important; 
   }
 
@@ -763,6 +767,19 @@ h2.h3.h5 {
 
   h2.h3 {
     font-size: 1em;
+  }
+
+  .mb-0 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+  }
+
+  .mb-0 .text-muted {
+      display: block;
+      text-align: center;
+      font-size: 10px;
   }
 
   .btn-group-desktop {
@@ -794,7 +811,7 @@ h2.h3.h5 {
     box-shadow: none;
     border-color: #f57c00 !important; 
     box-shadow: 0 0 5px rgba(255, 148, 82, 0.5);
-    outline: none;
+    outline: none !important;
   } */
 
   .dropdown-menu {
@@ -811,11 +828,6 @@ h2.h3.h5 {
     width: 100% !important;
     text-align: start;
   }
-
-  /* .dropdown-menu {
-    max-height: 200px;
-    overflow-y: auto;
-  } */
 
   .btn-dropdown {
     border: 1px solid transparent;
@@ -1332,31 +1344,6 @@ h2.h3.h5 {
     height: auto;
     transform: scale(0.9);
     width: 100%;
-  }
-}
-
-@media (min-width: 992px) {
-  .dropdown-menu {
-    top: 100% !important;
-    left: 0 !important;
-    transform: translateY(0) !important;
-    min-width: 120px !important
-  }
-
-  .dropdown-item {
-    color: #333;
-    text-decoration: none;
-    display: block;
-    padding: 5px 20px !important;
-    font-size: 18px !important;
-  }
-
-  .btn-dropdown {
-    display: none;
-  }
-
-  .chart-legend {
-    display: none !important;
   }
 }
 

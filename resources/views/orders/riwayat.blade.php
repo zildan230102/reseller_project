@@ -188,8 +188,13 @@
     }
     .btn-modal-close {
         position: absolute;
-        padding: 0.25rem;
-        z-index: 1; 
+        top: 1.2rem;
+        right: 1.5rem;
+        z-index: 1;
+    }
+    .btn-custom-danger {
+        font-size: 12px;
+        padding: 6px 10px;
     }
 }
 @media (min-width: 600px) and (max-width: 1024px){
@@ -425,13 +430,13 @@
                             aria-labelledby="cancelModalLabel{{ $order->id }}" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
-                                    <div class="modal-header">
+                                    <div class="modal-header modal-header-pesanan">
                                         <h5 class="modal-title" id="cancelModalLabel{{ $order->id }}">Batalkan Pesanan
                                             {{ $order->no_invoice }}</h5>
-                                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
+                                        <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body">
+                                    <div class="modal-body modal-pesanan">
                                         <p>Apakah Anda yakin ingin membatalkan pesanan ini?</p>
                                     </div>
                                     @if ($order->status !== 'canceled')

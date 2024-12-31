@@ -170,6 +170,12 @@ dd div {
         white-space: normal;
         line-height: 1.5;
     }
+    .btn-modal-close {
+        position: absolute;
+        top: 1.25rem;
+        right: 1.5rem;
+        z-index: 1;
+    }
 }
 @media (min-width: 600px) and (max-width: 1024px) {
     .container-riwayat {
