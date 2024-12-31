@@ -392,7 +392,7 @@ select.form-select, select.form-select option {
             Swal.fire({
                 icon: 'success',
                 title: 'Berhasil!',
-                text: '{{ session('success') }}',
+                text: '{{ session("success") }}',
                 confirmButtonText: 'OK',
                 customClass: {
                     popup: 'sweetalert',
