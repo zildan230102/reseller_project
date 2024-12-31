@@ -433,7 +433,7 @@
         icon: 'success',
         title: 'Berhasil!',
         text: '{{ session( "success" ) }}',
-        confirmButtonText: 'OK', 
+        confirmButtonText: 'OK',
         customClass: {
             popup: 'sweetalert',
             confirmButton: 'buttonallert'
@@ -530,148 +530,162 @@
     </div>
 
     <!-- Modal untuk menambah toko -->
-    <div class="modal fade" id="tokoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        role="dialog" aria-labelledby="tokoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header-toko">
-                    <h5 class="modal-title" id="tokoModalLabel">Tambah Toko</h5>
-                    <button type="button" class="btn-close btn-modal-close shadow-none" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body-toko">
-                    <form id="tokoForm" action="{{ route('toko.store') }}" method="POST">
-                        @csrf
-                        <div class="form-group mb-3">
-                            <label for="nama_toko"><b>Nama Toko</b></label>
-                            <input type="text" class="form-control" name="nama_toko" placeholder="Masukkan nama toko"
-                                required>
-                        </div>
-
-                        <div class="form-group mb-3">
-                            <label for="marketplace"><b>Marketplace</b></label>
-                            <input type="text" class="form-control" name="marketplace"
-                                placeholder="Masukkan nama marketplace" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="edit_is_active"><b>Status</b></label>
-                            <select id="edit_is_active" name="is_active" class="form-select custom-dropdown" required>
-                                <option value="" disabled selected>Pilih Status Toko</option>
-                                <option value="1">Aktif</option>
-                                <option value="0">Tidak Aktif</option>
-                            </select>
-                        </div>
-                    </form>
-                </div>
-                <div class="d-flex justify-content-end button-add">
-                    <button type="submit" class="custom-button">Simpan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal untuk edit toko -->
-    <div class="modal fade" id="editTokoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        role="dialog" aria-labelledby="editTokoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header-toko">
-                    <h5 class="modal-title" id="editTokoModalLabel">Edit Toko</h5>
-                    <button type="button" class="btn-close btn-modal-close shadow-none" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body-toko">
-                    <form id="editTokoForm" action="" method="POST">
-                        @csrf
-                        @method('PUT')
-                        <div class="form-group">
-                            <label for="edit_nama_toko"><b>Nama Toko</b></label>
-                            <input type="text" class="form-control" id="edit_nama_toko" name="nama_toko" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="edit_marketplace"><b>Marketplace</b></label>
-                            <input type="text" class="form-control" id="edit_marketplace" name="marketplace" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="edit_is_active"><b>Status</b></label>
-                            <select id="edit_is_active" name="is_active" class="form-select custom-dropdown">
-                                <option value="1">Aktif</option>
-                                <option value="0">Tidak Aktif</option>
-                            </select>
-                        </div>
-                    </form>
-                </div>
-                <div class="d-flex justify-content-end button-add">
-                    <button type="submit" class="custom-button">Update</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Konfirmasi Hapus -->
-    <div class="modal fade" id="confirmDeleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal fade" id="tokoModal" tabindex="-1" aria-labelledby="tokoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <!-- Header Modal -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tokoModalLabel">Tambah Toko</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="tokoForm" action="{{ route('toko.store') }}" method="POST">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="nama_toko" class="form-label">Nama Toko</label>
+                            <input type="text" class="form-control" id="nama_toko" name="nama_toko" placeholder="Masukkan nama toko" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="marketplace" class="form-label">Marketplace</label>
+                            <input type="text" class="form-control" id="marketplace" name="marketplace" placeholder="Masukkan tempat penjualan" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="is_active" class="form-label">Status</label>
+                            <select id="is_active" name="is_active" class="form-select" required>
+                                <option value="" disabled selected>Pilih status</option>
+                                <option value="1">Aktif</option>
+                                <option value="0">Tidak Aktif</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal untuk edit toko -->
+    <div class="modal fade" id="editTokoModal" tabindex="-1" aria-labelledby="editTokoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editTokoModalLabel">Edit Toko</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="editTokoForm" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="edit_nama_toko" class="form-label">Nama Toko</label>
+                            <input type="text" class="form-control" id="edit_nama_toko" name="nama_toko" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit_marketplace" class="form-label">Marketplace</label>
+                            <input type="text" class="form-control" id="edit_marketplace" name="marketplace" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit_is_active" class="form-label">Status</label>
+                            <select id="edit_is_active" name="is_active" class="form-select" required>
+                                <option value="" disabled selected>Pilih status</option>
+                                <option value="1">Aktif</option>
+                                <option value="0">Tidak Aktif</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Konfirmasi Hapus -->
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="confirmDeleteModalLabel">Konfirmasi Hapus</h5>
-                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <!-- Body Modal -->
-                <div class="modal-body">
-                    Apakah Anda yakin ingin menghapus toko
-                    <strong id="nama_toko"></strong> ini?
-                </div>
-                <!-- Footer Modal -->
-                <div class="modal-footer">
-                    <form id="deleteForm" method="POST">
-                        @csrf
-                        @method('DELETE')
+                <form id="deleteForm" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <div class="modal-body">
+                        Apakah Anda yakin ingin menghapus toko <strong id="deleteTokoName"></strong>?
+                    </div>
+                    <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-danger">Hapus</button>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
-<!-- Tambahkan JavaScript untuk AJAX -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-   document.addEventListener('DOMContentLoaded', function () {
-    const editTokoModal = document.getElementById('editTokoModal');
-    const confirmDeleteModal = document.getElementById('confirmDeleteModal');
 
-    // Edit Modal
-    editTokoModal.addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget;
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const editTokoModal = document.getElementById('editTokoModal');
+    editTokoModal.addEventListener('show.bs.modal', function(event) {
+        const button = event.relatedTarget; // Tombol yang memicu modal
         const id = button.getAttribute('data-id');
         const nama = button.getAttribute('data-nama');
         const marketplace = button.getAttribute('data-marketplace');
-        const status = button.getAttribute('data-status');
+        const isActive = button.getAttribute('data-status');
 
+        // Set nilai input dalam form
         const form = document.getElementById('editTokoForm');
         form.action = `/toko/${id}`;
-        form.querySelector('#edit_nama_toko').value = nama;
-        form.querySelector('#edit_marketplace').value = marketplace;
-        form.querySelector('#edit_is_active').value = status;
+        document.getElementById('edit_nama_toko').value = nama;
+        document.getElementById('edit_marketplace').value = marketplace;
+        document.getElementById('edit_is_active').value = isActive;
     });
 
-    // Delete Modal
-    confirmDeleteModal.addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget;
+    document.addEventListener('DOMContentLoaded', function () {
+    const deleteModal = document.getElementById('confirmDeleteModal');
+    deleteModal.addEventListener('show.bs.modal', function (event) {
+        const button = event.relatedTarget; // Tombol yang memicu modal
         const id = button.getAttribute('data-id');
+        const nama = button.getAttribute('data-nama');
 
+        // Set nama toko dalam modal
+        document.getElementById('deleteTokoName').textContent = nama;
+
+        // Update form action
         const form = document.getElementById('deleteForm');
         form.action = `/toko/${id}`;
     });
 });
 
+    // Form Submission for Adding Toko
+    const tokoForm = document.getElementById('tokoForm');
+    tokoForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default submission for debugging
+        this.submit(); // Submit the form
+    });
+
+    // Form Submission for Editing Toko
+    const editTokoForm = document.getElementById('editTokoForm');
+    editTokoForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default submission for debugging
+        this.submit(); // Submit the form
+    });
+
+    // Toast Notification for Success Message
+    if (document.querySelector('.toast-success')) {
+        const toast = new bootstrap.Toast(document.querySelector('.toast-success'));
+        toast.show();
+    }
+});
 </script>
+
 
 @endsection
