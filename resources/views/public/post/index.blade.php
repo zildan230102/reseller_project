@@ -63,7 +63,7 @@
                                             <h5 class="title-total">Total Penjualan</h5>
                                         </div>
                                     </div>
-                                    <h1 class="">
+                                    <h1 class="total">
                                         <p class="fw-bold fs-4 total-penjualan">Rp15.500.000</p>
                                     </h1>
                                     <div class="mb-0">
@@ -87,7 +87,7 @@
                                             <h5 class="title-total">Total Pendapatan</h5>
                                         </div>
                                     </div>
-                                    <h1 class="">
+                                    <h1 class="total">
                                         <p class="fw-bold fs-4 total-penjualan">Rp5.150.000</p>
                                     </h1>
                                     <div class="mb-0">
@@ -111,7 +111,7 @@
                                             <h5 class="title-total">Konversi</h5>
                                         </div>
                                     </div>
-                                    <h1 class="">
+                                    <h1 class="total">
                                         <p class="fw-bold fs-4 total-penjualan">86.34%</p>
                                     </h1>
                                     <div class="mb-0">

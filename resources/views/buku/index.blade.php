@@ -656,7 +656,7 @@ select.form-select, select.form-select option {
                                     <div class="modal-header-buku">
                                         <h5 class="modal-title" id="deleteModalLabel{{ $buku->id }}">Hapus Buku
                                         </h5>
-                                        <button type="button" class="btn-close shadow-none btn-modal-none" data-bs-dismiss="modal"
+                                        <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">

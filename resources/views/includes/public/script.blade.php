@@ -148,6 +148,7 @@
 			});
 		});
 	</script>
+
 	<script>
     document.addEventListener("DOMContentLoaded", function() {
     const chart = new Chart(document.getElementById("chartjs-dashboard-bar"), {
@@ -189,6 +190,8 @@
 					}
 				}
     });
+
+	
 
     // Helper function to update chart title
     function updateTitle(newTitle) {
