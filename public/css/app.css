@@ -1126,8 +1126,33 @@ h2.h3.h5 {
     font-size: 14px;
   }
 
-  .modal-profil {
-    padding: 0 12px 10px 12px;
+  .header-profile {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 1050;
+    padding-top: 0.75rem;
+  }
+
+  .modal-edit-profile {
+    max-width: 80%;
+    margin: 0 auto;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .modal-profile {
+    font-size: 14px;
+    padding: 0.5rem 2rem 0 1.5rem;
+    max-height: calc(40vh - 320px) !important;
+    min-height: calc(40vh);
+    overflow-y: auto;
+    z-index: 1;
+  }
+
+  .footer-profile {
+    padding: 0.5rem 0.5rem 0.5rem 0;
   }
 
   .form-profile {
@@ -1329,6 +1354,39 @@ h2.h3.h5 {
     padding: 60px 18px 4px 18px;
   }
 
+  .header-profile {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 1050;
+    padding: 1rem 0 1rem 1.5rem;
+  }
+
+  .modal-edit-profile {
+    max-width: 60%;
+    margin: 0 auto;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .modal-profile {
+    font-size: 14px;
+    padding: 0.5rem 2rem 0 1.5rem;
+    max-height: calc(40vh - 320px) !important;
+    min-height: calc(40vh);
+    overflow-y: auto;
+    z-index: 1;
+  }
+
+  .table-profile {
+    padding-top: 1rem !important;
+  }
+
+  .footer-profile {
+    padding: 0.5rem 0.5rem 0.5rem 0;
+  }
+
   .profile-picture {
     margin-top: 30px;
   }
@@ -1339,7 +1397,14 @@ h2.h3.h5 {
   }
 
   .profile {
-    padding: 0 30px 30px 30px;
+    padding: 30px 30px 30px 30px;
+  }
+
+  .btn-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1;
   }
 
   #joindate {
