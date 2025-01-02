@@ -666,6 +666,10 @@ h2.h3.h5 {
   height: 150px !important;
 }
 
+.chart-legend {
+  display: none !important;
+}
+
 @media (min-width: 320px) and (max-width: 599px) {
   .content-dashboard {
     padding: 0 1.5rem 0 1.5rem;
@@ -916,7 +920,7 @@ h2.h3.h5 {
   }
 
   .chart-legend {
-    display: flex;
+    display: flex !important;
     justify-content: space-between;
     flex-wrap: wrap;
     max-width: 400px;
@@ -1134,7 +1138,6 @@ h2.h3.h5 {
     font-size: 14px;
   }
 }
-
 
 @media (min-width: 600px) and (max-width: 1024px) {
   .content-dashboard {
