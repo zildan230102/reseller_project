@@ -161,10 +161,6 @@ select.form-select, select.form-select option {
         padding: 10px;
         font-size: 16px; 
     }
-    .modal-body {
-        font-size: 12px;
-        padding: 10px 20px;
-    }
     .modal-footer {
         padding: 5px;
     }

@@ -10,7 +10,7 @@
             Swal.fire({
                 icon: 'success',
                 title: 'Berhasil!',
-                text: '{{ session('success') }}',
+                text: '{{ session("success") }}',
                 confirmButtonText: 'OK',
                 customClass: {
                     popup: 'sweetalert',
@@ -77,14 +77,15 @@
 
 <!-- Modal untuk Edit Profil -->
 <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content modal-profil">
-            <div class="modal-header">
+    <div class="modal-dialog modal-dialog-centered modal-edit-profile">
+        <div class="modal-content">
+            <div class="modal-header header-profile">
                 <h5 class="modal-title" id="editProfileModalLabel">Edit Profil</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body modal-profil">
-                <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
+            
+            <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
+                <div class="modal-body modal-profile">
                     @csrf
                     <div class="form-group mb-3">
                         <label class="form-profile" for="fullName">Nama Lengkap:</label>
@@ -115,12 +116,12 @@
                         <label for="profilePicture">Unggah Foto Profil:</label>
                         <input type="file" id="profilePicture" name="profilePicture" class="form-control" accept="image/*">
                     </div>
+                </div>
 
-                    <div class="modal-footer">
-                        <button type="submit" class="custom-button btn-sm">Simpan</button>
-                    </div>
-                </form>
-            </div>
+                <div class="modal-footer footer-profile">
+                    <button type="submit" class="custom-button btn-sm">Simpan</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
