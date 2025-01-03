@@ -14,12 +14,12 @@
 <body>
     <header>
         <div class="header" id="header">
-            <nav class="navbar navbar-expand-lg bg-light">
+            <nav class="navbar navbar-expand-lg bg-light navbar-custom">
                 <div class="container-fluid">
                     <!-- Baris Pertama : Logo -->
                     <a class="navbar-brand" href="#">
-                        <img src="{{ ('style/src/img/icons/d2.png') }}" class="img logo-desktop" alt="Deepublish Logo Digital">
-                        <img src="{{ ('style/src/img/icons/d2.png') }}" class="img logo-mobile" alt="Deepublish Logo Mobile">
+                        <img src="{{ ('style/src/img/icons/d3.png') }}" class="img logo-desktop" alt="Deepublish Logo Digital">
+                        <img src="{{ ('style/src/img/icons/d3.png') }}" class="img logo-mobile" alt="Deepublish Logo Mobile">
                         <div class="navbar-toggler-container">
                             <button class="navbar-toggler" type="button" id="hamburgerButton" aria-controls="navbarNav"
                                 aria-expanded="false" aria-label="Toggle navigation">

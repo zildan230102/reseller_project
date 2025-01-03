@@ -16,7 +16,7 @@
                             <button class="dropdown-month" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                 September<i class="bi bi-chevron-down ms-1"></i>
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" data-bs-offset="0,10">
+                            <ul class="dropdown-menu dropdown-bulan" aria-labelledby="dropdownMenuButton" data-bs-offset="0,10">
                                 <li><a class="dropdown-item" href="#">Januari</a></li>
                                 <li><a class="dropdown-item" href="#">Februari</a></li>
                                 <li><a class="dropdown-item" href="#">Maret</a></li>
@@ -133,14 +133,14 @@
                 <div class="card flex-fill w-100">
                     <div class="header-bar">
                         <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group-desktop " role="group" aria-label="Tombol Desktop">
+                            <div class="btn-group-desktop" role="group" aria-label="Tombol Desktop">
                                 <a type="button" class="btn active" id="marketplace-btn">Marketplace</a>
                                 <a type="button" class="btn" id="btn-toko">Toko</a>
                                 <a type="button" class="btn" id="buku-btn">Buku</a>
                             </div>
 
 
-                            <div class="dropdown d-md-none">
+                            <div class="dropdown dropdown-mobile d-md-none">
                                 <button class="btn btn-dropdown text-start" type="button" id="dropdownMenuSmall" data-bs-toggle="dropdown" aria-expanded="false">
                                     Pilih Kategori <i class="bi bi-chevron-down ms-1"></i>
                                 </button>
@@ -274,7 +274,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-borderless mb-0">
+                            <table class="table table-borderless mb-0 penjualan-buku-table">
                                 <thead class="judul-th">
                                     <tr>
                                         <th class="judul-th">Name</th>
