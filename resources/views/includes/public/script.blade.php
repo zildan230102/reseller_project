@@ -183,7 +183,7 @@
 							gridLines: {
 								color: "transparent"
 							},
-							tricks: {
+							ticks: {
 								display: window.innerWidth > 600
 							}
 						}]
