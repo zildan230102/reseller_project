@@ -579,14 +579,13 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header-toko">
-                    <h5 class="modal-title" id="deleteModalLabel{{ $toko->id }}">Hapus Toko
+                    <h5 class="modal-title" id="deleteModalLabel">Hapus Toko
                     </h5>
                     <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
                 <div class="modal-body-toko">
-                    <p>Apakah Anda yakin ingin menghapus toko
-                        <strong>{{ $toko->nama_toko }}</strong> ini?
+                    <p>Apakah Anda yakin ingin menghapus toko ini?
                     </p>
                 </div>
                 <div class="modal-footer">

@@ -671,6 +671,10 @@ h2.h3.h5 {
 }
 
 @media (min-width: 320px) and (max-width: 599px) {
+  .navbar-custom {
+    padding: 0 20px 5px 20px !important;
+  }
+  
   .content-dashboard {
     padding: 0 1.5rem 0 1.5rem;
   }
@@ -689,7 +693,7 @@ h2.h3.h5 {
   }
 
   .header-sale {
-    margin: 15px 15px 0 30px;
+    margin: 20px 24px 0 30px;
   }
 
   .card-total {
@@ -798,25 +802,14 @@ h2.h3.h5 {
   }
 
   .dropdown-month {
-    font-size: 0.8em;
-    padding: 6px 12px;
+    font-size: 0.7em;
+    padding: 3px 7px;
+    margin-top: 8px;
   }
 
   .dropdown-month:hover {
     border: 1px solid #f57c00;
   }
-
-  /* .dropdown-month:hover,
-  .dropdown-month:focus,
-  .dropdown.show .dropdown-month {
-    background-color: transparent !important;
-    color: #f57c00;
-    outline: none;
-    box-shadow: none;
-    border-color: #f57c00 !important; 
-    box-shadow: 0 0 5px rgba(255, 148, 82, 0.5);
-    outline: none !important;
-  } */
 
   .dropdown-menu {
     position: absolute;
@@ -876,6 +869,18 @@ h2.h3.h5 {
     display: block !important;
   }
 
+  .dropdown-mobile .btn-dropdown {
+    outline: 1px solid #ff8000;
+    padding: 2px 6px;
+    font-size: 12px;
+    margin-top: 8px;
+  }
+
+  .dropdown-mobile .btn-dropdown:hover,
+  .dropdown-mobile .btn-dropdown:focus {
+      outline: #ff8000;
+  }
+
   .title-chart-bar {
     text-align: center !important;
     margin-bottom: 0 !important;
@@ -889,7 +894,7 @@ h2.h3.h5 {
   }
 
   .header-bar .d-flex {
-    padding: 10px 10px 0px 10px !important;
+    padding: 15px 24px 0px 24px !important;
   }
 
   .card-body .row {
@@ -1035,6 +1040,7 @@ h2.h3.h5 {
   .card-body .table .judul-th {
     font-size: 12px;
     font-weight: bold;
+    text-align: left;
   }
 
   .user-data {
