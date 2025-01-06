@@ -579,7 +579,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header-toko">
-                    <h5 class="modal-title" id="deleteModalLabel{{ $toko->id }}">Hapus Toko
+                    <h5 class="modal-title" id="deleteModalLabel">Hapus Toko
                     </h5>
                     <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal"
                         aria-label="Close"></button>
