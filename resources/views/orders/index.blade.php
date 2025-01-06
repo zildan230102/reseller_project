@@ -131,6 +131,7 @@
 
     .order-title {
         font-size: 1rem;
+    }
 
         .text-title {
             font-size: 18px;
@@ -150,11 +151,7 @@
             font-size: 0.8rem;
             padding: 0.2rem 0.5rem;
         }
-
-
-        .dropdown-menu {
-
-            .table .dropdown-menu {
+      .table .dropdown-menu {
 
                 width: auto;
                 min-width: 120px;

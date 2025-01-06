@@ -8,8 +8,7 @@
     padding-top: 60px;
 } 
 .text-title {
-    padding-left: 150px;
-    text-align: left;
+    text-align: center;
 }
 .card-container {
     max-width: 1200px;
