@@ -256,9 +256,13 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                $grandTotal = 0;
+                                @endphp
                                 @foreach ($order->bukus as $buku)
                                 @php
                                 $subtotal = $buku->harga * $buku->pivot->jumlah;
+                                $grandTotal += $subtotal; // Tambahkan subtotal ke grand total
                                 @endphp
                                 <tr>
                                     <td>{{ $buku->judul_buku }}</td>
@@ -271,8 +275,9 @@
 
                         <div class="grand-total text-end">
                             <strong style="margin-right: 30px;">Grand Total</strong>
-                            <strong style="margin-right: 8px;">Rp{{ number_format($order->grand_total, 0, ',', '.') }}</strong>
+                            <strong style="margin-right: 8px;">Rp{{ number_format($grandTotal, 0, ',', '.') }}</strong>
                         </div>
+
                         
                         
                         <div class="row">
@@ -320,27 +325,45 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const checkboxes = document.querySelectorAll('.order-checkbox');
-    const payButton = document.getElementById('payButton');
-    const totalTagihanElement = document.getElementById('totalTagihan');
-    const form = document.querySelector('form'); // Ambil form utama
 
-    // Fungsi update total tagihan
-    const updateTotalTagihan = () => {
+document.addEventListener('DOMContentLoaded', function () {
+    const checkboxes = document.querySelectorAll('.order-checkbox');
+    const totalTagihanElement = document.getElementById('totalTagihan');
+    const payButton = document.getElementById('payButton');
+
+    function updateTotalTagihan() {
         let totalTagihan = 0;
+
         checkboxes.forEach(checkbox => {
             if (checkbox.checked) {
-                totalTagihan += parseFloat(checkbox.dataset.total);
+                const grandTotal = parseFloat(checkbox.dataset.total);
+                if (!isNaN(grandTotal)) {
+                    totalTagihan += grandTotal;
+                } else {
+                    console.error(`Grand total invalid untuk checkbox ${checkbox.id}`);
+                }
             }
         });
-        totalTagihanElement.textContent = totalTagihan.toLocaleString('id-ID');
+
+        console.log(`Total tagihan terhitung: ${totalTagihan}`); // Debugging
+        totalTagihanElement.textContent = new Intl.NumberFormat('id-ID', {
+            style: 'currency',
+            currency: 'IDR',
+            minimumFractionDigits: 0,
+        }).format(totalTagihan).replace('Rp', '');
+
         payButton.disabled = totalTagihan === 0;
-    };
+    }
 
     checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', updateTotalTagihan);
+        checkbox.addEventListener('change', function () {
+            console.log(`Checkbox ${checkbox.id} diubah, checked: ${checkbox.checked}`);
+            updateTotalTagihan();
+        });
     });
+
+    updateTotalTagihan(); // Inisialisasi awal
+});
 
     // Event ketika form di-submit
     form.addEventListener('submit', function(event) {
@@ -354,6 +377,5 @@ document.addEventListener('DOMContentLoaded', function() {
             confirmButtonText: 'OK'
         });
     });
-});
 </script>
 @endsection

@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/', [TokoController::class, 'store'])->name('toko.store'); // Menyimpan toko baru
         Route::get('/{toko}/edit', [TokoController::class, 'edit'])->name('toko.edit'); // Form edit toko
         Route::put('/{toko}', [TokoController::class, 'update'])->name('toko.update'); // Mengupdate data toko
-        Route::delete('/{toko}', [TokoController::class, 'destroy'])->name('toko.destroy'); // Menghapus toko
+        Route::delete('/toko/{toko}', [TokoController::class, 'destroy'])->name('toko.destroy');
         Route::post('/{toko}/toggle-status', [TokoController::class, 'toggleStatus'])->name('toko.toggle-status'); // Mengubah status aktif/tidak aktif
     });
  

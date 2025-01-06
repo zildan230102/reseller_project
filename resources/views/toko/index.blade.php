@@ -11,7 +11,7 @@
     height: auto;
 }
 
-.title-toko {
+.text-title {
     text-align: center;
 }
 
@@ -392,7 +392,7 @@
 </style>
 
 <div class="container-toko mt-4">
-    <h1 class="text-title title-toko mb-4">Daftar Toko</h1>
+    <h1 class="text-title mb-4">Daftar Toko</h1>
 
     @if(session('success'))
     <script>
@@ -497,12 +497,13 @@
     </div>
 
     <!-- Modal untuk menambah toko -->
-    <div class="modal fade" id="tokoModal" tabindex="-1" aria-labelledby="tokoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+    <div class="modal fade" id="tokoModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+    aria-labelledby="tokoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="tokoModalLabel">Tambah Toko</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form id="tokoForm" action="{{ route('toko.store') }}" method="POST">
                     @csrf
@@ -525,8 +526,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button type="submit" class="custom-button">Simpan</button>
                     </div>
                 </form>
             </div>
@@ -535,12 +535,13 @@
 
 
     <!-- Modal untuk edit toko -->
-    <div class="modal fade" id="editTokoModal" tabindex="-1" aria-labelledby="editTokoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+    <div class="modal fade" id="editTokoModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+    aria-labelledby="editTokoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="editTokoModalLabel">Edit Toko</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form id="editTokoForm" method="POST">
                     @csrf
@@ -564,8 +565,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="custom-button">Update</button>
                     </div>
                 </form>
             </div>
@@ -574,9 +574,9 @@
 
 
     <!-- Modal Konfirmasi Hapus -->
-    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+    <div class="modal fade" id="confirmDeleteModal" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" 
+    tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header-toko">
                     <h5 class="modal-title" id="deleteModalLabel{{ $toko->id }}">Hapus Toko
@@ -585,16 +585,15 @@
                         aria-label="Close"></button>
                 </div>
                 <div class="modal-body-toko">
-                    <p>Apakah Anda yakin ingin menghapus toko
-                        <strong>{{ $toko->nama_toko }}</strong> ini?
+                    <p>Apakah Anda yakin ingin menghapus toko ini?
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <form action="deleteForm" method="POST">
+                    <form action="{{ route('toko.destroy', $toko->id) }}" method="POST" >
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn-custom-danger">Hapus</button>
-                    </form>
+                        <button type="submit" class="btn-custom-danger" data-id="{{ $toko->id }}">Hapus</button>
+                    </form>                  
                 </div>
             </div>
         </div>
