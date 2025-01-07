@@ -218,7 +218,6 @@
         font-size: 12px;
     }
 }
-
 </style>
 <div class="container-checkout {{ $orders->isEmpty() ? 'empty-content' : '' }}">
     <h2 class="my-4 text-title">Checkout Pembayaran</h2>
@@ -226,7 +225,7 @@
     @if($orders->isEmpty())
     <div class="alert alert-info">Tidak ada pesanan yang perlu dibayar.</div>
     @else
-    <form action="{{ route('payment.process') }}" method="POST">
+    <form action="{{ route('payment.process') }}" method="POST" id="paymentForm">
         @csrf
 
         <div class="row">
@@ -365,17 +364,5 @@ document.addEventListener('DOMContentLoaded', function () {
     updateTotalTagihan(); // Inisialisasi awal
 });
 
-    // Event ketika form di-submit
-    form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Mencegah form dikirim langsung
-
-        // Tampilkan SweetAlert2 untuk konfirmasi berhasil
-        Swal.fire({
-            title: 'Konfirmasi Berhasil!',
-            text: 'Pembayaran Anda telah berhasil dikonfirmasi.',
-            icon: 'success',
-            confirmButtonText: 'OK'
-        });
-    });
 </script>
 @endsection
