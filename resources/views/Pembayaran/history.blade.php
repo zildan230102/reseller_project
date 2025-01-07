@@ -205,6 +205,10 @@ dd div {
     }
     .modal-pembayaran {
         padding: 1rem 2rem 0.5rem 2rem;
+        font-size: 14px;
+        max-height: calc(50vh - 320px) !important;
+        min-height: calc(45vh);
+        overflow-y: auto;
     }
     .modal-body dl dt {
         flex: 0 0 40%; 
