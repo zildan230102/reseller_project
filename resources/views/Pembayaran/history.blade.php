@@ -326,7 +326,7 @@ dd div {
                                         <div class="modal-content">
                                             <div class="modal-header modal-pembayaran-header">
                                                 <h5 class="modal-title" id="detailModalLabel_{{ $payment->id }}">Detail Pembayaran</h5>
-                                                <button type="button" class="btn-close btn-modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <button type="button" class="btn-close btn-modal-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body modal-pembayaran">
                                                 <dl class="row">
