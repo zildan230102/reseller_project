@@ -389,5 +389,30 @@ document.addEventListener('DOMContentLoaded', function () {
     updateTotalTagihan(); // Inisialisasi awal
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('DOM Loaded');
+    const form = document.getElementById('paymentForm');
+    if (form) {
+        console.log('Form ditemukan');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); // Cegah pengiriman form otomatis
+            console.log('Submit event tertangkap');
+                    
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: 'Pembayaran Anda berhasil dikonfirmasi, dan dipindahkan ke halaman riwayat pembayaran.',
+                showConfirmButton: false,
+                timer: 3000,
+                customClass: {
+                    popup: 'sweetalert',
+                    confirmButton: 'buttonallert'
+                }
+            }).then(() => {
+                form.submit();
+            });
+        });
+    }
+});
 </script>
 @endsection

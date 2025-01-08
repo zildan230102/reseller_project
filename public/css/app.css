@@ -1122,6 +1122,7 @@ h2.h3.h5 {
   .sweetalert {
     max-width: 300px;
     font-size: 12px;
+    padding-bottom: 30px;
   }
 
   .card-profile {
