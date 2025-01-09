@@ -70,6 +70,10 @@ public function getKelurahan(Request $request)
     // Menyimpan order baru ke database
     public function store(Request $request)
     {
+        // Debug untuk memeriksa input yang diterima
+        // dd($request->all());
+    
+        // Validasi data input
         $request->validate([
             'tanggal' => 'required|date',
             'no_hp' => 'required|string',
@@ -91,24 +95,47 @@ public function getKelurahan(Request $request)
             'bukus.*.id' => 'required|exists:bukus,id', // Validasi untuk setiap buku
             'bukus.*.jumlah' => 'required|numeric|min:1', // Jumlah minimal 1
         ]);
-
+    
+        // Ambil nama lokasi berdasarkan ID
+        $provinceName = Province::find($request->provinsi)->name;
+        $regencyName = Regency::find($request->kota)->name;
+        $districtName = District::find($request->kecamatan)->name;
+        $villageName = Village::find($request->kelurahan)->name;
+    
         // Periksa apakah toko yang dipilih aktif
         $toko = Toko::find($request->toko_id);
         if (!$toko || !$toko->is_active) {
             return redirect()->back()->withErrors(['toko_id' => 'Toko yang dipilih tidak aktif.']);
         }
-
-        // Simpan order
-        $order = Order::create($request->except('bukus')); // Simpan order tanpa data buku
-
+    
+        // Buat data order
+        $order = new Order();
+        $order->tanggal = $request->tanggal;
+        $order->no_hp = $request->no_hp;
+        $order->kode_booking = $request->kode_booking;
+        $order->toko_id = $request->toko_id;
+        $order->ekspedisi_id = $request->ekspedisi_id;
+        $order->asal_penjualan = $request->asal_penjualan;
+        $order->penerima = $request->penerima;
+        $order->no_hp_penerima = $request->no_hp_penerima;
+        $order->alamat_kirim = $request->alamat_kirim;
+        $order->provinsi = $provinceName; // Simpan nama provinsi
+        $order->kota = $regencyName;      // Simpan nama kota/kabupaten
+        $order->kecamatan = $districtName; // Simpan nama kecamatan
+        $order->kelurahan = $villageName; // Simpan nama kelurahan
+        $order->catatan = $request->catatan;
+        $order->total_berat = $request->total_berat;
+        $order->grand_total = $request->grand_total;
+        $order->save(); // Simpan order
+    
         // Simpan data buku ke tabel pivot
         foreach ($request->bukus as $buku) {
             $order->bukus()->attach($buku['id'], ['jumlah' => $buku['jumlah']]);
         }
-
+    
         return redirect()->route('orders.index')->with('success', 'Order berhasil ditambahkan!');
     }
-
+    
     // Menampilkan form untuk mengedit order yang sudah ada
     public function edit(Order $order)
     {

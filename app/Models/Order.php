@@ -136,7 +136,7 @@ class Order extends Model
      */
     public function village()
     {
-        return $this->belongsTo(Village::class);
+        return $this->belongsTo(Village::class, 'kelurahan');
     }
 
     /**
@@ -144,7 +144,7 @@ class Order extends Model
      */
     public function district()
     {
-        return $this->belongsTo(District::class);
+        return $this->belongsTo(District::class, 'kecamatan');
     }
 
     /**
@@ -152,7 +152,7 @@ class Order extends Model
      */
     public function regency()
     {
-        return $this->belongsTo(Regency::class);
+        return $this->belongsTo(Regency::class, 'kota');
     }
 
     /**
@@ -160,7 +160,7 @@ class Order extends Model
      */
     public function province()
     {
-        return $this->belongsTo(Province::class);
+        return $this->belongsTo(Province::class, 'provinsi');
     }
 
     /**

@@ -589,11 +589,13 @@
                     </p>
                 </div>
                 <div class="modal-footer">
+                @foreach ($tokos as $toko)
                     <form action="{{ route('toko.destroy', $toko->id) }}" method="POST" >
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn-custom-danger" data-id="{{ $toko->id }}">Hapus</button>
-                    </form>                  
+                    </form>   
+                    @endforeach               
                 </div>
             </div>
         </div>
