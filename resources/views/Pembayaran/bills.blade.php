@@ -325,32 +325,6 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-            console.log('DOM Loaded');
-            const form = document.getElementById('paymentForm');
-            if (form) {
-                console.log('Form ditemukan');
-                form.addEventListener('submit', function (e) {
-                    e.preventDefault(); // Cegah pengiriman form otomatis
-                    console.log('Submit event tertangkap');
-                    
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Berhasil!',
-                        text: 'Pembayaran Anda berhasil dikonfirmasi, dan dipindahkan ke halaman riwayat pembayaran.',
-                        showConfirmButton: false,
-                        timer: 3000,
-                        customClass: {
-                            popup: 'sweetalert',
-                            confirmButton: 'buttonallert'
-                        }
-                    }).then(() => {
-                        form.submit();
-                    });
-                });
-            }
-        });
-
-document.addEventListener('DOMContentLoaded', function () {
     const checkboxes = document.querySelectorAll('.order-checkbox');
     const totalTagihanElement = document.getElementById('totalTagihan');
     const payButton = document.getElementById('payButton');

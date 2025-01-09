@@ -132,6 +132,19 @@
     border-top: 2px solid #ddd;
     padding: 1rem 1.5rem 1rem 1.5rem;
 }
+.new-toko-row {
+    background-color: #d1e7dd; 
+    animation: fadeOut 30s forwards; 
+}
+
+@keyframes fadeOut {
+    0% {
+        background-color: #ffe1b4f6;
+    }
+    100% {
+        background-color: transparent;
+    }
+}
 
 @media (min-width: 320px) and (max-width: 599px) {
     .container-toko {
@@ -396,16 +409,17 @@
 
     @if(session('success'))
     <script>
-    Swal.fire({
-        icon: 'success',
-        title: 'Berhasil!',
-        text: '{{ session( "success" ) }}',
-        confirmButtonText: 'OK',
-        customClass: {
-            popup: 'sweetalert',
-            confirmButton: 'buttonallert'
-        }
-    });
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil!',
+            text: '{{ session("success") }}',
+            timer: 3000, 
+            showConfirmButton: false,
+            customClass: {
+                popup: 'sweetalert',
+                confirmButton: 'buttonallert'
+            }
+        });
     </script>
     @endif
 
@@ -434,7 +448,7 @@
                     </thead>
                     <tbody>
                         @forelse($tokos as $toko)
-                        <tr>
+                        <tr class="{{ session('new_toko_id') == $toko->id ? 'new-toko-row' : '' }}">
                             <td>{{ $toko->nama_toko }}</td>
                             <td>{{ $toko->marketplace }}</td>
                             <td class="text-center">
@@ -619,20 +633,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.addEventListener('DOMContentLoaded', function () {
-    const deleteModal = document.getElementById('confirmDeleteModal');
-    deleteModal.addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget; // Tombol yang memicu modal
-        const id = button.getAttribute('data-id');
-        const nama = button.getAttribute('data-nama');
+        const deleteModal = document.getElementById('confirmDeleteModal');
+        deleteModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget; // Tombol yang memicu modal
+            const id = button.getAttribute('data-id');
+            const nama = button.getAttribute('data-nama');
 
-        // Set nama toko dalam modal
-        document.getElementById('deleteTokoName').textContent = nama;
+            // Set nama toko dalam modal
+            document.getElementById('deleteTokoName').textContent = nama;
 
-        // Update form action
-        const form = document.getElementById('deleteForm');
-        form.action = `/toko/${id}`;
+            // Update form action
+            const form = document.getElementById('deleteForm');
+            form.action = `/toko/${id}`;
+        });
     });
-});
 
     // Form Submission for Adding Toko
     const tokoForm = document.getElementById('tokoForm');
@@ -653,6 +667,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const toast = new bootstrap.Toast(document.querySelector('.toast-success'));
         toast.show();
     }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const newRow = document.querySelector('.new-toko-row');
+        if (newRow) {
+            setTimeout(() => {
+                newRow.classList.remove('new-toko-row');
+            }, 10000);
+        }
+    });
 });
 </script>
 
