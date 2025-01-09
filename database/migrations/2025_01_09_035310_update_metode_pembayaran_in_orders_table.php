@@ -12,17 +12,16 @@ return new class extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->string('status')->default('pending');  // Status default adalah 'pending'
+            // Menambahkan kolom 'metode_pembayaran'
+            $table->string('metode_pembayaran')->nullable()->after('grand_total');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->dropColumn('status');  // Menghapus kolom status saat rollback
+            // Menghapus kolom 'metode_pembayaran'
+            $table->dropColumn('metode_pembayaran');
         });
     }
 };
