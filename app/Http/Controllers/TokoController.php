@@ -28,8 +28,14 @@ class TokoController extends Controller
         ]);
 
         try {
-            Toko::create($request->all());
-            return redirect()->route('toko.index')->with('success', 'Toko berhasil ditambahkan.');
+            // Buat toko baru dan simpan instance-nya ke dalam variabel
+            $toko = Toko::create($request->all());
+            
+            // Redirect dengan session ID toko yang baru ditambahkan
+            return redirect()->route('toko.index')->with([
+                'success' => 'Toko berhasil ditambahkan.',
+                'new_toko_id' => $toko->id, // Tambahkan ID toko ke dalam session
+            ]);
         } catch (\Exception $e) {
             return redirect()->route('toko.index')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
