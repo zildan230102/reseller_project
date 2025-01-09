@@ -424,8 +424,8 @@
 
                             <!-- Kabupaten -->
                             <div class="col-sm-12 col-md-6 mb-3">
-                                <label for="kabupaten" class="form-label">Kabupaten/Kota</label>
-                                <select class="form-control" id="kabupaten" name="kabupaten" required>
+                                <label for="kota" class="form-label">Kabupaten/Kota</label>
+                                <select class="form-control" id="kota" name="kota" required>
                                     <option value="">Pilih Kabupaten</option>
                                 </select>
                             </div>
@@ -763,8 +763,8 @@
 
                                 <!-- Kabupaten -->
                                 <div class="col-sm-12 col-md-6 mb-3">
-                                    <label for="kabupaten" class="form-label">Kabupaten/Kota</label>
-                                    <select class="form-control" id="kabupaten" name="kabupaten" required>
+                                    <label for="kota" class="form-label">Kabupaten/Kota</label>
+                                    <select class="form-control" id="kota" name="kota" required>
                                         <option value="">Pilih Kabupaten</option>
                                     </select>
                                 </div>

@@ -38,9 +38,9 @@ class OrderController extends Controller
 
     public function getKabupaten(Request $request)
 {
-    $kabupaten = Regency::where('province_id', $request->id_provinsi)->get();
+    $kota = Regency::where('province_id', $request->id_provinsi)->get();
     $options = '<option value="" disabled selected>Pilih Kabupaten</option>';
-    foreach ($kabupaten as $data) {
+    foreach ($kota as $data) {
         $options .= '<option value="' . $data->id . '">' . $data->name . '</option>';
     }
     return response()->json($options);
@@ -82,7 +82,7 @@ public function getKelurahan(Request $request)
             'alamat_kirim' => 'required|string',
             'kelurahan' => 'required|exists:villages,id',
             'kecamatan' => 'required|exists:districts,id',
-            'kabupaten' => 'required|exists:regencies,id',
+            'kota' => 'required|exists:regencies,id',
             'provinsi' => 'required|exists:provinces,id',
             'catatan' => 'nullable|string',
             'total_berat' => 'required|numeric',
@@ -152,7 +152,7 @@ public function getKelurahan(Request $request)
             'alamat_kirim' => 'required|string',
             'kelurahan' => 'required|exists:villages,id',
             'kecamatan' => 'required|exists:districts,id',
-            'kabupaten' => 'required|exists:regencies,id',
+            'kota' => 'required|exists:regencies,id',
             'provinsi' => 'required|exists:provinces,id',
             'catatan' => 'nullable|string',
             'total_berat' => 'required|numeric',

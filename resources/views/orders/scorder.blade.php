@@ -17,7 +17,7 @@ $(function() {
                 id_provinsi: id_provinsi
             },
             success: function(response) {
-                $('#kabupaten').html(
+                $('#kota').html(
                 response); // Isi dropdown kabupaten dengan data yang diterima
                 $('#kecamatan').html(
                     '<option value="" disabled selected>Pilih Kecamatan</option>'
@@ -33,7 +33,7 @@ $(function() {
     });
 
     // Saat Kabupaten diubah
-    $('#kabupaten').on('change', function() {
+    $('#kota').on('change', function() {
         let id_kabupaten = $(this).val();
         $.ajax({
             type: 'POST',

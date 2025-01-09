@@ -22,10 +22,6 @@ class Order extends Model
         'penerima',
         'no_hp_penerima',
         'alamat_kirim',
-        'village_id',
-        'district_id',
-        'regency_id',
-        'province_id',
         'catatan',
         'total_berat',
         'grand_total',
@@ -34,6 +30,10 @@ class Order extends Model
         'status',
         'metode_pembayaran',
         'tanggal_pembayaran',
+        'kecamatan',
+        'kota',
+        'kelurahan',
+        'provinsi',
     ];
 
     /**
