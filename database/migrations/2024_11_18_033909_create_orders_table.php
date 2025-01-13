@@ -24,7 +24,7 @@ class CreateOrdersTable extends Migration
             $table->text('catatan')->nullable(); // Catatan (opsional)
             $table->decimal('total_berat', 8, 2); // Total berat dalam satuan kg
             $table->decimal('grand_total', 10, 2); // Total harga
-            $table->string('metode_pembayaran'); // Metode pembayaran
+            $table->string('metode_pembayaran')->default('Belum Ditentukan'); // Metode pembayaran
             $table->timestamp('tanggal_pembayaran')->nullable(); // Tanggal pembayaran (opsional)
             $table->string('no_invoice')->unique(); // Nomor invoice yang unik
             $table->string('kode_booking')->nullable(); // Kode booking (opsional)
@@ -35,9 +35,11 @@ class CreateOrdersTable extends Migration
 
             // Foreign key toko_id
             $table->foreign('toko_id')->references('id')->on('tokos')->onDelete('cascade');
+            $table->index('toko_id'); // Index untuk performa
 
             // Foreign key ekspedisi_id
             $table->foreign('ekspedisi_id')->references('id')->on('ekspedisis')->onDelete('cascade');
+            $table->index('ekspedisi_id'); // Index untuk performa
         });
     }
 
