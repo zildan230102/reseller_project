@@ -30,6 +30,7 @@ class BukuController extends Controller
     {
         // Validasi input untuk menambah buku
         $this->validateRequest($request);
+        // dd($request);
 
         // Simpan data buku ke database
         Buku::create($this->prepareData($request));
@@ -73,7 +74,7 @@ class BukuController extends Controller
             'judul_buku' => 'required|string|max:255',
             'nama_penulis' => 'required|string|max:255',
             'kategori_id' => 'required|exists:kategoris,id',
-            'isbn' => 'required|string|max:13|unique:bukus,isbn,' . $id, // Menghindari validasi ISBN yang sama saat update
+            'isbn' => 'required|string|max:13|unique:bukus,isbn', // Menghindari validasi ISBN yang sama saat update
             'tahun_terbit' => 'required|integer|digits:4',  // Validasi tahun harus 4 digit
             'ukuran_id' => 'required|exists:ukurans,id',
             'halaman' => 'required|integer|min:1',
