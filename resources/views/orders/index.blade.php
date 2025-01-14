@@ -344,7 +344,7 @@
                             </div>
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="no_hp" class="form-label">No HP Pengirim</label>
-                                <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Masukkan no HP pengirim" required>
+                                <input type="text" class="form-control" id="no_hp" name="no_hp" required>
                                 @error('no_hp')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
@@ -367,7 +367,7 @@
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="asal_penjualan" class="form-label">Marketplace</label>
                                 <input type="text" class="form-control" id="asal_penjualan" name="asal_penjualan"
-                                    placeholder="Masukkan asal penjualan" readonly>
+                                    readonly>
                             </div>
                         </div>
 
@@ -383,7 +383,7 @@
                             </div>
                             <div class="col-sm-12 col-md-6 mb-3">
                                 <label for="kode_booking" class="form-label">Kode Booking</label>
-                                <input type="text" class="form-control" id="kode_booking" name="kode_booking" placeholder="Masukkan kode booking" required>
+                                <input type="text" class="form-control" id="kode_booking" name="kode_booking" required>
                             </div>
                         </div>
 
@@ -397,17 +397,17 @@
                     <div class="tab-pane fade" id="shipping-info" role="tabpanel" aria-labelledby="shipping-info-tab">
                         <div class="mb-3">
                             <label for="penerima" class="form-label">Nama Penerima</label>
-                            <input type="text" class="form-control" id="penerima" name="penerima" placeholder="Masukkan nama penerima" required>
+                            <input type="text" class="form-control" id="penerima" name="penerima" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="no_hp_penerima" class="form-label">No HP Penerima</label>
-                            <input type="text" class="form-control" id="no_hp_penerima" name="no_hp_penerima" placeholder="Masukkan no HP penerima" required>
+                            <input type="text" class="form-control" id="no_hp_penerima" name="no_hp_penerima" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="alamat_kirim" class="form-label">Alamat Pengiriman</label>
-                            <textarea class="form-control" id="alamat_kirim" name="alamat_kirim" placeholder="Masukkan alamat kirim" required></textarea>
+                            <textarea class="form-control" id="alamat_kirim" name="alamat_kirim" required></textarea>
                         </div>
 
                         <div class="row">
@@ -479,7 +479,7 @@
                                     </div>
                                     <div class="col-md-5">
                                         <input type="number" name="bukus[0][jumlah]" class="form-control jumlah-input"
-                                            placeholder="Masukkan jumlah" required>
+                                            placeholder="Jumlah" required>
                                     </div>
                                     <div class="col-md-1 d-flex justify-content-between text-end">
                                         <i class="bi bi-plus-circle text-primary fs-4 cursor-pointer add-buku"
@@ -491,7 +491,7 @@
 
                         <div class="mb-3">
                             <label for="catatan" class="form-label">Catatan</label>
-                            <textarea class="form-control" id="catatan" name="catatan" placeholder="Tambahkan catatan" ></textarea>
+                            <textarea class="form-control" id="catatan" name="catatan"></textarea>
                         </div>
 
                         <div class="mb-3">
@@ -786,6 +786,13 @@
                                         <option value="">Pilih Kelurahan</option>
                                     </select>
                                 </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between">
+                                <button type="button" class="custom-button"
+                                    onclick="tabSebelumnya('order-info-tab')">Sebelumnya</button>
+                                <button type="button" class="custom-button"
+                                    onclick="tabSelanjutnya('payment-notes-tab')">Selanjutnya</button>
                             </div>
                         </div>
 

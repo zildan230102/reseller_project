@@ -463,17 +463,18 @@ select.form-select option {
     <!-- Menampilkan Flash Message -->
     @if(session('success'))
     <script>
-    Swal.fire({
-        icon: 'success',
-        title: 'Berhasil!',
-        text: '{{ session("success") }}',
-        confirmButtonText: 'OK',
-        customClass: {
-            popup: 'sweetalert',
-            confirmButton: 'buttonallert'
-        }
-    });
-    </script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: '{{ session("success") }}',
+                timer: 3000, 
+                showConfirmButton: false,
+                customClass: {
+                    popup: 'sweetalert',
+                    confirmButton: 'buttonallert'
+                }
+            });
+        </script>
     @endif
 
     <div class="card-container">
@@ -870,17 +871,27 @@ select.form-select option {
                             </div>
                         </div>
 
-                        <div class="">
-                            <label for="harga" class="form-label"><b>Harga</b></label>
-                            <input type="number" class="form-control" name="harga" step="0.01" min="0"
-                                placeholder="Masukkan harga buku" required>
-                        </div>
+                    <div class="">
+                        <label for="harga" class="form-label"><b>Harga</b></label>
+                        <input type="number" class="form-control" name="harga" step="0.01" min="0" placeholder="Masukkan harga buku" required>
                     </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="custom-button">Simpan</button>
-                    </div>
-                </form>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="custom-button">Simpan</button>
+                </div>
+            </form>
         </div>
     </div>
-    @endsection
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const newRow = document.querySelector('.new-toko-row');
+        if (newRow) {
+            setTimeout(() => {
+                newRow.classList.remove('new-toko-row');
+            }, 10000);
+        }
+    });
+</script>
+@endsection

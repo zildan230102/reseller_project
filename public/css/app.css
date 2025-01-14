@@ -3,7 +3,6 @@
   padding: 3rem 3rem 1rem;
 }
 
-/* Container */
 .container {
   padding-top: 80px;
 }
@@ -81,7 +80,6 @@
   width: 100%;
 }
 
-/* Header */
 .header {
   position: fixed;
   top: 0;
@@ -107,7 +105,6 @@
   text-align: center;
 }
 
-/* Dropdown */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -143,6 +140,21 @@
   margin-left: 8px;
 }
 
+.eye-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: #9c9c9c; 
+  cursor: pointer;
+}
+
+.eye-icon:hover {
+  color: #373737;
+}
+
 /* .dropdown-content a:hover {background-color: #f1f1f1;}
 
 .dropdown:hover .dropdown-content {display: block;}
@@ -176,7 +188,6 @@
   background-color: #f9f9f9;
 } */
 
-/* Button */
 .custom-button {
   background-color: #ff9800; 
   color: white;
@@ -293,6 +304,11 @@
   padding-bottom: 10px;
 }
 
+.btn-login:hover {
+  color: #f57c00;
+  border: 1px solid #f57c00;
+}
+
 .btn-primary {
   background-color: #f57c00;
   color: #ffff; 
@@ -325,7 +341,6 @@
   display: none;
 } */
 
-/* Modal*/
 .modal-backdrop {
   background-color: rgba(0, 0, 0, 0.5);
 }
@@ -456,7 +471,6 @@ tr.deactive {
   width: 60%;
 }
 
-/* Badge*/
 .badge-active {
   background-color: green; 
   color: white;           
@@ -471,7 +485,6 @@ tr.deactive {
   border-radius: 5px;    
 }
 
-/* Form*/
 .form-wrapper {
   max-width: 500px;
   padding: 20px;
@@ -484,7 +497,6 @@ tr.deactive {
   margin-bottom: 15px;
 }
 
-/* Chart */
 .chart { 
   padding: 0 20px;
 }
@@ -494,7 +506,6 @@ tr.deactive {
   height: auto;
 }
 
-/* Component */
 .buttonallert {
   background-color: #ff9800;
   box-shadow: none;
@@ -582,7 +593,6 @@ tr.deactive {
   background-color: #3A77FF;
 }
 
-/* Layout */
 .col-auto {
   padding-right: 10px; 
   padding: 20px 16px 16px 0px;
@@ -620,7 +630,6 @@ tr.deactive {
   max-width: 100%;
 }
 
-/* Typography */
 h2.h3.h5 {
   font-size: 1em; 
   margin-bottom: 1em;
@@ -660,7 +669,6 @@ h2.h3.h5 {
   margin-left: 60px;
 }
 
-/* Utilities */
 .rounded-circle {
   width: 150px !important;
   height: 150px !important;
@@ -1452,14 +1460,12 @@ h2.h3.h5 {
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
-/* Card Statistik */
   .col-xxl-4 {
-      flex: 1; /* Card statistik mengambil setengah ruang */
+      flex: 1;
       display: flex;
       flex-wrap: wrap;
   }
 
-/* Card Individual */
   .card-total {
     background-color: #ffffff;
     padding: 1rem;
