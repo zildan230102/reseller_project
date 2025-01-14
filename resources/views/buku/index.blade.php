@@ -883,4 +883,15 @@ select.form-select option {
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const newRow = document.querySelector('.new-toko-row');
+        if (newRow) {
+            setTimeout(() => {
+                newRow.classList.remove('new-toko-row');
+            }, 10000);
+        }
+    });
+</script>
 @endsection
