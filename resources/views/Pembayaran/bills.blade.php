@@ -308,6 +308,7 @@
                         <div class="form-group">
                             <label for="metode_pembayaran">Metode Pembayaran:</label>
                             <select name="metode_pembayaran" id="metode_pembayaran" class="form-select custom-dropdown" required>
+                            <option value="" disabled selected>Pilih metode pembayaran</option>
                                 <option value="cash">Cash</option>
                                 <option value="transfer">Transfer Bank</option>
                             </select>

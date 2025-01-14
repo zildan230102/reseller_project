@@ -132,15 +132,17 @@
     border-top: 2px solid #ddd;
     padding: 1rem 1.5rem 1rem 1.5rem;
 }
+
 .new-toko-row {
-    background-color: #d1e7dd; 
-    animation: fadeOut 30s forwards; 
+    background-color: #d1e7dd;
+    animation: fadeOut 30s forwards;
 }
 
 @keyframes fadeOut {
     0% {
         background-color: #ffe1b4f6;
     }
+
     100% {
         background-color: transparent;
     }
@@ -262,67 +264,84 @@
         padding-top: 80px;
         height: auto;
     }
+
     .card-container {
         padding: 0 20px 0 20px;
     }
+
     .text-title {
         text-align: center;
         font-size: 25px;
     }
+
     .custom-button-daftar {
         width: auto;
         font-size: 14px;
     }
+
     table {
         overflow-x: auto;
         font-size: 16px;
     }
+
     .modal-dialog {
         max-width: 480px;
         margin: 0 auto;
         margin-top: 1rem;
     }
+
     .modal-header-toko {
         padding: 1.25rem 2rem 1rem 2rem;
     }
+
     .modal-title {
         font-size: 18px;
     }
+
     .modal-footer {
         font-size: 12px;
         padding: 0.75rem 1rem 0.75rem 1rem;
     }
+
     .modal-body-toko {
         font-size: 14px;
         padding: 0.75rem 2rem 0.5rem 2rem;
     }
+
     .btn-modal-close {
         position: absolute;
         top: 1.5rem;
         right: 1.5rem;
         z-index: 1;
     }
+
     .button-add {
         padding: 1.2rem 1.5rem 1.2rem 0;
     }
+
     .form-group label {
         font-size: 16px;
     }
+
     .form-group input,
     .form-group select {
         font-size: 14px;
         padding: 8px;
     }
+
     .custom-button {
         font-size: 14px;
         padding: 10px 15px;
     }
+
     .d-flex.justify-content-end {
         justify-content: center;
     }
+
     .form-select option {
         font-size: 11px;
     }
+
     .aksi {
         font-size: 14px;
         left: auto;
@@ -337,64 +356,80 @@
         padding-top: 60px;
         height: auto;
     }
+
     .card-container {
         padding: 0 40px 0 40px;
     }
+
     .text-title {
         text-align: center;
         font-size: 25px;
     }
+
     .custom-button-daftar {
         width: auto;
         font-size: 14px;
     }
+
     table {
         overflow-x: auto;
         font-size: 16px;
     }
+
     .modal-dialog {
         max-width: 480px;
         margin: 0 auto;
         margin-top: 1rem;
     }
+
     .modal-header-toko {
         padding: 1.25rem 2rem 1rem 2rem;
     }
+
     .modal-title {
         font-size: 18px !important;
     }
+
     .modal-footer {
         font-size: 12px;
         padding: 0.75rem 1rem 0.75rem 1rem;
     }
+
     .modal-body-toko {
         font-size: 14px;
         padding: 0.75rem 2rem 0.5rem 2rem;
     }
+
     .btn-modal-close {
         position: absolute;
         top: 1.5rem;
         right: 1.5rem;
         z-index: 1;
     }
+
     .form-group label {
         font-size: 16px;
     }
+
     .form-group input,
     .form-group select {
         font-size: 14px;
         padding: 8px;
     }
+
     .custom-button {
         font-size: 14px;
         padding: 10px 15px;
     }
+
     .d-flex.justify-content-end {
         justify-content: center;
     }
+
     .form-select option {
         font-size: 11px;
     }
+
     .aksi {
         font-size: 14px;
         left: auto;
@@ -409,17 +444,17 @@
 
     @if(session('success'))
     <script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Berhasil!',
-            text: '{{ session("success") }}',
-            timer: 3000, 
-            showConfirmButton: false,
-            customClass: {
-                popup: 'sweetalert',
-                confirmButton: 'buttonallert'
-            }
-        });
+    Swal.fire({
+        icon: 'success',
+        title: 'Berhasil!',
+        text: '{{ session("success") }}',
+        timer: 3000,
+        showConfirmButton: false,
+        customClass: {
+            popup: 'sweetalert',
+            confirmButton: 'buttonallert'
+        }
+    });
     </script>
     @endif
 
@@ -437,6 +472,11 @@
                 </button>
             </div>
             <div class="card-body-toko">
+                @if ($tokos->isEmpty())
+                <div class="alert alert-info text-center" role="alert">
+                    <strong>Tidak ada data toko.</strong> Silakan tambahkan toko baru.
+                </div>
+                @else
                 <table class="table table-bordered ">
                     <thead class="thead text-center">
                         <tr>
@@ -499,36 +539,36 @@
                                 </div>
                             </td>
                         </tr>
-                        @empty
-                        <tr>
-                            <td colspan="5" class="text-center">Tidak ada data toko.</td>
-                        </tr>
-                        @endforelse
+                        @endforeach
                     </tbody>
                 </table>
+                @endif
             </div>
         </div>
     </div>
 
     <!-- Modal untuk menambah toko -->
-    <div class="modal fade" id="tokoModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
-    aria-labelledby="tokoModalLabel" aria-hidden="true">
+    <div class="modal fade" id="tokoModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+        role="dialog" aria-labelledby="tokoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header-toko">
                     <h5 class="modal-title" id="tokoModalLabel">Tambah Toko</h5>
-                    <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <form id="tokoForm" action="{{ route('toko.store') }}" method="POST">
                     @csrf
                     <div class="modal-body-toko">
                         <div class="mb-3">
                             <label for="nama_toko" class="form-label">Nama Toko</label>
-                            <input type="text" class="form-control" id="nama_toko" name="nama_toko" placeholder="Masukkan nama toko" required>
+                            <input type="text" class="form-control" id="nama_toko" name="nama_toko"
+                                placeholder="Masukkan nama toko" required>
                         </div>
                         <div class="mb-3">
                             <label for="marketplace" class="form-label">Marketplace</label>
-                            <input type="text" class="form-control" id="marketplace" name="marketplace" placeholder="Masukkan tempat penjualan" required>
+                            <input type="text" class="form-control" id="marketplace" name="marketplace"
+                                placeholder="Masukkan tempat penjualan" required>
                         </div>
                         <div class="mb-3">
                             <label for="is_active" class="form-label">Status</label>
@@ -549,13 +589,14 @@
 
 
     <!-- Modal untuk edit toko -->
-    <div class="modal fade" id="editTokoModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
-    aria-labelledby="editTokoModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editTokoModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+        role="dialog" aria-labelledby="editTokoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header-toko">
                     <h5 class="modal-title" id="editTokoModalLabel">Edit Toko</h5>
-                    <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <form id="editTokoForm" method="POST">
                     @csrf
@@ -588,8 +629,8 @@
 
 
     <!-- Modal Konfirmasi Hapus -->
-    <div class="modal fade" id="confirmDeleteModal" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" 
-    tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal fade" id="confirmDeleteModal" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+        tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header-toko">
@@ -603,13 +644,13 @@
                     </p>
                 </div>
                 <div class="modal-footer">
-                @foreach ($tokos as $toko)
-                    <form action="{{ route('toko.destroy', $toko->id) }}" method="POST" >
+                    @foreach ($tokos as $toko)
+                    <form action="{{ route('toko.destroy', $toko->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn-custom-danger" data-id="{{ $toko->id }}">Hapus</button>
-                    </form>   
-                    @endforeach               
+                    </form>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -634,9 +675,9 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('edit_is_active').value = isActive;
     });
 
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         const deleteModal = document.getElementById('confirmDeleteModal');
-        deleteModal.addEventListener('show.bs.modal', function (event) {
+        deleteModal.addEventListener('show.bs.modal', function(event) {
             const button = event.relatedTarget; // Tombol yang memicu modal
             const id = button.getAttribute('data-id');
             const nama = button.getAttribute('data-nama');
@@ -670,7 +711,7 @@ document.addEventListener('DOMContentLoaded', function() {
         toast.show();
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         const newRow = document.querySelector('.new-toko-row');
         if (newRow) {
             setTimeout(() => {
