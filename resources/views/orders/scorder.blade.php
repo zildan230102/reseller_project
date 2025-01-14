@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </select>
             </div>
             <div class="col-md-5">
-                <input type="number" name="bukus[${rowCount}][jumlah]" class="form-control jumlah-input" placeholder="Jumlah" required>
+                <input type="number" name="bukus[${rowCount}][jumlah]" class="form-control jumlah-input" placeholder="Masukkan jumlah" required>
             </div>
             <div class="col-md-1 d-flex justify-content-between text-end">
                 <i class="bi bi-dash-circle text-danger fs-4 cursor-pointer remove-buku" title="Hapus Buku"></i>
