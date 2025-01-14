@@ -24,9 +24,11 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="password" class="form-label">Password</label>
-                                        <input type="password"
-                                            class="form-control @error('password') is-invalid @enderror" id="password"
-                                            placeholder="Masukkan password" wire:model.defer="password">
+                                        <div class="position-relative">
+                                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password"
+                                                placeholder="Masukkan password" wire:model.defer="password">
+                                            <i class="bi bi-eye eye-icon" id="togglePassword"></i>
+                                        </div>
                                         @error('password')
                                         <div class="ivalid-feedback">
                                             {{ $message }}

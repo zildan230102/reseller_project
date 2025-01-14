@@ -277,3 +277,39 @@
 			});
 		});
 	</script>
+
+	<script>
+		// Toggle untuk field "Password"
+		document.getElementById("togglePassword").addEventListener("click", function () {
+			const passwordField = document.getElementById("password");
+			const eyeIcon = this;
+
+			// Toggle visibility
+			if (passwordField.type === "password") {
+				passwordField.type = "text"; // Ubah menjadi teks
+				eyeIcon.classList.remove("bi-eye"); // Ganti ikon
+				eyeIcon.classList.add("bi-eye-slash");
+			} else {
+				passwordField.type = "password"; // Ubah menjadi password
+				eyeIcon.classList.remove("bi-eye-slash");
+				eyeIcon.classList.add("bi-eye");
+			}
+		});
+
+		// Toggle untuk field "Konfirmasi Password"
+		document.getElementById("togglePasswordConfirmation").addEventListener("click", function () {
+			const passwordConfirmationField = document.getElementById("password_confirmation");
+			const eyeIcon = this;
+
+			// Toggle visibility
+			if (passwordConfirmationField.type === "password") {
+				passwordConfirmationField.type = "text"; // Ubah menjadi teks
+				eyeIcon.classList.remove("bi-eye"); // Ganti ikon
+				eyeIcon.classList.add("bi-eye-slash");
+			} else {
+				passwordConfirmationField.type = "password"; // Ubah menjadi password
+				eyeIcon.classList.remove("bi-eye-slash");
+				eyeIcon.classList.add("bi-eye");
+			}
+		});
+	</script>
