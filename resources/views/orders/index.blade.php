@@ -10,28 +10,23 @@
     margin: 70px auto auto auto;
     padding-top: 20px;
 }
-
 .container-card {
     max-width: 1200px;
     margin: 0 auto;
 }
-
 .card-header {
     position: relative;
     z-index: 1;
 }
-
 .card-body-order {
     padding: 1.5rem;
 }
-
 .table .dropdown-menu {
     min-width: auto;
     width: max-content;
     padding: 0.5rem;
     z-index: 1050;
 }
-
 .custom-dropdown-item {
     font-size: 1rem;
     display: flex;
@@ -43,47 +38,171 @@
     box-sizing: border-box;
     transition: background-color 0.2s ease;
 }
-
 .custom-dropdown-item:hover {
     background-color: #f0f0f0;
     color: #000;
     text-decoration: none;
 }
-
 .custom-dropdown-item i {
     margin-right: 8px;
     margin-left: 0;
 }
-
 .dropdown .btn-no-border {
     border: none;
     outline: none;
     box-shadow: none;
     padding: 0;
 }
-
+#orderTab .nav-item {
+    margin-right: 0px;
+}
 .nav-tabs .nav-link {
     color: #000000;
     border: 1px solid transparent;
 }
-
 .nav-tabs .nav-link.active {
     color: #FFA500;
 }
-
 .nav-tabs .nav-link:hover {
     color: #FFA500;
 }
-
 .text-title {
     font-size: 1.5rem;
+}
+.books-row {
+    display: flex;
+    flex-wrap: nowrap;
+}
+.books-row .form-select,
+.books-row .form-control {
+    flex: 1;
+    min-width: 0;
 }
 
 @media (min-width: 320px) and (max-width: 599px) {
     .container {
         padding: 0.5rem;
     }
+    .container-order {
+        padding: 20px 20px 0 20px;
+    }
+    .container-card {
+        padding: 0 20px 0 20px;
+    }
+    .card h3 {
+        font-size: 1.2rem;
+    }
+    .card-body-order,
+    .form-label {
+        font-size: 1rem;
+    }
+    .form-control {
+        font-size: 14px;
+    }
+    .form-control option {
+        font-size: 12px;
+    }
+    .nav-tabs .nav-item .nav-link {
+        font-size: 0.8rem;
+    }
+    .custom-button {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.8rem;
+    }
+    .btn-custom-danger {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+    }
+    .card-header {
+        padding: 15px 15px 0px 15px;
+    }
+    .order-title {
+        font-size: 1rem;
+    }
+    .text-title {
+        font-size: 18px;
+    }
+    .form-label {
+        font-size: 14px;
+    }
+    table {
+        overflow-x: auto;
+        font-size: 14px;
+    }
+    .custom-dropdown-item {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.5rem;
+    }
+    .table .dropdown-menu {
+        width: auto;
+        min-width: 120px;
+        max-width: 90px;
+    }
+    .modal-dialog {
+        max-width: 85%;
+        margin: 0 auto;
+    }
+    .modal-content {
+        padding: 10px;
+    }
+    .modal-header {
+        padding: 5px 10px 10px 10px;
+    }
+    .modal-body {
+        font-size: 12px;
+        padding: 15px 10px 15px 10px;
+    }
+    .modal-title {
+        font-size: 1.1rem !important;
+    }
+    .modal-footer {
+        padding: 5px 5px 0px 5px;
+    }
+    .form-select {
+        font-size: 14px;
+    }
+    .form-select option {
+        font-size: 11px;
+    }
+    .books-row .col-md-5 {
+        max-width: 75%;
+        margin-bottom: 5px;
+    }
+    .books-row .col-md-1 {
+        display: flex;
+        align-items: flex-end;
+    }
+    .text-end {
+        max-width: 20%;
+    }
+    .buku-row .col-md-1 {
+        display: flex;
+        align-items: flex-end;
+        gap: 5px;
+        margin-right: 5px;
+    }
+    .buku-row .col-md-5 {
+        max-width: 75%;
+    }
+    .text-start {
+        max-width: 20%;
+        justify-content: flex-start;
+    }
+    .table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        font-size: 14px;
+        overflow: visible;
+    }
+    .table th,
+    .table td {
+        font-size: 10px;
+        padding: 5px;
+    }
+}
 
+@media (min-width: 600px) and (max-width: 1180px) {
     .container-order {
         padding: 20px 20px 0 20px;
     }
@@ -92,188 +211,35 @@
         padding: 0 20px 0 20px;
     }
 
-    .card h3 {
-        font-size: 1.2rem;
+    .order-title {
+        font-size: 1.25rem;
     }
-
-    .card-body-order,
-    .form-label {
-        font-size: 1rem;
+    .table-responsive {
+        overflow: visible;
     }
-
-    .form-control {
-        font-size: 14px;
-    }
-
-    .form-control option {
-        font-size: 12px;
+    .table th,
+    .table td {
+        font-size: 0.9rem;
+        padding: 0.5rem;
     }
 
     .nav-tabs .nav-item .nav-link {
-        font-size: 0.8rem;
-        padding: 0.4rem;
+        padding: 10px;
     }
 
-    .custom-button {
-        font-size: 0.7rem;
-        padding: 0.4rem 0.8rem;
-    }
-
-    .btn-custom-danger {
-        font-size: 0.7rem;
+    .custom-dropdown-item {
+        font-size: 0.9rem;
         padding: 0.3rem 0.6rem;
     }
 
-    .card-header {
-        padding: 15px 15px 0px 15px;
+    .form-select option {
+        font-size: 10px;
     }
 
-
-    .order-title {
-        font-size: 1rem;
+    .buku-row .col-md-1 {
+        gap: 20px;
     }
-
-        .text-title {
-            font-size: 18px;
-
-        }
-
-        .form-label {
-            font-size: 14px;
-        }
-
-        table {
-            overflow-x: auto;
-            font-size: 14px;
-        }
-
-        .custom-dropdown-item {
-            font-size: 0.8rem;
-            padding: 0.2rem 0.5rem;
-        }
-      .table .dropdown-menu {
-
-                width: auto;
-                min-width: 120px;
-                max-width: 90px;
-            }
-
-            .modal-dialog {
-                max-width: 85%;
-                margin: 0 auto;
-            }
-
-            .modal-content {
-                padding: 10px;
-            }
-
-            .modal-header {
-                padding: 5px 10px 10px 10px;
-            }
-
-            .modal-body {
-                font-size: 12px;
-                padding: 15px 10px 15px 10px;
-            }
-
-            .modal-title {
-                font-size: 1.1rem !important;
-            }
-
-            .modal-footer {
-                padding: 5px 5px 0px 5px;
-            }
-
-            .form-select {
-                font-size: 14px;
-            }
-
-            .form-select option {
-                font-size: 11px;
-            }
-
-            .books-row .col-md-5 {
-                max-width: 75%;
-                margin-bottom: 5px;
-            }
-
-            .books-row .col-md-1 {
-                display: flex;
-                align-items: flex-end;
-            }
-
-            .text-end {
-                max-width: 20%;
-            }
-
-            .buku-row .col-md-1 {
-                display: flex;
-                align-items: flex-end;
-                gap: 5px;
-                margin-right: 5px;
-            }
-
-            .buku-row .col-md-5 {
-                margin-bottom: 5px;
-                max-width: 75%;
-            }
-
-            .text-start {
-                max-width: 20%;
-                justify-content: flex-start;
-            }
-
-            .table {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
-                font-size: 14px;
-                overflow: visible;
-            }
-
-            .table th,
-            .table td {
-                font-size: 10px;
-                padding: 5px;
-            }
-        }
-
-        @media (min-width: 600px) and (max-width: 1180px) {
-            .container-order {
-                padding: 20px 20px 0 20px;
-            }
-
-            .container-card {
-                padding: 0 20px 0 20px;
-            }
-
-            .order-title {
-                font-size: 1.25rem;
-            }
-
-            .table th,
-            .table td {
-                font-size: 0.9rem;
-                padding: 0.5rem;
-            }
-
-            .nav-tabs .nav-link {
-                padding: 10px;
-            }
-
-            .custom-dropdown-item {
-                font-size: 0.9rem;
-                padding: 0.3rem 0.6rem;
-            }
-
-            .form-select option {
-                font-size: 10px;
-            }
-
-            .buku-row .col-md-1 {
-                gap: 20px;
-            }
-        }
+}
 </style>
 <div class="container-order">
     <div class="card">
@@ -309,7 +275,7 @@
 
         <div class="card-body-order">
             <!-- Nav Tabs -->
-            <ul class="nav nav-tabs nav-fill mb-4 d-flex flex-nowrap overflow-auto" id="orderTab" role="tablist">
+            <ul class="nav nav-tabs nav-fill mb-4 d-flex flex-nowrap" id="orderTab" role="tablist">
                 <li class="nav-item flex-grow-1" role="presentation">
                     <button class="nav-link active text-center" id="order-info-tab" data-bs-toggle="tab"
                         data-bs-target="#order-info" type="button" role="tab" aria-controls="order-info"
@@ -463,26 +429,22 @@
                             <label for="bukus" class="form-label">Pilih Buku</label>
                             <div id="buku-container">
                                 <!-- Baris pertama (default) -->
-                                <div class="row align-items-center mb-2 books-row" id="buku-row-0">
-                                    <div class="col-md-5">
+                                <div class="row align-items-center books-row mb-2" id="buku-row-0">
+                                    <div class="col-7 col-sm-4 col-md-7">
                                         <select name="bukus[0][id]" class="form-select buku-select" required>
-                                            <option value="" data-berat="0" data-harga="0" disabled selected>Pilih Buku
-                                            </option>
+                                            <option value="" disabled selected>Pilih Buku</option>
                                             @foreach($bukus as $buku)
-                                            <option value="{{ $buku->id }}" data-berat="{{ $buku->berat }}"
-                                                data-harga="{{ $buku->harga }}">
+                                            <option value="{{ $buku->id }}" data-berat="{{ $buku->berat }}" data-harga="{{ $buku->harga }}">
                                                 {{ $buku->judul_buku }}
                                             </option>
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="col-md-5">
-                                        <input type="number" name="bukus[0][jumlah]" class="form-control jumlah-input"
-                                            placeholder="Jumlah" required>
+                                    <div class="col-3 col-sm-3 col-md-3">
+                                        <input type="number" name="bukus[0][jumlah]" class="form-control jumlah-input" placeholder="Jumlah" required>
                                     </div>
-                                    <div class="col-md-1 d-flex justify-content-between text-end">
-                                        <i class="bi bi-plus-circle text-primary fs-4 cursor-pointer add-buku"
-                                            title="Tambah Buku"></i>
+                                    <div class="col-2 col-md-1 d-flex">
+                                        <i class="bi bi-plus-circle text-primary fs-4 cursor-pointer add-buku" title="Tambah Buku"></i>
                                     </div>
                                 </div>
                             </div>
@@ -584,7 +546,6 @@
                                                 </a>
                                             </form>
                                         </li>
-                                        <!-- Tombol Konfirmasi -->
                                         <li>
                                             <form action="{{ route('order.confirm', $order->id) }}" method="POST">
                                                 @csrf
@@ -646,19 +607,18 @@
             <div class="modal-body">
                 <!-- Nav Tabs dalam Modal -->
 
-                <ul class="nav nav-tabs nav-fill mb-4 d-flex flex-nowrap overflow-auto"
-                    id="EditOrderTab{{ $order->id }}" role="tablist">
-                    <li class="nav-item flex-grow-1" role="presentation">
+                <ul class="nav nav-tabs nav-fill mb-4 d-flex flex-nowrap" id="EditOrderTab{{ $order->id }}" role="tablist">
+                    <li class="nav-item flex-grow-1 mr-0" style="margin" role="presentation">
                         <button class="nav-link active text-center" id="order-info-tab{{ $order->id }}"
                             data-bs-toggle="tab" data-bs-target="#order-info{{ $order->id }}" type="button" role="tab"
                             aria-controls="order-info" aria-selected="true">Informasi Order</button>
                     </li>
-                    <li class="nav-item flex-grow-1" role="presentation">
+                    <li class="nav-item flex-grow-1 mr-0" role="presentation">
                         <button class="nav-link text-center" id="shipping-info-tab{{ $order->id }}" data-bs-toggle="tab"
                             data-bs-target="#shipping-info{{ $order->id }}" type="button" role="tab"
                             aria-controls="shipping-info" aria-selected="false">Informasi Customer</button>
                     </li>
-                    <li class="nav-item flex-grow-1" role="presentation">
+                    <li class="nav-item flex-grow-1 mr-0" role="presentation">
                         <button class="nav-link text-center" id="payment-notes-tab{{ $order->id }}" data-bs-toggle="tab"
                             data-bs-target="#payment-notes{{ $order->id }}" type="button" role="tab"
                             aria-controls="payment-notes" aria-selected="false">Informasi Pembayaran</button>
@@ -805,9 +765,8 @@
                                     @foreach ($order->bukus as $index => $buku)
                                     <div class="row align-items-center mb-2 buku-row"
                                         id="buku-row-{{ $order->id }}-{{ $index }}">
-                                        <div class="col-7 col-md-5">
-                                            <select name="bukus[{{ $index }}][id]" class="form-select buku-select"
-                                                required>
+                                        <div class="col-7 col-sm-4 col-md-7">
+                                            <select name="bukus[{{ $index }}][id]" class="form-select buku-select" required>
                                                 <option value="">Pilih Buku</option>
                                                 @foreach ($bukus as $item)
                                                 <option value="{{ $item->id }}"
@@ -818,22 +777,23 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <div class="col-2 col-md-3">
-                                            <input type="text" name="bukus[{{ $index }}][jumlah]"
+                                        <div class="col-3 col-sm-3 col-md-3">
+                                            <input type="number" name="bukus[{{ $index }}][jumlah]"
                                                 class="form-control jumlah-input" value="{{ $buku->pivot->jumlah }}"
                                                 placeholder="Jumlah" required>
                                         </div>
-                                        <div class="col-3 col-md-2 d-flex justify-content-between">
+                                        <div class="col-1 d-flex">
+                                            @if ($index === 0)
                                             <i class="bi bi-plus-circle text-primary fs-4 cursor-pointer add-buku"
                                                 title="Tambah Buku" data-order-id="{{ $order->id }}"></i>
-                                            @if ($index > 0)
-                                            <i class="bi bi-trash text-danger fs-4 cursor-pointer remove-buku"
+                                            @else
+                                            <i class="bi bi-dash-circle text-danger fs-4 cursor-pointer remove-buku"
                                                 title="Hapus Buku"></i>
                                             @endif
                                         </div>
                                     </div>
                                     @endforeach
-                                </div>
+                                </div>                                
                             </div>
 
                             <div class="mt-3 mb-3">
@@ -865,6 +825,7 @@
         </div>
     </div>
 </div>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const newRow = document.querySelector('.new-toko-row');
@@ -875,6 +836,7 @@
         }
     });
 </script>
+
 @endforeach
 @include('orders.scorder')
 @endsection
