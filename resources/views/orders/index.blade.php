@@ -248,20 +248,19 @@
         </div>
 
         @if(session('success'))
-
-        <script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Berhasil!',
-            text: '{{ session("success") }}',
-            confirmButtonText: 'OK',
-            customClass: {
-                popup: 'sweetalert',
-                confirmButton: 'buttonallert'
-            }
-        });
-        </script>
-
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: '{{ session("success") }}',
+                    timer: 3000,
+                    showConfirmButton: false,
+                    customClass: {
+                        popup: 'sweetalert',
+                        confirmButton: 'buttonallert'
+                    }
+                });
+            </script>
         @endif
 
         @if ($errors->any())
@@ -826,6 +825,17 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const newRow = document.querySelector('.new-toko-row');
+        if (newRow) {
+            setTimeout(() => {
+                newRow.classList.remove('new-toko-row');
+            }, 10000);
+        }
+    });
+</script>
 
 @endforeach
 @include('orders.scorder')

@@ -408,19 +408,19 @@
     <h1 class="text-title mb-4">Daftar Toko</h1>
 
     @if(session('success'))
-    <script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Berhasil!',
-            text: '{{ session("success") }}',
-            timer: 3000, 
-            showConfirmButton: false,
-            customClass: {
-                popup: 'sweetalert',
-                confirmButton: 'buttonallert'
-            }
-        });
-    </script>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: '{{ session("success") }}',
+                timer: 3000,
+                showConfirmButton: false,
+                customClass: {
+                    popup: 'sweetalert',
+                    confirmButton: 'buttonallert'
+                }
+            });
+        </script>
     @endif
 
     @if (session('error'))
@@ -437,6 +437,11 @@
                 </button>
             </div>
             <div class="card-body-toko">
+                @if ($tokos->isEmpty())
+                <div class="alert alert-info text-center" role="alert">
+                    <strong>Tidak ada data toko.</strong> Silakan tambahkan toko baru.
+                </div>
+                @else
                 <table class="table table-bordered ">
                     <thead class="thead text-center">
                         <tr>
@@ -499,36 +504,36 @@
                                 </div>
                             </td>
                         </tr>
-                        @empty
-                        <tr>
-                            <td colspan="5" class="text-center">Tidak ada data toko.</td>
-                        </tr>
-                        @endforelse
+                        @endforeach
                     </tbody>
                 </table>
+                @endif
             </div>
         </div>
     </div>
 
     <!-- Modal untuk menambah toko -->
-    <div class="modal fade" id="tokoModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
-    aria-labelledby="tokoModalLabel" aria-hidden="true">
+    <div class="modal fade" id="tokoModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+        role="dialog" aria-labelledby="tokoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header-toko">
                     <h5 class="modal-title" id="tokoModalLabel">Tambah Toko</h5>
-                    <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <form id="tokoForm" action="{{ route('toko.store') }}" method="POST">
                     @csrf
                     <div class="modal-body-toko">
                         <div class="mb-3">
                             <label for="nama_toko" class="form-label">Nama Toko</label>
-                            <input type="text" class="form-control" id="nama_toko" name="nama_toko" placeholder="Masukkan nama toko" required>
+                            <input type="text" class="form-control" id="nama_toko" name="nama_toko"
+                                placeholder="Masukkan nama toko" required>
                         </div>
                         <div class="mb-3">
                             <label for="marketplace" class="form-label">Marketplace</label>
-                            <input type="text" class="form-control" id="marketplace" name="marketplace" placeholder="Masukkan tempat penjualan" required>
+                            <input type="text" class="form-control" id="marketplace" name="marketplace"
+                                placeholder="Masukkan tempat penjualan" required>
                         </div>
                         <div class="mb-3">
                             <label for="is_active" class="form-label">Status</label>
@@ -549,13 +554,14 @@
 
 
     <!-- Modal untuk edit toko -->
-    <div class="modal fade" id="editTokoModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
-    aria-labelledby="editTokoModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editTokoModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+        role="dialog" aria-labelledby="editTokoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header-toko">
                     <h5 class="modal-title" id="editTokoModalLabel">Edit Toko</h5>
-                    <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close shadow-none btn-modal-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <form id="editTokoForm" method="POST">
                     @csrf
@@ -588,8 +594,8 @@
 
 
     <!-- Modal Konfirmasi Hapus -->
-    <div class="modal fade" id="confirmDeleteModal" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" 
-    tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal fade" id="confirmDeleteModal" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+        tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header-toko">
@@ -603,13 +609,13 @@
                     </p>
                 </div>
                 <div class="modal-footer">
-                @foreach ($tokos as $toko)
-                    <form action="{{ route('toko.destroy', $toko->id) }}" method="POST" >
+                    @foreach ($tokos as $toko)
+                    <form action="{{ route('toko.destroy', $toko->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn-custom-danger" data-id="{{ $toko->id }}">Hapus</button>
-                    </form>   
-                    @endforeach               
+                    </form>
+                    @endforeach
                 </div>
             </div>
         </div>

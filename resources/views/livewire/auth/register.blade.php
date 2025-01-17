@@ -1,3 +1,5 @@
+@section('title', 'Registrasi Akun')
+
 <div>
     <div class="container-register d-flex flex-column">
         <div class="row vh-100">
@@ -35,9 +37,11 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="password" class="form-label">Password</label>
-                                        <input type="password"
-                                            class="form-control @error('password') is-invalid @enderror" id="password"
-                                            placeholder="Masukkan password"  wire:model.defer="password">
+                                        <div class="position-relative">
+                                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password"
+                                                placeholder="Masukkan password" wire:model.defer="password">
+                                            <i class="bi bi-eye eye-icon" id="togglePassword"></i>
+                                        </div>
                                         @error('password')
                                         <div class="ivalid-feedback">
                                             {{ $message }}
@@ -45,10 +49,12 @@
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="password_confirmation" class="form-label">Konfirmasi
-                                            Password</label>
-                                        <input type="password" class="form-control" id="password_confirmation"
-                                            placeholder="Masukkan ulang password" wire:model.defer="password_confirmation">
+                                        <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
+                                        <div class="position-relative">
+                                            <input type="password" class="form-control" id="password_confirmation"
+                                                placeholder="Masukkan ulang password" wire:model.defer="password_confirmation">
+                                            <i class="bi bi-eye eye-icon" id="togglePasswordConfirmation"></i>
+                                        </div>
                                     </div>
                                     <button type="submit" class="btn btn-login">Daftar</button>
                                 </form>
