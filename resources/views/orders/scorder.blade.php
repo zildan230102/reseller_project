@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
         newRow.classList.add('row', 'align-items-center', 'mb-2', 'books-row');
         newRow.id = `buku-row-${rowCount}`;
         newRow.innerHTML = `
-            <div class="col-md-5">
+            <div class="col-7 col-sm-4 col-md-7">
                 <select name="bukus[${rowCount}][id]" class="form-select buku-select" required>
                     <option value="" data-berat="0" data-harga="0" disabled selected>Pilih Buku</option>
                     @foreach($bukus as $buku)
@@ -127,10 +127,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     @endforeach
                 </select>
             </div>
-            <div class="col-md-5">
+            <div class="col-3 col-sm-3 col-md-3">
                 <input type="number" name="bukus[${rowCount}][jumlah]" class="form-control jumlah-input" placeholder="Jumlah" required>
             </div>
-            <div class="col-md-1 d-flex justify-content-between text-end">
+            <div class="col-1 d-flex">
                 <i class="bi bi-dash-circle text-danger fs-4 cursor-pointer remove-buku" title="Hapus Buku"></i>
             </div>
         `;
@@ -276,42 +276,78 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const bukuContainerSelector = '#buku-container-';
 
-    // Tambahkan event listener untuk klik tombol tambah buku
-    document.body.addEventListener('click', function(e) {
+    // Tambahkan event listener untuk tombol tambah buku
+    document.body.addEventListener('click', function (e) {
         if (e.target.classList.contains('add-buku')) {
             const orderId = e.target.dataset.orderId;
             const container = document.querySelector(`${bukuContainerSelector}${orderId}`);
-            const bukus = container.querySelector('.buku-select').innerHTML; // Copy opsi buku
+            const bukus = container.querySelector('.buku-select').innerHTML; // Salin opsi buku
             const nextIndex = container.querySelectorAll('.buku-row').length; // Hitung jumlah baris
             const newRow = document.createElement('div');
             newRow.classList.add('row', 'align-items-center', 'mb-2', 'buku-row');
             newRow.innerHTML = `
-                <div class="col-md-5">
+                <div class="col-7 col-sm-4 col-md-7">
                     <select name="bukus[${nextIndex}][id]" class="form-select buku-select" required>
                         ${bukus}
                     </select>
                 </div>
-                <div class="col-md-5">
+                <div class="col-3 col-sm-3 col-md-3">
                     <input type="number" name="bukus[${nextIndex}][jumlah]" class="form-control jumlah-input" placeholder="Jumlah" required>
                 </div>
-                <div class="col-md-1 d-flex justify-content-between">
-                    <i class="bi bi-plus-circle text-primary fs-4 cursor-pointer add-buku" title="Tambah Buku" data-order-id="${orderId}"></i>
-                    <i class="bi bi-trash text-danger fs-4 cursor-pointer remove-buku" title="Hapus Buku"></i>
+                <div class="col-1 d-flex">
+                    <i class="bi bi-dash-circle text-danger fs-4 cursor-pointer remove-buku" title="Hapus Buku"></i>
                 </div>
             `;
             container.appendChild(newRow);
+
+            // Pastikan ikon tambah hanya ada di baris terakhir
+            updateAddAndRemoveIcons(container);
         }
     });
 
-    // Tambahkan event listener untuk klik tombol hapus buku
-    document.body.addEventListener('click', function(e) {
+    // Tambahkan event listener untuk tombol hapus buku
+    document.body.addEventListener('click', function (e) {
         if (e.target.classList.contains('remove-buku')) {
             const row = e.target.closest('.buku-row');
+            const container = row.parentElement;
             if (row) row.remove();
+
+            // Pastikan ikon tambah hanya ada di baris terakhir
+            updateAddAndRemoveIcons(container);
         }
     });
+
+    // Fungsi untuk memperbarui ikon tambah dan hapus
+    function updateAddAndRemoveIcons(container) {
+        const rows = container.querySelectorAll('.buku-row');
+        rows.forEach((row, index) => {
+            const addIcon = row.querySelector('.add-buku');
+            const removeIcon = row.querySelector('.remove-buku');
+
+            if (index === 0) {
+                // Baris pertama hanya memiliki ikon tambah
+                if (removeIcon) removeIcon.style.display = 'none';
+                if (addIcon) addIcon.style.display = 'block';
+            } else if (index === rows.length - 1) {
+                // Baris terakhir hanya memiliki ikon tambah
+                if (removeIcon) removeIcon.style.display = 'block';
+                if (addIcon) addIcon.style.display = 'block';
+            } else {
+                // Baris lainnya hanya memiliki ikon hapus
+                if (removeIcon) removeIcon.style.display = 'block';
+                if (addIcon) addIcon.style.display = 'none';
+            }
+        });
+    }
+
+    // Inisialisasi awal
+    const containers = document.querySelectorAll(`${bukuContainerSelector}`);
+    containers.forEach(container => {
+        updateAddAndRemoveIcons(container);
+    });
 });
+
 </script>

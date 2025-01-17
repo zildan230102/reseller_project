@@ -610,7 +610,7 @@ tr.deactive {
   flex-wrap: wrap;
 }
 
-.col-md-6 {
+/* .col-md-6 {
   flex: 0 0 50%;
   max-width: 50%;
 }
@@ -618,7 +618,7 @@ tr.deactive {
 .col-sm-12 {
   flex: 0 0 100%;
   max-width: 100%;
-}
+} */
 
 /* Typography */
 h2.h3.h5 {
@@ -683,10 +683,10 @@ h2.h3.h5 {
     font-size: 14px;
   }
 
-  .col-sm-12 {
+  /* .col-sm-12 {
     flex: 0 0 50%;
     max-width: 50%;
-  }
+  } */
 
   .chart {
     padding: 10px 10px;
@@ -1176,11 +1176,11 @@ h2.h3.h5 {
     padding: 2rem 2rem 0;
   }
 
-  .col-md-6 {
+  /* .col-md-6 {
     flex: 0 0 calc(34% - 10px);
     max-width: calc(34% - 10px);
     margin: 0 auto;
-  }
+  } */
 
   .dropdown.d-md-none {
     display: none !important;
@@ -1440,11 +1440,11 @@ h2.h3.h5 {
     flex: 1; 
   }
 
-  .col-md-6 { 
+  /* .col-md-6 { 
     flex: 0 0 auto;
     width: 50%;
     flex: 1;
-  }
+  } */
 
   .card-penjualan {
       background-color: #ffffff;

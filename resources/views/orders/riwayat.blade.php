@@ -28,7 +28,7 @@
 .card-body-toko {
     padding: 0px 10px;
 }
-.dropdown-menu {
+.table .dropdown-menu {
     min-width: auto;
     width: max-content;
     padding: 0.5rem;
@@ -117,18 +117,30 @@
         font-size: 18px;
         text-align: center;
     }
-    .table {
+
+    /* .table {
         display: block;
         overflow-x: auto;
         white-space: nowrap;
         font-size: 14px;
         overflow: visible;
+    } */
+
+    table {
+        overflow-x: auto;
+        font-size: 14px;
+        white-space: nowrap;
     }
-    .table th,
+    .table .dropdown-menu {
+        width: auto;
+        min-width: 120px;
+        max-width: 90px;
+    }
+    /* .table th,
     .table td {
         font-size: 10px; 
         padding: 5px; 
-    }
+    } */
     .judul-buku {
         display: block;
     }
@@ -177,12 +189,12 @@
         list-style-position: inside; 
         display: block;
     }
-    .aksi {
+    /* .aksi {
         font-size: 12px;
         left: auto;
         right: 0;
         transform: translateX(-50%) !important;
-    }
+    } */
     .custom-dropdown-item {
         font-size: 12px;
     }
@@ -239,12 +251,12 @@
         margin: 0; 
         list-style-position: inside; 
     }
-    .aksi {
+    /* .aksi {
         font-size: 14px;
         left: auto;
         right: 0;
         transform: translateX(-50%) !important;
-    }
+    } */
     .btn-modal-close {
         position: absolute;
         padding: 1rem;
@@ -293,12 +305,12 @@
         margin: 0; 
         list-style-position: inside; 
     }
-    .aksi {
+    /* .aksi {
         font-size: 14px;
         left: auto;
         right: 0;
         transform: translateX(-50%) !important;
-    }
+    } */
     .btn-modal-close {
         position: absolute;
         padding: 1rem;
@@ -336,15 +348,11 @@
                             <td class="text-center">{{ $loop->iteration }}</td>
                             <td>{{ $order->tanggal }}</td>
                             <td>{{ $order->no_invoice }}</td>
-        
-                            <!-- Menampilkan daftar buku yang ada di dalam order -->
                             <td>
                                 @foreach($order->bukus as $buku)
                                     {{ $buku->judul_buku }} ({{ $buku->pivot->jumlah }}){{ !$loop->last ? ',' : '' }}<br>
                                 @endforeach
                             </td>
-        
-                            <!-- Menampilkan Grand Total -->
                             <td>
                                 @php
                                 $grandTotal = 0;
@@ -355,21 +363,18 @@
                                 {{ number_format($grandTotal, 2) }}
                             </td>
                             <td class="text-center">
-                                <!-- Aksi Detail & Batalkan -->
-                                <div class="dropdown">
+                                <div class="dropdown" data-bs-display="static">
                                     <button type="button" class="btn btn-sm btn-no-border" id="dropdownMenuButton"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="bi bi-eye-fill text-black"></i>
                                     </button>
-                                    <ul class="dropdown-menu aksi">
-                                        <!-- Modal Detail Pesanan -->
+                                    <ul class="dropdown-menu dropdown-menu-end">
                                         <li>
                                             <a class="custom-dropdown-item" data-bs-toggle="modal"
                                                 data-bs-target="#detailModal{{ $order->id }}">
                                                 <i class="bi bi-eye text-primary me-2"></i> Detail
                                             </a>
                                         </li>
-                                        <!-- Modal Batalkan Pesanan -->
                                         @if($order->status != 'canceled')
                                         <li>
                                             <a class="custom-dropdown-item" data-bs-toggle="modal"
