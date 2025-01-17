@@ -10,6 +10,7 @@ use App\Http\Controllers\TokoController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\NotulensiController;
 use App\Models\Order;
 
 Route::post('/getkabupaten', [OrderController::class, 'getKabupaten'])->name('getkabupaten');
@@ -70,6 +71,10 @@ Route::middleware('auth')->group(function () {
     
     // Menambahkan rute untuk menyimpan buku
     Route::post('/bukus', [BukuController::class, 'store'])->name('bukus.store');
+
+    Route::get('/notulensi', [NotulensiController::class, 'create'])->name('notulensi.create');
+    Route::post('/notulensi', [NotulensiController::class, 'store'])->name('notulensi.store');
+    Route::resource('notulensi', NotulensiController::class);
 
 
     // Rute untuk logout
