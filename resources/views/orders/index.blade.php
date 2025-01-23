@@ -302,12 +302,12 @@
                     <div class="tab-pane fade show active" id="order-info" role="tabpanel"
                         aria-labelledby="order-info-tab">
                         <div class="row">
-                            <div class="col-sm-12 col-md-6 mb-3">
+                            <div class="i-col-sm-12 col-md-6 mb-3">
                                 <label for="tanggal" class="form-label">Tanggal</label>
                                 <input type="date" class="form-control" id="tanggal" name="tanggal" readonly
                                     value={{now()}}>
                             </div>
-                            <div class="col-sm-12 col-md-6 mb-3">
+                            <div class="i-col-sm-12 col-md-6 mb-3">
                                 <label for="no_hp" class="form-label">No HP Pengirim</label>
                                 <input type="text" class="form-control" id="no_hp" name="no_hp" required>
                                 @error('no_hp')
@@ -712,10 +712,12 @@
                                 <!-- Provinsi -->
                                 <div class="col-sm-12 col-md-6 mb-3">
                                     <label for="provinsi" class="form-label">Provinsi</label>
-                                    <select class="form-control" id="provinsi" name="provinsi" required>
+                                    <select class="form-control" id="provinsi{{ $order->id }}" name="provinsi" required>
                                         <option value="" disabled selected>Pilih Provinsi</option>
                                         @foreach ($provinces as $provinsi)
-                                        <option value="{{ $provinsi->id }}">{{ $provinsi->name }}</option>
+                                        <option value="{{ $provinsi->id }}" {{ $order->provinsi_id == $provinsi->id ? 'selected' : '' }}>
+                                            {{ $provinsi->name }}
+                                        </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -723,8 +725,8 @@
                                 <!-- Kabupaten -->
                                 <div class="col-sm-12 col-md-6 mb-3">
                                     <label for="kota" class="form-label">Kabupaten/Kota</label>
-                                    <select class="form-control" id="kota" name="kota" required>
-                                        <option value="">Pilih Kabupaten</option>
+                                    <select class="form-control" id="kota{{ $order->id }}" name="kota" required>
+                                        <option value="" disabled selected>Pilih Kabupaten</option>
                                     </select>
                                 </div>
                             </div>
@@ -733,16 +735,16 @@
                                 <!-- Kecamatan -->
                                 <div class="col-sm-12 col-md-6 mb-3">
                                     <label for="kecamatan" class="form-label">Kecamatan</label>
-                                    <select class="form-control" id="kecamatan" name="kecamatan" required>
-                                        <option value="">Pilih Kecamatan</option>
+                                    <select class="form-control" id="kecamatan{{ $order->id }}" name="kecamatan" required>
+                                        <option value="" disabled selected>Pilih Kecamatan</option>
                                     </select>
                                 </div>
 
                                 <!-- Kelurahan -->
                                 <div class="col-sm-12 col-md-6 mb-3">
                                     <label for="kelurahan" class="form-label">Kelurahan/Desa</label>
-                                    <select class="form-control" id="kelurahan" name="kelurahan" required>
-                                        <option value="">Pilih Kelurahan</option>
+                                    <select class="form-control" id="kelurahan{{ $order->id }}" name="kelurahan" required>
+                                        <option value="" disabled selected>Pilih Kelurahan</option>
                                     </select>
                                 </div>
                             </div>
@@ -827,6 +829,7 @@
 </div>
 
 <script>
+    
     document.addEventListener('DOMContentLoaded', function () {
         const newRow = document.querySelector('.new-toko-row');
         if (newRow) {

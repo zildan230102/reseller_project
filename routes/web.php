@@ -32,48 +32,48 @@ Route::middleware('auth')->group(function () {
 
     // Rute untuk profil pengguna
     Route::prefix('profile')->group(function () {
-        Route::get('/', [ProfileController::class, 'view'])->name('profile.view'); // Melihat profil
-        Route::get('/edit', [ProfileController::class, 'edit'])->name('profile.edit'); // Form edit profil
-        Route::post('/', [ProfileController::class, 'update'])->name('profile.update'); // Mengupdate profil
+        Route::get('/',     [ProfileController::class, 'view'])  ->name('profile.view');
+        Route::get('/edit', [ProfileController::class, 'edit'])  ->name('profile.edit'); 
+        Route::post('/',    [ProfileController::class, 'update'])->name('profile.update'); 
     });
 
     // Rute untuk pengelolaan Toko
     Route::prefix('toko')->group(function () {
-        Route::get('/', [TokoController::class, 'index'])->name('toko.index'); // Menampilkan daftar toko
-        Route::post('/', [TokoController::class, 'store'])->name('toko.store'); // Menyimpan toko baru
-        Route::get('/{toko}/edit', [TokoController::class, 'edit'])->name('toko.edit'); // Form edit toko
-        Route::put('/{toko}', [TokoController::class, 'update'])->name('toko.update'); // Mengupdate data toko
-        Route::delete('/toko/{toko}', [TokoController::class, 'destroy'])->name('toko.destroy');
+        Route::get('/',                      [TokoController::class, 'index'])       ->name('toko.index'); // Menampilkan daftar toko
+        Route::post('/',                     [TokoController::class, 'store'])       ->name('toko.store'); // Menyimpan toko baru
+        Route::get('/{toko}/edit',           [TokoController::class, 'edit'])        ->name('toko.edit'); // Form edit toko
+        Route::put('/{toko}',                [TokoController::class, 'update'])      ->name('toko.update'); // Mengupdate data toko
+        Route::delete('/toko/{toko}',        [TokoController::class, 'destroy'])     ->name('toko.destroy'); // Menghapus toko
         Route::post('/{toko}/toggle-status', [TokoController::class, 'toggleStatus'])->name('toko.toggle-status'); // Mengubah status aktif/tidak aktif
     });
  
     // Rute untuk pengelolaan Orders
-    Route::resource('orders', OrderController::class);
-    Route::delete('orders/{order}', [OrderController::class, 'destroy']);
+    Route::resource('orders',              OrderController::class);
+    Route::delete('orders/{order}',       [OrderController::class, 'destroy']);
     Route::post('/order/confirm/{order}', [OrderController::class, 'confirm'])->name('order.confirm');
     // Route::get('/order/riwayat', [OrderController::class, 'riwayat'])->name('order.riwayat');
     Route::patch('/order/{order}/cancel', [OrderController::class, 'cancel'])->name('order.cancel');
 
     // Rute untuk pengelolaan Riwayat Pesanan
-    Route::get('/riwayat-pesanan', [OrderController::class, 'riwayatPesanan'])->name('riwayat.pesanan');
-    Route::post('/orders/confirm/{id}', [OrderController::class, 'confirmOrder'])->name('order.confirm');
+    Route::get('/riwayat-pesanan',      [OrderController::class, 'riwayatPesanan']) ->name('riwayat.pesanan');
+    Route::post('/orders/confirm/{id}', [OrderController::class, 'confirmOrder'])   ->name('order.confirm');
 
     // Rute untuk metode Payment
-    Route::get('/riwayat-pembayaran', [PaymentController::class, 'history'])->name('payment.history');
-    Route::get('/tagihan', [PaymentController::class, 'bills'])->name('payment.bills');
-    Route::post('/payment/update', [PaymentController::class, 'update'])->name('payment.update');
-    Route::get('/orders/history', [OrderController::class, 'history'])->name('orders.history');
-    Route::get('/payment-history', [PaymentController::class, 'paymentHistory'])->name('payment.history');
-    Route::post('/payment-process', [PaymentController::class, 'processPayment'])->name('payment.process');
+    Route::get('/riwayat-pembayaran',   [PaymentController::class, 'history'])          ->name('payment.history');
+    Route::get('/tagihan',              [PaymentController::class, 'bills'])            ->name('payment.bills');
+    Route::post('/payment/update',      [PaymentController::class, 'update'])           ->name('payment.update');
+    Route::get('/orders/history',       [OrderController::class, 'history'])            ->name('orders.history');
+    Route::get('/payment-history',      [PaymentController::class, 'paymentHistory'])   ->name('payment.history');
+    Route::post('/payment-process',     [PaymentController::class, 'processPayment'])   ->name('payment.process');
 
     // Rute untuk pengelolaan Buku
     Route::resource('bukus', BukuController::class);
     
     // Menambahkan rute untuk menyimpan buku
-    Route::post('/bukus', [BukuController::class, 'store'])->name('bukus.store');
+    Route::post('/bukus',   [BukuController::class, 'store'])->name('bukus.store');
 
-    Route::get('/notulensi', [NotulensiController::class, 'create'])->name('notulensi.create');
-    Route::post('/notulensi', [NotulensiController::class, 'store'])->name('notulensi.store');
+    Route::get('/notulensi',    [NotulensiController::class, 'create']) ->name('notulensi.create');
+    Route::post('/notulensi',   [NotulensiController::class, 'store'])  ->name('notulensi.store');
     Route::resource('notulensi', NotulensiController::class);
 
 
@@ -86,6 +86,8 @@ Auth::routes(['login' => false, 'register' => false]);
 
 // Rute untuk guest
 Route::middleware('guest')->group(function () {
-    Route::get('/login', Login::class)->name('login'); // Halaman login
-    Route::get('/register', Register::class)->name('register'); // Halaman registrasi
+Route::get('/login', Login::class)->name('login'); // Halaman login
+Route::get('/register', Register::class)->name('register'); // Halaman registrasi
 });
+
+
