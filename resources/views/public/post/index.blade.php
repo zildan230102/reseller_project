@@ -268,13 +268,12 @@
                 </div>
 
                 <!-- Data Penjualan Buku -->
-                <div class="card card-buku w-100">
+                <div class="card w-100">
                     <div class="card-header">
                         <h5 class="data-penjualan">Data Penjualan Buku</h5>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-borderless mb-0 penjualan-buku-table">
+                            <table class="table table-borderless mb-0">
                                 <thead class="judul-th">
                                     <tr>
                                         <th class="judul-th">Name</th>
@@ -304,7 +303,6 @@
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -317,14 +315,14 @@
                 <!-- Kolom ini dikosongkan, tapi tetap ada untuk mempertahankan struktur grid -->
             </div>
 
-            <!-- Kolom Kanan untuk tabel Data Toko Reseller -->
+            <!-- Data Toko Reseller -->
             <div class="col-xl-5 col-xxl-4 d-flex">
                 <div class="card w-100">
                     <div class="card-header">
                         <h5 class="data-reseller">Data Toko Reseller</h5>
                     </div>
                     <div class="card-body">
-                        <table class="table my-0 table-borderless">
+                        <table class="table table-borderless my-0">
                             <thead class="judul-th">
                                 <tr>
                                     <th class="judul-th">Name</th>

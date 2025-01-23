@@ -7,14 +7,6 @@
   padding-top: 80px;
 }
 
-/* .container-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #f8f9fa; 
-} */
-
 .container-login {
   display: flex;
   justify-content: center;
@@ -45,14 +37,6 @@
   padding: 20px 20px 35px 20px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
-
-/* .card-title {
-  margin: 0;
-  color: #333;
-  font-size: 14px;
-  font-weight: bold;
-  color: #333;
-} */
 
 .card-body {
   padding: 0;
@@ -155,39 +139,6 @@
   color: #373737;
 }
 
-/* .dropdown-content a:hover {background-color: #f1f1f1;}
-
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: white;
-  min-width: 120px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 8px 10px;
-  text-decoration: none;
-  display: block;
-  font-size: 14px;
-}
-
-.dropdown-content a:hover {
-  background-color: #f2f2f2;
-}
-
-.bar-dropdown:hover .dropdown-content {
-  display: block;
-} */
-
-/* .bar-dropdown:hover .bar-dropdown-month {
-  background-color: #f9f9f9;
-} */
-
 .custom-button {
   background-color: #ff9800; 
   color: white;
@@ -205,46 +156,12 @@
   font-weight: bold !important;
 }
 
-/* .button-group {
-  display: flex;
-}
-  
-.button-group button {
-  margin-right: 10px; 
-} */
-
 .dropdown .btn-no-border {
   border: none;
   outline: none;
   box-shadow: none;
   padding: 0;
 }
-
-/* .btn-custom-info {
-  background-color: #1742b8;
-  color: white;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.btn-custom-info:hover {
-  background-color: #138496;
-} */
-
-/* .btn-custom-warning {
-  background-color: #ffc107;
-  color: white;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.btn-custom-warning:hover {
-  background-color: #e0a800;
-} */
 
 .btn-custom-danger {
   background-color: #dc3545;
@@ -254,10 +171,6 @@
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
-
-/* .btn-custom-danger:hover {
-  background-color: #c82333;
-} */
 
 .btn-group {
   background-color: transparent;
@@ -337,9 +250,6 @@
 .btn-group-desktop a:hover::after {
   transform: scaleX(1)
 }
-/* .btn-group-mobile {
-  display: none;
-} */
 
 .modal-backdrop {
   background-color: rgba(0, 0, 0, 0.5);
@@ -620,15 +530,15 @@ tr.deactive {
   flex-wrap: wrap;
 }
 
-/* .col-md-6 {
+.content-dashboard .col-md-6 {
   flex: 0 0 50%;
   max-width: 50%;
 }
 
-.col-sm-12 {
+.content-dashboard .col-sm-12 {
   flex: 0 0 100%;
   max-width: 100%;
-} */
+}
 
 h2.h3.h5 {
   font-size: 1em; 
@@ -691,10 +601,10 @@ h2.h3.h5 {
     font-size: 14px;
   }
 
-  /* .col-sm-12 {
+  .content-dashboard .col-sm-12 {
     flex: 0 0 50%;
     max-width: 50%;
-  } */
+  }
 
   .chart {
     padding: 10px 10px;
@@ -1026,6 +936,9 @@ h2.h3.h5 {
     width: 8px;
     height: 8px;
   }
+  .table thead {
+    display: table-header-group !important;
+}
 
   .table-responsive .judul-th {
     font-size: 14px ;
@@ -1046,7 +959,7 @@ h2.h3.h5 {
   }
 
   .card-body .table .judul-th {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
     text-align: left;
   }
@@ -1184,11 +1097,11 @@ h2.h3.h5 {
     padding: 2rem 2rem 0;
   }
 
-  /* .col-md-6 {
+  .content-dashboard .col-md-6 {
     flex: 0 0 calc(34% - 10px);
     max-width: calc(34% - 10px);
     margin: 0 auto;
-  } */
+  }
 
   .dropdown.d-md-none {
     display: none !important;
@@ -1448,11 +1361,11 @@ h2.h3.h5 {
     flex: 1; 
   }
 
-  /* .col-md-6 { 
+  .content-dashboard .col-md-6 { 
     flex: 0 0 auto;
     width: 50%;
     flex: 1;
-  } */
+  }
 
   .card-penjualan {
       background-color: #ffffff;
