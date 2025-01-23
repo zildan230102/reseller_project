@@ -7,18 +7,12 @@ use App\Models\Toko;
 
 class TokoController extends Controller
 {
-    /**
-     * Tampilkan daftar toko.
-     */
     public function index()
     {
         $tokos = Toko::all();
         return view('toko.index', compact('tokos'));
     }
 
-    /**
-     * Simpan data toko baru.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -28,22 +22,16 @@ class TokoController extends Controller
         ]);
 
         try {
-            // Buat toko baru dan simpan instance-nya ke dalam variabel
             $toko = Toko::create($request->all());
-            
-            // Redirect dengan session ID toko yang baru ditambahkan
             return redirect()->route('toko.index')->with([
                 'success' => 'Toko berhasil ditambahkan.',
-                'new_toko_id' => $toko->id, // Tambahkan ID toko ke dalam session
+                'new_toko_id' => $toko->id,
             ]);
         } catch (\Exception $e) {
             return redirect()->route('toko.index')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
     }
 
-    /**
-     * Update data toko.
-     */
     public function update(Request $request, Toko $toko)
     {
         $request->validate([
@@ -60,9 +48,6 @@ class TokoController extends Controller
         }
     }
 
-    /**
-     * Hapus toko.
-     */
     public function destroy(Toko $toko)
     {
         try {
@@ -73,9 +58,6 @@ class TokoController extends Controller
         }
     }
 
-    /**
-     * Ubah status aktif/nonaktif toko.
-     */
     public function toggleStatus(Toko $toko)
     {
         try {

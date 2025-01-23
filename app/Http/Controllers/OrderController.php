@@ -15,65 +15,57 @@ use App\Models\Village;
 
 class OrderController extends Controller
 {
-    // Menampilkan semua order
     public function index()
     {
-        $orders = Order::with('toko', 'ekspedisi', 'bukus')->get(); // Mengambil data order beserta toko dan buku terkait
-        $tokos = Toko::where('is_active', 1)->get(); // Ambil hanya toko yang aktif
+        $orders = Order::with('toko', 'ekspedisi', 'bukus')->get();
+        $tokos = Toko::where('is_active', 1)->get();
         $ekspedisis = Ekspedisi::all();
         $bukus = Buku::all();
         $provinces = Province::all();
         return view('orders.index', compact('orders', 'tokos', 'ekspedisis', 'bukus','provinces'));
     }
 
-    // Menampilkan form untuk membuat order baru
     public function create()
     {
         $tokos = Toko::where('is_active', 1)->get();
         $ekspedisis = Ekspedisi::all();
-        $bukus = Buku::all(); // Mengambil semua buku untuk pilihan
+        $bukus = Buku::all();
         $provinces = Province::all();
         return view('orders.create', compact('tokos', 'ekspedisis', 'bukus','provinces'));
     }
 
     public function getKabupaten(Request $request)
-{
-    $kota = Regency::where('province_id', $request->id_provinsi)->get();
-    $options = '<option value="" disabled selected>Pilih Kabupaten</option>';
-    foreach ($kota as $data) {
-        $options .= '<option value="' . $data->id . '">' . $data->name . '</option>';
+    {
+        $kota = Regency::where('province_id', $request->id_provinsi)->get();
+        $options = '<option value="" disabled selected>Pilih Kabupaten</option>';
+        foreach ($kota as $data) {
+            $options .= '<option value="' . $data->id . '">' . $data->name . '</option>';
+        }
+        return response()->json($options);
     }
-    return response()->json($options);
-}
 
-public function getKecamatan(Request $request)
-{
-    $kecamatan = District::where('regency_id', $request->id_kabupaten)->get();
-    $options = '<option value="" disabled selected>Pilih Kecamatan</option>';
-    foreach ($kecamatan as $data) {
-        $options .= '<option value="' . $data->id . '">' . $data->name . '</option>';
+    public function getKecamatan(Request $request)
+    {
+        $kecamatan = District::where('regency_id', $request->id_kabupaten)->get();
+        $options = '<option value="" disabled selected>Pilih Kecamatan</option>';
+        foreach ($kecamatan as $data) {
+            $options .= '<option value="' . $data->id . '">' . $data->name . '</option>';
+        }
+        return response()->json($options);
     }
-    return response()->json($options);
-}
 
-public function getKelurahan(Request $request)
-{
-    $kelurahan = Village::where('district_id', $request->id_kecamatan)->get();
-    $options = '<option value="" disabled selected>Pilih Kelurahan</option>';
-    foreach ($kelurahan as $data) {
-        $options .= '<option value="' . $data->id . '">' . $data->name . '</option>';
+    public function getKelurahan(Request $request)
+    {
+        $kelurahan = Village::where('district_id', $request->id_kecamatan)->get();
+        $options = '<option value="" disabled selected>Pilih Kelurahan</option>';
+        foreach ($kelurahan as $data) {
+            $options .= '<option value="' . $data->id . '">' . $data->name . '</option>';
+        }
+        return response()->json($options);
     }
-    return response()->json($options);
-}
 
-
-    // Menyimpan order baru ke database
     public function store(Request $request)
     {
-        // Debug untuk memeriksa input yang diterima
-        // dd($request->all());
-    
-        // Validasi data input
         $request->validate([
             'tanggal' => 'required|date',
             'no_hp' => 'required|string',
@@ -91,24 +83,21 @@ public function getKelurahan(Request $request)
             'catatan' => 'nullable|string',
             'total_berat' => 'required|numeric',
             'grand_total' => 'required|numeric',
-            'bukus' => 'required|array', // Validasi untuk daftar buku
-            'bukus.*.id' => 'required|exists:bukus,id', // Validasi untuk setiap buku
-            'bukus.*.jumlah' => 'required|numeric|min:1', // Jumlah minimal 1
+            'bukus' => 'required|array',
+            'bukus.*.id' => 'required|exists:bukus,id',
+            'bukus.*.jumlah' => 'required|numeric|min:1',
         ]);
     
-        // Ambil nama lokasi berdasarkan ID
         $provinceName = Province::find($request->provinsi)->name;
         $regencyName = Regency::find($request->kota)->name;
         $districtName = District::find($request->kecamatan)->name;
         $villageName = Village::find($request->kelurahan)->name;
     
-        // Periksa apakah toko yang dipilih aktif
         $toko = Toko::find($request->toko_id);
         if (!$toko || !$toko->is_active) {
             return redirect()->back()->withErrors(['toko_id' => 'Toko yang dipilih tidak aktif.']);
         }
     
-        // Buat data order
         $order = new Order();
         $order->tanggal = $request->tanggal;
         $order->no_hp = $request->no_hp;
@@ -119,16 +108,15 @@ public function getKelurahan(Request $request)
         $order->penerima = $request->penerima;
         $order->no_hp_penerima = $request->no_hp_penerima;
         $order->alamat_kirim = $request->alamat_kirim;
-        $order->provinsi = $provinceName; // Simpan nama provinsi
-        $order->kota = $regencyName;      // Simpan nama kota/kabupaten
-        $order->kecamatan = $districtName; // Simpan nama kecamatan
-        $order->kelurahan = $villageName; // Simpan nama kelurahan
+        $order->provinsi = $provinceName; 
+        $order->kota = $regencyName;      
+        $order->kecamatan = $districtName;
+        $order->kelurahan = $villageName; 
         $order->catatan = $request->catatan;
         $order->total_berat = $request->total_berat;
         $order->grand_total = $request->grand_total;
-        $order->save(); // Simpan order
+        $order->save();
     
-        // Simpan data buku ke tabel pivot
         foreach ($request->bukus as $buku) {
             $order->bukus()->attach($buku['id'], ['jumlah' => $buku['jumlah']]);
         }
@@ -136,33 +124,27 @@ public function getKelurahan(Request $request)
         return redirect()->route('orders.index')->with('success', 'Order berhasil ditambahkan!');
     }
     
-    // Menampilkan form untuk mengedit order yang sudah ada
     public function edit(Order $order)
     {
-        // Cek jika order sudah terkonfirmasi, maka tidak bisa diedit
         if ($order->status === 'confirmed') {
             return redirect()->route('orders.index')->with('error', 'Pesanan sudah terkonfirmasi dan tidak bisa diedit.');
         }
 
         $tokos = Toko::where('is_active', 1)->get();
         $ekspedisis = Ekspedisi::all();
-        $bukus = Buku::all(); // Ambil semua buku untuk pilihan
-
-        // Ambil buku yang sudah dipilih beserta jumlahnya
+        $bukus = Buku::all();
         $selectedBukus = $order->bukus->map(function ($buku) {
             return [
                 'id' => $buku->id,
-                'jumlah' => $buku->pivot->jumlah,  // mengambil jumlah dari pivot
+                'jumlah' => $buku->pivot->jumlah,
             ];
         });
 
         return view('orders.edit', compact('order', 'tokos', 'ekspedisis', 'bukus', 'selectedBukus'));
     }
 
-    // Memperbarui data order yang sudah ada
     public function update(Request $request, Order $order)
     {
-        // Cek jika order sudah terkonfirmasi, maka tidak bisa diperbarui
         if ($order->status === 'confirmed') {
             return redirect()->route('orders.index')->with('error', 'Pesanan sudah terkonfirmasi dan tidak bisa diperbarui.');
         }
@@ -189,17 +171,13 @@ public function getKelurahan(Request $request)
             'bukus.*.jumlah' => 'required|numeric|min:1',
         ]);
 
-        // Periksa apakah toko yang dipilih aktif
         $toko = Toko::find($request->toko_id);
         if (!$toko || !$toko->is_active) {
             return redirect()->back()->withErrors(['toko_id' => 'Toko yang dipilih tidak aktif.']);
         }
 
-        // Perbarui order
         $order->update($request->except('bukus'));
-
-        // Hapus relasi buku lama dan simpan yang baru
-        $order->bukus()->detach(); // Menghapus semua buku terkait sebelumnya
+        $order->bukus()->detach();
         foreach ($request->bukus as $buku) {
             $order->bukus()->attach($buku['id'], ['jumlah' => $buku['jumlah']]);
         }
@@ -207,84 +185,57 @@ public function getKelurahan(Request $request)
         return redirect()->route('orders.index')->with('success', 'Order berhasil diperbarui!');
     }
 
-    // Fungsi untuk mengonfirmasi pesanan
     public function confirm($id)
     {
         $order = Order::findOrFail($id);
-
-        // Periksa apakah pesanan sudah terkonfirmasi
         if ($order->status === 'confirmed') {
             return redirect()->route('orders.index')->with('error', 'Pesanan sudah terkonfirmasi.');
         }
 
-        // Tandai pesanan sebagai terkonfirmasi
         $order->status = 'confirmed';
         $order->save();
-
-        // Pindahkan order ke riwayat jika perlu
-        // RiwayatPesanan::create($order->toArray()); // Jika ada tabel riwayat_pesanan
-
         return redirect()->route('orders.index')->with('success', 'Pesanan berhasil dikonfirmasi.');
     }
 
-    // Menampilkan daftar riwayat order yang sudah terkonfirmasi
     public function riwayat()
     {
         $orders = Order::where('status', 'confirmed')->get(); // Ambil order dengan status 'confirmed'
         return view('orders.riwayat', compact('orders'));
     }
 
-    // Fungsi untuk membatalkan pesanan
     public function cancel($id)
     {
         $order = Order::findOrFail($id);
-
-        // Pastikan pesanan yang akan dibatalkan belum dibatalkan sebelumnya
         if ($order->status == 'canceled') {
             return redirect()->route('riwayat.pesanan')->with('error', 'Pesanan sudah dibatalkan.');
         }
 
-        // Ubah status pesanan menjadi 'canceled'
         $order->status = 'canceled';
         $order->save();
-
         return redirect()->route('riwayat.pesanan')->with('success', 'Pesanan berhasil dibatalkan.');
     }
 
-    // Menghapus order yang sudah ada
     public function destroy($orderId)
     {
         $order = Order::findOrFail($orderId);
         $order->delete();
-    
         return redirect()->route('orders.index')->with('success', 'Order berhasil dihapus');
     }
 
-    //
     public function riwayatPesanan()
     {
-        // Ambil hanya pesanan yang sudah dikonfirmasi
         $orders = Order::where('status', 'confirmed')->get();
-    
         return view('orders.riwayat', compact('orders'));
     }
     
-    
     public function confirmOrder($id)
-{
-    // Cari order berdasarkan ID
-    $order = Order::find($id);
-
-    if ($order) {
-        // Update status menjadi "confirmed"
-        $order->status = 'confirmed';
-        $order->save();
-
-        return redirect()->back()->with('success', 'Pesanan berhasil dikonfirmasi dan dipindahkan ke halaman riwayat pesanan.');
+    {
+        $order = Order::find($id);
+        if ($order) {
+            $order->status = 'confirmed';
+            $order->save();
+            return redirect()->back()->with('success', 'Pesanan berhasil dikonfirmasi dan dipindahkan ke halaman riwayat pesanan.');
+        }
+        return redirect()->back()->with('error', 'Pesanan tidak ditemukan.');
     }
-
-    return redirect()->back()->with('error', 'Pesanan tidak ditemukan.');
-}
-
-
 }
