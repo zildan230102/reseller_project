@@ -11,7 +11,8 @@
                 icon: 'success',
                 title: 'Berhasil!',
                 text: '{{ session("success") }}',
-                confirmButtonText: 'OK',
+                timer: 3000,
+                showConfirmButton: false,
                 customClass: {
                     popup: 'sweetalert',
                     confirmButton: 'buttonallert'

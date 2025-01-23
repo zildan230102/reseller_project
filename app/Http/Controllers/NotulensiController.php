@@ -11,10 +11,7 @@ class NotulensiController extends Controller
 {
     public function index()
     {
-        // Ambil semua notulensi beserta relasinya
         $notulensi = Notulensi::with('daftar_hadir', 'agenda')->get();
-
-        // Kirim data ke view
         return view('notulensi.index', compact('notulensi'));
     }
 
@@ -25,7 +22,6 @@ class NotulensiController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi data
         $request->validate([
             'tanggal' => 'required|date',
             'waktu' => 'required|date_format:H:i',
@@ -41,7 +37,6 @@ class NotulensiController extends Controller
             'agenda.*.keputusan_bersama' => 'required|string',
         ]);
 
-        // Simpan notulensi
         $notulensi = Notulensi::create([
             'tanggal' => $request->tanggal,
             'waktu' => $request->waktu,
@@ -50,7 +45,6 @@ class NotulensiController extends Controller
             'notulis' => $request->notulis,
         ]);
 
-        // Simpan daftar hadir menggunakan relasi
         foreach ($request->daftar_hadir as $hadir) {
             $notulensi->daftarHadir()->create([
                 'nama' => $hadir['nama'],
@@ -59,7 +53,6 @@ class NotulensiController extends Controller
             ]);
         }
 
-        // Simpan agenda menggunakan relasi
         foreach ($request->agenda as $agenda) {
             $notulensi->agenda()->create([
                 'judul_agenda' => $agenda['judul_agenda'],
