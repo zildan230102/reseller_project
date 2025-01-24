@@ -22,21 +22,22 @@
             width: 80%;
             max-width: 800px;
             margin: 20px auto;
-            background-color: white;
             padding: 20px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
         }
         .card {
             border: 1px solid #ddd;
             border-radius: 8px;
-            padding: 20px;
+            padding:10px;
             margin: 20px 0;
             background-color: #fff;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        h2 {
+        .card:first-of-type {
+            padding-top: 30px;
+        }
+        h1 {
             text-align: center;
+            margin-bottom: 30px;
         }
         h3 {
             color: #333;
@@ -154,7 +155,7 @@
             @csrf
 
             
-            <h2>Informasi Rapat</h3>
+            <h1>Informasi Rapat</h1>
             <div class="card">
                 <div class="form-section">
                     <div class="form-group">
@@ -188,10 +189,10 @@
                 </div>
             </div>
             
-            <h3>Daftar Hadir</h3>
-                    <p class="section-description">Isilah nama, jabatan, dan beri paraf pada daftar hadir. Klik "Tambah Hadir" untuk menambah peserta lainnya.</p>
-            <div class="card">
+             <div class="card">
                 <div class="form-section" id="daftar-hadir">
+                    <h3>Daftar Hadir</h3>
+                    <p class="section-description">Isilah nama, jabatan, dan beri paraf pada daftar hadir. Klik "Tambah Hadir" untuk menambah peserta lainnya.</p>
                     <div class="form-group" id="hadir-0">
                         <label>Nama:</label>
                         <input type="text" name="daftar_hadir[0][nama]" required>
@@ -210,10 +211,11 @@
                 </div>
             </div>
             
-            <h3>Agenda Rapat</h3>
-            <p class="section-description">Isilah setiap agenda beserta pembahasan, keputusan, dan keterangan yang relevan. Klik "Tambah Agenda" untuk menambah agenda lainnya.</p>
             <div class="card">
                 <div class="form-section" id="agenda">
+                    <h3>Agenda Rapat</h3>
+                    <p class="section-description">Isilah setiap agenda beserta pembahasan, keputusan, dan keterangan yang relevan. Klik "Tambah Agenda" untuk menambah agenda lainnya.</p>
+                    
                    <div class="form-group" id="agenda-0">
                         <label>Agenda:</label>
                         <input type="text" name="agenda[0][judul_agenda]" required>
@@ -239,10 +241,13 @@
                 </div>
             </div>
             
-            {{-- <div class="separator"></div> --}}
+            <div class="card">
                 <div class="button-group">
                     <button type="submit" class="add-button">Simpan</button>
                 </div>
+            </div>
+            
+
         </form>
     </div>
 

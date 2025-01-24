@@ -588,6 +588,587 @@ h2.h3.h5 {
   display: none !important;
 }
 
+/* CSS Order */
+  .container-order {
+    max-width: 1200px;
+    margin: 70px auto auto auto;
+    padding-top: 20px;
+  }
+  .container-card {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .card-header {
+    position: relative;
+    z-index: 1;
+  }
+  .card-body-order {
+    padding: 1.5rem;
+  }
+  .table .dropdown-menu {
+    min-width: auto;
+    width: max-content;
+    padding: 0.5rem;
+    z-index: 1050;
+  }
+  .custom-dropdown-item {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0.4rem 0.8rem;
+    color: #333;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease;
+  }
+  .custom-dropdown-item:hover {
+    background-color: #f0f0f0;
+    color: #000;
+    text-decoration: none;
+  }
+  .custom-dropdown-item i {
+    margin-right: 8px;
+    margin-left: 0;
+  }
+  .dropdown .btn-no-border {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  #orderTab .nav-item {
+    margin-right: 0px;
+  }
+  .nav-tabs .nav-link {
+    color: #000000;
+    border: 1px solid transparent;
+  }
+  .nav-tabs .nav-link.active {
+    color: #FFA500;
+  }
+  .nav-tabs .nav-link:hover {
+    color: #FFA500;
+  }
+  .text-title {
+    font-size: 1.5rem;
+  }
+  .books-row {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .books-row .form-select,
+  .books-row .form-control {
+    flex: 1;
+    min-width: 0;
+  }
+
+/* CSS Riwayat Pesanan*/
+  .container-riwayat {
+    width: 100%;
+    padding: 0 20px 0 20px;
+    padding-top: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 400px;
+  }
+  .header-title {
+    padding: 20px;
+  }
+  .btn-no-border {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  .btn-no-border:focus,
+  .btn-no-border:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+  .card-body-toko {
+    padding: 0px 10px;
+  }
+  .table .dropdown-menu {
+    min-width: auto;
+    width: max-content;
+    padding: 0.5rem;
+    z-index: 1050;
+  }
+  .custom-dropdown-item {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0.4rem 0.8rem;
+    color: #333;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease;
+  }
+  .custom-dropdown-item:hover {
+    background-color: #f0f0f0;
+    color: #000;
+    text-decoration: none;
+  }
+  .custom-dropdown-item i {
+    margin-right: 8px;
+    margin-left: 0;
+  }
+  .dropdown .btn-no-border {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  .modal-header-pesanan {
+    padding: 1.25rem 1rem 1rem 2rem;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+  }
+  .modal-body {
+    padding: 1rem 2rem 0.5rem 2rem;
+  }
+  .modal-pesanan dt {
+    flex: 0 0 40%;  
+    text-align: left;
+  }
+  .modal-pesanan dd {
+    flex: 0 0 60%; 
+    text-align: left; 
+  }
+  .modal-pesanan dl dd ul {
+    padding-left: 0; 
+    margin: 0; 
+    list-style-position: inside; 
+    display: block;
+  }
+  .btn-modal-close {
+    position: absolute;
+    top: 1.75rem;
+    right: 1.75rem;
+    z-index: 1; 
+  }
+  .container-riwayat.empty-content {
+    height: 400px;
+  }
+  .container-riwayat:not(.empty-content) {
+    height: auto; 
+  }
+
+/* CSS Buku*/
+  .container-buku {
+    width: 100%;
+    padding-top: 60px;
+  }
+
+  .text-title {
+    text-align: center;
+  }
+
+  .card-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .card-header-button {
+    padding: 15px;
+    display: flex;
+    background-color: transparent;
+    border-bottom: none;
+  }
+
+  .custom-button-daftar {
+    background-color: #ff9800;
+    color: white;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: auto;
+  }
+
+  .custom-button-daftar:hover {
+    background-color: #ff7b29;
+  }
+
+  .dropdown .btn-no-border {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .table .dropdown-menu {
+    min-width: auto;
+    width: max-content;
+    padding: 0.5rem;
+    z-index: 1050;
+  }
+
+  .custom-dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 4px;
+    color: #333;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease;
+  }
+
+  .custom-dropdown-item:hover {
+    background-color: #f0f0f0;
+    color: #000;
+    text-decoration: none;
+  }
+
+  .custom-dropdown-item i {
+    margin-right: 8px;
+    margin-left: 0;
+  }
+
+  .no-border-dropdown {
+    border: none;
+    box-shadow: none;
+  }
+
+  .no-border-item {
+    border: none;
+    background-color: transparent;
+  }
+
+  .no-border-item:hover {
+    background-color: #f8f9fa;
+    border: none;
+  }
+
+  .small-icon {
+    font-size: 12px;
+  }
+
+  .card-body-buku {
+    padding: 0px 15px;
+  }
+
+  select.form-select,
+  select.form-select option {
+    font-size: 16px;
+  }
+
+  .buttonallert {
+    background-color: #ff9800;
+    box-shadow: none;
+    outline: none;
+  }
+
+  .buttonallert:focus {
+    box-shadow: none;
+  }
+
+  .modal-dialog {
+    max-width: 480px;
+    margin: 0 auto;
+    margin-top: 1rem;
+  }
+
+  .modal-header-buku {
+    padding: 1rem 1rem 1rem 2rem;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .modal-body {
+    padding: 1rem 2rem 0.5rem 2rem;
+  }
+
+  .modal-body-create {
+    font-size: 16px;
+    padding: 1rem 2rem 0.5rem 2rem;
+    max-height: calc(70vh - 120px) !important;
+  }
+
+  .modal-body dt {
+    flex: 0 0 40%;
+    max-width: 40%;
+    text-align: left;
+  }
+
+  .modal-body dd {
+    flex: 0 0 60%;
+    max-width: 60%;
+  }
+
+  .btn-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1;
+  }
+
+/* CSS Bills*/
+  .container-checkout {
+    width: 100%;
+    padding: 0 20px 0 20px;
+    padding-top: 70px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .card-header-tagihan {
+    padding: 15px 0 0 15px;
+  }
+  .card-body-tagihan {
+    padding: 16px;
+  }
+  .title {
+    padding: 20px 0px 0px 30px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .text-title {
+    text-align: center;
+  }
+
+  #payButton:hover {
+    background-color: #c66300;
+  }
+
+  .btn-secondary {
+    background-color: #f57c00;
+    color: white;
+  }
+  .container-checkout.empty-content {
+    height: 400px;
+  }
+  .container-checkout:not(.empty-content) {
+    height: auto; 
+  }
+
+/* CSS  Riwayat Pembayaran*/
+  .container-riwayat {
+    width: 100%;
+    padding: 0 20px 0 20px;
+    padding-top: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: auto;
+  }
+  .header-title {
+    padding: 20px;
+  }
+  .btn-no-border {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  .btn-no-border:focus,
+  .btn-no-border:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+  .card-body-toko {
+    padding: 0px 10px;
+  }
+  dd {
+    display: block; 
+    word-wrap: break-word;
+  }
+  dd div {
+    margin-bottom: 5px; 
+  }
+  .alamat-kirim {
+    word-wrap: break-word;
+    overflow: break-word;
+    white-space: normal;
+    line-height: 1.5;
+  }
+  .modal-dialog {
+    max-width: 650px;
+    margin: 0 auto;
+  }
+  .modal-pembayaran-header {
+    padding: 1.5rem 1rem 1rem 2rem;
+  }
+  .modal-pembayaran {
+    padding: 1rem 2rem 0.5rem 2rem;
+  }
+  .modal-body dl dt {
+    flex: 0 0 35%; 
+    max-width: 40%; 
+    text-align: left;
+  }
+  .modal-body dl dd {
+    flex: 0 0 65%; 
+    max-width: 60%; 
+  }
+  .modal-body dl dd ul {
+    padding-left: 0; 
+    margin: 0; 
+    list-style-position: inside; 
+  }
+  .btn-aksi:hover {
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+  .container-riwayat.empty-content {
+    height: 400px;
+  }
+  .container-riwayat:not(.empty-content) {
+    height: auto; 
+  }
+  .btn-modal-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1; 
+  }
+
+/* CSS Toko */
+  .container-toko {
+    width: 100%;
+    padding-top: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: auto;
+  }
+
+  .text-title {
+    text-align: center;
+  }
+
+  .card-header-button {
+    padding: 15px;
+    display: flex;
+    background-color: transparent;
+    border-bottom: none;
+  }
+
+  .custom-button-daftar {
+    background-color: #ff9800;
+    color: white;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: auto;
+  }
+
+  .custom-button-daftar:hover {
+    background-color: #ff7b29;
+  }
+
+  .dropdown .btn-no-border {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .table .dropdown-menu {
+    min-width: auto;
+    width: max-content;
+    padding: 0.5rem;
+    z-index: 1050;
+  }
+
+  .custom-dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 4px;
+    color: #333;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease;
+  }
+
+  .custom-dropdown-item:hover {
+    background-color: #f0f0f0;
+    color: #000;
+    text-decoration: none;
+  }
+
+  .custom-dropdown-item i {
+    margin-right: 8px;
+    margin-left: 0;
+  }
+
+  .no-border-dropdown {
+    border: none;
+    box-shadow: none;
+  }
+
+  .no-border-item {
+    border: none;
+    background-color: transparent;
+  }
+
+  .no-border-item:hover {
+    background-color: #f8f9fa;
+    border: none;
+  }
+
+  .small-icon {
+    font-size: 12px;
+  }
+
+  .card-body-toko {
+    padding: 0 15px;
+  }
+
+  .buttonallert {
+    background-color: #ff9800;
+    box-shadow: none;
+    outline: none;
+  }
+
+  .buttonallert:focus {
+    box-shadow: none;
+  }
+
+  .modal-dialog {
+    max-width: 480px;
+    margin: 0 auto;
+    margin-top: 1rem;
+  }
+
+  .modal-header-toko {
+    padding: 1.25rem 1rem 1.25rem 2rem;
+    font-size: 14px;
+    border-bottom: 2px solid #ddd;
+  }
+
+  .modal-body-toko {
+    padding: 1rem 2rem 0.25rem 2rem;
+  }
+
+  .btn-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1;
+  }
+
+  .button-add {
+    border-top: 2px solid #ddd;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+  }
+  .new-toko-row {
+    background-color: #d1e7dd; 
+    animation: fadeOut 30s forwards; 
+  }
+
+@keyframes fadeOut {
+  0% {
+      background-color: #ffe1b4f6;
+  }
+  100% {
+      background-color: transparent;
+  }
+}
+
 @media (min-width: 320px) and (max-width: 599px) {
   .navbar-custom {
     padding: 0 20px 5px 20px !important;
@@ -1090,6 +1671,664 @@ h2.h3.h5 {
   #editProfileModal .form-control {
     font-size: 14px;
   }
+
+/* CSS ORDER */
+.container {
+    padding: 0.5rem;
+  }
+  .container-order {
+    padding: 20px 20px 0 20px;
+  }
+  .container-card {
+    padding: 0 20px 0 20px;
+  }
+  .card h3 {
+    font-size: 1.2rem;
+  }
+  .card-body-order,
+  .form-label {
+    font-size: 1rem;
+  }
+  .form-control {
+    font-size: 14px;
+  }
+  .form-control option {
+    font-size: 12px;
+  }
+  .nav-tabs .nav-item .nav-link {
+    font-size: 0.8rem;
+  }
+  .custom-button {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.8rem;
+  }
+  .btn-custom-danger {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+  .card-header {
+    padding: 15px 15px 0px 15px;
+  }
+  .order-title {
+    font-size: 1rem;
+  }
+  .text-title {
+    font-size: 18px;
+  }
+  .form-label {
+    font-size: 14px;
+  }
+  table {
+    overflow-x: auto;
+    font-size: 14px;
+  }
+  .custom-dropdown-item {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+  }
+  .table .dropdown-menu {
+    width: auto;
+    min-width: 120px;
+    max-width: 90px;
+  }
+  .modal-dialog {
+    max-width: 85%;
+    margin: 0 auto;
+  }
+  .modal-content {
+    padding: 10px;
+  }
+  .modal-header {
+    padding: 5px 10px 10px 10px;
+  }
+  .modal-body {
+    font-size: 12px;
+    padding: 15px 10px 15px 10px;
+  }
+  .modal-title {
+    font-size: 1.1rem !important;
+  }
+  .modal-footer {
+    padding: 5px 5px 0px 5px;
+  }
+  .form-select {
+    font-size: 14px;
+  }
+  .form-select option {
+    font-size: 11px;
+  }
+  .books-row .col-md-5 {
+    max-width: 75%;
+    margin-bottom: 5px;
+  }
+  .books-row .col-md-1 {
+    display: flex;
+    align-items: flex-end;
+  }
+  /* .text-end {
+    max-width: 20%;
+  } */
+  .buku-row .col-md-1 {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    margin-right: 5px;
+  }
+  .buku-row .col-md-5 {
+    max-width: 75%;
+  }
+  /* .text-start {
+    max-width: 20%;
+    justify-content: flex-start;
+  } */
+  .table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 14px;
+    overflow: visible;
+  }
+  .table th,
+  .table td {
+    font-size: 10px;
+    padding: 5px;
+  }
+
+/* CSS RIWAYAT PESANAN  */
+  .container-riwayat {
+    padding-top: 40px;
+    height: auto;
+  }
+  .container-riwayat.empty-content {
+    height: 250px;
+  }
+  .container-riwayat:not(.empty-content) {
+    height: auto; 
+  }
+  .text-title {
+    font-size: 18px;
+    text-align: center;
+  }
+  .header-title {
+    padding: 15px;
+  }
+  .text-title{
+    font-size: 18px;
+    text-align: center;
+  }
+
+  /* .table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 14px;
+    overflow: visible;
+  } */
+
+  table {
+    overflow-x: auto;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  .table .dropdown-menu {
+    width: auto;
+    min-width: 120px;
+    max-width: 90px;
+  }
+  /* .table th,
+  .table td {
+    font-size: 10px; 
+    padding: 5px; 
+  } */
+  .judul-buku {
+    display: block;
+  }
+  .modal-title {
+    font-size: 18px;
+    max-width: 240px;
+  }
+  .modal-content {
+    max-height: 90vh;
+  }
+  .modal-header {
+    font-size: 16px;
+    padding: 10px;
+  }
+  .modal-body {
+    font-size: 12px;
+    padding: 10px 20px;
+    overflow-y: auto; 
+  }
+  .alert-info {
+    padding: 16px;
+    font-size: 12px;
+  }
+  .modal-dialog {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .modal-header-pesanan {
+    padding: 1rem 1rem 1rem 1.5rem;
+  }
+  .modal-pesanan {
+    padding: 1rem 1rem 0 1.5rem;
+  }
+  .modal-pesanan dl dt {
+    flex: 0 0 40%; 
+    max-width: 40%; 
+    text-align: left;
+  }
+  .modal-pesanan dl dd {
+    flex: 0 0 60%; 
+    max-width: 60%; 
+  }
+  .modal-pesanan dl dd ul {
+    padding-left: 0; 
+    margin: 0; 
+    list-style-position: inside; 
+    display: block;
+  }
+  /* .aksi {
+    font-size: 12px;
+    left: auto;
+    right: 0;
+    transform: translateX(-50%) !important;
+  } */
+  .custom-dropdown-item {
+    font-size: 12px;
+  }
+  .btn-modal-close {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.5rem;
+    z-index: 1;
+  }
+  .btn-custom-danger {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+/* CSS BUKU */
+  .container-buku {
+    height: auto;
+  }
+
+  .card-container-buku {
+    padding: 0 20px;
+  }
+
+  .text-title {
+    font-size: 20px;
+    margin-bottom: 16px !important;
+  }
+
+  .custom-button-daftar {
+    width: auto;
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 12px;
+    overflow: visible;
+  }
+
+  .modal-dialog {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  .modal-content {
+    max-height: 90vh !important;
+  }
+
+  .modal-header {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .modal-footer {
+    padding: 5px;
+  }
+
+  select.form-select {
+    font-size: 12px;
+    max-height: 150px;
+    overflow-y: auto;
+  }
+
+  select.form-select option {
+    font-size: 10px;
+  }
+
+  .form-control,
+  .form-select {
+    font-size: 12px;
+  }
+
+  .custom-button {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  .btn-custom-danger {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .table .dropdown-menu {
+    font-size: 12px;
+    left: auto;
+    right: 0;
+    transform: translateX(-50%) !important;
+  }
+
+  .small-icon {
+    font-size: 10px;
+  }
+
+  .alert-success {
+    font-size: 12px;
+  }
+
+  .sweetalert {
+    max-width: 300px;
+    font-size: 12px;
+  }
+
+  .table .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: auto;
+    right: 0;
+    z-index: 1050;
+    min-width: 150px;
+    max-width: 200px;
+    overflow: visible;
+  }
+
+  .table-responsive-sm {
+    position: relative;
+  }
+
+  .modal-dialog {
+    max-width: 320px;
+    margin: 0 auto;
+    padding-top: 1rem;
+  }
+
+  .modal-header-buku {
+    padding: 1.25rem 1rem 1rem 1.75rem;
+    font-size: 14px;
+  }
+
+  .modal-body {
+    font-size: 14px;
+    padding: 1rem 1.5rem 0.25rem 1.75rem;
+  }
+
+  .modal-body dt {
+    flex: 0 0 40%;
+    max-width: 40%;
+    text-align: left;
+  }
+
+  .modal-body dd {
+    flex: 0 0 60%;
+    max-width: 60%;
+  }
+
+  .btn-modal-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    z-index: 1;
+  }
+
+/* CSS BILLS */
+  .container-checkout {
+    height: auto;
+  }
+  .container-checkout.empty-content {
+    height: 250px;
+  }
+  .container-checkout:not(.empty-content) {
+    height: auto; 
+  }
+  .text-title {
+    font-size: 18px;
+    text-align: center;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  .card-header-tagihan h4 {
+    font-size: 16px;
+  }
+  .card-body p {
+    font-size: 10px;
+  }
+  .form-check-label {
+    font-size: 14px;
+  }
+  .table th,
+  .table td {
+    font-size: 12px;
+  }
+  .btn {
+    font-size: 12px;
+  }
+  h5 {
+    font-size: 14px; 
+  }
+  .row div {
+    font-size: 12px; 
+  }
+  strong {
+    font-size: 13px;
+  }
+  select.form-control {
+    font-size: 12px;
+    padding: 4px;
+    height: auto;
+  }
+  option {
+    font-size: 10px;
+  }
+  .title {
+    padding: 15px 0px 5px 15px;
+    font-size: 16px;
+  }
+  .grand-total {
+    text-align: right !important;
+    display: block; 
+    width: 100%;
+    margin: 0; 
+    padding-right: 5px; 
+    font-size: 14px;
+  }
+  .grand-total strong {
+  margin-right: 0 !important;
+  }
+  .alert-info {
+    padding: 16px;
+    font-size: 12px;
+  }
+  .custom-dropdown {
+    font-size: 12px;
+  }
+  .form-select option {
+    font-size: 12px;
+  }
+  .form-select {
+    font-size: 12px;
+  }
+
+/* CSS RIWAYAT PEMBAYARAN */
+  .container-riwayat {
+    padding: 60px 20px 0 20px !important;
+    padding-top: 40px;
+    height: auto;
+    margin: 0 auto;
+  }
+  .container-riwayat.empty-content {
+    height: 250px;
+  }
+  .container-riwayat:not(.empty-content) {
+    height: auto; 
+  }
+  .header-title {
+    padding: 15px;
+  }
+  .text-title{
+    font-size: 18px;
+    text-align: center;
+  }
+  .table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 14px;
+    overflow: visible;
+  }
+  .table th,
+  .table td {
+    font-size: 10px;
+    padding: 5px;    
+  }
+  .modal-dialog {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .modal-pembayaran-header {
+    padding: 1rem 1rem 1rem 1.5rem;
+  }
+  .modal-pembayaran {
+    padding: 1rem 1rem 0 1.5rem;
+  }
+  .modal-body dl dt {
+    flex: 0 0 40%; 
+    max-width: 40%; 
+    text-align: left;
+  }
+  .modal-body dl dd {
+    flex: 0 0 60%; 
+    max-width: 60%; 
+  }
+  .modal-body dl dd ul {
+    padding-left: 0; 
+    margin: 0; 
+    list-style-position: inside; 
+    display: block;
+  }
+  .alert-info {
+    padding: 16px;
+    font-size: 12px;
+  }
+  dd {
+    display: block; 
+    word-wrap: break-word; 
+  }
+  dd div {
+    margin-bottom: 5px; 
+  }
+  .alamat-kirim {
+    word-wrap: break-word;
+    overflow: break-word;
+    white-space: normal;
+    line-height: 1.5;
+  }
+  .modal-body dl dd ul {
+    display: block;
+  }
+  .modal-content ul li {
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+  .buku-pesan {
+    word-wrap: break-word;
+    overflow: break-word;
+    white-space: normal;
+    line-height: 1.5;
+  }
+  .btn-modal-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    z-index: 1;
+  }
+
+/* CSS TOKO */
+  .container-toko {
+    padding: 60px 20px 0 20px;
+    height: auto;
+  }
+
+  .text-title {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 16px !important;
+  }
+
+  .custom-button-daftar {
+    width: auto;
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 12px;
+    overflow: visible;
+  }
+
+  .modal-dialog {
+    max-width: 320px;
+    margin: 0 auto;
+    padding-top: 1rem;
+  }
+
+  .modal-header-toko {
+    padding: 1.25rem 1.5rem 1rem 1.5rem;
+    font-size: 14px;
+  }
+
+  .modal-body-toko {
+    font-size: 14px;
+    padding: 0.75rem 1.5rem 0.25rem 1.5rem;
+  }
+
+  .modal-title {
+    font-size: 16px;
+  }
+
+  .modal-footer {
+    font-size: 12px;
+    padding: 0.75rem 1rem 0.75rem 1rem;
+  }
+
+  .btn-modal-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    z-index: 1;
+  }
+
+  .button-add {
+    padding: 1rem 1.25rem 1rem 0;
+  }
+
+  .form-group label {
+    font-size: 12px;
+  }
+
+  .form-control,
+  .form-select {
+    font-size: 12px;
+  }
+
+  .form-control option {
+    font-size: 11px;
+  }
+
+  .custom-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .btn-custom-danger {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  .table .dropdown-menu {
+    font-size: 12px;
+    left: auto;
+    right: 0;
+    transform: translateX(-40%) !important;
+  }
+
+  .small-icon {
+    font-size: 10px;
+  }
+
+  .custom-dropdown option {
+    font-size: 11px;
+  }
+
+  .alert-success {
+    font-size: 14px;
+  }
+
+  .sweetalert {
+    max-width: 300px;
+    font-size: 12px;
+  }
 }
 
 @media (min-width: 600px) and (max-width: 1024px) {
@@ -1341,8 +2580,365 @@ h2.h3.h5 {
     transform: scale(0.9);
     width: 100%;
   }
-}
 
+/* CSS ORDER */
+  .container-order {
+    padding: 20px 20px 0 20px;
+  }
+
+  .container-card {
+    padding: 0 20px 0 20px;
+  }
+
+  .order-title {
+    font-size: 1.25rem;
+  }
+  .table-responsive {
+    overflow: visible;
+  }
+  .table th,
+  .table td {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .nav-tabs .nav-item .nav-link {
+    padding: 10px;
+  }
+
+  .custom-dropdown-item {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .form-select option {
+    font-size: 10px;
+  }
+
+  .buku-row .col-md-1 {
+    gap: 20px;
+  }
+
+/* CSS RIWAYAT PESANAN  */
+  .container-riwayat {
+    padding: 80px 30px 0 30px;
+    height: auto;
+    max-width: 1200px;
+  }
+  .container-riwayat.empty-content {
+    height: 650px;
+  }
+  .container-riwayat:not(.empty-content) {
+    height: auto; 
+  }
+  .header-title {
+    padding: 20px;
+  }
+  .text-title {
+    font-size: 25px;
+    text-align: center;
+  }
+  .modal-dialog {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .modal-header-pesanan {
+    padding: 1.5rem 1rem 1rem 2rem;
+  }
+  .modal-pesanan {
+    padding: 1rem 2rem 0.5rem 2rem;
+  }
+  .modal-pesanan dt {
+    flex: 0 0 40%; 
+    text-align: left;
+  }
+  .modal-pesanan dd {
+    flex: 0 0 60%; 
+    text-align: left;
+  }
+  .modal-pesanan dl dd ul {
+    padding-left: 0; 
+    margin: 0; 
+    list-style-position: inside; 
+  }
+  /* .aksi {
+    font-size: 14px;
+    left: auto;
+    right: 0;
+    transform: translateX(-50%) !important;
+  } */
+  .btn-modal-close {
+    position: absolute;
+    padding: 1rem;
+    z-index: 1; 
+  }
+
+/* CSS BUKU */
+  .container-buku {
+    height: auto;
+    /* padding-top: 70px; */
+  }
+
+  .card-container-buku {
+    padding: 0 20px 0 20px;
+  }
+
+  .text-title {
+    font-size: 25px;
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .modal-title {
+    font-size: 18px;
+    max-width: 200px;
+  }
+
+  .modal-footer {
+    font-size: 12px;
+    padding: 0.75rem 1rem 0.75rem 1rem;
+  }
+
+  .modal-body-create {
+    font-size: 14px;
+    padding: 0.75rem 2rem 0.5rem 2rem;
+    max-height: calc(65vh - 320px) !important;
+    min-height: calc(50vh);
+  }
+
+  .btn-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1;
+  }
+
+  select.form-select {
+    max-height: 150px;
+    overflow-y: auto;
+  }
+
+  .text-start-buku {
+    font-size: 14px;
+    left: auto;
+    right: 0;
+    transform: translateX(-50%) !important;
+  }
+
+  .form-select option {
+    font-size: 10px !important;
+  }
+
+  select.form-select option {
+    font-size: 10px;
+  }
+
+  .table-responsive {
+    overflow: visible;
+    display: table;
+  }
+
+  .modal-dialog {
+    max-width: 480px;
+    margin: 0 auto;
+    margin-top: 1rem;
+  }
+
+  .modal-header-buku {
+    padding: 1.5rem 1rem 1rem 2rem;
+    font-size: 14px;
+  }
+
+  .modal-body dt {
+    flex: 0 0 40%;
+    max-width: 40%;
+    text-align: left;
+  }
+
+  .modal-body dd {
+    flex: 0 0 60%;
+    max-width: 60%;
+  }
+
+/* CSS BILLS */
+  .container-checkout {
+    padding: 60px 40px 0 40px;
+    height: auto;
+    max-width: 1200px;
+  }
+  .container-checkout.empty-content {
+    height: 650px;
+  }
+  .container-checkout:not(.empty-content) {
+    height: auto; 
+  }
+  .card-header-tagihan h4{
+    font-size: 16px;
+    padding-bottom: 0;
+  }
+  .card-body-tagihan {
+    padding-top: 10px;
+    font-size: 14px;
+  }
+  .title {
+    font-size: 18px;
+  }
+  .btn {
+    white-space: nowrap; 
+    display: inline-block;
+    padding: 10px 20px; 
+    font-size: 14px; 
+  }
+  select.form-control {
+    font-size: 14px;
+    padding: 4px;
+    height: auto;
+  }
+  option {
+    font-size: 12px;
+    padding: 4px;
+  }
+  .cform-select {
+    font-size: 14px;
+  }
+  .form-select option {
+    font-size: 12px;
+  }
+  .custom-dropdown {
+    font-size: 14px;
+  }
+  .form-select.custom-dropdown option {
+    font-size: 12px; 
+  }
+
+/* CSS RIWAYAT PEMBAYARAN */
+  .container-riwayat {
+    padding: 60px 20px 0 20px;
+    height: auto;
+    max-width: 1200px;
+  }
+  .container-riwayat.empty-content {
+    height: 650px;
+  }
+  .container-riwayat:not(.empty-content) {
+    height: auto; 
+  }
+  .text-title {
+    font-size: 25px;
+    text-align: center;
+  }
+  .header-title {
+    padding: 20px;
+  }
+  .modal-dialog {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .modal-pembayaran-header {
+    padding: 1.5rem 1rem 1rem 2rem;
+  }
+  .modal-pembayaran {
+    padding: 1rem 2rem 0.5rem 2rem;
+    font-size: 14px;
+    max-height: calc(50vh - 320px) !important;
+    min-height: calc(45vh);
+    overflow-y: auto;
+  }
+  .modal-body dl dt {
+    flex: 0 0 40%; 
+    max-width: 40%; 
+    text-align: left;
+  }
+  .modal-body dl dd {
+    flex: 0 0 60%; 
+    max-width: 60%; 
+  }
+  .modal-body dl dd ul {
+    padding-left: 0; 
+    margin: 0; 
+    list-style-position: inside; 
+  }
+  .btn-modal-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1; 
+  }
+
+/* CSS TOKO */
+  .container-toko {
+    padding: 10px;
+    padding-top: 80px;
+    height: auto;
+  }
+  .card-container {
+    padding: 0 20px 0 20px;
+  }
+  .text-title {
+    text-align: center;
+    font-size: 25px;
+  }
+  .custom-button-daftar {
+    width: auto;
+    font-size: 14px;
+  }
+  table {
+    overflow-x: auto;
+    font-size: 16px;
+  }
+  .modal-dialog {
+    max-width: 480px;
+    margin: 0 auto;
+    margin-top: 1rem;
+  }
+  .modal-header-toko {
+    padding: 1.25rem 2rem 1rem 2rem;
+  }
+  .modal-title {
+    font-size: 18px;
+  }
+  .modal-footer {
+    font-size: 12px;
+    padding: 0.75rem 1rem 0.75rem 1rem;
+  }
+  .modal-body-toko {
+    font-size: 14px;
+    padding: 0.75rem 2rem 0.5rem 2rem;
+  }
+  .btn-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1;
+  }
+  .button-add {
+    padding: 1.2rem 1.5rem 1.2rem 0;
+  }
+  .form-group label {
+    font-size: 16px;
+  }
+  .form-group input,
+  .form-group select {
+    font-size: 14px;
+    padding: 8px;
+  }
+  .custom-button {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+  .d-flex.justify-content-end {
+    justify-content: center;
+  }
+  .form-select option {
+    font-size: 11px;
+  }
+  .aksi {
+    font-size: 14px;
+    left: auto;
+    right: 0;
+    transform: translateX(-50%) !important;
+  }
+}
 @media (min-width: 1025px) and (max-width: 1194px) {
   .content-dashboard {
     padding: 3rem 3rem 0;
@@ -1552,4 +3148,301 @@ h2.h3.h5 {
     transform: scale(0.9);
     width: 100%;
   }
+ 
+/* CSS RIWAYAT PESANAN  */
+  .container-riwayat {
+    padding: 60px 40px 0 40px;
+    height: auto;
+    max-width: 1200px;
+  }
+  .container-riwayat.empty-content {
+    height: 400px;
+  }
+  .container-riwayat:not(.empty-content) {
+    height: auto; 
+  }
+  .header-title {
+    padding: 20px;
+  }
+  .text-title {
+    text-align: center;
+  }
+  .modal-dialog {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .modal-header-pesanan {
+    padding: 1.5rem 1rem 1rem 2rem;
+  }
+  .modal-pesanan {
+    padding: 1rem 2rem 0.5rem 2rem;
+  }
+  .modal-body dl dt {
+    flex: 0 0 35%; 
+    max-width: 40%; 
+    text-align: left;
+  }
+  .modal-body dl dd {
+    flex: 0 0 65%; 
+    max-width: 60%; 
+  }
+  .modal-body dl dd ul {
+    padding-left: 0; 
+    margin: 0; 
+    list-style-position: inside; 
+  }
+  /* .aksi {
+    font-size: 14px;
+    left: auto;
+    right: 0;
+    transform: translateX(-50%) !important;
+  } */
+  .btn-modal-close {
+    position: absolute;
+    padding: 1rem;
+    z-index: 1; 
+  }
+
+/* CSS BUKU */
+  .container-buku {
+    height: auto;
+    /* padding-top: 70px; */
+  }
+
+  .card-container-buku {
+    padding: 0 40px 10px 40px;
+  }
+
+  .text-title {
+    font-size: 25px;
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .modal-body-create {
+    font-size: 16px;
+    padding: 1rem 2rem 0.5rem 2rem;
+    max-height: calc(70vh - 120px) !important;
+  }
+
+  .modal-footer {
+    padding: 10px 20px 10px 10px;
+  }
+
+  select.form-select {
+    max-height: 150px;
+    overflow-y: auto;
+  }
+
+  .text-start {
+    font-size: 14px;
+    left: auto;
+    right: 0;
+    transform: translateX(-50%) !important;
+  }
+
+  .form-select option {
+    font-size: 10px !important;
+  }
+
+  select.form-select option {
+    font-size: 10px;
+  }
+
+  .modal-dialog {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 1rem;
+    max-height: 25vh !important;
+    height: auto !important;
+  }
+
+  .modal-header-buku {
+    padding: 1.5rem 1rem 1rem 2rem;
+    font-size: 14px;
+  }
+
+  .modal-body dt {
+    flex: 0 0 40%;
+    max-width: 40%;
+    text-align: left;
+  }
+
+  .modal-body dd {
+    flex: 0 0 60%;
+    max-width: 60%;
+  }
+
+  .table-responsive {
+    overflow: visible;
+    display: table;
+  }
+
+/* CSS BILLS */
+  .container-checkout {
+    padding: 70px 40px 0 40px;
+    height: auto;
+    max-width: 1200px;
+  }
+  .container-checkout.empty-content {
+    height: 400px;
+  }
+  .container-checkout:not(.empty-content) {
+    height: auto; 
+  }
+  .card-header-tagihan h4{
+    font-size: 16px;
+    padding-bottom: 0;
+  }
+  .card-body-tagihan {
+    padding-top: 10px;
+    font-size: 14px;
+  }
+  .title {
+    font-size: 18px;
+    padding-left: 20px;
+  }
+  .btn {
+    white-space: nowrap; 
+    display: inline-block;
+    padding: 10px 20px; 
+    font-size: 14px; 
+  }
+  select.form-control {
+    font-size: 14px;
+    padding: 4px;
+    height: auto;
+  }
+  option {
+    font-size: 12px;
+    padding: 4px;
+  }
+  .cform-select {
+    font-size: 14px;
+  }
+  .form-select option {
+    font-size: 12px;
+  }
+
+/* CSS RIWAYAT PEMBAYARAN */
+  .container-riwayat {
+    padding: 60px 40px 0 40px;
+    height: auto;
+    max-width: 1200px;
+  }
+  .container-riwayat.empty-content {
+    height: 400px;
+  }
+  .container-riwayat:not(.empty-content) {
+    height: auto; 
+  }
+  .text-title {
+    text-align: center;
+  }
+  .header-title {
+    padding: 20px;
+  }
+  .modal-dialog {
+    max-width: 650px;
+    margin: 0 auto;
+  }
+  .modal-pembayaran-header {
+    padding: 1.5rem 1rem 1.2rem 2rem;
+  }
+  .modal-pembayaran {
+    padding: 1rem 2rem 0.5rem 2rem;
+  }
+  .modal-body dl dt {
+    flex: 0 0 35%; 
+    max-width: 40%; 
+    text-align: left;
+  }
+  .modal-body dl dd {
+    flex: 0 0 65%; 
+    max-width: 60%; 
+  }
+  .modal-body dl dd ul {
+    padding-left: 0; 
+    margin: 0; 
+    list-style-position: inside; 
+  }
+  .btn-modal-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1; 
+  }
+
+  /* CSS TOKO */
+  .container-toko {
+    padding: 10px;
+    padding-top: 60px;
+    height: auto;
+  }
+  .card-container {
+    padding: 0 40px 0 40px;
+  }
+  .text-title {
+    text-align: center;
+    font-size: 25px;
+  }
+  .custom-button-daftar {
+    width: auto;
+    font-size: 14px;
+  }
+  table {
+    overflow-x: auto;
+    font-size: 16px;
+  }
+  .modal-dialog {
+    max-width: 480px;
+    margin: 0 auto;
+    margin-top: 1rem;
+  }
+  .modal-header-toko {
+    padding: 1.25rem 2rem 1rem 2rem;
+  }
+  .modal-title {
+    font-size: 18px !important;
+  }
+  .modal-footer {
+    font-size: 12px;
+    padding: 0.75rem 1rem 0.75rem 1rem;
+  }
+  .modal-body-toko {
+    font-size: 14px;
+    padding: 0.75rem 2rem 0.5rem 2rem;
+  }
+  .btn-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1;
+  }
+  .form-group label {
+    font-size: 16px;
+  }
+  .form-group input,
+  .form-group select {
+    font-size: 14px;
+    padding: 8px;
+  }
+  .custom-button {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+  .d-flex.justify-content-end {
+    justify-content: center;
+  }
+  .form-select option {
+    font-size: 11px;
+  }
+  .aksi {
+    font-size: 14px;
+    left: auto;
+    right: 0;
+    transform: translateX(-50%) !important;
+  }
 }
+
+
